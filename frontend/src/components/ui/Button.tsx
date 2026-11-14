@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { Link } from "react-router-dom";
 
 type Variant = "primary" | "secondary" | "ghost";
-type Size = "md" | "lg";
+type Size = "sm" | "md" | "lg";
 
 interface ButtonStyle {
   variant?: Variant;
@@ -11,12 +11,13 @@ interface ButtonStyle {
 }
 
 const VARIANT: Record<Variant, string> = {
-  primary: "bg-violet text-ink hover:brightness-115",
-  secondary: "bg-ink/10 text-ink hover:bg-ink/20",
+  primary: "rounded-full bg-violet text-ink shadow-[inset_0_1px_0_rgb(255_255_255/0.18)] hover:brightness-115",
+  secondary: "rounded-full bg-ink/5 text-ink ring-1 ring-ink/15 ring-inset hover:bg-ink/10",
   ghost: "text-accent-soft hover:text-ink",
 };
 
 const SIZE: Record<Size, string> = {
+  sm: "h-9 px-4 text-sm",
   md: "h-11 px-5 text-sm",
   lg: "h-14 px-7 text-base",
 };

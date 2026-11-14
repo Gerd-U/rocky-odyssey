@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useMemo } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import { ModeProvider } from "./context/ModeContext";
@@ -34,6 +34,28 @@ function Starfield() {
   );
 }
 
+function Pages() {
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <main className="flex-1">
+      <div hidden={!onHome}>
+        <Home />
+      </div>
+      <Routes>
+        <Route path="/" element={null} />
+        <Route path="/ubicaciones" element={<Locations />} />
+        <Route path="/ubicacion/:id" element={<LocationDetail />} />
+      </Routes>
+    </main>
+  );
+}
+
 export default function App() {
   return (
     <ModeProvider>
@@ -41,13 +63,7 @@ export default function App() {
         <Starfield />
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/ubicaciones" element={<Locations />} />
-              <Route path="/ubicacion/:id" element={<LocationDetail />} />
-            </Routes>
-          </main>
+          <Pages />
           <Footer />
         </div>
       </BrowserRouter>

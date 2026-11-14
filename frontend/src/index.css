@@ -49,6 +49,24 @@
   }
 }
 
+/* Registrar el acento como color permite que el cambio Luna/Marte se interpole en vez de saltar */
+@property --color-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6f286c;
+}
+@property --color-accent-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e3a6dd;
+}
+
+:root {
+  transition:
+    --color-accent 400ms var(--ease-out-strong),
+    --color-accent-soft 400ms var(--ease-out-strong);
+}
+
 /* ModeContext escribe data-mode en <html> */
 :root[data-mode="mars"] {
   --color-accent: var(--color-plum);

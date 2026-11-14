@@ -1,9 +1,11 @@
-import { lazy, Suspense, useMemo } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useMode } from "../../context/ModeContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { usePairs } from "../../hooks/usePairs";
 import { useBases } from "../../hooks/useSites";
 import { BODY_LABEL, formatPercent } from "../../lib/format";
+import { MODE_DIRECTION, SWAP_EASE, SWAP_EXIT_S } from "../../lib/motion";
 import { similarityLevel } from "../../lib/similarity";
 import type { Target } from "../../types/site";
 import type { GlobePoint } from "../globe/GlobeView";
@@ -12,6 +14,7 @@ import Legend from "../globe/Legend";
 import SiteList from "../sites/SiteList";
 import ErrorState from "../ui/ErrorState";
 import Skeleton from "../ui/Skeleton";
+import Swap from "../ui/Swap";
 import TwinRow from "./TwinRow";
 
 const GlobeView = lazy(() => import("../globe/GlobeView"));
@@ -29,13 +32,17 @@ const STAGE_HINT: Record<Target, string> = {
   moon: "Toca un punto del globo o un nombre de la lista para ver su gemelo en la Luna.",
 };
 
+const ALL_TARGET_TEXTURES = Object.values(TARGET_TEXTURE);
+
 const STAGE_GRID = "grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_15rem_1fr]";
 
 function GlobeCaption({ body, place, accent = false }: { body: string; place: string; accent?: boolean }) {
   return (
     <figcaption className="mt-3 text-center">
-      <span className={`block text-sm ${accent ? "text-accent-soft" : "text-ink-soft"}`}>{body}</span>
-      <span className="block font-semibold text-ink">{place}</span>
+      <Swap swapKey={`${body}-${place}`}>
+        <span className={`block text-sm ${accent ? "text-accent-soft" : "text-ink-soft"}`}>{body}</span>
+        <span className="block font-semibold text-ink">{place}</span>
+      </Swap>
     </figcaption>
   );
 }
@@ -47,6 +54,17 @@ export default function GlobeSection() {
   const twoGlobes = useMediaQuery("(min-width: 768px)");
   const large = useMediaQuery("(min-width: 1024px)");
   const globeHeight = large ? 440 : twoGlobes ? 360 : 320;
+
+  const reduce = useReducedMotion() ?? false;
+  const direction = MODE_DIRECTION[mode];
+  const [shownMode, setShownMode] = useState(mode);
+  const switching = shownMode !== mode;
+
+  useEffect(() => {
+    if (!switching) return;
+    const timer = window.setTimeout(() => setShownMode(mode), reduce ? 0 : SWAP_EXIT_S * 1000 + 40);
+    return () => window.clearTimeout(timer);
+  }, [mode, switching, reduce]);
 
   const selected = pairs?.find((p) => p.site.id === selectedSiteId) ?? pairs?.[0] ?? null;
 
@@ -69,16 +87,16 @@ export default function GlobeSection() {
   const targetPoints = useMemo<GlobePoint[]>(
     () =>
       (bases ?? [])
-        .filter((base) => base.body === mode)
+        .filter((base) => base.body === shownMode)
         .map((base) => ({
           id: base.id,
           lat: base.lat,
           lng: base.lng,
           label: base.name,
-          color: SITE_COLOR[mode],
+          color: SITE_COLOR[shownMode],
           size: 1.2,
         })),
-    [bases, mode],
+    [bases, shownMode],
   );
 
   return (
@@ -87,7 +105,9 @@ export default function GlobeSection() {
         <h2 id="stage-title" className="text-3xl font-extrabold font-stretch-[75%] text-ink md:text-4xl">
           Elige un lugar y mira su gemelo
         </h2>
-        <p className="mt-2 max-w-2xl text-ink-soft">{STAGE_HINT[mode]}</p>
+        <Swap swapKey={mode} direction={direction}>
+          <p className="mt-2 max-w-2xl text-ink-soft">{STAGE_HINT[mode]}</p>
+        </Swap>
 
         {error ? (
           <ErrorState message={error} className="mt-8" />
@@ -116,25 +136,41 @@ export default function GlobeSection() {
                 <GlobeCaption body="Tierra" place={selected.site.name} />
               </figure>
 
-              <SiteList
-                pairs={pairs}
-                selectedId={selected.site.id}
-                onSelect={setSelectedSiteId}
-                className="md:order-last md:col-span-2 lg:order-none lg:col-span-1"
-              />
+              <Swap
+                swapKey={mode}
+                direction={direction}
+                className="min-w-0 md:order-last md:col-span-2 lg:order-none lg:col-span-1"
+              >
+                <SiteList pairs={pairs} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+              </Swap>
 
               {twoGlobes && (
                 <figure>
-                  <Suspense fallback={<Skeleton className="h-[360px] lg:h-[440px]" />}>
-                    <GlobeView
-                      texture={TARGET_TEXTURE[mode]}
-                      points={targetPoints}
-                      selectedId={selected.base.id}
-                      height={globeHeight}
-                      atmosphereColor={SITE_COLOR[mode]}
-                      initialAltitude={1.9}
-                    />
-                  </Suspense>
+                  <motion.div
+                    initial={false}
+                    animate={
+                      switching && !reduce
+                        ? { opacity: 0, filter: "blur(8px)", transform: `scale(0.94) translateX(${-direction * 12}px)` }
+                        : { opacity: switching ? 0 : 1, filter: "blur(0px)", transform: "scale(1) translateX(0px)" }
+                    }
+                    transition={
+                      switching
+                        ? { duration: SWAP_EXIT_S, ease: SWAP_EASE }
+                        : { duration: reduce ? 0.15 : 0.5, ease: SWAP_EASE }
+                    }
+                  >
+                    <Suspense fallback={<Skeleton className="h-[360px] lg:h-[440px]" />}>
+                      <GlobeView
+                        texture={TARGET_TEXTURE[shownMode]}
+                        preloadTextures={ALL_TARGET_TEXTURES}
+                        points={targetPoints}
+                        selectedId={selected.base.id}
+                        height={globeHeight}
+                        atmosphereColor={SITE_COLOR[shownMode]}
+                        initialAltitude={1.9}
+                      />
+                    </Suspense>
+                  </motion.div>
                   <GlobeCaption body={BODY_LABEL[mode]} place={selected.base.name} accent />
                 </figure>
               )}
@@ -144,7 +180,7 @@ export default function GlobeSection() {
               <Legend mode={mode} />
             </div>
 
-            <TwinRow key={selected.site.id} pair={selected} className="mt-12" />
+            <TwinRow pair={selected} className="mt-12" />
           </>
         )}
       </div>
