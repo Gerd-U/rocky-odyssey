@@ -20,10 +20,6 @@
   --color-accent: var(--color-plum);
   --color-accent-soft: var(--color-plum-200);
 
-  /* Alias temporales: se borran cuando ningún componente use bg-space / bg-panel */
-  --color-space: var(--color-night-900);
-  --color-panel: var(--color-night-800);
-
   /* Tipografía */
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
 

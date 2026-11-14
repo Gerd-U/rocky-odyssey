@@ -1,24 +1,36 @@
 import { Link } from "react-router-dom";
-import type { Site } from "../../types/site";
+import type { Pair } from "../../hooks/usePairs";
+import { BODY_LABEL, formatPercent } from "../../lib/format";
 
-export default function SiteCard({ site }: { site: Site }) {
+export default function SiteCard({ pair }: { pair: Pair }) {
+  const { site, base } = pair;
+
   return (
-    <Link
-      to={`/ubicacion/${site.id}`}
-      className="group block rounded-2xl bg-panel p-5 ring-1 ring-white/5 transition hover:ring-accent/60"
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="font-semibold text-white group-hover:text-accent">{site.name}</h3>
-          <p className="text-sm text-slate-400">{site.country}</p>
-        </div>
-        <span className="shrink-0 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
-          {Math.round(site.similarity * 100)}%
-        </span>
+    <Link to={`/ubicacion/${site.id}`} className="group block focus-visible:outline-offset-4">
+      <div className="relative aspect-4/3 overflow-hidden bg-night-800">
+        <img
+          src={site.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-out-strong group-hover:scale-[1.03]"
+        />
       </div>
-      <p className="mt-3 line-clamp-2 text-sm text-slate-300">{site.description}</p>
-      <p className="mt-3 text-xs uppercase tracking-wide text-slate-500">
-        Análogo de {site.target === "mars" ? "Marte" : "la Luna"}
+      <div className="mt-4 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h2 className="text-xl leading-tight font-extrabold font-stretch-[75%] text-ink underline-offset-4 group-hover:underline">
+            {site.name}
+          </h2>
+          <p className="mt-1 text-sm text-ink-soft">{site.country}</p>
+        </div>
+        <p className="shrink-0 text-3xl leading-none font-extrabold font-stretch-[75%] text-ink tabular-nums">
+          <span className="sr-only">Similitud </span>
+          {formatPercent(site.similarity)}
+        </p>
+      </div>
+      <p className="mt-3 text-sm text-ink-soft">
+        Análogo de <span className="text-ink">{base.name}</span> ·{" "}
+        <span className={base.body === "mars" ? "text-plum-200" : "text-indigo-200"}>{BODY_LABEL[base.body]}</span>
       </p>
     </Link>
   );

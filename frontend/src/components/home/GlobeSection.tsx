@@ -13,11 +13,16 @@ import { LEVEL_COLOR, LEVEL_SIZE, SITE_COLOR } from "../globe/colors";
 import Legend from "../globe/Legend";
 import SiteList from "../sites/SiteList";
 import ErrorState from "../ui/ErrorState";
+import SectionHeading from "../ui/SectionHeading";
 import Skeleton from "../ui/Skeleton";
 import Swap from "../ui/Swap";
 import TwinRow from "./TwinRow";
 
-const GlobeView = lazy(() => import("../globe/GlobeView"));
+// El chunk del globo (three incluido) se pide ya, en paralelo con los datos,
+// en vez de esperar a que termine la carga y React llegue al lazy
+const loadGlobe = () => import("../globe/GlobeView");
+void loadGlobe();
+const GlobeView = lazy(loadGlobe);
 
 const EARTH_TEXTURE = "/textures/earth.jpg";
 const EARTH_FALLBACK = "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg";
@@ -102,12 +107,11 @@ export default function GlobeSection() {
   return (
     <section id="globo" aria-labelledby="stage-title" className="scroll-mt-20 py-10 lg:py-16">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 id="stage-title" className="text-3xl font-extrabold font-stretch-[75%] text-ink md:text-4xl">
-          Elige un lugar y mira su gemelo
-        </h2>
-        <Swap swapKey={mode} direction={direction}>
-          <p className="mt-2 max-w-2xl text-ink-soft">{STAGE_HINT[mode]}</p>
-        </Swap>
+        <SectionHeading id="stage-title" title="Elige un lugar y mira su gemelo">
+          <Swap swapKey={mode} direction={direction}>
+            <p>{STAGE_HINT[mode]}</p>
+          </Swap>
+        </SectionHeading>
 
         {error ? (
           <ErrorState message={error} className="mt-8" />

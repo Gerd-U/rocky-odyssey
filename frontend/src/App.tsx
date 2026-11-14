@@ -40,8 +40,29 @@ function Pages() {
 
   useEffect(() => {
     const target = hash ? document.getElementById(hash.slice(1)) : null;
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-    else window.scrollTo(0, 0);
+    if (!target) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    target.scrollIntoView({ behavior: "smooth" });
+
+    // Lo que hay encima (globos, lista) termina de cargar después y empuja la sección:
+    // durante un momento, si la página cambia de alto, se vuelve a apuntar al ancla.
+    // Si la persona hace scroll por su cuenta, se deja de corregir.
+    const resizes = new ResizeObserver(() => target.scrollIntoView({ behavior: "smooth" }));
+    const stop = () => {
+      resizes.disconnect();
+      window.clearTimeout(timer);
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchstart", stop);
+      window.removeEventListener("keydown", stop);
+    };
+    const timer = window.setTimeout(stop, 2500);
+    resizes.observe(document.body);
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchstart", stop, { passive: true });
+    window.addEventListener("keydown", stop);
+    return stop;
   }, [pathname, hash, key]);
 
   return (

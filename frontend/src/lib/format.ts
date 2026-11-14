@@ -29,10 +29,6 @@ export function formatTemp(celsius: number): string {
   return tempFmt.format(celsius);
 }
 
-export function formatTempRange(min: number, max: number): string {
-  return `${formatTemp(min)} a ${formatTemp(max)}`;
-}
-
 export function formatTempSpan(min: number, max: number): string {
   return `${numberFmt.format(min)} a ${formatTemp(max)}`;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Base, Site } from "../types/site";
-import { getBases, getSite, getSites } from "../services/api";
+import { getBases, getSites } from "../services/api";
 
 export interface AsyncState<T> {
   data: T | null;
@@ -45,10 +45,6 @@ function useAsync<T>(key: string | null, fetcher: (key: string) => Promise<T>): 
 
 export function useSites(): AsyncState<Site[]> {
   return useAsync("sites", getSites);
-}
-
-export function useSite(id: string | undefined): AsyncState<Site> {
-  return useAsync(id ?? null, getSite);
 }
 
 export function useBases(): AsyncState<Base[]> {
