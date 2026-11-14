@@ -1,56 +1,122 @@
-import { useMemo } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/layout/Footer";
-import Navbar from "./components/layout/Navbar";
-import { ModeProvider } from "./context/ModeContext";
-import Home from "./pages/Home";
-import LocationDetail from "./pages/LocationDetail";
-import Locations from "./pages/Locations";
+import { useState } from 'react'
+import heroImg from './assets/hero.png'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import './App.css'
 
-/** Fondo de estrellas fijo detrás de todo el contenido */
-function Starfield() {
-  const stars = useMemo(
-    () =>
-      Array.from({ length: 80 }, (_, i) => ({
-        // pseudoaleatorio pero estable entre renders
-        top: (i * 37.3) % 100,
-        left: (i * 61.7) % 100,
-        size: i % 7 === 0 ? 2 : 1,
-        delay: (i % 10) * 0.3,
-      })),
-    [],
-  );
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
-      {stars.map((s, i) => (
-        <span
-          key={i}
-          className="absolute animate-twinkle rounded-full bg-white"
-          style={{ top: `${s.top}%`, left: `${s.left}%`, width: s.size, height: s.size, animationDelay: `${s.delay}s` }}
-        />
-      ))}
-    </div>
-  );
-}
-
-export default function App() {
-  return (
-    <ModeProvider>
-      <BrowserRouter>
-        <Starfield />
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/ubicaciones" element={<Locations />} />
-              <Route path="/ubicacion/:id" element={<LocationDetail />} />
-            </Routes>
-          </main>
-          <Footer />
+    <>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
-      </BrowserRouter>
-    </ModeProvider>
-  );
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        <button
+          type="button"
+          className="counter"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          Count is {count}
+        </button>
+      </section>
+
+      <div className="ticks"></div>
+
+      <section id="next-steps">
+        <div id="docs">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#documentation-icon"></use>
+          </svg>
+          <h2>Documentation</h2>
+          <p>Your questions, answered</p>
+          <ul>
+            <li>
+              <a href="https://vite.dev/" target="_blank">
+                <img className="logo" src={viteLogo} alt="" />
+                Explore Vite
+              </a>
+            </li>
+            <li>
+              <a href="https://react.dev/" target="_blank">
+                <img className="button-icon" src={reactLogo} alt="" />
+                Learn more
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="social">
+          <svg className="icon" role="presentation" aria-hidden="true">
+            <use href="/icons.svg#social-icon"></use>
+          </svg>
+          <h2>Connect with us</h2>
+          <p>Join the Vite community</p>
+          <ul>
+            <li>
+              <a href="https://github.com/vitejs/vite" target="_blank">
+                <svg
+                  className="button-icon"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <use href="/icons.svg#github-icon"></use>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://chat.vite.dev/" target="_blank">
+                <svg
+                  className="button-icon"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <use href="/icons.svg#discord-icon"></use>
+                </svg>
+                Discord
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/vite_js" target="_blank">
+                <svg
+                  className="button-icon"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <use href="/icons.svg#x-icon"></use>
+                </svg>
+                X.com
+              </a>
+            </li>
+            <li>
+              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+                <svg
+                  className="button-icon"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <use href="/icons.svg#bluesky-icon"></use>
+                </svg>
+                Bluesky
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="ticks"></div>
+      <section id="spacer"></section>
+    </>
+  )
 }
+
+export default App
