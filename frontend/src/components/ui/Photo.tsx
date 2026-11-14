@@ -40,10 +40,9 @@ export default function Photo({
         />
       </div>
       {(caption || credit) && (
-        <figcaption className="mt-2 text-sm text-ink-soft">
-          {caption}
-          {caption && credit && " · "}
-          {credit}
+        <figcaption className="mt-2">
+          {caption && <span className="block text-sm text-ink">{caption}</span>}
+          {credit && <span className="mt-0.5 block text-xs text-ink-soft">{credit}</span>}
         </figcaption>
       )}
     </figure>

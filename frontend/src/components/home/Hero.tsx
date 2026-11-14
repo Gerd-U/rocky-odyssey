@@ -1,30 +1,39 @@
-import { Link } from "react-router-dom";
-import Reveal from "../ui/Reveal";
+import { useMode } from "../../context/ModeContext";
+import { BODY_NAME } from "../../lib/format";
+import type { Target } from "../../types/site";
+import ModeToggle from "../globe/ModeToggle";
+import { ButtonLink } from "../ui/Button";
+
+const HEADLINE: Record<Target, string> = {
+  mars: "Marte empieza en la Tierra",
+  moon: "La Luna empieza en la Tierra",
+};
 
 export default function Hero() {
+  const { mode } = useMode();
+
   return (
-    <section className="mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-6 py-24">
-      <Reveal>
-        <p className="text-sm uppercase tracking-[0.3em] text-accent">NASA Space Apps Challenge</p>
-        <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-tight text-white md:text-6xl">
-          La Luna y Marte, aquí en la Tierra
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-300">
-          Buscamos lugares de la Tierra que se parecen a las zonas candidatas para bases permanentes en la Luna y
-          Marte, para entrenar tripulaciones y probar tecnología antes de salir del planeta.
+    <section
+      aria-labelledby="hero-title"
+      className="mx-auto grid max-w-6xl gap-8 px-6 pt-12 pb-10 lg:pt-16 lg:pb-16 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-16"
+    >
+      <h1
+        id="hero-title"
+        className="max-w-[14ch] text-[clamp(2.75rem,5.5vw,5.5rem)] leading-[0.92] font-extrabold tracking-[-0.03em] font-stretch-[75%] text-ink"
+      >
+        {HEADLINE[mode]}
+      </h1>
+
+      <div>
+        <ModeToggle />
+        <p className="mt-6 text-lg text-ink">
+          Buscamos lugares de la Tierra que se parecen a las bases propuestas en {BODY_NAME[mode]}. Ahí se entrenan
+          tripulaciones y se prueba tecnología antes de salir del planeta.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a href="#globo" className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-space">
-            Explorar el globo
-          </a>
-          <Link
-            to="/ubicaciones"
-            className="rounded-full px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20"
-          >
-            Ver ubicaciones
-          </Link>
-        </div>
-      </Reveal>
+        <ButtonLink to="/ubicaciones" variant="ghost" className="mt-6">
+          Ver todas las ubicaciones →
+        </ButtonLink>
+      </div>
     </section>
   );
 }

@@ -33,6 +33,10 @@ export function formatTempRange(min: number, max: number): string {
   return `${formatTemp(min)} a ${formatTemp(max)}`;
 }
 
+export function formatTempSpan(min: number, max: number): string {
+  return `${numberFmt.format(min)} a ${formatTemp(max)}`;
+}
+
 export function formatPrecip(mm: number): string {
   return `${numberFmt.format(mm)} mm/año`;
 }

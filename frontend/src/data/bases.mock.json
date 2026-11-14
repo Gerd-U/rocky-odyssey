@@ -1,5 +1,27 @@
 [
   {
+    "id": "marius",
+    "name": "Pozo de Marius Hills",
+    "body": "moon",
+    "lat": 14.09,
+    "lng": -56.77,
+    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
+    "image": "/images/bases/marius.jpg",
+    "imageCredit": "NASA/GSFC/Arizona State University · LRO",
+    "description": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura."
+  },
+  {
+    "id": "tranquilidad",
+    "name": "Mar de la Tranquilidad",
+    "body": "moon",
+    "lat": 0.67,
+    "lng": 23.47,
+    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
+    "image": "/images/bases/tranquilidad.jpg",
+    "imageCredit": "NASA / Neil A. Armstrong · Apollo 11",
+    "description": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo."
+  },
+  {
     "id": "shackleton",
     "name": "Cráter Shackleton (polo sur lunar)",
     "body": "moon",

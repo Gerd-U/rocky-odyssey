@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Globe, { type GlobeMethods } from "react-globe.gl";
+import { SELECTED_COLOR } from "./colors";
 
 export interface GlobePoint {
   id: string;
@@ -68,6 +69,11 @@ export default function GlobeView({
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const textureUrl = useTexture(texture, fallbackTexture);
+  const latest = useRef({ points, selectedId });
+
+  useEffect(() => {
+    latest.current = { points, selectedId };
+  });
 
   // El canvas de three no es responsive: medimos el contenedor
   useEffect(() => {
@@ -81,11 +87,15 @@ export default function GlobeView({
   const handleReady = () => {
     const globe = globeRef.current;
     if (!globe) return;
+    const { points: currentPoints, selectedId: currentId } = latest.current;
+    const focus = currentPoints.find((pt) => pt.id === currentId);
     const controls = globe.controls();
-    controls.autoRotate = true;
+    controls.autoRotate = !focus;
     controls.autoRotateSpeed = 0.35;
     controls.enableZoom = false;
-    globe.pointOfView({ altitude: initialAltitude });
+    globe.pointOfView(
+      focus ? { lat: focus.lat, lng: focus.lng, altitude: initialAltitude } : { altitude: initialAltitude },
+    );
   };
 
   // Transición de cámara al punto seleccionado
@@ -113,7 +123,7 @@ export default function GlobeView({
           pointsData={points}
           pointLat="lat"
           pointLng="lng"
-          pointColor={(d) => ((d as GlobePoint).id === selectedId ? "#ffffff" : (d as GlobePoint).color)}
+          pointColor={(d) => ((d as GlobePoint).id === selectedId ? SELECTED_COLOR : (d as GlobePoint).color)}
           pointRadius={(d) => ((d as GlobePoint).id === selectedId ? 1.1 : (d as GlobePoint).size ?? 0.6)}
           pointAltitude={(d) => ((d as GlobePoint).id === selectedId ? 0.12 : 0.04)}
           pointLabel={(d) => (d as GlobePoint).label}

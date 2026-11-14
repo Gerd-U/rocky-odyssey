@@ -105,6 +105,20 @@
     "source": "https://commons.wikimedia.org/wiki/File:Rimlight-_Shackleton_Crater_(3929168011).jpg"
   },
   {
+    "path": "/images/bases/marius.jpg",
+    "title": "Marius Hills pit, posible tragaluz de un tubo de lava (LRO)",
+    "author": "NASA/GSFC/Arizona State University",
+    "license": "Dominio público",
+    "source": "https://commons.wikimedia.org/wiki/File:Marius_hills_pit.png"
+  },
+  {
+    "path": "/images/bases/tranquilidad.jpg",
+    "title": "Aldrin mira hacia la base Tranquilidad, Apollo 11",
+    "author": "NASA / Neil A. Armstrong",
+    "license": "Dominio público",
+    "source": "https://commons.wikimedia.org/wiki/File:Aldrin_Looks_Back_at_Tranquility_Base_-_GPN-2000-001102.jpg"
+  },
+  {
     "path": "/images/moon-surface.jpg",
     "title": "Schmitt junto a una gran roca, Apollo 17",
     "author": "NASA / Eugene A. Cernan",
@@ -113,10 +127,10 @@
   },
   {
     "path": "/textures/earth.jpg",
-    "title": "Textura de la Tierra de noche",
+    "title": "Textura de la Tierra de día",
     "author": "Solar System Scope",
     "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Solarsystemscope_texture_8k_earth_nightmap.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:Solarsystemscope_texture_8k_earth_daymap.jpg"
   },
   {
     "path": "/textures/mars.jpg",

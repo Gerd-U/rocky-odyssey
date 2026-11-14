@@ -9,7 +9,7 @@ const CRITERIA = [
 
 export default function Criteria() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-6 py-10 lg:py-16">
       <Reveal>
         <h2 className="text-3xl font-bold text-white">Cómo medimos la similitud</h2>
       </Reveal>
