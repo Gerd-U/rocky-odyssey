@@ -19,6 +19,7 @@ export interface Site {
   factors: SiteFactors;
   missions: string[];
   image: string;
+  imageCredit: string;
   description: string;
 }
 
@@ -28,5 +29,8 @@ export interface Base {
   body: Target;
   lat: number;
   lng: number;
+  factors: SiteFactors;
+  image: string;
+  imageCredit: string;
   description: string;
 }

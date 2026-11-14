@@ -1,15 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-space: #0b0d12;
-  --color-panel: #141821;
-  --color-mars: #e8742c;
-  --color-moon: #9aa8b8;
+  /* Paleta de la marca */
+  --color-night-900: #0e1841; /* fondo de página */
+  --color-night-800: #17125e; /* superficies: tarjetas, bandas */
+  --color-indigo: #42649e;    /* acento Luna */
+  --color-violet: #5b2e97;    /* acción principal (CTA) */
+  --color-plum: #6f286c;      /* acento Marte */
 
-  /* Acento de la UI: cambia según el modo (ver [data-mode] abajo) */
-  --color-accent: #e8742c;
+  /* Tintes claros derivados: para texto o iconos en color sobre el fondo oscuro */
+  --color-indigo-200: #a9bce6;
+  --color-plum-200: #e3a6dd;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Tinta */
+  --color-ink: #eef0fa;      /* todo el texto de lectura */
+  --color-ink-soft: #b9c2e6; /* solo notas y pies de foto */
+
+  /* Acento según el modo (lo cambia data-mode, ver abajo) */
+  --color-accent: var(--color-plum);
+  --color-accent-soft: var(--color-plum-200);
+
+  /* Alias temporales: se borran cuando ningún componente use bg-space / bg-panel */
+  --color-space: var(--color-night-900);
+  --color-panel: var(--color-night-800);
+
+  /* Tipografía */
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  /* Tamaño del titular: crece con la pantalla, entre 3rem y 8.5rem */
+  --text-display: clamp(3rem, 8vw, 8.5rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.03em;
+
+  /* Curvas de movimiento */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 
   --animate-twinkle: twinkle 3s ease-in-out infinite;
 
@@ -26,18 +51,39 @@
 
 /* ModeContext escribe data-mode en <html> */
 :root[data-mode="mars"] {
-  --color-accent: var(--color-mars);
+  --color-accent: var(--color-plum);
+  --color-accent-soft: var(--color-plum-200);
 }
 :root[data-mode="moon"] {
-  --color-accent: var(--color-moon);
+  --color-accent: var(--color-indigo);
+  --color-accent-soft: var(--color-indigo-200);
 }
 
 @layer base {
   html {
     color-scheme: dark;
-    background-color: var(--color-space);
+    background-color: var(--color-night-900);
   }
   body {
-    @apply bg-space font-sans text-slate-200 antialiased;
+    @apply bg-night-900 font-sans text-ink antialiased;
+  }
+  ::selection {
+    background-color: var(--color-violet);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
