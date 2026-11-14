@@ -1,5 +1,0 @@
-﻿pandas
-numpy
-earthaccess
-rasterio
-matplotlib
