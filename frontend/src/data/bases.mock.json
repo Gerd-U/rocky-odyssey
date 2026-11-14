@@ -1,0 +1,34 @@
+[
+  {
+    "id": "shackleton",
+    "name": "Cráter Shackleton (polo sur lunar)",
+    "body": "moon",
+    "lat": -89.9,
+    "lng": 0,
+    "description": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua."
+  },
+  {
+    "id": "jezero",
+    "name": "Cráter Jezero",
+    "body": "mars",
+    "lat": 18.4,
+    "lng": 77.5,
+    "description": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada."
+  },
+  {
+    "id": "arcadia",
+    "name": "Arcadia Planitia",
+    "body": "mars",
+    "lat": 47.0,
+    "lng": -170.0,
+    "description": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana."
+  },
+  {
+    "id": "gale",
+    "name": "Cráter Gale",
+    "body": "mars",
+    "lat": -5.4,
+    "lng": 137.8,
+    "description": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity."
+  }
+]
