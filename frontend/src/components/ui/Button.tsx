@@ -12,7 +12,7 @@ interface ButtonStyle {
 
 const VARIANT: Record<Variant, string> = {
   primary: "rounded-full bg-violet text-ink shadow-[inset_0_1px_0_rgb(255_255_255/0.18)] hover:brightness-115",
-  secondary: "rounded-full bg-ink/5 text-ink ring-1 ring-ink/15 ring-inset hover:bg-ink/10",
+  secondary: "rounded-full bg-ink/10 text-ink hover:bg-ink/15",
   ghost: "text-accent-soft hover:text-ink",
 };
 

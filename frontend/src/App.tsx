@@ -35,12 +35,14 @@ function Starfield() {
 }
 
 function Pages() {
-  const { pathname } = useLocation();
+  const { pathname, hash, key } = useLocation();
   const onHome = pathname === "/";
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    const target = hash ? document.getElementById(hash.slice(1)) : null;
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+    else window.scrollTo(0, 0);
+  }, [pathname, hash, key]);
 
   return (
     <main className="flex-1">
