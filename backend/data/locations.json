@@ -1,0 +1,54 @@
+{
+    "locations": [
+        {
+            "id": "test-001",
+            "name": "Test Location",
+            "country": "Costa Rica",
+            "coordinates": {
+                "latitude": 10.0,
+                "longitude": -84.0
+            },
+            "geology": {
+                "composition": "Volcanic rock",
+                "rock_types": [
+                    "Basalt"
+                ],
+                "minerals": [
+                    "Olivine"
+                ]
+            },
+            "topography": {
+                "elevation_m": 1000.0,
+                "slope_degrees": 15.0,
+                "roughness": 0.5
+            },
+            "temperature": {
+                "minimum_c": 10.0,
+                "maximum_c": 30.0,
+                "average_c": 20.0
+            },
+            "ice_water": {
+                "water_presence": true,
+                "ice_presence": false,
+                "evidence": "Test data"
+            },
+            "dust_atmosphere": {
+                "dust_level": "Moderate",
+                "atmospheric_conditions": "Test conditions",
+                "humidity_percent": 50.0
+            },
+            "habitability": {
+                "description": "Test environment",
+                "radiation_level": "Unknown",
+                "environmental_conditions": "Test conditions"
+            },
+            "subsurface": {
+                "caves_present": false,
+                "underground_structures": "Unknown",
+                "evidence": "No data"
+            },
+            "research_level": "Unknown",
+            "data_sources": []
+        }
+    ]
+}
