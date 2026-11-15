@@ -29,22 +29,19 @@ Otros scripts:
 | `/ubicaciones`    | Lista de sitios análogos con filtros            |
 | `/ubicacion/:id`  | Detalle del sitio y su base en la Luna o Marte  |
 
-## Datos de prueba vs. backend real
+## Datos del backend
 
 Ningún componente hace `fetch` directo: todo pasa por `src/services/api.ts` (`getSites()`, `getSite(id)`, `getBases()`).
-El origen de los datos se elige con variables de entorno en `.env`:
+Los datos salen siempre del backend; ya no hay datos de prueba en el frontend.
 
-| Variable        | Valor                     | Efecto                                               |
-| --------------- | ------------------------- | ---------------------------------------------------- |
-| `VITE_USE_MOCK` | `true`                    | Usa `src/data/sites.mock.json` y `bases.mock.json`   |
-| `VITE_USE_MOCK` | `false`                   | Pide los datos al backend                            |
-| `VITE_API_URL`  | `http://localhost:8000`   | URL base del backend (sin `/api` al final)           |
+| Variable       | Valor por defecto       | Efecto                                     |
+| -------------- | ----------------------- | ------------------------------------------ |
+| `VITE_API_URL` | `http://localhost:8000` | URL base del backend (sin `/api` al final) |
 
-Para pasar al backend real:
+Para ver la web:
 
 1. Levanta el backend (ver [`../backend/README.md`](../backend/README.md)). Tiene que responder `GET /api/sites`, `GET /api/sites/:id` y `GET /api/bases` con los tipos de `src/types/site.ts`, y permitir CORS desde el origen de Vite.
-2. En `.env` pon `VITE_USE_MOCK=false` y ajusta `VITE_API_URL` si hace falta.
-3. Reinicia `npm run dev`: Vite solo lee `.env` al arrancar.
+2. Si el backend no está en `http://localhost:8000`, pon su URL en `VITE_API_URL` dentro de `.env` y reinicia `npm run dev` (Vite solo lee `.env` al arrancar).
 
 Si el backend responde con un código de error, `api.ts` lanza una excepción y las páginas muestran el mensaje de error.
 
@@ -72,7 +69,7 @@ src/
 ├── App.tsx               rutas y fondo de estrellas
 ├── index.css             Tailwind + @theme (colores, animación twinkle)
 ├── types/site.ts         Site, Base, Target (contrato con el backend)
-├── services/api.ts       único acceso a datos (mock o backend)
+├── services/api.ts       único acceso a datos (backend)
 ├── hooks/useSites.ts     useSites, useSite(id), useBases con loading/error
 ├── context/ModeContext   modo "moon" | "mars" y sitio seleccionado
 ├── data/                 JSON de prueba

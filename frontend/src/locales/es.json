@@ -2,6 +2,7 @@
   "common": {
     "bodyName": { "moon": "la Luna", "mars": "Marte" },
     "bodyLabel": { "moon": "Luna", "mars": "Marte" },
+    "noData": "Sin datos",
     "earth": "Tierra",
     "terrain": { "moderado": "Moderado", "alto": "Alto", "extremo": "Extremo" },
     "similarityLevel": { "muy-alta": "Muy alta", "alta": "Alta", "moderada": "Moderada" },

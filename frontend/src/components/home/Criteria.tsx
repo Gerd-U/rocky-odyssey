@@ -38,7 +38,7 @@ const criteria = (t: TFunction): Criterion[] => [
   {
     term: t("common.factors.temperature"),
     text: t("home.criteria.temperature"),
-    siteId: "concordia",
+    siteId: "altiplanodeltibet",
     example: ({ site, base }) => [
       { place: site.name, value: formatTempSpan(site.factors.tempMin, site.factors.tempMax) },
       { place: base.name, value: formatTempSpan(base.factors.tempMin, base.factors.tempMax), body: base.body },
@@ -47,7 +47,7 @@ const criteria = (t: TFunction): Criterion[] => [
   {
     term: t("common.factors.terrain"),
     text: t("home.criteria.terrain"),
-    siteId: "meteorcrater",
+    siteId: "mcmurdo",
     example: ({ site, base }) => [
       { place: site.name, value: terrainLabel(site.factors.terrain) },
       { place: base.name, value: terrainLabel(base.factors.terrain), body: base.body },

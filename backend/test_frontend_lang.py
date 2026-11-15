@@ -109,7 +109,11 @@ def test_response_matches_frontend_types():
     }
 
     for site in get_json("/api/sites"):
-        assert set(site) == site_keys
+        # twins es opcional: solo lo tienen los sitios con datos reales (un gemelo por destino)
+        assert set(site) - {"twins"} == site_keys
+        for body, twin in site.get("twins", {}).items():
+            assert body in {"moon", "mars"}
+            assert set(twin) == {"analogOf", "similarity"}
     for base in get_json("/api/bases"):
         assert set(base) == base_keys
         assert isinstance(base["scientificData"], list)

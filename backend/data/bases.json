@@ -1,23 +1,5 @@
 [
   {
-    "id": "marius",
-    "name": {
-      "es": "Pozo de Marius Hills",
-      "en": "Marius Hills Pit"
-    },
-    "body": "moon",
-    "lat": 14.09,
-    "lng": -56.77,
-    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
-    "image": "/images/bases/marius.jpg",
-    "imageAuthor": "NASA/GSFC/Arizona State University",
-    "imageLicense": "public-domain",
-    "description": {
-      "es": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura.",
-      "en": "An opening about 65 meters across in the volcanic Marius Hills that may lead into a lava tube, a natural shelter from radiation and temperature swings."
-    }
-  },
-  {
     "id": "tranquilidad",
     "name": {
       "es": "Mar de la Tranquilidad",
@@ -105,6 +87,114 @@
     "description": {
       "es": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity.",
       "en": "An impact crater with Mount Sharp at its center, studied by the Curiosity rover."
+    }
+  },
+  {
+    "id": "malapertmassif",
+    "name": {
+      "es": "Malapert Massif",
+      "en": "Malapert Massif"
+    },
+    "body": "moon",
+    "lat": -84.8,
+    "lng": 12.3,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 882.7 m, rango térmico de 192 K y hielo de 0 %.",
+      "en": "Roughness of 882.7 m, thermal range of 192 K and ice of 0%."
+    }
+  },
+  {
+    "id": "cabeus",
+    "name": {
+      "es": "Cabeus",
+      "en": "Cabeus"
+    },
+    "body": "moon",
+    "lat": -85.3,
+    "lng": -41.8,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 332.9 m, rango térmico de 164.2 K y hielo de 0 %.",
+      "en": "Roughness of 332.9 m, thermal range of 164.2 K and ice of 0%."
+    }
+  },
+  {
+    "id": "rimaebode",
+    "name": {
+      "es": "Rimae Bode",
+      "en": "Rimae Bode"
+    },
+    "body": "moon",
+    "lat": 9.54,
+    "lng": -3.22,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 107.2 m, rango térmico de 298.7 K y hielo de 0 %.",
+      "en": "Roughness of 107.2 m, thermal range of 298.7 K and ice of 0%."
+    }
+  },
+  {
+    "id": "peary",
+    "name": {
+      "es": "Peary",
+      "en": "Peary"
+    },
+    "body": "moon",
+    "lat": 88.56,
+    "lng": 25.7,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 68.8 m, rango térmico de 122.7 K y hielo de 0 %.",
+      "en": "Roughness of 68.8 m, thermal range of 122.7 K and ice of 0%."
+    }
+  },
+  {
+    "id": "oxiaplanum",
+    "name": {
+      "es": "Oxia Planum",
+      "en": "Oxia Planum"
+    },
+    "body": "mars",
+    "lat": 18.2,
+    "lng": -24.6,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 23 m, rango térmico de 45.3 K y hielo de 0 %.",
+      "en": "Roughness of 23 m, thermal range of 45.3 K and ice of 0%."
+    }
+  },
+  {
+    "id": "arsiamons",
+    "name": {
+      "es": "Arsia Mons",
+      "en": "Arsia Mons"
+    },
+    "body": "mars",
+    "lat": -8.35,
+    "lng": -120.1,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "",
+    "imageAuthor": "",
+    "imageLicense": "",
+    "description": {
+      "es": "Rugosidad de 51 m, rango térmico de 67 K y hielo de 0 %.",
+      "en": "Roughness of 51 m, thermal range of 67 K and ice of 0%."
     }
   }
 ]

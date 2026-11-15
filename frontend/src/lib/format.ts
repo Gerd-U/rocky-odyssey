@@ -28,6 +28,7 @@ export function formatCredit(author: string, license: string): string {
 }
 
 export function terrainLabel(terrain: SiteFactors["terrain"]): string {
+  if (terrain === null) return i18n.t("common.noData");
   return i18n.t(`common.terrain.${terrain}`);
 }
 
@@ -61,7 +62,8 @@ export function formatTempSpan(min: number, max: number): string {
   return i18n.t("common.tempSpan", { min: formatNumber(min), max: formatTemp(max) });
 }
 
-export function formatPrecip(mm: number): string {
+export function formatPrecip(mm: number | null): string {
+  if (mm === null) return i18n.t("common.noData");
   return i18n.t("common.precip", { value: formatNumber(mm) });
 }
 

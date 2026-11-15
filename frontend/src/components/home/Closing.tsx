@@ -12,7 +12,7 @@ import SectionHeading from "../ui/SectionHeading";
 /** Foto de un ensayo real en la Tierra para cada destino, sacada de los sitios */
 const PHOTO_SITE: Record<Target, string> = {
   mars: "devon",
-  moon: "hiseas",
+  moon: "atacama",
 };
 
 const MODES: Target[] = ["mars", "moon"];

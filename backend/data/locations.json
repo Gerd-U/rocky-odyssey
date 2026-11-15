@@ -1,1 +1,849 @@
-{"locations": []}
+{
+  "locations": [
+    {
+      "id": "altiplanodeltibet",
+      "name": "Altiplano del Tibet",
+      "country": "China",
+      "coordinates": {
+        "latitude": 34.0,
+        "longitude": 85.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 4970.8,
+        "slope_degrees": null,
+        "roughness": 47.5
+      },
+      "temperature": {
+        "minimum_c": -26.96,
+        "maximum_c": 33.24,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 87.39,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 94.72,
+          "analogOf": "arsiamons"
+        }
+      }
+    },
+    {
+      "id": "askja",
+      "name": "Askja",
+      "country": "Islandia",
+      "coordinates": {
+        "latitude": 65.0,
+        "longitude": -16.7
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 969.2,
+        "slope_degrees": null,
+        "roughness": 201.3
+      },
+      "temperature": {
+        "minimum_c": -21.36,
+        "maximum_c": 20.27,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 60.29,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 70.95,
+          "analogOf": "gale"
+        }
+      }
+    },
+    {
+      "id": "atacama",
+      "name": "Atacama",
+      "country": "Chile",
+      "coordinates": {
+        "latitude": -24.5,
+        "longitude": -69.2
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 2928.9,
+        "slope_degrees": null,
+        "roughness": 261.8
+      },
+      "temperature": {
+        "minimum_c": -0.55,
+        "maximum_c": 44.17,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 83.53,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 94.19,
+          "analogOf": "gale"
+        }
+      }
+    },
+    {
+      "id": "dasht-elut",
+      "name": "Dasht-e Lut",
+      "country": "Iran",
+      "coordinates": {
+        "latitude": 30.5,
+        "longitude": 59.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 528.1,
+        "slope_degrees": null,
+        "roughness": 56.5
+      },
+      "temperature": {
+        "minimum_c": -0.44,
+        "maximum_c": 60.42,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 92.13,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 99.06,
+          "analogOf": "arsiamons"
+        }
+      }
+    },
+    {
+      "id": "depresiondedanakil",
+      "name": "Depresion de Danakil",
+      "country": "Etiopia",
+      "coordinates": {
+        "latitude": 14.2,
+        "longitude": 40.3
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": -120.9,
+        "slope_degrees": null,
+        "roughness": 14.6
+      },
+      "temperature": {
+        "minimum_c": 27.11,
+        "maximum_c": 50.04,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 86.04,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 97.83,
+          "analogOf": "arcadia"
+        }
+      }
+    },
+    {
+      "id": "desiertodegobi",
+      "name": "Desierto de Gobi",
+      "country": "Mongolia",
+      "coordinates": {
+        "latitude": 43.5,
+        "longitude": 104.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 2335.6,
+        "slope_degrees": null,
+        "roughness": 136.8
+      },
+      "temperature": {
+        "minimum_c": -28.36,
+        "maximum_c": 38.0,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 79.74,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 87.51,
+          "analogOf": "gale"
+        }
+      }
+    },
+    {
+      "id": "devon",
+      "name": "Isla Devon",
+      "country": "Canada",
+      "coordinates": {
+        "latitude": 75.4,
+        "longitude": -89.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 225.1,
+        "slope_degrees": null,
+        "roughness": 152.4
+      },
+      "temperature": {
+        "minimum_c": -39.82,
+        "maximum_c": 13.89,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 62.48,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 73.14,
+          "analogOf": "gale"
+        }
+      }
+    },
+    {
+      "id": "mojave",
+      "name": "Mojave",
+      "country": "EEUU",
+      "coordinates": {
+        "latitude": 35.0,
+        "longitude": -116.5
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 578.9,
+        "slope_degrees": null,
+        "roughness": 73.4
+      },
+      "temperature": {
+        "minimum_c": 0.93,
+        "maximum_c": 54.83,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 91.48,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 98.97,
+          "analogOf": "jezero"
+        }
+      }
+    },
+    {
+      "id": "salardeuyuni",
+      "name": "Salar de Uyuni",
+      "country": "Bolivia",
+      "coordinates": {
+        "latitude": -20.2,
+        "longitude": -67.5
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 3652.3,
+        "slope_degrees": null,
+        "roughness": 7.5
+      },
+      "temperature": {
+        "minimum_c": -7.27,
+        "maximum_c": 20.53,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 53.02,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 65.21,
+          "analogOf": "arcadia"
+        }
+      }
+    },
+    {
+      "id": "taklamakan",
+      "name": "Taklamakan",
+      "country": "China",
+      "coordinates": {
+        "latitude": 38.9,
+        "longitude": 83.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 1134.2,
+        "slope_degrees": null,
+        "roughness": 6.4
+      },
+      "temperature": {
+        "minimum_c": -19.51,
+        "maximum_c": 54.84,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 91.67,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 97.24,
+          "analogOf": "arsiamons"
+        }
+      }
+    },
+    {
+      "id": "tibesti",
+      "name": "Tibesti",
+      "country": "Chad",
+      "coordinates": {
+        "latitude": 20.0,
+        "longitude": 18.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 837.1,
+        "slope_degrees": null,
+        "roughness": 65.7
+      },
+      "temperature": {
+        "minimum_c": 14.22,
+        "maximum_c": 54.24,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 89.97,
+          "analogOf": "peary"
+        },
+        "mars": {
+          "score": 98.3,
+          "analogOf": "jezero"
+        }
+      }
+    },
+    {
+      "id": "tolbachikkamchatka",
+      "name": "Tolbachik Kamchatka",
+      "country": "Rusia",
+      "coordinates": {
+        "latitude": 55.8,
+        "longitude": 160.3
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 1633.6,
+        "slope_degrees": null,
+        "roughness": 445.2
+      },
+      "temperature": {
+        "minimum_c": -31.84,
+        "maximum_c": 26.3,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 52.17,
+          "analogOf": "cabeus"
+        },
+        "mars": {
+          "score": 57.15,
+          "analogOf": "gale"
+        }
+      }
+    },
+    {
+      "id": "mcmurdo",
+      "name": "Valles secos McMurdo",
+      "country": "Antartida",
+      "coordinates": {
+        "latitude": -77.5,
+        "longitude": 162.0
+      },
+      "geology": {
+        "composition": null,
+        "rock_types": [],
+        "minerals": []
+      },
+      "topography": {
+        "elevation_m": 1000.1,
+        "slope_degrees": null,
+        "roughness": 308.6
+      },
+      "temperature": {
+        "minimum_c": -43.09,
+        "maximum_c": -3.38,
+        "average_c": null
+      },
+      "ice_water": {
+        "water_presence": null,
+        "ice_presence": null,
+        "evidence": null
+      },
+      "dust_atmosphere": {
+        "dust_level": null,
+        "atmospheric_conditions": null,
+        "humidity_percent": null
+      },
+      "habitability": {
+        "description": null,
+        "radiation_level": null,
+        "environmental_conditions": null
+      },
+      "subsurface": {
+        "caves_present": null,
+        "underground_structures": null,
+        "evidence": null
+      },
+      "research_level": null,
+      "data_sources": [],
+      "sources": [
+        {
+          "name": "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)",
+          "organization": "NASA LP DAAC",
+          "url": null,
+          "criteria_supported": [],
+          "accessed_at": null
+        }
+      ],
+      "comparison": {
+        "moon": {
+          "score": 51.84,
+          "analogOf": "cabeus"
+        },
+        "mars": {
+          "score": 59.53,
+          "analogOf": "gale"
+        }
+      }
+    }
+  ]
+}

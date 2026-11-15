@@ -22,6 +22,12 @@ BASE_MEASUREMENT_NAMES = {
     "jezero": {"jezero"},
     "arcadia": {"arcadia planitia"},
     "gale": {"gale"},
+    "malapertmassif": {"malapert massif"},
+    "cabeus": {"cabeus"},
+    "rimaebode": {"rimae bode"},
+    "peary": {"peary"},
+    "oxiaplanum": {"oxia planum"},
+    "arsiamons": {"arsia mons"},
 }
 
 
@@ -46,6 +52,7 @@ def load_planetary_measurements() -> dict[str, list[dict]]:
         for name in names
     }
     measurements: dict[str, list[dict]] = {base_id: [] for base_id in BASE_MEASUREMENT_NAMES}
+    base_bodies = {base.get("id"): base.get("body") for base in load_data("bases.json")}
     for body, filename in (("moon", "sources_log_moon.csv"), ("mars", "sources_log_mars.csv")):
         path = SCIENCE_DIR / filename
         if not path.exists():
@@ -56,7 +63,7 @@ def load_planetary_measurements() -> dict[str, list[dict]]:
                 base_id = by_name.get(name)
                 if base_id is None or base_id not in measurements:
                     continue
-                base_body = "moon" if base_id in {"shackleton", "tranquilidad"} else "mars"
+                base_body = base_bodies.get(base_id)
                 if base_body != body:
                     continue
                 try:

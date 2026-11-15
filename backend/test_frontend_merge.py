@@ -48,10 +48,18 @@ def without_data_source(sites):
     ]
 
 
-def test_repository_locations_file_is_empty():
-    stored = json.loads((REAL_DATA_DIR / "locations.json").read_text(encoding="utf-8"))
+def test_repository_locations_are_valid_and_match_sites():
+    """locations.json lo genera datos/scripts/generar_datos_web.py: cada ubicación
+    cumple el modelo Location y su id existe en sites.json."""
 
-    assert stored == {"locations": []}
+    from app.models.location import Location
+
+    stored = json.loads((REAL_DATA_DIR / "locations.json").read_text(encoding="utf-8"))
+    site_ids = {site["id"] for site in json.loads((REAL_DATA_DIR / "sites.json").read_text(encoding="utf-8"))}
+
+    for location in stored["locations"]:
+        Location.model_validate(location)
+        assert location["id"] in site_ids
 
 
 def test_empty_locations_returns_backup_values_as_placeholder(data_dir):

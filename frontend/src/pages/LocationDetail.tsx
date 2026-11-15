@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import CompareSlider from "../components/compare/CompareSlider";
 import CompareTable from "../components/compare/CompareTable";
 import type { GlobePoint } from "../components/globe/GlobeView";
@@ -14,6 +14,7 @@ import { useMode } from "../context/ModeContext";
 import { usePairs } from "../hooks/usePairs";
 import { bodyLabel, bodyName, formatCoords, formatCredit, formatPercent } from "../lib/format";
 import { IMAGE_SIZES } from "../lib/images";
+import { siteUrl } from "../services/api";
 
 const GlobeView = lazy(() => import("../components/globe/GlobeView"));
 
@@ -40,7 +41,10 @@ export default function LocationDetail() {
   const { data: pairs, loading, error } = usePairs();
   const { setMode, setSelectedSiteId } = useMode();
 
-  const pair = pairs?.find((p) => p.site.id === id) ?? null;
+  // ?destino=moon|mars elige el gemelo; sin él (enlaces viejos) se usa el primero que haya
+  const destino = useSearchParams()[0].get("destino");
+  const pair =
+    pairs?.find((p) => p.site.id === id && p.site.target === destino) ?? pairs?.find((p) => p.site.id === id) ?? null;
 
   // Siguiente sitio del mismo destino, por similitud; después del último vuelve al primero
   const next = useMemo(() => {
@@ -201,7 +205,7 @@ export default function LocationDetail() {
 
       {next && (
         <Link
-          to={`/ubicacion/${next.site.id}`}
+          to={siteUrl(next.site)}
           data-reveal
           className="group mt-20 flex items-center gap-5 border-t border-ink/10 pt-8"
         >

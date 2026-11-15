@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { Pair } from "../../hooks/usePairs";
 import { bodyLabel, formatPercent } from "../../lib/format";
 import { IMAGE_SIZES } from "../../lib/images";
+import { siteUrl } from "../../services/api";
 import { Picture } from "../ui/Photo";
 
 export default function SiteCard({ pair }: { pair: Pair }) {
@@ -11,7 +12,7 @@ export default function SiteCard({ pair }: { pair: Pair }) {
 
   return (
     <Link
-      to={`/ubicacion/${site.id}`}
+      to={siteUrl(site)}
       className="group block focus-visible:outline-offset-4"
     >
       <div className="relative aspect-4/3 overflow-hidden bg-night-800">
