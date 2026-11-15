@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 import type { Base, Site } from "../types/site";
 import { getBases, getSites } from "../services/api";
@@ -18,6 +19,8 @@ interface Settled<T> {
 /**
  * Pide `fetcher(key)` cada vez que cambia `key`.
  * `fetcher` tiene que ser estable (las funciones de services/api lo son).
+ * Al cambiar de key (p. ej. de idioma) se sigue mostrando el dato anterior hasta que llega el nuevo,
+ * para no volver a los esqueletos de carga.
  */
 function useAsync<T>(key: string | null, fetcher: (key: string) => Promise<T>): AsyncState<T> {
   const [settled, setSettled] = useState<Settled<T> | null>(null);
@@ -39,15 +42,24 @@ function useAsync<T>(key: string | null, fetcher: (key: string) => Promise<T>): 
   }, [key, fetcher]);
 
   if (key === null) return { data: null, loading: false, error: i18n.t("common.error.missingId") };
-  // Mientras la respuesta no corresponda a la key actual, seguimos cargando
-  if (!settled || settled.key !== key) return { data: null, loading: true, error: null };
+  if (!settled) return { data: null, loading: true, error: null };
+  // Mientras llega la respuesta de la key actual, se mantiene el dato anterior si lo había
+  if (settled.key !== key) {
+    return settled.data ? { data: settled.data, loading: false, error: null } : { data: null, loading: true, error: null };
+  }
   return { data: settled.data, loading: false, error: settled.error };
 }
 
+/** Idioma activo; al cambiarlo se vuelven a pedir los datos (services/api los guarda por idioma) */
+function useLang(): string {
+  const { i18n: instance } = useTranslation();
+  return instance.resolvedLanguage ?? "en";
+}
+
 export function useSites(): AsyncState<Site[]> {
-  return useAsync("sites", getSites);
+  return useAsync(useLang(), getSites);
 }
 
 export function useBases(): AsyncState<Base[]> {
-  return useAsync("bases", getBases);
+  return useAsync(useLang(), getBases);
 }

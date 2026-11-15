@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { usePairs, type Pair } from "../../hooks/usePairs";
+import { usePairs } from "../../hooks/usePairs";
 import { useBases } from "../../hooks/useSites";
 import { bodyLabel, formatPercent } from "../../lib/format";
 import { MODE_DIRECTION, SWAP_EASE, SWAP_EXIT_S } from "../../lib/motion";
@@ -35,22 +35,6 @@ const TARGET_TEXTURE: Record<Target, string> = {
 };
 
 const ALL_TARGET_TEXTURES = Object.values(TARGET_TEXTURE);
-
-/**
- * Orden de la lista entre los dos globos: por similitud, pero sin dos lugares seguidos con la
- * misma base (en Marte van por parejas). Si el siguiente comparte base con el anterior, pasa
- * antes el siguiente que no la comparta, para que al bajar por la lista el destino cambie.
- */
-function alternateBases(sorted: Pair[]): Pair[] {
-  const pending = [...sorted];
-  const result: Pair[] = [];
-  while (pending.length > 0) {
-    const previousBase = result.at(-1)?.base.id;
-    const index = pending.findIndex((pair) => pair.base.id !== previousBase);
-    result.push(...pending.splice(index === -1 ? 0 : index, 1));
-  }
-  return result;
-}
 
 // Los dos globos siempre lado a lado (también en móvil, más pequeños) y la lista debajo hasta lg
 const STAGE_GRID = "grid grid-cols-2 gap-x-4 gap-y-6 md:gap-x-6 lg:grid-cols-[1fr_16rem_1fr]";
@@ -90,17 +74,16 @@ export default function GlobeSection() {
   }, [mode, switching, reduce]);
 
   const selected = pairs?.find((p) => p.site.id === selectedSiteId) ?? pairs?.[0] ?? null;
-  const listOrder = useMemo(() => alternateBases(pairs ?? []), [pairs]);
 
   const earthPoints = useMemo<GlobePoint[]>(
     () =>
-      (pairs ?? []).map(({ site }) => {
-        const level = similarityLevel(site.similarity);
+      (pairs ?? []).map(({ site, match }) => {
+        const level = similarityLevel(match.score);
         return {
           id: site.id,
           lat: site.lat,
           lng: site.lng,
-          label: `${site.name} · ${formatPercent(site.similarity, lang)}`,
+          label: `${site.name} · ${formatPercent(match.score, lang)}`,
           color: LEVEL_COLOR[mode][level.id],
           size: LEVEL_SIZE[level.id],
         };
@@ -165,7 +148,7 @@ export default function GlobeSection() {
               </figure>
 
               <Swap swapKey={mode} direction={direction} className={LIST_CELL}>
-                <SiteList pairs={listOrder} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+                <SiteList pairs={pairs} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
               </Swap>
 
               {/* Globo del destino: también en móvil, que es donde más se comparte la web */}

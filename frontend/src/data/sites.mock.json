@@ -1,167 +1,2152 @@
 [
   {
-    "id": "atacama",
-    "name": "Desierto de Atacama",
-    "country": "Chile",
-    "lat": -24.5,
-    "lng": -69.25,
-    "target": "mars",
-    "analogOf": "jezero",
-    "similarity": 0.91,
-    "factors": { "precipMm": 1, "tempMin": -2, "tempMax": 30, "terrain": "alto" },
-    "missions": ["ARADS (NASA Ames)", "Life in the Atacama (NASA/CMU)"],
-    "image": "/images/atacama.jpg",
-    "imageCredit": "Claire Provost · CC BY-SA 3.0",
-    "description": "Uno de los desiertos más secos del planeta, con suelos oxidantes y radiación UV intensa."
+    "id": "altiplano-del-tibet",
+    "name": {
+      "es": "Altiplano del Tíbet",
+      "en": "Tibetan Plateau"
+    },
+    "country": {
+      "es": "China",
+      "en": "China"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en China, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 47,5 m, rango térmico de 25,4 °C entre día y noche y 42 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in China, with a study level of 0.1 out of 1. Roughness of 47.5 m, a day–night range of 25.4 °C and 42% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 34.0,
+    "lng": 85.0,
+    "region": "China",
+    "geology": "sedimentos",
+    "studied": 0.1,
+    "metrics": {
+      "roughnessM": 47.5,
+      "thermalRange": 25.4,
+      "coldIndex": 42,
+      "elevationM": 4970.8,
+      "tempMinC": -26.96,
+      "tempMaxC": 33.24
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -1.42,
+        "nightC": -25.11
+      },
+      {
+        "month": 2,
+        "dayC": 6.33,
+        "nightC": -21.42
+      },
+      {
+        "month": 3,
+        "dayC": 15.04,
+        "nightC": -18.88
+      },
+      {
+        "month": 4,
+        "dayC": 21.09,
+        "nightC": -11.82
+      },
+      {
+        "month": 5,
+        "dayC": 19.55,
+        "nightC": -8.22
+      },
+      {
+        "month": 6,
+        "dayC": 19.66,
+        "nightC": -1.16
+      },
+      {
+        "month": 7,
+        "dayC": 26.97,
+        "nightC": 2.49
+      },
+      {
+        "month": 8,
+        "dayC": 20.95,
+        "nightC": 3.0
+      },
+      {
+        "month": 9,
+        "dayC": 21.97,
+        "nightC": -2.2
+      },
+      {
+        "month": 10,
+        "dayC": 12.9,
+        "nightC": -11.5
+      },
+      {
+        "month": 11,
+        "dayC": 6.28,
+        "nightC": -18.6
+      },
+      {
+        "month": 12,
+        "dayC": 0.35,
+        "nightC": -23.39
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.9169,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 91.69,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "utopia-planitia",
+        "score": 0.7162,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 78.36,
+          "temperature": 94.5,
+          "ice_water": 42.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 47.5,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈4.6 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 4970.8,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 25.4,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -26.96,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 33.24,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 42,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/altiplano-del-tibet.jpg",
+    "imageAuthor": "NASA Earth Observatory / Michala Garrison, Landsat (USGS)",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
   },
   {
-    "id": "mcmurdo",
-    "name": "Valles Secos de McMurdo",
-    "country": "Antártida",
+    "id": "askja",
+    "name": {
+      "es": "Askja",
+      "en": "Askja"
+    },
+    "country": {
+      "es": "Islandia",
+      "en": "Iceland"
+    },
+    "description": {
+      "es": "Terreno basáltico en Islandia, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 201,3 m, rango térmico de 6,3 °C entre día y noche y 75 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Iceland, with a study level of 0.9 out of 1. Roughness of 201.3 m, a day–night range of 6.3 °C and 75% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 65.0,
+    "lng": -16.7,
+    "region": "Islandia",
+    "geology": "basalto",
+    "studied": 0.9,
+    "metrics": {
+      "roughnessM": 201.3,
+      "thermalRange": 6.3,
+      "coldIndex": 75,
+      "elevationM": 969.2,
+      "tempMinC": -21.36,
+      "tempMaxC": 20.27
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -13.82,
+        "nightC": -12.45
+      },
+      {
+        "month": 2,
+        "dayC": -5.38,
+        "nightC": -9.29
+      },
+      {
+        "month": 3,
+        "dayC": -11.54,
+        "nightC": -15.46
+      },
+      {
+        "month": 4,
+        "dayC": -1.03,
+        "nightC": -7.4
+      },
+      {
+        "month": 5,
+        "dayC": 4.2,
+        "nightC": -4.76
+      },
+      {
+        "month": 6,
+        "dayC": 15.4,
+        "nightC": 1.64
+      },
+      {
+        "month": 7,
+        "dayC": 12.47,
+        "nightC": -0.03
+      },
+      {
+        "month": 8,
+        "dayC": 17.95,
+        "nightC": 0.74
+      },
+      {
+        "month": 9,
+        "dayC": -0.32,
+        "nightC": -7.13
+      },
+      {
+        "month": 10,
+        "dayC": -7.7,
+        "nightC": -9.06
+      },
+      {
+        "month": 11,
+        "dayC": -9.66,
+        "nightC": -9.82
+      },
+      {
+        "month": 12,
+        "dayC": -13.73,
+        "nightC": -14.09
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "cabeus",
+        "score": 0.785,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 87.21,
+          "temperature": 73.3,
+          "ice_water": 75.0
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.8053,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 97.48,
+          "temperature": 69.1,
+          "ice_water": 75.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 201.3,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈2.4 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 969.2,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 6.3,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -21.36,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 20.27,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 75,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/askja.jpg",
+    "imageAuthor": "European Union, Copernicus Sentinel-2",
+    "imageLicense": "copernicus",
+    "dataSource": "real"
+  },
+  {
+    "id": "atacama",
+    "name": {
+      "es": "Desierto de Atacama",
+      "en": "Atacama Desert"
+    },
+    "country": {
+      "es": "Chile",
+      "en": "Chile"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Chile, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 261,8 m, rango térmico de 27,9 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Chile, with a study level of 0.9 out of 1. Roughness of 261.8 m, a day–night range of 27.9 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "ARADS (NASA Ames)",
+        "Life in the Atacama (NASA/CMU)"
+      ],
+      "en": [
+        "ARADS (NASA Ames)",
+        "Life in the Atacama (NASA/CMU)"
+      ]
+    },
+    "lat": -24.5,
+    "lng": -69.2,
+    "region": "Chile",
+    "geology": "sedimentos",
+    "studied": 0.9,
+    "metrics": {
+      "roughnessM": 261.8,
+      "thermalRange": 27.9,
+      "coldIndex": 0,
+      "elevationM": 2928.9,
+      "tempMinC": -0.55,
+      "tempMaxC": 44.17
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 40.3,
+        "nightC": 7.25
+      },
+      {
+        "month": 2,
+        "dayC": 38.54,
+        "nightC": 8.57
+      },
+      {
+        "month": 3,
+        "dayC": 36.17,
+        "nightC": 8.73
+      },
+      {
+        "month": 4,
+        "dayC": 31.16,
+        "nightC": 4.82
+      },
+      {
+        "month": 5,
+        "dayC": 26.03,
+        "nightC": 3.52
+      },
+      {
+        "month": 6,
+        "dayC": 22.04,
+        "nightC": 2.02
+      },
+      {
+        "month": 7,
+        "dayC": 22.43,
+        "nightC": 2.02
+      },
+      {
+        "month": 8,
+        "dayC": 27.04,
+        "nightC": 2.68
+      },
+      {
+        "month": 9,
+        "dayC": 34.2,
+        "nightC": 4.74
+      },
+      {
+        "month": 10,
+        "dayC": 39.43,
+        "nightC": 6.1
+      },
+      {
+        "month": 11,
+        "dayC": 40.36,
+        "nightC": 5.9
+      },
+      {
+        "month": 12,
+        "dayC": 42.97,
+        "nightC": 8.73
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.7161,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 71.61,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.6251,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 96.84,
+          "temperature": 90.7,
+          "ice_water": 0.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 261.8,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈5.1 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 2928.9,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 27.9,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -0.55,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 44.17,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/atacama.jpg",
+    "imageAuthor": "Claire Provost",
+    "imageLicense": "CC BY-SA 3.0",
+    "dataSource": "real"
+  },
+  {
+    "id": "dasht-e-lut",
+    "name": {
+      "es": "Dasht-e Lut",
+      "en": "Dasht-e Lut"
+    },
+    "country": {
+      "es": "Irán",
+      "en": "Iran"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Irán, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 56,5 m, rango térmico de 26 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Iran, with a study level of 0.2 out of 1. Roughness of 56.5 m, a day–night range of 26 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 30.5,
+    "lng": 59.0,
+    "region": "Iran",
+    "geology": "sedimentos",
+    "studied": 0.2,
+    "metrics": {
+      "roughnessM": 56.5,
+      "thermalRange": 26.0,
+      "coldIndex": 0,
+      "elevationM": 528.1,
+      "tempMinC": -0.44,
+      "tempMaxC": 60.42
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 24.4,
+        "nightC": 3.03
+      },
+      {
+        "month": 2,
+        "dayC": 34.14,
+        "nightC": 10.64
+      },
+      {
+        "month": 3,
+        "dayC": 44.13,
+        "nightC": 16.7
+      },
+      {
+        "month": 4,
+        "dayC": 48.83,
+        "nightC": 19.89
+      },
+      {
+        "month": 5,
+        "dayC": 55.3,
+        "nightC": 23.79
+      },
+      {
+        "month": 6,
+        "dayC": 59.0,
+        "nightC": 30.72
+      },
+      {
+        "month": 7,
+        "dayC": 57.91,
+        "nightC": 30.27
+      },
+      {
+        "month": 8,
+        "dayC": 56.11,
+        "nightC": 28.6
+      },
+      {
+        "month": 9,
+        "dayC": 52.35,
+        "nightC": 24.56
+      },
+      {
+        "month": 10,
+        "dayC": 47.07,
+        "nightC": 20.39
+      },
+      {
+        "month": 11,
+        "dayC": 36.69,
+        "nightC": 15.32
+      },
+      {
+        "month": 12,
+        "dayC": 30.0,
+        "nightC": 8.63
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.9539,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 95.39,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "utopia-planitia",
+        "score": 0.5659,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 74.66,
+          "temperature": 95.1,
+          "ice_water": 0.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 56.5,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈4.8 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 528.1,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 26.0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -0.44,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 60.42,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/dasht-e-lut.jpg",
+    "imageAuthor": "ESA",
+    "imageLicense": "CC BY-SA 3.0 IGO",
+    "dataSource": "real"
+  },
+  {
+    "id": "depresion-de-danakil",
+    "name": {
+      "es": "Depresión de Danakil",
+      "en": "Danakil Depression"
+    },
+    "country": {
+      "es": "Etiopía",
+      "en": "Ethiopia"
+    },
+    "description": {
+      "es": "Terreno basáltico en Etiopía, con un nivel de estudio de 0,3 sobre 1. Rugosidad de 14,6 m, rango térmico de 9,5 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Ethiopia, with a study level of 0.3 out of 1. Roughness of 14.6 m, a day–night range of 9.5 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 14.2,
+    "lng": 40.3,
+    "region": "Etiopia",
+    "geology": "basalto",
+    "studied": 0.3,
+    "metrics": {
+      "roughnessM": 14.6,
+      "thermalRange": 9.5,
+      "coldIndex": 0,
+      "elevationM": -120.9,
+      "tempMinC": 27.11,
+      "tempMaxC": 50.04
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 38.51,
+        "nightC": 30.63
+      },
+      {
+        "month": 2,
+        "dayC": 40.05,
+        "nightC": 30.29
+      },
+      {
+        "month": 3,
+        "dayC": 37.64,
+        "nightC": 29.38
+      },
+      {
+        "month": 4,
+        "dayC": 41.62,
+        "nightC": 32.32
+      },
+      {
+        "month": 5,
+        "dayC": 46.38,
+        "nightC": 34.88
+      },
+      {
+        "month": 6,
+        "dayC": 45.28,
+        "nightC": 33.95
+      },
+      {
+        "month": 7,
+        "dayC": 43.91,
+        "nightC": 36.39
+      },
+      {
+        "month": 8,
+        "dayC": 47.46,
+        "nightC": 37.17
+      },
+      {
+        "month": 9,
+        "dayC": 48.62,
+        "nightC": 35.96
+      },
+      {
+        "month": 10,
+        "dayC": 48.41,
+        "nightC": 36.09
+      },
+      {
+        "month": 11,
+        "dayC": 41.44,
+        "nightC": 33.23
+      },
+      {
+        "month": 12,
+        "dayC": 37.99,
+        "nightC": 31.73
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.6706,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 67.06,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "utopia-planitia",
+        "score": 0.5854,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 97.01,
+          "temperature": 78.6,
+          "ice_water": 0.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 14.6,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈5.4 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": -120.9,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 9.5,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores; 1 fechas con nulos excluidas",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": 27.11,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 50.04,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/depresion-de-danakil.jpg",
+    "imageAuthor": "NASA Johnson Space Center, ISS Expedition 14",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "desierto-de-gobi",
+    "name": {
+      "es": "Desierto de Gobi",
+      "en": "Gobi Desert"
+    },
+    "country": {
+      "es": "Mongolia",
+      "en": "Mongolia"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Mongolia, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 136,8 m, rango térmico de 18,5 °C entre día y noche y 33 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Mongolia, with a study level of 0.2 out of 1. Roughness of 136.8 m, a day–night range of 18.5 °C and 33% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 43.5,
+    "lng": 104.0,
+    "region": "Mongolia",
+    "geology": "sedimentos",
+    "studied": 0.2,
+    "metrics": {
+      "roughnessM": 136.8,
+      "thermalRange": 18.5,
+      "coldIndex": 33,
+      "elevationM": 2335.6,
+      "tempMinC": -28.36,
+      "tempMaxC": 38.0
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -12.36,
+        "nightC": -23.04
+      },
+      {
+        "month": 2,
+        "dayC": -6.35,
+        "nightC": -17.57
+      },
+      {
+        "month": 3,
+        "dayC": 11.61,
+        "nightC": -10.83
+      },
+      {
+        "month": 4,
+        "dayC": 14.82,
+        "nightC": -5.66
+      },
+      {
+        "month": 5,
+        "dayC": 24.33,
+        "nightC": -0.66
+      },
+      {
+        "month": 6,
+        "dayC": 35.93,
+        "nightC": 9.65
+      },
+      {
+        "month": 7,
+        "dayC": 35.52,
+        "nightC": 12.03
+      },
+      {
+        "month": 8,
+        "dayC": 34.68,
+        "nightC": 10.48
+      },
+      {
+        "month": 9,
+        "dayC": 22.06,
+        "nightC": 2.18
+      },
+      {
+        "month": 10,
+        "dayC": 16.05,
+        "nightC": -2.09
+      },
+      {
+        "month": 11,
+        "dayC": -2.43,
+        "nightC": -14.72
+      },
+      {
+        "month": 12,
+        "dayC": -12.59,
+        "nightC": -20.56
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.8563,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 85.63,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.6781,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 89.14,
+          "temperature": 81.3,
+          "ice_water": 33.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 136.8,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈4.0 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 2335.6,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 18.5,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -28.36,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 38.0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 33,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/desierto-de-gobi.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "isla-devon",
+    "name": {
+      "es": "Isla Devon",
+      "en": "Devon Island"
+    },
+    "country": {
+      "es": "Canadá",
+      "en": "Canada"
+    },
+    "description": {
+      "es": "Terreno de regolito en Canadá, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 152,4 m, rango térmico de 2,3 °C entre día y noche y 83 % de los meses con media bajo 0 °C.",
+      "en": "Regolith terrain in Canada, with a study level of 0.9 out of 1. Roughness of 152.4 m, a day–night range of 2.3 °C and 83% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "Haughton-Mars Project (NASA/SETI)",
+        "FMARS (Mars Society)"
+      ],
+      "en": [
+        "Haughton-Mars Project (NASA/SETI)",
+        "FMARS (Mars Society)"
+      ]
+    },
+    "lat": 75.4,
+    "lng": -89.0,
+    "region": "Canada",
+    "geology": "regolito",
+    "studied": 0.9,
+    "metrics": {
+      "roughnessM": 152.4,
+      "thermalRange": 2.3,
+      "coldIndex": 83,
+      "elevationM": 225.1,
+      "tempMinC": -39.82,
+      "tempMaxC": 13.89
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -37.01,
+        "nightC": -36.89
+      },
+      {
+        "month": 2,
+        "dayC": -37.32,
+        "nightC": -38.44
+      },
+      {
+        "month": 3,
+        "dayC": -28.04,
+        "nightC": -31.56
+      },
+      {
+        "month": 4,
+        "dayC": -20.25,
+        "nightC": -25.89
+      },
+      {
+        "month": 5,
+        "dayC": -9.56,
+        "nightC": -13.58
+      },
+      {
+        "month": 6,
+        "dayC": 0.97,
+        "nightC": -1.29
+      },
+      {
+        "month": 7,
+        "dayC": 11.22,
+        "nightC": 6.45
+      },
+      {
+        "month": 8,
+        "dayC": 3.89,
+        "nightC": -0.73
+      },
+      {
+        "month": 9,
+        "dayC": -5.45,
+        "nightC": -8.92
+      },
+      {
+        "month": 10,
+        "dayC": -14.62,
+        "nightC": -17.95
+      },
+      {
+        "month": 11,
+        "dayC": -28.39,
+        "nightC": -27.2
+      },
+      {
+        "month": 12,
+        "dayC": -33.78,
+        "nightC": -30.95
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.833,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 83.3,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.7986,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 91.47,
+          "temperature": 65.1,
+          "ice_water": 83.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 152.4,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈1.4 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 225.1,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 2.3,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -39.82,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 13.89,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 83,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/devon.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "mojave",
+    "name": {
+      "es": "Desierto de Mojave",
+      "en": "Mojave Desert"
+    },
+    "country": {
+      "es": "EE. UU.",
+      "en": "USA"
+    },
+    "description": {
+      "es": "Terreno basáltico en EE. UU., con un nivel de estudio de 0,8 sobre 1. Rugosidad de 73,4 m, rango térmico de 19,8 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in the USA, with a study level of 0.8 out of 1. Roughness of 73.4 m, a day–night range of 19.8 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 35.0,
+    "lng": -116.5,
+    "region": "EEUU",
+    "geology": "basalto",
+    "studied": 0.8,
+    "metrics": {
+      "roughnessM": 73.4,
+      "thermalRange": 19.8,
+      "coldIndex": 0,
+      "elevationM": 578.9,
+      "tempMinC": 0.93,
+      "tempMaxC": 54.83
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 12.89,
+        "nightC": 2.94
+      },
+      {
+        "month": 2,
+        "dayC": 20.54,
+        "nightC": 2.6
+      },
+      {
+        "month": 3,
+        "dayC": 26.1,
+        "nightC": 6.99
+      },
+      {
+        "month": 4,
+        "dayC": 40.03,
+        "nightC": 14.67
+      },
+      {
+        "month": 5,
+        "dayC": 43.98,
+        "nightC": 19.04
+      },
+      {
+        "month": 6,
+        "dayC": 48.43,
+        "nightC": 23.02
+      },
+      {
+        "month": 7,
+        "dayC": 53.15,
+        "nightC": 29.52
+      },
+      {
+        "month": 8,
+        "dayC": 49.16,
+        "nightC": 26.57
+      },
+      {
+        "month": 9,
+        "dayC": 41.55,
+        "nightC": 21.21
+      },
+      {
+        "month": 10,
+        "dayC": 34.56,
+        "nightC": 15.06
+      },
+      {
+        "month": 11,
+        "dayC": 24.52,
+        "nightC": 6.97
+      },
+      {
+        "month": 12,
+        "dayC": 16.89,
+        "nightC": 4.34
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.9901,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 99.01,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "jezero",
+        "score": 0.5609,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 97.47,
+          "temperature": 70.8,
+          "ice_water": 0.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 73.4,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈4.6 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 578.9,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 19.8,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": 0.93,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 54.83,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/mojave.jpg",
+    "imageAuthor": "Bob Wick, Bureau of Land Management",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "salar-de-uyuni",
+    "name": {
+      "es": "Salar de Uyuni",
+      "en": "Salar de Uyuni"
+    },
+    "country": {
+      "es": "Bolivia",
+      "en": "Bolivia"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Bolivia, con un nivel de estudio de 0,4 sobre 1. Rugosidad de 7,5 m, rango térmico de 6,5 °C entre día y noche y 17 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Bolivia, with a study level of 0.4 out of 1. Roughness of 7.5 m, a day–night range of 6.5 °C and 17% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": -20.2,
+    "lng": -67.5,
+    "region": "Bolivia",
+    "geology": "sedimentos",
+    "studied": 0.4,
+    "metrics": {
+      "roughnessM": 7.5,
+      "thermalRange": 6.5,
+      "coldIndex": 17,
+      "elevationM": 3652.3,
+      "tempMinC": -7.27,
+      "tempMaxC": 20.53
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 16.36,
+        "nightC": 9.84
+      },
+      {
+        "month": 2,
+        "dayC": 16.55,
+        "nightC": 11.01
+      },
+      {
+        "month": 3,
+        "dayC": 13.62,
+        "nightC": 10.15
+      },
+      {
+        "month": 4,
+        "dayC": null,
+        "nightC": null
+      },
+      {
+        "month": 5,
+        "dayC": null,
+        "nightC": null
+      },
+      {
+        "month": 6,
+        "dayC": null,
+        "nightC": null
+      },
+      {
+        "month": 7,
+        "dayC": -0.67,
+        "nightC": -6.42
+      },
+      {
+        "month": 8,
+        "dayC": 2.73,
+        "nightC": -4.36
+      },
+      {
+        "month": 9,
+        "dayC": 7.81,
+        "nightC": 0.97
+      },
+      {
+        "month": 10,
+        "dayC": 12.37,
+        "nightC": 5.04
+      },
+      {
+        "month": 11,
+        "dayC": 15.55,
+        "nightC": 7.66
+      },
+      {
+        "month": 12,
+        "dayC": 19.47,
+        "nightC": 11.38
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.5388,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 53.88,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "arcadia-planitia",
+        "score": 0.6005,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 96.04,
+          "temperature": 67.1,
+          "ice_water": 17.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 7.5,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈5.2 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 3652.3,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 6.5,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores; 15 fechas con nulos excluidas",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -7.27,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 20.53,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 17,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C; 3 meses sin datos cuentan como no bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/salar-de-uyuni.jpg",
+    "imageAuthor": "NASA Johnson Space Center, ISS Expedition 12",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "taklamakan",
+    "name": {
+      "es": "Taklamakán",
+      "en": "Taklamakan"
+    },
+    "country": {
+      "es": "China",
+      "en": "China"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en China, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 6,4 m, rango térmico de 25,4 °C entre día y noche y 17 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in China, with a study level of 0.1 out of 1. Roughness of 6.4 m, a day–night range of 25.4 °C and 17% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 38.9,
+    "lng": 83.0,
+    "region": "China",
+    "geology": "sedimentos",
+    "studied": 0.1,
+    "metrics": {
+      "roughnessM": 6.4,
+      "thermalRange": 25.4,
+      "coldIndex": 17,
+      "elevationM": 1134.2,
+      "tempMinC": -19.51,
+      "tempMaxC": 54.84
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 4.16,
+        "nightC": -17.25
+      },
+      {
+        "month": 2,
+        "dayC": 19.14,
+        "nightC": -6.1
+      },
+      {
+        "month": 3,
+        "dayC": 27.2,
+        "nightC": 2.52
+      },
+      {
+        "month": 4,
+        "dayC": 38.1,
+        "nightC": 10.96
+      },
+      {
+        "month": 5,
+        "dayC": 38.69,
+        "nightC": 11.89
+      },
+      {
+        "month": 6,
+        "dayC": 47.23,
+        "nightC": 19.05
+      },
+      {
+        "month": 7,
+        "dayC": 50.56,
+        "nightC": 22.34
+      },
+      {
+        "month": 8,
+        "dayC": 48.35,
+        "nightC": 20.25
+      },
+      {
+        "month": 9,
+        "dayC": 40.2,
+        "nightC": 14.69
+      },
+      {
+        "month": 10,
+        "dayC": 31.6,
+        "nightC": 5.67
+      },
+      {
+        "month": 11,
+        "dayC": 19.1,
+        "nightC": -4.79
+      },
+      {
+        "month": 12,
+        "dayC": 6.46,
+        "nightC": -12.92
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.5087,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 50.87,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "arcadia-planitia",
+        "score": 0.6534,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 93.03,
+          "temperature": 86.0,
+          "ice_water": 17.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 6.4,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈4.3 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 1134.2,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 25.4,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores; 1 fechas con nulos excluidas",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -19.51,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 54.84,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 17,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/taklamakan.jpg",
+    "imageAuthor": "NASA GSFC, MODIS Land Rapid Response Team",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "tibesti",
+    "name": {
+      "es": "Tibesti",
+      "en": "Tibesti"
+    },
+    "country": {
+      "es": "Chad",
+      "en": "Chad"
+    },
+    "description": {
+      "es": "Terreno basáltico en Chad, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 65,7 m, rango térmico de 20,1 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Chad, with a study level of 0.1 out of 1. Roughness of 65.7 m, a day–night range of 20.1 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 20.0,
+    "lng": 18.0,
+    "region": "Chad",
+    "geology": "basalto",
+    "studied": 0.1,
+    "metrics": {
+      "roughnessM": 65.7,
+      "thermalRange": 20.1,
+      "coldIndex": 0,
+      "elevationM": 837.1,
+      "tempMinC": 14.22,
+      "tempMaxC": 54.24
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": 33.75,
+        "nightC": 15.66
+      },
+      {
+        "month": 2,
+        "dayC": 38.64,
+        "nightC": 18.11
+      },
+      {
+        "month": 3,
+        "dayC": 44.29,
+        "nightC": 22.09
+      },
+      {
+        "month": 4,
+        "dayC": 47.29,
+        "nightC": 24.31
+      },
+      {
+        "month": 5,
+        "dayC": 50.62,
+        "nightC": 27.8
+      },
+      {
+        "month": 6,
+        "dayC": 47.12,
+        "nightC": 27.0
+      },
+      {
+        "month": 7,
+        "dayC": 51.51,
+        "nightC": 30.99
+      },
+      {
+        "month": 8,
+        "dayC": 47.58,
+        "nightC": 29.09
+      },
+      {
+        "month": 9,
+        "dayC": 46.27,
+        "nightC": 27.67
+      },
+      {
+        "month": 10,
+        "dayC": 46.15,
+        "nightC": 24.9
+      },
+      {
+        "month": 11,
+        "dayC": 40.39,
+        "nightC": 20.95
+      },
+      {
+        "month": 12,
+        "dayC": 33.62,
+        "nightC": 16.88
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "peary",
+        "score": 0.9861,
+        "coverage": 14.29,
+        "criteria": {
+          "topography": 98.61,
+          "temperature": null,
+          "ice_water": null
+        }
+      },
+      "mars": {
+        "baseId": "jezero",
+        "score": 0.554,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 95.1,
+          "temperature": 71.1,
+          "ice_water": 0.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 65.7,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈5.2 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 837.1,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 20.1,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": 14.22,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 54.24,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 0,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/tibesti.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "tolbachik-kamchatka",
+    "name": {
+      "es": "Tolbachik, Kamchatka",
+      "en": "Tolbachik, Kamchatka"
+    },
+    "country": {
+      "es": "Rusia",
+      "en": "Russia"
+    },
+    "description": {
+      "es": "Terreno basáltico en Rusia, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 445,2 m, rango térmico de 8,3 °C entre día y noche y 75 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Russia, with a study level of 0.2 out of 1. Roughness of 445.2 m, a day–night range of 8.3 °C and 75% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "lat": 55.8,
+    "lng": 160.3,
+    "region": "Rusia",
+    "geology": "basalto",
+    "studied": 0.2,
+    "metrics": {
+      "roughnessM": 445.2,
+      "thermalRange": 8.3,
+      "coldIndex": 75,
+      "elevationM": 1633.6,
+      "tempMinC": -31.84,
+      "tempMaxC": 26.3
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -27.02,
+        "nightC": -28.89
+      },
+      {
+        "month": 2,
+        "dayC": -22.37,
+        "nightC": -28.21
+      },
+      {
+        "month": 3,
+        "dayC": -9.58,
+        "nightC": -17.95
+      },
+      {
+        "month": 4,
+        "dayC": -4.08,
+        "nightC": -15.95
+      },
+      {
+        "month": 5,
+        "dayC": -0.86,
+        "nightC": -8.88
+      },
+      {
+        "month": 6,
+        "dayC": 12.05,
+        "nightC": -0.4
+      },
+      {
+        "month": 7,
+        "dayC": 20.08,
+        "nightC": 2.73
+      },
+      {
+        "month": 8,
+        "dayC": 12.25,
+        "nightC": 0.43
+      },
+      {
+        "month": 9,
+        "dayC": 3.12,
+        "nightC": -6.05
+      },
+      {
+        "month": 10,
+        "dayC": -5.79,
+        "nightC": -11.57
+      },
+      {
+        "month": 11,
+        "dayC": -16.82,
+        "nightC": -21.09
+      },
+      {
+        "month": 12,
+        "dayC": -23.13,
+        "nightC": -26.23
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "cabeus",
+        "score": 0.8153,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 95.61,
+          "temperature": 73.97,
+          "ice_water": 75.0
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.7715,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 85.34,
+          "temperature": 71.1,
+          "ice_water": 75.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 445.2,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈3.1 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 1633.6,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 8.3,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -31.84,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": 26.3,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 75,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
+    "image": "/images/tolbachik-kamchatka.jpg",
+    "imageAuthor": "NASA Earth Observatory / Jesse Allen, Robert Simmon",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "valles-secos-mcmurdo",
+    "name": {
+      "es": "Valles Secos de McMurdo",
+      "en": "McMurdo Dry Valleys"
+    },
+    "country": {
+      "es": "Antártida",
+      "en": "Antarctica"
+    },
+    "description": {
+      "es": "Terreno con hielo en Antártida, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 308,6 m, rango térmico de 1,8 °C entre día y noche y 100 % de los meses con media bajo 0 °C.",
+      "en": "Icy terrain in Antarctica, with a study level of 0.9 out of 1. Roughness of 308.6 m, a day–night range of 1.8 °C and 100% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "NASA ASTEP",
+        "McMurdo Dry Valleys LTER"
+      ],
+      "en": [
+        "NASA ASTEP",
+        "McMurdo Dry Valleys LTER"
+      ]
+    },
     "lat": -77.5,
     "lng": 162.0,
-    "target": "mars",
-    "analogOf": "arcadia",
-    "similarity": 0.88,
-    "factors": { "precipMm": 50, "tempMin": -50, "tempMax": 5, "terrain": "extremo" },
-    "missions": ["NASA ASTEP", "McMurdo Dry Valleys LTER"],
+    "region": "Antartida",
+    "geology": "hielo",
+    "studied": 0.9,
+    "metrics": {
+      "roughnessM": 308.6,
+      "thermalRange": 1.8,
+      "coldIndex": 100,
+      "elevationM": 1000.1,
+      "tempMinC": -43.09,
+      "tempMaxC": -3.38
+    },
+    "monthlyTemp": [
+      {
+        "month": 1,
+        "dayC": -9.51,
+        "nightC": -13.43
+      },
+      {
+        "month": 2,
+        "dayC": -17.33,
+        "nightC": -20.06
+      },
+      {
+        "month": 3,
+        "dayC": -28.26,
+        "nightC": -28.94
+      },
+      {
+        "month": 4,
+        "dayC": -31.27,
+        "nightC": -32.39
+      },
+      {
+        "month": 5,
+        "dayC": -34.8,
+        "nightC": -35.14
+      },
+      {
+        "month": 6,
+        "dayC": -32.45,
+        "nightC": -33.12
+      },
+      {
+        "month": 7,
+        "dayC": -37.9,
+        "nightC": -37.47
+      },
+      {
+        "month": 8,
+        "dayC": -41.7,
+        "nightC": -40.55
+      },
+      {
+        "month": 9,
+        "dayC": -30.23,
+        "nightC": -31.11
+      },
+      {
+        "month": 10,
+        "dayC": -28.16,
+        "nightC": -29.33
+      },
+      {
+        "month": 11,
+        "dayC": -15.76,
+        "nightC": -19.99
+      },
+      {
+        "month": 12,
+        "dayC": -6.55,
+        "nightC": -13.11
+      }
+    ],
+    "matches": {
+      "moon": {
+        "baseId": "cabeus",
+        "score": 0.8942,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 96.46,
+          "temperature": 71.8,
+          "ice_water": 100.0
+        }
+      },
+      "mars": {
+        "baseId": "hellas-planitia",
+        "score": 0.8596,
+        "coverage": 42.86,
+        "criteria": {
+          "topography": 93.28,
+          "temperature": 64.6,
+          "ice_water": 100.0
+        }
+      }
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 308.6,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; cuadrícula 3x3 con paso de 0.05° (≈5.6 km norte-sur, ≈1.2 km este-oeste en este sitio); desviación estándar (ddof=0) de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "elevacion_m",
+        "value": 1000.1,
+        "note": "ASTGTM_NC.003 (ASTER GDEM v3) vía NASA AppEEARS; promedio de las 9 elevaciones",
+        "url": "https://doi.org/10.5067/ASTER/ASTGTM_NC.003",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 1.8,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; promedio anual de (día - noche) con las fechas que tienen los dos valores",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_min_c",
+        "value": -43.09,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; mínimo de la temperatura de noche",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "temp_max_c",
+        "value": -3.38,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; máximo de la temperatura de día",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "MOD11A2.061 (LST_Day_1km y LST_Night_1km, 2023) vía NASA AppEEARS; índice de frío: % de los 12 meses con temperatura media ((día + noche) / 2) bajo 0 °C",
+        "url": "https://doi.org/10.5067/MODIS/MOD11A2.061",
+        "date": "2026-11-14"
+      }
+    ],
     "image": "/images/mcmurdo.jpg",
-    "imageCredit": "U.S. Department of State · Dominio público",
-    "description": "Valles sin hielo, fríos y muy secos, con permafrost similar al de las llanuras marcianas."
-  },
-  {
-    "id": "devon",
-    "name": "Isla Devon (cráter Haughton)",
-    "country": "Canadá",
-    "lat": 75.38,
-    "lng": -89.68,
-    "target": "mars",
-    "analogOf": "gale",
-    "similarity": 0.86,
-    "factors": { "precipMm": 150, "tempMin": -45, "tempMax": 10, "terrain": "alto" },
-    "missions": ["Haughton-Mars Project (NASA/SETI)", "FMARS (Mars Society)"],
-    "image": "/images/devon.jpg",
-    "imageCredit": "NASA · Dominio público",
-    "description": "Cráter de impacto en el Ártico, frío y aislado, usado para ensayar operaciones de exploración."
-  },
-  {
-    "id": "riotinto",
-    "name": "Río Tinto",
-    "country": "España",
-    "lat": 37.69,
-    "lng": -6.59,
-    "target": "mars",
-    "analogOf": "jezero",
-    "similarity": 0.78,
-    "factors": { "precipMm": 600, "tempMin": 2, "tempMax": 38, "terrain": "moderado" },
-    "missions": ["MARTE (NASA/CAB)"],
-    "image": "/images/riotinto.jpg",
-    "imageCredit": "David Mata Verdejo · CC BY-SA 4.0",
-    "description": "Río ácido rico en hierro y sulfatos, parecido a la química de antiguos ambientes acuosos marcianos."
-  },
-  {
-    "id": "mdrs",
-    "name": "Mars Desert Research Station",
-    "country": "Utah, EE. UU.",
-    "lat": 38.41,
-    "lng": -110.79,
-    "target": "mars",
-    "analogOf": "gale",
-    "similarity": 0.8,
-    "factors": { "precipMm": 180, "tempMin": -15, "tempMax": 38, "terrain": "moderado" },
-    "missions": ["Tripulaciones MDRS (Mars Society)"],
-    "image": "/images/mdrs.jpg",
-    "imageCredit": "Sokoloff et al. (2020) · CC BY 4.0",
-    "description": "Estación de simulación en un desierto de rocas sedimentarias rojizas."
-  },
-  {
-    "id": "svalbard",
-    "name": "Svalbard",
-    "country": "Noruega",
-    "lat": 79.4,
-    "lng": 13.3,
-    "target": "mars",
-    "analogOf": "arcadia",
-    "similarity": 0.74,
-    "factors": { "precipMm": 400, "tempMin": -25, "tempMax": 8, "terrain": "alto" },
-    "missions": ["AMASE (NASA/ESA)"],
-    "image": "/images/svalbard.jpg",
-    "imageCredit": "Bernt Rostad · CC BY 2.0",
-    "description": "Archipiélago ártico con volcanes, permafrost y manantiales que sirven para probar instrumentos."
-  },
-  {
-    "id": "lanzarote",
-    "name": "Lanzarote",
-    "country": "España",
-    "lat": 29.0,
-    "lng": -13.7,
-    "target": "moon",
-    "analogOf": "marius",
-    "similarity": 0.72,
-    "factors": { "precipMm": 140, "tempMin": 12, "tempMax": 30, "terrain": "moderado" },
-    "missions": ["PANGAEA (ESA)"],
-    "image": "/images/lanzarote.jpg",
-    "imageCredit": "H. Zell · CC BY-SA 3.0",
-    "description": "Isla volcánica con campos de lava y tubos volcánicos usados para entrenar astronautas."
-  },
-  {
-    "id": "hiseas",
-    "name": "HI-SEAS, Mauna Loa",
-    "country": "Hawái, EE. UU.",
-    "lat": 19.6,
-    "lng": -155.48,
-    "target": "moon",
-    "analogOf": "tranquilidad",
-    "similarity": 0.75,
-    "factors": { "precipMm": 400, "tempMin": -5, "tempMax": 20, "terrain": "alto" },
-    "missions": ["HI-SEAS (NASA HRP)"],
-    "image": "/images/hiseas.jpg",
-    "imageCredit": "Tiffany Swarmer, NASA · Dominio público",
-    "description": "Hábitat de aislamiento en las laderas de basalto de un volcán, sin vegetación alrededor."
-  },
-  {
-    "id": "meteorcrater",
-    "name": "Meteor Crater",
-    "country": "Arizona, EE. UU.",
-    "lat": 35.03,
-    "lng": -111.02,
-    "target": "moon",
-    "analogOf": "tranquilidad",
-    "similarity": 0.7,
-    "factors": { "precipMm": 250, "tempMin": -10, "tempMax": 35, "terrain": "moderado" },
-    "missions": ["Entrenamiento de astronautas Apollo"],
-    "image": "/images/meteorcrater.jpg",
-    "imageCredit": "USGS · Dominio público",
-    "description": "Cráter de impacto bien conservado donde se entrenó a las tripulaciones del programa Apollo."
-  },
-  {
-    "id": "islandia",
-    "name": "Holuhraun",
-    "country": "Islandia",
-    "lat": 64.87,
-    "lng": -16.83,
-    "target": "moon",
-    "analogOf": "marius",
-    "similarity": 0.69,
-    "factors": { "precipMm": 450, "tempMin": -20, "tempMax": 15, "terrain": "alto" },
-    "missions": ["SAND-E (NASA PSTAR)"],
-    "image": "/images/islandia.jpg",
-    "imageCredit": "NASA Earth Observatory / USGS (Landsat 8) · Dominio público",
-    "description": "Campo de lava reciente y sin vegetación, útil para estudiar terrenos basálticos."
-  },
-  {
-    "id": "concordia",
-    "name": "Estación Concordia",
-    "country": "Antártida",
-    "lat": -75.1,
-    "lng": 123.3,
-    "target": "moon",
-    "analogOf": "shackleton",
-    "similarity": 0.83,
-    "factors": { "precipMm": 25, "tempMin": -80, "tempMax": -25, "terrain": "extremo" },
-    "missions": ["Estudios de aislamiento (ESA)"],
-    "image": "/images/concordia.jpg",
-    "imageCredit": "Paride Legovini · CC BY 4.0",
-    "description": "Base en la meseta antártica, con frío extremo, aislamiento y meses de noche polar."
+    "imageAuthor": "U.S. Department of State",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
   }
 ]

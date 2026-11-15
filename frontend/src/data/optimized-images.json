@@ -1,0 +1,132 @@
+{
+  "/images/altiplano-del-tibet.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/askja.jpg": {
+    "800": 800,
+    "1600": 1271,
+    "2400": 1271
+  },
+  "/images/atacama.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/arcadia.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1920
+  },
+  "/images/bases/arsia-mons.jpg": {
+    "800": 800,
+    "1600": 1417,
+    "2400": 1417
+  },
+  "/images/bases/cabeus.jpg": {
+    "800": 800,
+    "1600": 835,
+    "2400": 835
+  },
+  "/images/bases/gale.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/hellas-planitia.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/jezero.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/malapert-massif.jpg": {
+    "800": 800,
+    "1600": 1100,
+    "2400": 1100
+  },
+  "/images/bases/oxia-planum.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/peary.jpg": {
+    "800": 800,
+    "1600": 1500,
+    "2400": 1500
+  },
+  "/images/bases/rimae-bode.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1600
+  },
+  "/images/bases/shackleton.jpg": {
+    "800": 800,
+    "1600": 1182,
+    "2400": 1182
+  },
+  "/images/bases/tranquilidad.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/bases/utopia-planitia.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/dasht-e-lut.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2241
+  },
+  "/images/depresion-de-danakil.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/desierto-de-gobi.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1920
+  },
+  "/images/devon.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/mcmurdo.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/mojave.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1928
+  },
+  "/images/salar-de-uyuni.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1920
+  },
+  "/images/taklamakan.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1920
+  },
+  "/images/tibesti.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 2400
+  },
+  "/images/tolbachik-kamchatka.jpg": {
+    "800": 800,
+    "1600": 1600,
+    "2400": 1920
+  }
+}

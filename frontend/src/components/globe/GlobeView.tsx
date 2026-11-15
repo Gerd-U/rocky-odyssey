@@ -188,7 +188,8 @@ export default function GlobeView({
         style={{
           width: diameter,
           height: diameter,
-          backgroundImage: `url(${texture})`,
+          // Solo la textura que de verdad cargó; si ninguna carga, el círculo queda liso
+          backgroundImage: textureUrl ? `url(${textureUrl})` : undefined,
           backgroundSize: "auto 100%",
           backgroundPosition: `${posterOffset}px center`,
           boxShadow: "inset -24px -12px 60px rgb(0 0 0 / 0.65)",

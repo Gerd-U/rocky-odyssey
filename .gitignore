@@ -15,3 +15,6 @@ venv/
 .vscode/
 .DS_Store
 datos/datos_crudos/*.tif
+
+# Claude Code
+.claude/
