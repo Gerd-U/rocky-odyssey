@@ -32,8 +32,12 @@ def nueve_puntos(lat, lon):
     return pts
 
 SITIOS = {
-    "Pozo Mare Tranquillitatis": (8.3, 33.2),   # aproximado, confírmalo
-    # "Shackleton (borde)": (lat, lon),         # agrégalo cuando tengas las coordenadas del centro
+    "Pozo Mare Tranquillitatis": (8.3, 33.2),   # aproximado
+    "Shackleton (borde)": (-82.6, 132.3),
+    "Malapert": (-84.8, 12.3),
+    "Cabeus": (-85.3, -41.8),
+    "Rimae Bode": (9.54, -3.22),    
+    "Peary": (88.56, 25.7),
 }
 
 with rasterio.open(TIF) as src:

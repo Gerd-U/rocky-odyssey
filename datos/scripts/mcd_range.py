@@ -43,9 +43,11 @@ for sitio, lista in por_sitio.items():
 import csv
 import pandas as pd
 
-NOMBRES = {"jezero": "Jezero", "arcadia": "Arcadia Planitia"}
-COORDS = {"jezero": "18.4 N, 77.5 E", "arcadia": "47.0 N, 184.0 E"}  # confirma las que usaste en la página
-FECHA = "2026-11-15"   # cambia por el día en que hiciste las consultas
+NOMBRES = {"jezero": "Jezero", "arcadia": "Arcadia Planitia", "gale": "Gale",
+           "oxia": "Oxia Planum", "hellas": "Hellas Planitia", "arsia": "Arsia Mons"}
+COORDS = {"jezero": "18.4 N, 77.5 E", "arcadia": "47.0 N, 184.0 E", "gale": "4.6 S, 137.4 E",
+          "oxia": "18.2 N, 335.4 E", "hellas": "42.4 S, 70.5 E", "arsia": "8.3 S, 239.9 E"}
+FECHA = "2026-11-15"  
 URL = "https://www-mars.lmd.jussieu.fr/mcd_python/"
 VERSION_MCD = "v6.2"
 
