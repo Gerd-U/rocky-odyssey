@@ -3,3 +3,5 @@ numpy
 earthaccess
 rasterio
 matplotlib
+requests
+pyproj

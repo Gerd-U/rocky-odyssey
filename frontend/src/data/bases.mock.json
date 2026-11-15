@@ -1,68 +1,906 @@
 [
   {
-    "id": "marius",
-    "name": "Pozo de Marius Hills",
-    "body": "moon",
-    "lat": 14.09,
-    "lng": -56.77,
-    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
-    "image": "/images/bases/marius.jpg",
-    "imageCredit": "NASA/GSFC/Arizona State University · LRO",
-    "description": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura."
-  },
-  {
-    "id": "tranquilidad",
-    "name": "Mar de la Tranquilidad",
-    "body": "moon",
-    "lat": 0.67,
-    "lng": 23.47,
-    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
-    "image": "/images/bases/tranquilidad.jpg",
-    "imageCredit": "NASA / Neil A. Armstrong · Apollo 11",
-    "description": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo."
-  },
-  {
-    "id": "shackleton",
-    "name": "Cráter Shackleton (polo sur lunar)",
-    "body": "moon",
-    "lat": -89.9,
-    "lng": 0,
-    "factors": { "precipMm": 0, "tempMin": -230, "tempMax": -20, "terrain": "extremo" },
-    "image": "/images/bases/shackleton.jpg",
-    "imageCredit": "NASA Goddard / LRO",
-    "description": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua."
-  },
-  {
-    "id": "jezero",
-    "name": "Cráter Jezero",
-    "body": "mars",
-    "lat": 18.4,
-    "lng": 77.5,
-    "factors": { "precipMm": 0, "tempMin": -85, "tempMax": -5, "terrain": "alto" },
-    "image": "/images/bases/jezero.jpg",
-    "imageCredit": "NASA/JPL-Caltech/ASU · Perseverance, procesado por Andrea Luck",
-    "description": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada."
-  },
-  {
-    "id": "arcadia",
-    "name": "Arcadia Planitia",
+    "id": "arcadia-planitia",
+    "name": {
+      "es": "Arcadia Planitia",
+      "en": "Arcadia Planitia"
+    },
+    "description": {
+      "es": "Llanura del hemisferio norte de Marte (47° N). Rugosidad de 9,2 m y rango térmico de 39,4 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Plain in Mars' northern hemisphere (47° N). Roughness of 9.2 m and a 39.4 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
+    },
     "body": "mars",
     "lat": 47.0,
-    "lng": -170.0,
-    "factors": { "precipMm": 0, "tempMin": -110, "tempMax": -20, "terrain": "moderado" },
+    "lng": -176.0,
+    "metrics": {
+      "roughnessM": 9.2,
+      "thermalRange": 39.4,
+      "coldIndex": 100.0,
+      "tminK": 173.4,
+      "tmaxK": 212.8
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 9.2,
+        "note": "Mars MGS MOLA DEM 463m (mosaico global USGS); 9 puntos (3x3, 5.5 km) centrados en (47.0, 184.0) aprox.",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 212.8,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 173.4,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 39.4,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~193 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
     "image": "/images/bases/arcadia.jpg",
-    "imageCredit": "ESA/DLR/FU Berlin · Mars Express",
-    "description": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana."
+    "imageAuthor": "ESA/DLR/FU Berlin",
+    "imageLicense": "CC BY-SA 3.0 IGO",
+    "dataSource": "real"
+  },
+  {
+    "id": "arsia-mons",
+    "name": {
+      "es": "Arsia Mons (tragaluz Jeanne)",
+      "en": "Arsia Mons (Jeanne skylight)"
+    },
+    "description": {
+      "es": "Volcán con agujeros en sus flancos que podrían ser tragaluces de cuevas. Este punto es 'Jeanne', uno de los siete candidatos que vio la cámara THEMIS de Mars Odyssey.",
+      "en": "Volcano with holes on its flanks that may be cave skylights. This point is 'Jeanne', one of the seven candidates seen by the THEMIS camera on Mars Odyssey."
+    },
+    "body": "mars",
+    "lat": -5.5332,
+    "lng": -118.6069,
+    "metrics": {
+      "roughnessM": 110.5,
+      "thermalRange": 78.3,
+      "coldIndex": 100.0,
+      "tminK": 168.6,
+      "tmaxK": 246.9
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-5.5332, -118.6069",
+        "note": "Tragaluz 'Jeanne' (APC075) del Mars Global Cave Candidate Catalog (Cushing, USGS/PDS): 241.3931°E, -5.5332°, 165 m de diámetro, 345 m de profundidad aparente; prioridad 0 = ya tiene observación HiRISE pública. Es el único de los siete tragaluces de Cushing et al. 2007 (doi:10.1029/2007GL030709) que el catálogo nombra. Cima del Gazetteer como referencia: -8.30°, 238.90°E (https://planetarynames.wr.usgs.gov/Feature/394)",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_global_cave_candidate_catalog_v1_cushing",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 110.5,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-5.5332, -118.6069 (lon este -180..180; 241.3931 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_arsia-mons_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 168.6,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 78.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~208 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/arsia-mons.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/ASU/USGS",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
   },
   {
     "id": "gale",
-    "name": "Cráter Gale",
+    "name": {
+      "es": "Cráter Gale",
+      "en": "Gale Crater"
+    },
+    "description": {
+      "es": "Cráter donde aterrizó el rover Curiosity de NASA en 2012, en el punto conocido como Bradbury Landing. Es uno de los lugares de Marte con más información disponible.",
+      "en": "Crater where NASA's Curiosity rover landed in 2012, at the spot known as Bradbury Landing. It is one of the places on Mars with the most information available."
+    },
     "body": "mars",
-    "lat": -5.4,
-    "lng": 137.8,
-    "factors": { "precipMm": 0, "tempMin": -90, "tempMax": 5, "terrain": "extremo" },
+    "lat": -4.59,
+    "lng": 137.44,
+    "metrics": {
+      "roughnessM": 171.9,
+      "thermalRange": 54.4,
+      "coldIndex": 100.0,
+      "tminK": 192.2,
+      "tmaxK": 246.6
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-4.59, 137.44",
+        "note": "Bradbury Landing, sitio de aterrizaje de Curiosity: NASA GISS Mars24 da 137.44°E 4.59°S para Mars Science Laboratory y dice que el sitio se conoce como Bradbury Landing",
+        "url": "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 171.9,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-4.5900, 137.4400 (lon este -180..180; 137.4400 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_gale_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.6,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 192.2,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 54.4,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~219 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
     "image": "/images/bases/gale.jpg",
-    "imageCredit": "NASA/JPL-Caltech/MSSS · Curiosity",
-    "description": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity."
+    "imageAuthor": "NASA/JPL-Caltech/MSSS",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "hellas-planitia",
+    "name": {
+      "es": "Hellas Planitia",
+      "en": "Hellas Planitia"
+    },
+    "description": {
+      "es": "Fondo de la cuenca de Hellas, la zona más baja de Marte y, por eso, la de mayor presión atmosférica.",
+      "en": "Floor of the Hellas basin, the lowest region on Mars and therefore the one with the highest atmospheric pressure."
+    },
+    "body": "mars",
+    "lat": -42.66,
+    "lng": 70.0,
+    "metrics": {
+      "roughnessM": 226.2,
+      "thermalRange": 37.2,
+      "coldIndex": 100.0,
+      "tminK": 187.7,
+      "tmaxK": 224.9
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-42.66, 70.0",
+        "note": "Centro del Gazetteer of Planetary Nomenclature de USGS (planetocéntrico, +Este, 0-360)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/2432",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 226.2,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-42.6600, 70.0000 (lon este -180..180; 70.0000 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_hellas-planitia_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 224.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 187.7,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 37.2,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~206 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/hellas-planitia.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/University of Arizona",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "jezero",
+    "name": {
+      "es": "Cráter Jezero",
+      "en": "Jezero Crater"
+    },
+    "description": {
+      "es": "Cráter Jezero, en Marte. Rugosidad de 82,6 m y rango térmico de 49 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Jezero Crater, on Mars. Roughness of 82.6 m and a 49 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
+    },
+    "body": "mars",
+    "lat": 18.4,
+    "lng": 77.5,
+    "metrics": {
+      "roughnessM": 82.6,
+      "thermalRange": 49.0,
+      "coldIndex": 100.0,
+      "tminK": 194.7,
+      "tmaxK": 243.7
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 82.6,
+        "note": "Mars MGS MOLA DEM 463m (mosaico global USGS); 9 puntos (3x3, 5.5 km) centrados en (18.4, 77.5) aprox.",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 243.7,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 194.7,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 49.0,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~219 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/jezero.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/ASU, procesado por Andrea Luck",
+    "imageLicense": "CC BY 2.0",
+    "dataSource": "real"
+  },
+  {
+    "id": "oxia-planum",
+    "name": {
+      "es": "Oxia Planum",
+      "en": "Oxia Planum"
+    },
+    "description": {
+      "es": "Llanura elegida como sitio de aterrizaje del rover europeo Rosalind Franklin (ExoMars), en terrenos antiguos de las tierras altas con cráteres.",
+      "en": "Plain chosen as the landing site for the European Rosalind Franklin rover (ExoMars), on ancient cratered highland terrain."
+    },
+    "body": "mars",
+    "lat": 18.2,
+    "lng": -24.55,
+    "metrics": {
+      "roughnessM": 15.3,
+      "thermalRange": 45.3,
+      "coldIndex": 100.0,
+      "tminK": 195.0,
+      "tmaxK": 240.3
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "18.2, -24.55",
+        "note": "Sitio de aterrizaje de Oxia Planum según el portal científico de ESA (18.20°N, 335.45°E); ESA no publica en esa página otro centro para la elipse de Rosalind Franklin. Centro del Gazetteer de USGS como referencia: 17.28°N, 334.29°E (https://planetarynames.wr.usgs.gov/Feature/15821)",
+        "url": "https://exploration.esa.int/web/mars/-/54724-oxia-planum",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 15.3,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (18.2000, -24.5500 (lon este -180..180; 335.4500 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_oxia-planum_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 240.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 195.0,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 45.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~218 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/oxia-planum.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/UArizona",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "utopia-planitia",
+    "name": {
+      "es": "Utopia Planitia",
+      "en": "Utopia Planitia"
+    },
+    "description": {
+      "es": "Gran llanura del norte de Marte con hielo a poca profundidad, como Arcadia Planitia. La sonda Viking 2, que aterrizó allí, fotografió hielo sobre su superficie.",
+      "en": "Large plain in northern Mars with shallow ground ice, like Arcadia Planitia. The Viking 2 lander, which touched down there, photographed ice on its surface."
+    },
+    "body": "mars",
+    "lat": 49.67,
+    "lng": 118.0,
+    "metrics": {
+      "roughnessM": 16.9,
+      "thermalRange": 30.9,
+      "coldIndex": 100.0,
+      "tminK": 177.1,
+      "tmaxK": 208.0
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "49.67, 118.0",
+        "note": "Centro del Gazetteer of Planetary Nomenclature de USGS (planetocéntrico, +Este, 0-360). No se encontró en una fuente oficial o con DOI la coordenada de un cráter con hielo expuesto confirmado dentro de Utopia Planitia",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/6260",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 16.9,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (49.6700, 118.0000 (lon este -180..180; 118.0000 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_utopia-planitia_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 208.0,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 177.1,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 30.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~193 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/utopia-planitia.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/UArizona",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "cabeus",
+    "name": {
+      "es": "Cráter Cabeus",
+      "en": "Cabeus Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur donde impactó la misión LCROSS en 2009, en una zona en sombra permanente; los datos de LRO y LCROSS revelaron agua y otros volátiles.",
+      "en": "Crater near the south pole where the LCROSS mission impacted in 2009, in a permanently shadowed region; LRO and LCROSS data revealed water and other volatiles."
+    },
+    "body": "moon",
+    "lat": -85.277073,
+    "lng": -41.8055,
+    "metrics": {
+      "roughnessM": 363.5,
+      "thermalRange": 86.4,
+      "coldIndex": 100.0,
+      "tminK": 42.8,
+      "tmaxK": 129.2
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-85.277073, -41.8055",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (cráter Cabeus según el Gazetteer de USGS: -85.33, -42.13, https://planetarynames.wr.usgs.gov/Feature/953). Motivo: Cráter donde impactó LCROSS, misión que identificó hielo de agua en la Luna (https://astrobiology.nasa.gov/missions/lcross/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/953",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 363.5,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-85.277073, -41.8055); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_cabeus_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 129.2,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. máximo; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 42.8,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. mínimo; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 86.4,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~86 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/cabeus.jpg",
+    "imageAuthor": "NASA (LRO/LOLA)",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "malapert",
+    "name": {
+      "es": "Cráter Malapert",
+      "en": "Malapert Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur de la Luna, junto al macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Crater near the Moon's south pole, next to the Malapert Massif, one of NASA's candidate landing regions for Artemis III."
+    },
+    "body": "moon",
+    "lat": -84.798043,
+    "lng": 12.3057,
+    "metrics": {
+      "roughnessM": 879.5,
+      "thermalRange": 193.1,
+      "coldIndex": 100.0,
+      "tminK": 53.5,
+      "tmaxK": 246.6
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-84.798043, 12.305737",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (cráter Malapert según el Gazetteer de USGS: -85.00, 11.40, https://planetarynames.wr.usgs.gov/Feature/3603). Motivo: Cráter junto al macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III (https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/3603",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 879.5,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-84.798043, 12.305737); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_malapert_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. máximo; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 53.5,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. mínimo; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 193.1,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~150 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": null,
+    "imageAuthor": null,
+    "imageLicense": null,
+    "dataSource": "real"
+  },
+  {
+    "id": "malapert-massif",
+    "name": {
+      "es": "Macizo Malapert",
+      "en": "Malapert Massif"
+    },
+    "description": {
+      "es": "Montaña cerca del polo sur de la Luna, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Mountain near the Moon's south pole, one of NASA's candidate landing regions for Artemis III."
+    },
+    "body": "moon",
+    "lat": -85.98,
+    "lng": -1.67,
+    "metrics": {
+      "roughnessM": 797.3,
+      "thermalRange": 204.6,
+      "coldIndex": 100.0,
+      "tminK": 52.6,
+      "tmaxK": 257.2
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-85.98, -1.67",
+        "note": "Fuente: https://planetarynames.wr.usgs.gov/Feature/16338. Motivo: Macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III (https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/16338",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 797.3,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-85.98, -1.67); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_malapert-massif_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 257.2,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. máximo; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 52.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. mínimo; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 204.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~155 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/malapert-massif.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "peary",
+    "name": {
+      "es": "Cráter Peary",
+      "en": "Peary Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo norte de la Luna cuyo borde tiene zonas con iluminación casi constante (Bussey et al. 2005).",
+      "en": "Crater near the Moon's north pole whose rim has areas with nearly constant illumination (Bussey et al. 2005)."
+    },
+    "body": "moon",
+    "lat": 88.568812,
+    "lng": 25.7342,
+    "metrics": {
+      "roughnessM": 70.1,
+      "thermalRange": null,
+      "coldIndex": null,
+      "tminK": null,
+      "tmaxK": null
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "88.568812, 25.734194",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (coinciden con el Gazetteer de USGS: 88.57, 25.73, https://planetarynames.wr.usgs.gov/Feature/4627). Motivo: Cráter del polo norte cuyo borde tiene zonas con iluminación casi constante (Bussey et al. 2005, Nature, https://doi.org/10.1038/nature03278)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/4627",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 70.1,
+        "note": "LOLA LDEM_80N_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (88.568812, 25.734194); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_peary_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80n_80m.img",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/peary.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "pozo-mare-tranquillitatis",
+    "name": {
+      "es": "Pozo del Mare Tranquillitatis",
+      "en": "Mare Tranquillitatis pit"
+    },
+    "description": {
+      "es": "Pozo en el Mare Tranquillitatis, en la zona ecuatorial de la Luna. Rugosidad de 34,5 m y rango térmico de 297 K entre las temperaturas máxima y mínima publicadas.",
+      "en": "Pit in Mare Tranquillitatis, in the Moon's equatorial region. Roughness of 34.5 m and a 297 K range between the published maximum and minimum temperatures."
+    },
+    "body": "moon",
+    "lat": 8.3,
+    "lng": 33.2,
+    "metrics": {
+      "roughnessM": 34.5,
+      "thermalRange": 297.0,
+      "coldIndex": 100.0,
+      "tminK": 95,
+      "tmaxK": 392
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 34.5,
+        "note": "LRO_LOLA_DEM_Global_128ppd_v04",
+        "url": "https://trek.nasa.gov/moon/#v=0.1&x=31.931762099671268&y=8.924331498568433&z=6&p=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A104903&d=&l=LRO_LOLA_Shade_Global_128ppd_v04%2Ctrue%2C1&l=LRO_LOLA_DEM_Global_128ppd_v04%2Ctrue%2C1&locale=&b=moon&e=26.87255809248097%2C4.886855987944253%2C36.99096610686156%2C12.961807009192613&sfz=&w=",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 392,
+        "note": "Valor publicado (no leido de una capa): Williams et al. 2017, Icarus 283, 300-325; maximo ecuatorial 387-397 K, se usa el punto medio",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 95,
+        "note": "Valor publicado: Williams et al. 2017; minimo ecuatorial antes del amanecer, unos 95 K",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 297,
+        "note": "tmax_k - tmin_k",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Media diaria ~243 K. Valor anterior 0.0 era presencia de hielo.",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo_favorabilidad",
+        "value": 0,
+        "note": "Criterio propio, escala 0-100 de favorabilidad al hielo: 0 sin evidencia; 25 estable solo en lugares muy locales; 50 condiciones favorables mas evidencia indirecta; 75 evidencia fuerte por teledeteccion; 100 deteccion directa. Zona ecuatorial con maximas cercanas a 390 K, muy por encima del umbral de ~110 K de las trampas frias (Paige et al. 2010)",
+        "url": "https://doi.org/10.1126/science.1187726",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/tranquilidad.jpg",
+    "imageAuthor": "NASA / Neil A. Armstrong",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "rimae-bode",
+    "name": {
+      "es": "Rimae Bode",
+      "en": "Rimae Bode"
+    },
+    "description": {
+      "es": "Sistema de surcos en la cara visible de la Luna, junto a un depósito piroclástico regional que podría tener más de 100 metros de espesor.",
+      "en": "System of rilles on the Moon's near side, next to a regional pyroclastic deposit that may be more than 100 meters thick."
+    },
+    "body": "moon",
+    "lat": 9.542316,
+    "lng": -3.222,
+    "metrics": {
+      "roughnessM": null,
+      "thermalRange": 298.7,
+      "coldIndex": 100.0,
+      "tminK": 93.6,
+      "tmaxK": 392.3
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "9.542316, -3.22197",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (coinciden con el Gazetteer de USGS: 9.54, -3.22, https://planetarynames.wr.usgs.gov/Feature/5097). Motivo: Sistema de surcos (rimae) en la cara visible de la Luna, cerca de su centro (https://planetarynames.wr.usgs.gov/Feature/5097)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/5097",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 392.3,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. máximo; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 93.6,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. mínimo; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 298.7,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~243 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/rimae-bode.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "shackleton",
+    "name": {
+      "es": "Cráter Shackleton (borde)",
+      "en": "Shackleton Crater (rim)"
+    },
+    "description": {
+      "es": "Borde del cráter Shackleton, en el polo sur de la Luna. Rugosidad de 909,9 m; su rango térmico de 130 K es una aproximación: el contraste entre el borde y el fondo del cráter.",
+      "en": "Rim of Shackleton Crater, at the Moon's south pole. Roughness of 909.9 m; its 130 K thermal range is an approximation: the contrast between the rim and the crater floor."
+    },
+    "body": "moon",
+    "lat": -89.9,
+    "lng": 0.0,
+    "metrics": {
+      "roughnessM": 909.9,
+      "thermalRange": 130.0,
+      "coldIndex": 100.0,
+      "tminK": null,
+      "tmaxK": null
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 909.9,
+        "note": "LRO LOLA DEM, 87.5 deg v4, S Pole",
+        "url": "https://trek.nasa.gov/moon/#v=0.1&x=17324.577026367668&y=-4949.879150390865&z=7&p=urn%3Aogc%3Adef%3Acrs%3AIAU2000%3A%3A30120&d=&locale=&b=moon&e=-34047.14172363226%2C-29532.049255371297%2C68696.2957763676%2C19632.290954589567&sfz=&w=",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 130,
+        "note": "PROVISIONAL: contraste borde (~220 K) y fondo (~88 K); no es rango diurno",
+        "url": "https://science.nasa.gov/solar-system/moon/phenomena-nasa-astronauts-will-encounter-at-moons-south-pole",
+        "date": "2026-11-15",
+        "provisional": true
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Valor anterior 25.0 era presencia de hielo.",
+        "url": "https://www.diviner.ucla.edu/single-post/2020/07/20/new-diviner-seasonal-polar-data-products",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo_favorabilidad",
+        "value": 25,
+        "note": "Criterio propio, escala 0-100 de favorabilidad al hielo: 0 sin evidencia; 25 estable solo en lugares muy locales; 50 condiciones favorables mas evidencia indirecta; 75 evidencia fuerte por teledeteccion; 100 deteccion directa. El borde esta iluminado gran parte de cada orbita, no es trampa fria; el piso vecino si lo es, pero su albedo no indica hielo expuesto en superficie (Zuber et al. 2012, Nature; verificar)",
+        "url": "https://doi.org/10.1126/science.1187726",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/shackleton.jpg",
+    "imageAuthor": "NASA Goddard / LRO",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
   }
 ]

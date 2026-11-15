@@ -2,7 +2,7 @@ import type { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 import { usePairs, type Pair } from "../../hooks/usePairs";
 import type { Target } from "../../types/site";
-import { formatPrecip, formatTempSpan, terrainLabel } from "../../lib/format";
+import { formatCelsiusSpan, formatKelvin, formatMeters, formatPercentValue } from "../../lib/format";
 import SectionHeading from "../ui/SectionHeading";
 
 interface ExampleLine {
@@ -20,43 +20,45 @@ const BODY_TINT: Record<Target, string> = {
 interface Criterion {
   term: string;
   text: string;
-  /** id del sitio de la Tierra que sirve de ejemplo */
+  /** id del sitio de la Tierra que sirve de ejemplo, con su base más parecida */
   siteId: string;
   example: (pair: Pair) => ExampleLine[];
 }
 
+const orNoData = (value: string | null, t: TFunction) => value ?? t("common.noData");
+
 const criteria = (t: TFunction): Criterion[] => [
   {
-    term: t("common.factors.rain"),
-    text: t("home.criteria.rain"),
+    term: t("criteria.topography.label"),
+    text: t("home.criteria.topography"),
+    siteId: "tolbachik-kamchatka",
+    example: ({ site, base }) => [
+      { place: site.name, value: orNoData(formatMeters(site.metrics.roughnessM), t) },
+      { place: base.name, value: orNoData(formatMeters(base.metrics.roughnessM), t), body: base.body },
+    ],
+  },
+  {
+    term: t("criteria.temperature.label"),
+    text: t("home.criteria.temperature"),
     siteId: "atacama",
     example: ({ site, base }) => [
-      { place: site.name, value: formatPrecip(site.factors.precipMm) },
-      { place: base.name, value: formatPrecip(base.factors.precipMm), body: base.body },
+      { place: site.name, value: orNoData(formatCelsiusSpan(site.metrics.thermalRange), t) },
+      { place: base.name, value: orNoData(formatKelvin(base.metrics.thermalRange), t), body: base.body },
     ],
   },
   {
-    term: t("common.factors.temperature"),
-    text: t("home.criteria.temperature"),
-    siteId: "concordia",
+    term: t("criteria.ice_water.label"),
+    text: t("home.criteria.cold"),
+    siteId: "valles-secos-mcmurdo",
     example: ({ site, base }) => [
-      { place: site.name, value: formatTempSpan(site.factors.tempMin, site.factors.tempMax) },
-      { place: base.name, value: formatTempSpan(base.factors.tempMin, base.factors.tempMax), body: base.body },
-    ],
-  },
-  {
-    term: t("common.factors.terrain"),
-    text: t("home.criteria.terrain"),
-    siteId: "meteorcrater",
-    example: ({ site, base }) => [
-      { place: site.name, value: terrainLabel(site.factors.terrain) },
-      { place: base.name, value: terrainLabel(base.factors.terrain), body: base.body },
+      { place: site.name, value: orNoData(formatPercentValue(site.metrics.coldIndex), t) },
+      { place: base.name, value: orNoData(formatPercentValue(base.metrics.coldIndex), t), body: base.body },
     ],
   },
   {
     term: t("home.criteria.historyTerm"),
     text: t("home.criteria.history"),
-    siteId: "devon",
+    siteId: "isla-devon",
     example: ({ site }) => [{ place: site.name, value: site.missions[0] ?? t("home.criteria.noMissions") }],
   },
 ];

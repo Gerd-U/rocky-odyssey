@@ -3,11 +3,23 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import credits from "../../data/credits.json";
 import { useSites } from "../../hooks/useSites";
+import { licenseLabel } from "../../lib/format";
 import type { ImageCredit } from "../../types/credit";
-import type { Site } from "../../types/site";
+import type { Site, Target } from "../../types/site";
 import { ButtonLink } from "../ui/Button";
 
 const YEAR = new Date().getFullYear();
+
+/** Cuántos lugares lista cada columna de análogos */
+const TOP_PER_BODY = 5;
+
+/** Los lugares más parecidos a una base de ese cuerpo: cada sitio se compara con la Luna y con Marte */
+function topSites(sites: Site[] | null, body: Target): Site[] {
+  return (sites ?? [])
+    .filter((site) => site.matches[body])
+    .sort((a, b) => (b.matches[body]?.score ?? 0) - (a.matches[body]?.score ?? 0))
+    .slice(0, TOP_PER_BODY);
+}
 
 const EXPLORE_LINKS = [
   { id: "globe", to: "/#globo" },
@@ -85,14 +97,11 @@ function SiteLinks({ sites }: { sites: Site[] }) {
   ));
 }
 
-// La licencia viene en español en credits.json: la única que se traduce es "Dominio público"
-const PUBLIC_DOMAIN = "Dominio público";
-
 export default function Footer() {
   const { t } = useTranslation();
   const { data: sites } = useSites();
-  const marsSites = sites?.filter((s) => s.target === "mars") ?? [];
-  const moonSites = sites?.filter((s) => s.target === "moon") ?? [];
+  const marsSites = topSites(sites, "mars");
+  const moonSites = topSites(sites, "moon");
 
   return (
     <footer className="relative mt-16 overflow-hidden">
@@ -212,7 +221,7 @@ export default function Footer() {
                 >
                   {c.title}
                 </a>{" "}
-                · {c.author} · {c.license === PUBLIC_DOMAIN ? t("footer.publicDomain") : c.license}
+                · {c.author} · {licenseLabel(c.license)}
               </li>
             ))}
           </ul>

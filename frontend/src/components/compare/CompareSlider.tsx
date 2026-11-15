@@ -1,8 +1,13 @@
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { IMAGE_SIZES } from "../../lib/images";
+import { Picture, type PhotoPlace } from "../ui/Photo";
+import PlaceFallback from "../ui/PlaceFallback";
 
 export interface CompareSide {
-  src: string;
+  /** null: el lugar no tiene foto y se dibuja `place` sobre la textura de su cuerpo */
+  src: string | null;
+  place: PhotoPlace;
   alt: string;
   label: string;
   caption: string;
@@ -15,6 +20,9 @@ interface CompareSliderProps {
 }
 
 const STEP = 5;
+
+/** El marco es 4:3 en móvil y 16:9 desde md; para centrar la textura basta un valor intermedio */
+const FRAME_ASPECT = 0.66;
 
 const KEY_MOVES: Record<string, (position: number) => number> = {
   ArrowLeft: (p) => p - STEP,
@@ -77,21 +85,8 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
         dragging ? "cursor-grabbing" : "cursor-ew-resize"
       } ${className}`}
     >
-      <img
-        src={earth.src}
-        alt={earth.alt}
-        draggable={false}
-        fetchPriority="high"
-        className="absolute inset-0 size-full object-cover"
-      />
-      <img
-        src={target.src}
-        alt={target.alt}
-        draggable={false}
-        fetchPriority="high"
-        style={{ clipPath: `inset(0 0 0 ${position}%)` }}
-        className="absolute inset-0 size-full object-cover"
-      />
+      <SideImage side={earth} />
+      <SideImage side={target} clip={`inset(0 0 0 ${position}%)`} />
 
       <SideLabel side={earth} align="left" visible={position > 22} />
       <SideLabel side={target} align="right" visible={position < 78} />
@@ -135,6 +130,35 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
           </p>
         </div>
       </div>
+    </div>
+  );
+}
+
+/** Foto de un lado, o la textura con el nombre si el lugar aún no tiene foto */
+function SideImage({ side, clip }: { side: CompareSide; clip?: string }) {
+  if (side.src) {
+    return (
+      <Picture
+        src={side.src}
+        sizes={IMAGE_SIZES.wide}
+        alt={side.alt}
+        draggable={false}
+        fetchPriority="high"
+        style={clip ? { clipPath: clip } : undefined}
+        className="absolute inset-0 size-full object-cover"
+      />
+    );
+  }
+  return (
+    <div className="absolute inset-0" style={clip ? { clipPath: clip } : undefined}>
+      <PlaceFallback
+        name={side.place.name}
+        lat={side.place.lat}
+        lng={side.place.lng}
+        body={side.place.body}
+        aspect={FRAME_ASPECT}
+        label="pending"
+      />
     </div>
   );
 }

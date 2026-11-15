@@ -1,0 +1,977 @@
+{
+  "Altiplano del Tibet": {
+    "elevacion_m": 4970.8,
+    "temp_min_c": -26.96,
+    "temp_max_c": 33.24,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -1.42,
+        "noche_c": -25.11
+      },
+      {
+        "mes": 2,
+        "dia_c": 6.33,
+        "noche_c": -21.42
+      },
+      {
+        "mes": 3,
+        "dia_c": 15.04,
+        "noche_c": -18.88
+      },
+      {
+        "mes": 4,
+        "dia_c": 21.09,
+        "noche_c": -11.82
+      },
+      {
+        "mes": 5,
+        "dia_c": 19.55,
+        "noche_c": -8.22
+      },
+      {
+        "mes": 6,
+        "dia_c": 19.66,
+        "noche_c": -1.16
+      },
+      {
+        "mes": 7,
+        "dia_c": 26.97,
+        "noche_c": 2.49
+      },
+      {
+        "mes": 8,
+        "dia_c": 20.95,
+        "noche_c": 3.0
+      },
+      {
+        "mes": 9,
+        "dia_c": 21.97,
+        "noche_c": -2.2
+      },
+      {
+        "mes": 10,
+        "dia_c": 12.9,
+        "noche_c": -11.5
+      },
+      {
+        "mes": 11,
+        "dia_c": 6.28,
+        "noche_c": -18.6
+      },
+      {
+        "mes": 12,
+        "dia_c": 0.35,
+        "noche_c": -23.39
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 4.61
+    }
+  },
+  "Askja": {
+    "elevacion_m": 969.2,
+    "temp_min_c": -21.36,
+    "temp_max_c": 20.27,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -13.82,
+        "noche_c": -12.45
+      },
+      {
+        "mes": 2,
+        "dia_c": -5.38,
+        "noche_c": -9.29
+      },
+      {
+        "mes": 3,
+        "dia_c": -11.54,
+        "noche_c": -15.46
+      },
+      {
+        "mes": 4,
+        "dia_c": -1.03,
+        "noche_c": -7.4
+      },
+      {
+        "mes": 5,
+        "dia_c": 4.2,
+        "noche_c": -4.76
+      },
+      {
+        "mes": 6,
+        "dia_c": 15.4,
+        "noche_c": 1.64
+      },
+      {
+        "mes": 7,
+        "dia_c": 12.47,
+        "noche_c": -0.03
+      },
+      {
+        "mes": 8,
+        "dia_c": 17.95,
+        "noche_c": 0.74
+      },
+      {
+        "mes": 9,
+        "dia_c": -0.32,
+        "noche_c": -7.13
+      },
+      {
+        "mes": 10,
+        "dia_c": -7.7,
+        "noche_c": -9.06
+      },
+      {
+        "mes": 11,
+        "dia_c": -9.66,
+        "noche_c": -9.82
+      },
+      {
+        "mes": 12,
+        "dia_c": -13.73,
+        "noche_c": -14.09
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 2.35
+    }
+  },
+  "Atacama": {
+    "elevacion_m": 2928.9,
+    "temp_min_c": -0.55,
+    "temp_max_c": 44.17,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 40.3,
+        "noche_c": 7.25
+      },
+      {
+        "mes": 2,
+        "dia_c": 38.54,
+        "noche_c": 8.57
+      },
+      {
+        "mes": 3,
+        "dia_c": 36.17,
+        "noche_c": 8.73
+      },
+      {
+        "mes": 4,
+        "dia_c": 31.16,
+        "noche_c": 4.82
+      },
+      {
+        "mes": 5,
+        "dia_c": 26.03,
+        "noche_c": 3.52
+      },
+      {
+        "mes": 6,
+        "dia_c": 22.04,
+        "noche_c": 2.02
+      },
+      {
+        "mes": 7,
+        "dia_c": 22.43,
+        "noche_c": 2.02
+      },
+      {
+        "mes": 8,
+        "dia_c": 27.04,
+        "noche_c": 2.68
+      },
+      {
+        "mes": 9,
+        "dia_c": 34.2,
+        "noche_c": 4.74
+      },
+      {
+        "mes": 10,
+        "dia_c": 39.43,
+        "noche_c": 6.1
+      },
+      {
+        "mes": 11,
+        "dia_c": 40.36,
+        "noche_c": 5.9
+      },
+      {
+        "mes": 12,
+        "dia_c": 42.97,
+        "noche_c": 8.73
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 5.06
+    }
+  },
+  "Dasht-e Lut": {
+    "elevacion_m": 528.1,
+    "temp_min_c": -0.44,
+    "temp_max_c": 60.42,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 24.4,
+        "noche_c": 3.03
+      },
+      {
+        "mes": 2,
+        "dia_c": 34.14,
+        "noche_c": 10.64
+      },
+      {
+        "mes": 3,
+        "dia_c": 44.13,
+        "noche_c": 16.7
+      },
+      {
+        "mes": 4,
+        "dia_c": 48.83,
+        "noche_c": 19.89
+      },
+      {
+        "mes": 5,
+        "dia_c": 55.3,
+        "noche_c": 23.79
+      },
+      {
+        "mes": 6,
+        "dia_c": 59.0,
+        "noche_c": 30.72
+      },
+      {
+        "mes": 7,
+        "dia_c": 57.91,
+        "noche_c": 30.27
+      },
+      {
+        "mes": 8,
+        "dia_c": 56.11,
+        "noche_c": 28.6
+      },
+      {
+        "mes": 9,
+        "dia_c": 52.35,
+        "noche_c": 24.56
+      },
+      {
+        "mes": 10,
+        "dia_c": 47.07,
+        "noche_c": 20.39
+      },
+      {
+        "mes": 11,
+        "dia_c": 36.69,
+        "noche_c": 15.32
+      },
+      {
+        "mes": 12,
+        "dia_c": 30.0,
+        "noche_c": 8.63
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 4.8
+    }
+  },
+  "Depresion de Danakil": {
+    "elevacion_m": -120.9,
+    "temp_min_c": 27.11,
+    "temp_max_c": 50.04,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 38.51,
+        "noche_c": 30.63
+      },
+      {
+        "mes": 2,
+        "dia_c": 40.05,
+        "noche_c": 30.29
+      },
+      {
+        "mes": 3,
+        "dia_c": 37.64,
+        "noche_c": 29.38
+      },
+      {
+        "mes": 4,
+        "dia_c": 41.62,
+        "noche_c": 32.32
+      },
+      {
+        "mes": 5,
+        "dia_c": 46.38,
+        "noche_c": 34.88
+      },
+      {
+        "mes": 6,
+        "dia_c": 45.28,
+        "noche_c": 33.95
+      },
+      {
+        "mes": 7,
+        "dia_c": 43.91,
+        "noche_c": 36.39
+      },
+      {
+        "mes": 8,
+        "dia_c": 47.46,
+        "noche_c": 37.17
+      },
+      {
+        "mes": 9,
+        "dia_c": 48.62,
+        "noche_c": 35.96
+      },
+      {
+        "mes": 10,
+        "dia_c": 48.41,
+        "noche_c": 36.09
+      },
+      {
+        "mes": 11,
+        "dia_c": 41.44,
+        "noche_c": 33.23
+      },
+      {
+        "mes": 12,
+        "dia_c": 37.99,
+        "noche_c": 31.73
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 1,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 5.4
+    }
+  },
+  "Desierto de Gobi": {
+    "elevacion_m": 2335.6,
+    "temp_min_c": -28.36,
+    "temp_max_c": 38.0,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -12.36,
+        "noche_c": -23.04
+      },
+      {
+        "mes": 2,
+        "dia_c": -6.35,
+        "noche_c": -17.57
+      },
+      {
+        "mes": 3,
+        "dia_c": 11.61,
+        "noche_c": -10.83
+      },
+      {
+        "mes": 4,
+        "dia_c": 14.82,
+        "noche_c": -5.66
+      },
+      {
+        "mes": 5,
+        "dia_c": 24.33,
+        "noche_c": -0.66
+      },
+      {
+        "mes": 6,
+        "dia_c": 35.93,
+        "noche_c": 9.65
+      },
+      {
+        "mes": 7,
+        "dia_c": 35.52,
+        "noche_c": 12.03
+      },
+      {
+        "mes": 8,
+        "dia_c": 34.68,
+        "noche_c": 10.48
+      },
+      {
+        "mes": 9,
+        "dia_c": 22.06,
+        "noche_c": 2.18
+      },
+      {
+        "mes": 10,
+        "dia_c": 16.05,
+        "noche_c": -2.09
+      },
+      {
+        "mes": 11,
+        "dia_c": -2.43,
+        "noche_c": -14.72
+      },
+      {
+        "mes": 12,
+        "dia_c": -12.59,
+        "noche_c": -20.56
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 4.04
+    }
+  },
+  "Isla Devon": {
+    "elevacion_m": 225.1,
+    "temp_min_c": -39.82,
+    "temp_max_c": 13.89,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -37.01,
+        "noche_c": -36.89
+      },
+      {
+        "mes": 2,
+        "dia_c": -37.32,
+        "noche_c": -38.44
+      },
+      {
+        "mes": 3,
+        "dia_c": -28.04,
+        "noche_c": -31.56
+      },
+      {
+        "mes": 4,
+        "dia_c": -20.25,
+        "noche_c": -25.89
+      },
+      {
+        "mes": 5,
+        "dia_c": -9.56,
+        "noche_c": -13.58
+      },
+      {
+        "mes": 6,
+        "dia_c": 0.97,
+        "noche_c": -1.29
+      },
+      {
+        "mes": 7,
+        "dia_c": 11.22,
+        "noche_c": 6.45
+      },
+      {
+        "mes": 8,
+        "dia_c": 3.89,
+        "noche_c": -0.73
+      },
+      {
+        "mes": 9,
+        "dia_c": -5.45,
+        "noche_c": -8.92
+      },
+      {
+        "mes": 10,
+        "dia_c": -14.62,
+        "noche_c": -17.95
+      },
+      {
+        "mes": 11,
+        "dia_c": -28.39,
+        "noche_c": -27.2
+      },
+      {
+        "mes": 12,
+        "dia_c": -33.78,
+        "noche_c": -30.95
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 1.4
+    }
+  },
+  "Mojave": {
+    "elevacion_m": 578.9,
+    "temp_min_c": 0.93,
+    "temp_max_c": 54.83,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 12.89,
+        "noche_c": 2.94
+      },
+      {
+        "mes": 2,
+        "dia_c": 20.54,
+        "noche_c": 2.6
+      },
+      {
+        "mes": 3,
+        "dia_c": 26.1,
+        "noche_c": 6.99
+      },
+      {
+        "mes": 4,
+        "dia_c": 40.03,
+        "noche_c": 14.67
+      },
+      {
+        "mes": 5,
+        "dia_c": 43.98,
+        "noche_c": 19.04
+      },
+      {
+        "mes": 6,
+        "dia_c": 48.43,
+        "noche_c": 23.02
+      },
+      {
+        "mes": 7,
+        "dia_c": 53.15,
+        "noche_c": 29.52
+      },
+      {
+        "mes": 8,
+        "dia_c": 49.16,
+        "noche_c": 26.57
+      },
+      {
+        "mes": 9,
+        "dia_c": 41.55,
+        "noche_c": 21.21
+      },
+      {
+        "mes": 10,
+        "dia_c": 34.56,
+        "noche_c": 15.06
+      },
+      {
+        "mes": 11,
+        "dia_c": 24.52,
+        "noche_c": 6.97
+      },
+      {
+        "mes": 12,
+        "dia_c": 16.89,
+        "noche_c": 4.34
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 4.56
+    }
+  },
+  "Salar de Uyuni": {
+    "elevacion_m": 3652.3,
+    "temp_min_c": -7.27,
+    "temp_max_c": 20.53,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 16.36,
+        "noche_c": 9.84
+      },
+      {
+        "mes": 2,
+        "dia_c": 16.55,
+        "noche_c": 11.01
+      },
+      {
+        "mes": 3,
+        "dia_c": 13.62,
+        "noche_c": 10.15
+      },
+      {
+        "mes": 4,
+        "dia_c": null,
+        "noche_c": null
+      },
+      {
+        "mes": 5,
+        "dia_c": null,
+        "noche_c": null
+      },
+      {
+        "mes": 6,
+        "dia_c": null,
+        "noche_c": null
+      },
+      {
+        "mes": 7,
+        "dia_c": -0.67,
+        "noche_c": -6.42
+      },
+      {
+        "mes": 8,
+        "dia_c": 2.73,
+        "noche_c": -4.36
+      },
+      {
+        "mes": 9,
+        "dia_c": 7.81,
+        "noche_c": 0.97
+      },
+      {
+        "mes": 10,
+        "dia_c": 12.37,
+        "noche_c": 5.04
+      },
+      {
+        "mes": 11,
+        "dia_c": 15.55,
+        "noche_c": 7.66
+      },
+      {
+        "mes": 12,
+        "dia_c": 19.47,
+        "noche_c": 11.38
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 15,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 5.22
+    }
+  },
+  "Taklamakan": {
+    "elevacion_m": 1134.2,
+    "temp_min_c": -19.51,
+    "temp_max_c": 54.84,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 4.16,
+        "noche_c": -17.25
+      },
+      {
+        "mes": 2,
+        "dia_c": 19.14,
+        "noche_c": -6.1
+      },
+      {
+        "mes": 3,
+        "dia_c": 27.2,
+        "noche_c": 2.52
+      },
+      {
+        "mes": 4,
+        "dia_c": 38.1,
+        "noche_c": 10.96
+      },
+      {
+        "mes": 5,
+        "dia_c": 38.69,
+        "noche_c": 11.89
+      },
+      {
+        "mes": 6,
+        "dia_c": 47.23,
+        "noche_c": 19.05
+      },
+      {
+        "mes": 7,
+        "dia_c": 50.56,
+        "noche_c": 22.34
+      },
+      {
+        "mes": 8,
+        "dia_c": 48.35,
+        "noche_c": 20.25
+      },
+      {
+        "mes": 9,
+        "dia_c": 40.2,
+        "noche_c": 14.69
+      },
+      {
+        "mes": 10,
+        "dia_c": 31.6,
+        "noche_c": 5.67
+      },
+      {
+        "mes": 11,
+        "dia_c": 19.1,
+        "noche_c": -4.79
+      },
+      {
+        "mes": 12,
+        "dia_c": 6.46,
+        "noche_c": -12.92
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 1,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 4.33
+    }
+  },
+  "Tibesti": {
+    "elevacion_m": 837.1,
+    "temp_min_c": 14.22,
+    "temp_max_c": 54.24,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": 33.75,
+        "noche_c": 15.66
+      },
+      {
+        "mes": 2,
+        "dia_c": 38.64,
+        "noche_c": 18.11
+      },
+      {
+        "mes": 3,
+        "dia_c": 44.29,
+        "noche_c": 22.09
+      },
+      {
+        "mes": 4,
+        "dia_c": 47.29,
+        "noche_c": 24.31
+      },
+      {
+        "mes": 5,
+        "dia_c": 50.62,
+        "noche_c": 27.8
+      },
+      {
+        "mes": 6,
+        "dia_c": 47.12,
+        "noche_c": 27.0
+      },
+      {
+        "mes": 7,
+        "dia_c": 51.51,
+        "noche_c": 30.99
+      },
+      {
+        "mes": 8,
+        "dia_c": 47.58,
+        "noche_c": 29.09
+      },
+      {
+        "mes": 9,
+        "dia_c": 46.27,
+        "noche_c": 27.67
+      },
+      {
+        "mes": 10,
+        "dia_c": 46.15,
+        "noche_c": 24.9
+      },
+      {
+        "mes": 11,
+        "dia_c": 40.39,
+        "noche_c": 20.95
+      },
+      {
+        "mes": 12,
+        "dia_c": 33.62,
+        "noche_c": 16.88
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 5.23
+    }
+  },
+  "Tolbachik Kamchatka": {
+    "elevacion_m": 1633.6,
+    "temp_min_c": -31.84,
+    "temp_max_c": 26.3,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -27.02,
+        "noche_c": -28.89
+      },
+      {
+        "mes": 2,
+        "dia_c": -22.37,
+        "noche_c": -28.21
+      },
+      {
+        "mes": 3,
+        "dia_c": -9.58,
+        "noche_c": -17.95
+      },
+      {
+        "mes": 4,
+        "dia_c": -4.08,
+        "noche_c": -15.95
+      },
+      {
+        "mes": 5,
+        "dia_c": -0.86,
+        "noche_c": -8.88
+      },
+      {
+        "mes": 6,
+        "dia_c": 12.05,
+        "noche_c": -0.4
+      },
+      {
+        "mes": 7,
+        "dia_c": 20.08,
+        "noche_c": 2.73
+      },
+      {
+        "mes": 8,
+        "dia_c": 12.25,
+        "noche_c": 0.43
+      },
+      {
+        "mes": 9,
+        "dia_c": 3.12,
+        "noche_c": -6.05
+      },
+      {
+        "mes": 10,
+        "dia_c": -5.79,
+        "noche_c": -11.57
+      },
+      {
+        "mes": 11,
+        "dia_c": -16.82,
+        "noche_c": -21.09
+      },
+      {
+        "mes": 12,
+        "dia_c": -23.13,
+        "noche_c": -26.23
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 3.13
+    }
+  },
+  "Valles secos McMurdo": {
+    "elevacion_m": 1000.1,
+    "temp_min_c": -43.09,
+    "temp_max_c": -3.38,
+    "serie_mensual": [
+      {
+        "mes": 1,
+        "dia_c": -9.51,
+        "noche_c": -13.43
+      },
+      {
+        "mes": 2,
+        "dia_c": -17.33,
+        "noche_c": -20.06
+      },
+      {
+        "mes": 3,
+        "dia_c": -28.26,
+        "noche_c": -28.94
+      },
+      {
+        "mes": 4,
+        "dia_c": -31.27,
+        "noche_c": -32.39
+      },
+      {
+        "mes": 5,
+        "dia_c": -34.8,
+        "noche_c": -35.14
+      },
+      {
+        "mes": 6,
+        "dia_c": -32.45,
+        "noche_c": -33.12
+      },
+      {
+        "mes": 7,
+        "dia_c": -37.9,
+        "noche_c": -37.47
+      },
+      {
+        "mes": 8,
+        "dia_c": -41.7,
+        "noche_c": -40.55
+      },
+      {
+        "mes": 9,
+        "dia_c": -30.23,
+        "noche_c": -31.11
+      },
+      {
+        "mes": 10,
+        "dia_c": -28.16,
+        "noche_c": -29.33
+      },
+      {
+        "mes": 11,
+        "dia_c": -15.76,
+        "noche_c": -19.99
+      },
+      {
+        "mes": 12,
+        "dia_c": -6.55,
+        "noche_c": -13.11
+      }
+    ],
+    "fechas": 46,
+    "fechas_con_nulos": 0,
+    "cuadricula": {
+      "puntos": 9,
+      "paso_grados": 0.05,
+      "separacion_ns_km": 5.57,
+      "separacion_eo_km": 1.2
+    }
+  }
+}

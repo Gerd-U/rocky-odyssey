@@ -3,10 +3,7 @@
     "bodyName": { "moon": "the Moon", "mars": "Mars" },
     "bodyLabel": { "moon": "Moon", "mars": "Mars" },
     "earth": "Earth",
-    "terrain": { "moderado": "Moderate", "alto": "High", "extremo": "Extreme" },
     "similarityLevel": { "muy-alta": "Very high", "alta": "High", "moderada": "Moderate" },
-    "tempSpan": "{{min}} to {{max}}",
-    "precip": "{{value}} mm/year",
     "coordSouth": "S",
     "coordNorth": "N",
     "coordEast": "E",
@@ -17,17 +14,15 @@
     "imageAlt": "{{name}}, {{place}}",
     "loading": "Loading",
     "seeAllLocations": "See all locations",
-    "factors": {
-      "rain": "Rainfall",
-      "temperature": "Temperature",
-      "terrain": "Terrain difficulty"
-    },
     "error": {
       "title": "The data could not be loaded",
       "retry": "Try again",
       "unknown": "Unknown error",
       "missingId": "Missing id"
-    }
+    },
+    "noData": "no data",
+    "photoPending": "Photo pending",
+    "photoPendingAlt": "{{name}}: photo pending, Earth texture around the place"
   },
   "nav": {
     "label": "Main",
@@ -38,16 +33,10 @@
   },
   "home": {
     "hero": {
-      "headline": {
-        "mars": "Mars begins on Earth",
-        "moon": "The Moon begins on Earth"
-      },
-      "lead": "We look for places on Earth that resemble the bases proposed on {{body}}. That is where crews train and technology is tested before leaving the planet.",
+      "title": "The Moon and Mars begin on Earth",
+      "lead": "Some deserts, volcanoes and polar valleys on Earth closely resemble the places proposed for bases on the Moon and Mars. They're called analogs: crews train there and technology is tested before leaving the planet.",
       "explore": "Explore the globe",
-      "todayMars": "Today Mars is about {{millions}} million km away: its light takes {{minutes}} minutes to reach us.",
-      "todayMoon": "Today the Moon is about {{km}} km away and appears {{percent}} illuminated ({{phase}}).",
-      "waxing": "waxing",
-      "waning": "waning"
+      "today": "Today the Moon is about {{km}} km away, and Mars about {{millions}} million km: its light takes {{minutes}} minutes to reach us."
     },
     "globe": {
       "title": "Pick a place and see its twin",
@@ -72,21 +61,21 @@
     },
     "criteria": {
       "title": "How we measure similarity",
-      "intro": "We compare each place on Earth with its twin base using the same data: rainfall, temperature and terrain difficulty. We also count whether missions have already been rehearsed there. The percentages are provisional: we are still working out how they combine.",
-      "rain": "It never rains on the Moon or Mars, so we look for the places on Earth where it almost never rains.",
-      "temperature": "The cold and the gap between the lowest and highest temperatures put equipment and crews to the test.",
-      "terrain": "Relief, rock type and how hard it is to move across: craters, lava, permafrost.",
+      "intro": "We compare each place on Earth with every base on the Moon and Mars using the same three measurements. Each one gives a similarity from 0 to 100, and the percentage you see is their average. The values are provisional: the team is still reviewing the formulas.",
+      "temperature": "The average gap between day and night temperatures over a year. On Earth it is measured in °C and on the bases in K: a 1 °C difference equals 1 K.",
       "historyTerm": "Track record",
       "history": "Missions and studies that have already used the place to rehearse exploring another world.",
       "noMissions": "No missions recorded",
-      "exampleOf": "{{term}} example"
+      "exampleOf": "{{term}} example",
+      "topography": "How much the ground rises and falls: the standard deviation of nine elevations measured on a 3 × 3 grid a few kilometres wide.",
+      "cold": "The share of the 12 months whose average temperature is below 0 °C. Every base scores 100, so here it measures how cold the place on Earth is."
     },
     "closing": {
       "title": "Every mission is rehearsed here first",
       "summary": "{{sites}} places on Earth compared with {{bases}} bases on the Moon and Mars.",
       "photoAlt": {
         "mars": "Two test rovers at Haughton Crater, Devon Island, Canada",
-        "moon": "Testing an analog spacesuit on the slopes of Mauna Loa, Hawaii"
+        "moon": "Gargoyle Ridge in the McMurdo Dry Valleys, Antarctica"
       }
     }
   },
@@ -121,14 +110,20 @@
     "resembles": "A place on Earth that resembles <accent>{{base}}</accent>, on {{body}}",
     "factorsTitle": "Similarity and factors",
     "missions": "Missions and studies",
-    "next": "Next site"
+    "next": "Next site",
+    "compareOther": "Also compare it with {{body}} ({{percent}})",
+    "climateTitle": "Temperature through the year",
+    "climateText": "Monthly average of the day and night surface temperature at {{place}} in 2023.",
+    "facts": { "region": "Region", "geology": "Geology", "elevation": "Elevation" }
   },
   "compare": {
     "caption": "Factors of {{site}} compared with {{base}}",
     "factor": "Factor",
     "sliderLabel": "Compare Earth with the destination",
     "sliderValue": "{{earth}} {{earthPercent}}%, {{target}} {{targetPercent}}%",
-    "dragHint": "Drag to compare"
+    "dragHint": "Drag to compare",
+    "similarity": "Similarity",
+    "thermalNote": "Thermal range in °C on Earth and in K on the base: a difference of 1 °C equals 1 K."
   },
   "footer": {
     "tagline": "An explorer of terrestrial analogs. Pick a place on the globe and compare it with its twin.",
@@ -149,8 +144,54 @@
       "youtube": "NASA on YouTube",
       "instagram": "NASA on Instagram"
     },
-    "credits": "Image and texture credits",
-    "publicDomain": "Public domain"
+    "credits": "Image and texture credits"
+  },
+  "units": {
+    "meters": "{{value}} m",
+    "celsius": "{{value}} °C",
+    "kelvin": "{{value}} K"
+  },
+  "criteria": {
+    "topography": { "label": "Roughness" },
+    "temperature": { "label": "Thermal range" },
+    "ice_water": { "label": "Cold index" }
+  },
+  "geology": {
+    "sedimentos": "Sediments",
+    "basalto": "Basalt",
+    "hielo": "Ice",
+    "regolito": "Regolith"
+  },
+  "chart": {
+    "title": "Monthly temperature at {{place}}",
+    "day": "Day",
+    "night": "Night",
+    "month": "Month",
+    "caption": "Land surface temperature from MODIS (MOD11A2.061) via NASA AppEEARS, 2023. The dashed line marks 0 °C."
+  },
+  "sources": {
+    "title": "Sources",
+    "intro": "Each value comes from the team's records: product or publication, formula and date of the query.",
+    "approximation": "approximation",
+    "approximationHint": "The team's record marks this value as provisional",
+    "consulted": "consulted {{date}}",
+    "variables": {
+      "rugosidad": "Roughness",
+      "elevacion_m": "Elevation",
+      "rango_termico": "Thermal range",
+      "temp_min_c": "Minimum temperature",
+      "temp_max_c": "Maximum temperature",
+      "tmin_k": "Minimum temperature",
+      "tmax_k": "Maximum temperature",
+      "hielo": "Cold index",
+      "hielo_favorabilidad": "Ice favourability",
+        "coordenadas": "Coordinates"
+    }
+  },
+  "licenses": {
+    "public-domain": "Public domain",
+    "pixabay": "Pixabay Content License",
+    "copernicus": "Contains modified Copernicus Sentinel data (2023)"
   },
   "notFound": {
     "title": "We couldn't find this page",

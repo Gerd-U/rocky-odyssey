@@ -53,9 +53,83 @@ Las dependencias de ejecución están en `requirements.txt`; las de pruebas, en
 | GET | `/api/ranking/?target=mars&sort_by=priority` | Ranking por prioridad o similitud |
 
 `GET /api/sites` y `GET /api/bases` devuelven los tipos `Site[]` y `Base[]`
-que consume el frontend. Las estructuras de referencia son los archivos JSON
-ya existentes en `data/`; las comparaciones guardadas en `locations.json`
-pueden completar campos compatibles cuando coinciden por ID.
+que consume el frontend.
+
+`/api/sites`, `/api/sites/{site_id}` y `/api/bases` aceptan `?lang=es|en` (por
+defecto `en`; un valor no admitido también usa `en`). En `sites.json` y
+`bases.json`, los campos `name`, `country`, `description` y `missions` son
+objetos `{"es": ..., "en": ...}`, y la API los devuelve ya resueltos como texto.
+`imageLicense` es un código: `public-domain` o el nombre de una licencia
+Creative Commons (`CC BY-SA 3.0`), que se muestra tal cual. Los sitios sin foto
+traen `image`, `imageAuthor` e `imageLicense` en `null`.
+
+`data/sites.json` y `data/bases.json` no se editan a mano: los genera
+`datos/scripts/generar_web.py` con los datos del equipo (ver "Actualizar los
+datos"). Cada sitio trae sus métricas (`metrics`), la serie mensual de
+temperatura (`monthlyTemp`), sus fuentes (`sources`) y, en `matches`, la base
+más parecida de la Luna y la de Marte con su `score` (0 a 1), la cobertura y la
+similitud de cada criterio.
+
+## Actualizar los datos
+
+Desde la raíz del repo, en este orden:
+
+```powershell
+python datos/scripts/metricas_tierra.py   # métricas de la Tierra -> datos/datos_limpios/tierra.csv
+python datos/scripts/medir_bases_marte.py # bases nuevas de Marte (opcional, ya medidas) -> targets_mars.csv
+python datos/scripts/unir_objetivos.py    # bases de la Luna y Marte -> datos/datos_limpios/objetivos.csv
+python datos/scripts/generar_web.py       # sites.json y bases.json (y los mocks del frontend)
+```
+
+`metricas_tierra.py` y `generar_web.py` solo usan la biblioteca estándar de
+Python; `unir_objetivos.py` necesita pandas (`datos/requirements.txt`). Las
+fórmulas están explicadas en `datos/METODOLOGIA.md` y las de similitud se
+ajustan en `datos/scripts/similitud_config.py`.
+
+## Cómo cargar datos de `locations.json`
+
+Con `data/locations.json` vacío (`{"locations": []}`), `/api/sites` devuelve
+exactamente lo que tiene `data/sites.json`. Para corregir un sitio sin volver a
+generar los datos, agrega a `locations.json` un location cuyo `id` sea igual al
+de `sites.json` (`atacama`, `valles-secos-mcmurdo`, `isla-devon`…). Si el `id`
+no existe en `sites.json`, ese location se ignora.
+
+El merge solo lee estos campos:
+
+| Campo en `locations.json` | Campo en `/api/sites` |
+| --- | --- |
+| `coordinates.latitude` | `lat` |
+| `coordinates.longitude` | `lng` |
+| `temperature.minimum_c` | `metrics.tempMinC` |
+| `temperature.maximum_c` | `metrics.tempMaxC` |
+| `comparison.<mars\|moon>.score` (de 0 a 100) | `matches.<mars\|moon>.score` (de 0 a 1) |
+
+El score solo se aplica si el sitio ya tiene una base emparejada en ese cuerpo.
+Los campos que no mandes, o que mandes como `null`, se quedan con el valor de
+`sites.json`. Si se aplica al menos uno, el sitio sale con `"dataSource": "real"`.
+
+Ejemplo de estructura para `atacama` (los valores son solo para mostrar el
+formato; sustitúyelos por datos con fuente):
+
+```json
+{
+    "locations": [
+        {
+            "id": "atacama",
+            "name": "Desierto de Atacama",
+            "country": "Chile",
+            "coordinates": { "latitude": 0.0, "longitude": 0.0 },
+            "temperature": { "minimum_c": 0.0, "maximum_c": 0.0 },
+            "comparison": {
+                "mars": { "score": 0 }
+            }
+        }
+    ]
+}
+```
+
+Los registros de prueba que antes estaban en `locations.json` ahora viven en
+`fixtures/test_locations.json` y solo los usan las pruebas.
 
 Los siete grupos de entrada científica son `geology`, `topography`,
 `temperature`, `ice_water`, `dust_atmosphere`, `habitability` y `subsurface`.
