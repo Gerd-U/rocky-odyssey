@@ -1,3 +1,4 @@
+import csv
 import json
 from pathlib import Path
 
@@ -6,12 +7,111 @@ from fastapi import APIRouter, HTTPException
 router = APIRouter(prefix="/api", tags=["Frontend"])
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
+SCIENCE_DIR = Path(__file__).resolve().parents[3] / "datos"
 
 SUPPORTED_LANGS = ("en", "es")
 DEFAULT_LANG = "en"
 
 # Campos de sites.json y bases.json que vienen como {"es": ..., "en": ...}
 TRANSLATED_FIELDS = ("name", "country", "description", "missions")
+
+# Explicit links keep planetary measurements separate from terrestrial analog sites.
+BASE_MEASUREMENT_NAMES = {
+    "shackleton": {"shackleton (borde)"},
+    "tranquilidad": {"pozo mare tranquillitatis"},
+    "jezero": {"jezero"},
+    "arcadia": {"arcadia planitia"},
+    "gale": {"gale"},
+}
+
+
+def _source_organization(url: str, layer: str) -> str | None:
+    host = url.lower()
+    if "trek.nasa.gov" in host or "svs.gsfc.nasa.gov" in host:
+        return "NASA Goddard Space Flight Center"
+    if "astrogeology.usgs.gov" in host:
+        return "U.S. Geological Survey (USGS)"
+    if "mars.lmd.jussieu.fr" in host:
+        return "Laboratoire de Météorologie Dynamique (LMD), CNRS / Sorbonne Université"
+    if layer.startswith("tmax_k -"):
+        return "Cálculo derivado de mediciones de la fuente indicada"
+    return None
+
+
+def load_planetary_measurements() -> dict[str, list[dict]]:
+    """Read scientific logs and attach only exact, explicitly mapped planetary sites."""
+    by_name = {
+        name: base_id
+        for base_id, names in BASE_MEASUREMENT_NAMES.items()
+        for name in names
+    }
+    measurements: dict[str, list[dict]] = {base_id: [] for base_id in BASE_MEASUREMENT_NAMES}
+    for body, filename in (("moon", "sources_log_moon.csv"), ("mars", "sources_log_mars.csv")):
+        path = SCIENCE_DIR / filename
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8-sig", newline="") as stream:
+            for row in csv.DictReader(stream):
+                name = (row.get("sitio") or "").strip().casefold()
+                base_id = by_name.get(name)
+                if base_id is None or base_id not in measurements:
+                    continue
+                base_body = "moon" if base_id in {"shackleton", "tranquilidad"} else "mars"
+                if base_body != body:
+                    continue
+                try:
+                    value = float(row["valor"])
+                except (KeyError, TypeError, ValueError):
+                    continue
+                variable = (row.get("variable") or "").strip()
+                layer = (row.get("capa") or "").strip()
+                url = (row.get("url") or "").strip()
+                measurement = {"name": variable, "value": value}
+                units = {
+                    "tmax_k": "K",
+                    "tmin_k": "K",
+                    "rango_termico": "K",
+                    "hielo": "%",
+                    "hielo_favorabilidad": "score 0-100",
+                }
+                if variable in units:
+                    measurement["unit"] = units[variable]
+                source = {"name": layer or variable}
+                organization = _source_organization(url, layer)
+                if organization:
+                    source["organization"] = organization
+                if url:
+                    source["url"] = url
+                if row.get("fecha_consulta"):
+                    source["accessedAt"] = row["fecha_consulta"]
+                measurement["source"] = source
+                measurements[base_id].append(measurement)
+    return measurements
+
+
+def apply_base_measurements(bases, measurements_by_id):
+    """Use measured temperatures for matching bases; preserve raw K in scientificData."""
+    for base in bases:
+        measurements = measurements_by_id.get(base.get("id"), [])
+        base["scientificData"] = measurements
+        factors = base.setdefault("factors", {})
+        factor_status = {key: "demonstration" for key in factors}
+        factor_sources = {}
+        by_name = {item["name"]: item for item in measurements}
+        for measurement_name, factor_name in (("tmin_k", "tempMin"), ("tmax_k", "tempMax")):
+            measurement = by_name.get(measurement_name)
+            if measurement and measurement.get("unit") == "K":
+                # Kelvin to Celsius: °C = K - 273.15.
+                factors[factor_name] = round(measurement["value"] - 273.15, 2)
+                factor_status[factor_name] = "scientific"
+                factor_sources[factor_name] = {
+                    "measurement": measurement_name,
+                    "source": measurement["source"],
+                    "conversion": "°C = K - 273.15",
+                }
+        base["factorDataStatus"] = factor_status
+        base["factorSources"] = factor_sources
+    return bases
 
 
 def resolve_lang(lang) -> str:
@@ -139,4 +239,7 @@ def get_site(site_id: str, lang: str = DEFAULT_LANG):
 
 @router.get("/bases")
 def get_bases(lang: str = DEFAULT_LANG):
-    return [localize(base, lang) for base in load_data("bases.json")]
+    measurements = load_planetary_measurements()
+    bases = load_data("bases.json")
+    apply_base_measurements(bases, measurements)
+    return [localize(base, lang) for base in bases]

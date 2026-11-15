@@ -55,6 +55,24 @@ Las dependencias de ejecución están en `requirements.txt`; las de pruebas, en
 `GET /api/sites` y `GET /api/bases` devuelven los tipos `Site[]` y `Base[]`
 que consume el frontend.
 
+`GET /api/bases` además expone `scientificData`, una lista de mediciones por
+base planetaria. Cada medición incluye `name`, `value`, `unit` cuando la unidad
+está definida, y `source` con nombre, organización y enlace cuando están
+disponibles. Las temperaturas y rangos se conservan en kelvin (`K`); la
+rugosidad se entrega en el valor original porque los registros no declaran una
+unidad. Las fuentes se leen de `datos/sources_log_moon.csv` y
+`datos/sources_log_mars.csv`, y solo se enlazan por correspondencias explícitas
+con bases de la Luna o Marte. Los sitios análogos terrestres de `/api/sites` no
+reciben estas mediciones.
+
+En las bases con mediciones de temperatura, `factors.tempMin` y
+`factors.tempMax` se actualizan en grados Celsius usando `°C = K - 273.15`.
+Las mediciones originales en K y sus fuentes permanecen en `scientificData`;
+`factorSources` conserva la fuente individual y la conversión aplicada, y
+`factorDataStatus` indica qué factores son `scientific` o siguen siendo
+`demonstration`. Las bases sin mediciones coincidentes devuelven
+`scientificData: []` y mantienen sus factores de demostración.
+
 `/api/sites`, `/api/sites/{site_id}` y `/api/bases` aceptan `?lang=es|en` (por
 defecto `en`; un valor no admitido también usa `en`). En `sites.json` y
 `bases.json`, los campos `name`, `country`, `description` y `missions` son

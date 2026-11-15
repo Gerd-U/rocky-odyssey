@@ -104,13 +104,17 @@ def test_response_matches_frontend_types():
     }
     base_keys = {
         "id", "name", "body", "lat", "lng", "factors", "image",
-        "imageAuthor", "imageLicense", "description",
+        "imageAuthor", "imageLicense", "description", "scientificData",
+        "factorSources", "factorDataStatus",
     }
 
     for site in get_json("/api/sites"):
         assert set(site) == site_keys
     for base in get_json("/api/bases"):
         assert set(base) == base_keys
+        assert isinstance(base["scientificData"], list)
+        assert isinstance(base["factorSources"], dict)
+        assert isinstance(base["factorDataStatus"], dict)
 
 
 def test_license_codes_are_codes_not_spanish_text():
