@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useReducedMotion } from "motion/react";
 import Globe, { type GlobeMethods } from "react-globe.gl";
 import { Cache, ImageLoader } from "three";
 import { SELECTED_COLOR } from "./colors";
@@ -9,6 +10,9 @@ Cache.enabled = true;
 
 const CAMERA_FOV = 50;
 const MAX_PIXEL_RATIO = 1.5;
+
+/** Color del anillo según su avance (0 al salir, 1 al llegar al radio máximo): se desvanece al crecer */
+const ringFade = (t: number) => `rgba(238, 240, 250, ${(1 - t) * 0.85})`;
 
 export interface GlobePoint {
   id: string;
@@ -162,6 +166,14 @@ export default function GlobeView({
     globe.pointOfView({ lat: p.lat, lng: p.lng, altitude: 1.6 }, 1200);
   }, [selectedId, points]);
 
+  // Anillos que salen del punto elegido: en los dos globos a la vez, marcan a los gemelos
+  // Con menos movimiento pedido, el punto elegido se distingue solo por color y tamaño
+  const reduceMotion = useReducedMotion() ?? false;
+  const rings = useMemo(
+    () => (reduceMotion ? [] : points.filter((pt) => pt.id === selectedId)),
+    [points, selectedId, reduceMotion],
+  );
+
   const diameter = globeDiameter(height, initialAltitude);
   const focusLng = points.find((pt) => pt.id === selectedId)?.lng ?? 0;
   const posterOffset = diameter / 2 - ((focusLng + 180) / 360) * diameter * 2;
@@ -205,6 +217,13 @@ export default function GlobeView({
             pointAltitude={(d) => ((d as GlobePoint).id === selectedId ? 0.12 : 0.04)}
             pointLabel={(d) => (d as GlobePoint).label}
             onPointClick={(d) => onSelect?.((d as GlobePoint).id)}
+            ringsData={rings}
+            ringLat="lat"
+            ringLng="lng"
+            ringColor={() => ringFade}
+            ringMaxRadius={4.5}
+            ringPropagationSpeed={2.2}
+            ringRepeatPeriod={1400}
             onGlobeReady={handleReady}
           />
         </div>

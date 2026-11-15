@@ -7,7 +7,7 @@ import type { Target } from "../../types/site";
 const OPTIONS: Target[] = ["moon", "mars"];
 
 const SIZE = {
-  sm: "h-8 px-4 text-xs",
+  sm: "h-8 px-4 text-small",
   md: "h-10 px-6 text-sm",
 };
 

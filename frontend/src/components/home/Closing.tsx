@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useMode } from "../../context/ModeContext";
 import { useBases, useSites } from "../../hooks/useSites";
 import type { Target } from "../../types/site";
@@ -20,7 +21,7 @@ export default function Closing() {
   const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode].id);
 
   return (
-    <section aria-labelledby="closing-title" className="relative isolate mt-8 flex min-h-[70svh] items-end overflow-hidden">
+    <section aria-labelledby="closing-title" className="relative isolate mt-section flex min-h-[70svh] items-end overflow-hidden">
       {MODES.map((m) => {
         const site = sites?.find((s) => s.id === PHOTO_SITE[m].id);
         return (
@@ -31,7 +32,7 @@ export default function Closing() {
             aria-hidden={m !== mode}
             loading="lazy"
             decoding="async"
-            className={`absolute inset-0 -z-20 size-full object-cover transition-opacity duration-700 ease-out-strong ${
+            className={`drift absolute inset-0 -z-20 size-full object-cover transition-opacity duration-700 ease-out-strong ${
               m === mode ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -46,7 +47,7 @@ export default function Closing() {
       <div className="mx-auto w-full max-w-6xl px-6 pt-40 pb-16 lg:pb-24">
         <SectionHeading
           id="closing-title"
-          title={<span className="block max-w-[14ch] text-[clamp(2.5rem,5vw,4.5rem)]">Antes de pisar otro mundo, lo ensayamos en este</span>}
+          title={<span className="block text-display">Cada misión se ensaya aquí primero</span>}
         >
           {sites && bases && (
             <p className="text-lg text-ink">
@@ -54,11 +55,11 @@ export default function Closing() {
             </p>
           )}
         </SectionHeading>
-        <ButtonLink to="/ubicaciones" size="lg" className="mt-8">
+        <ButtonLink to="/ubicaciones" size="lg" className="rise mt-8" style={{ "--i": 2 } as CSSProperties}>
           Ver todas las ubicaciones
         </ButtonLink>
         {photoSite && (
-          <p className="mt-10 text-xs text-ink-soft">
+          <p className="mt-10 text-small text-ink-soft">
             Foto: {photoSite.name} · {photoSite.imageCredit}
           </p>
         )}

@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useMode } from "../../context/ModeContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { usePairs } from "../../hooks/usePairs";
+import { usePairs, type Pair } from "../../hooks/usePairs";
 import { useBases } from "../../hooks/useSites";
 import { BODY_LABEL, formatPercent } from "../../lib/format";
 import { MODE_DIRECTION, SWAP_EASE, SWAP_EXIT_S } from "../../lib/motion";
@@ -39,7 +39,23 @@ const STAGE_HINT: Record<Target, string> = {
 
 const ALL_TARGET_TEXTURES = Object.values(TARGET_TEXTURE);
 
-const STAGE_GRID = "grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_15rem_1fr]";
+/**
+ * Orden de la lista entre los dos globos: por similitud, pero sin dos lugares seguidos con la
+ * misma base (en Marte van por parejas). Si el siguiente comparte base con el anterior, pasa
+ * antes el siguiente que no la comparta, para que al bajar por la lista el destino cambie.
+ */
+function alternateBases(sorted: Pair[]): Pair[] {
+  const pending = [...sorted];
+  const result: Pair[] = [];
+  while (pending.length > 0) {
+    const previousBase = result.at(-1)?.base.id;
+    const index = pending.findIndex((pair) => pair.base.id !== previousBase);
+    result.push(...pending.splice(index === -1 ? 0 : index, 1));
+  }
+  return result;
+}
+
+const STAGE_GRID = "grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_16rem_1fr]";
 
 function GlobeCaption({ body, place, accent = false }: { body: string; place: string; accent?: boolean }) {
   return (
@@ -72,6 +88,7 @@ export default function GlobeSection() {
   }, [mode, switching, reduce]);
 
   const selected = pairs?.find((p) => p.site.id === selectedSiteId) ?? pairs?.[0] ?? null;
+  const listOrder = useMemo(() => alternateBases(pairs ?? []), [pairs]);
 
   const earthPoints = useMemo<GlobePoint[]>(
     () =>
@@ -105,7 +122,7 @@ export default function GlobeSection() {
   );
 
   return (
-    <section id="globo" aria-labelledby="stage-title" className="scroll-mt-20 py-10 lg:py-16">
+    <section id="globo" aria-labelledby="stage-title" className="scroll-mt-20 pt-section">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading id="stage-title" title="Elige un lugar y mira su gemelo">
           <Swap swapKey={mode} direction={direction}>
@@ -123,7 +140,7 @@ export default function GlobeSection() {
           </div>
         ) : (
           <>
-            <div className={`mt-8 ${STAGE_GRID} lg:items-center`}>
+            <div className={`rise mt-8 ${STAGE_GRID} lg:items-center`}>
               <figure>
                 <Suspense fallback={<Skeleton className="h-[320px] md:h-[360px] lg:h-[440px]" />}>
                   <GlobeView
@@ -145,7 +162,7 @@ export default function GlobeSection() {
                 direction={direction}
                 className="min-w-0 md:order-last md:col-span-2 lg:order-none lg:col-span-1"
               >
-                <SiteList pairs={pairs} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+                <SiteList pairs={listOrder} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
               </Swap>
 
               {twoGlobes && (
@@ -180,7 +197,7 @@ export default function GlobeSection() {
               )}
             </div>
 
-            <div className="mt-6">
+            <div className="rise mt-6">
               <Legend mode={mode} />
             </div>
 

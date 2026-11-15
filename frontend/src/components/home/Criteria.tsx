@@ -55,11 +55,14 @@ const CRITERIA: Criterion[] = [
 
 function Example({ lines }: { lines: ExampleLine[] }) {
   return (
-    <ul className="space-y-1.5 text-sm tabular-nums">
+    <ul className="space-y-2 tabular-nums">
       {lines.map((line) => (
         <li key={line.place} className="flex items-baseline justify-between gap-4">
-          <span className={`shrink-0 ${line.away ? "text-accent-soft" : "text-ink-soft"}`}>{line.place}</span>
-          <span className="min-w-0 text-right text-balance text-ink">{line.value}</span>
+          <span className={`min-w-0 ${line.away ? "text-accent-soft" : "text-ink-soft"}`}>{line.place}</span>
+          {/* Las cifras cortas no se parten; los textos largos (misiones) sí pueden */}
+          <span className={`text-right text-balance text-ink ${line.value.length <= 16 ? "shrink-0 whitespace-nowrap" : "min-w-0"}`}>
+            {line.value}
+          </span>
         </li>
       ))}
     </ul>
@@ -71,31 +74,33 @@ export default function Criteria() {
   const pairById = new Map((pairs ?? []).map((pair) => [pair.site.id, pair]));
 
   return (
-    <section id="criterios" aria-labelledby="criteria-title" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 lg:py-24">
-      <SectionHeading id="criteria-title" title="Cómo medimos la similitud">
-        <p>
-          Comparamos cada lugar de la Tierra con su base gemela usando los mismos cuatro factores. Los porcentajes son
-          provisionales: todavía estamos definiendo cómo se combinan.
-        </p>
-      </SectionHeading>
+    <section id="criterios" aria-labelledby="criteria-title" className="mt-section scroll-mt-24 bg-night-800 py-section">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionHeading id="criteria-title" title="Cómo medimos la similitud">
+          <p>
+            Comparamos cada lugar de la Tierra con su base gemela usando los mismos cuatro factores. Los porcentajes son
+            provisionales: todavía estamos definiendo cómo se combinan.
+          </p>
+        </SectionHeading>
 
-      <dl className="mt-12 border-b border-ink/10">
-        {CRITERIA.map((c) => {
-          const pair = pairById.get(c.siteId);
-          return (
-            <div
-              key={c.term}
-              className="grid gap-x-10 gap-y-3 border-t border-ink/10 py-7 md:grid-cols-[10rem_1fr] lg:grid-cols-[12rem_1fr_20rem]"
-            >
-              <dt className="text-2xl leading-none font-extrabold font-stretch-[75%] text-ink">{c.term}</dt>
-              <dd className="max-w-prose text-ink-soft">{c.text}</dd>
-              <dd className="md:col-start-2 lg:col-start-auto" aria-label={`Ejemplo de ${c.term.toLowerCase()}`}>
-                {pair ? <Example lines={c.example(pair)} /> : <div className="h-12" aria-hidden />}
-              </dd>
-            </div>
-          );
-        })}
-      </dl>
+        <dl className="mt-14 grid gap-y-12 lg:gap-y-14">
+          {CRITERIA.map((c) => {
+            const pair = pairById.get(c.siteId);
+            return (
+              <div
+                key={c.term}
+                className="rise grid gap-x-10 gap-y-3 md:grid-cols-[10rem_1fr] lg:grid-cols-[11rem_1fr_22rem]"
+              >
+                <dt className="text-h3 font-extrabold font-stretch-[75%] text-ink">{c.term}</dt>
+                <dd className="max-w-prose text-ink">{c.text}</dd>
+                <dd className="md:col-start-2 lg:col-start-auto" aria-label={`Ejemplo de ${c.term.toLowerCase()}`}>
+                  {pair ? <Example lines={c.example(pair)} /> : <div className="h-12" aria-hidden />}
+                </dd>
+              </div>
+            );
+          })}
+        </dl>
+      </div>
     </section>
   );
 }

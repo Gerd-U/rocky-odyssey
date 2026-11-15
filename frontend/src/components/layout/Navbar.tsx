@@ -9,10 +9,16 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 
 export default function Navbar() {
   return (
-    <header className="sticky top-3 z-30 px-3 sm:top-4 sm:px-6">
+    <header className="sticky top-3 z-30 px-2 sm:top-4">
+      {/*
+        La píldora sobresale 0.5rem a cada lado del contenido (max-w-6xl + px-6) y su
+        padding izquierdo compensa la diferencia: el nombre cae en la misma vertical
+        que los titulares de todas las secciones, en cualquier ancho.
+      */}
       <nav
         aria-label="Principal"
-        className="mx-auto flex h-14 max-w-4xl items-center gap-2 rounded-full bg-night-900/75 pr-2 pl-5 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.6)] ring-1 ring-ink/10 backdrop-blur-md sm:pl-6"
+        style={{ paddingLeft: "calc((min(100vw - 1rem, 73rem) - min(100vw, 72rem)) / 2 + 1.5rem)" }}
+        className="mx-auto flex h-14 max-w-[73rem] items-center gap-2 rounded-full bg-night-900/75 pr-2 shadow-[0_12px_40px_-12px_rgb(0_0_0/0.6)] ring-1 ring-ink/10 backdrop-blur-md"
       >
         <NavLink
           to="/"

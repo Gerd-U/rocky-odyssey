@@ -141,7 +141,7 @@ function SideLabel({ side, align, visible }: SideLabelProps) {
       } ${visible ? "opacity-100" : "opacity-0"}`}
     >
       <p className="text-sm font-semibold text-ink">{side.label}</p>
-      <p className="hidden text-xs text-ink-soft sm:block">{side.caption}</p>
+      <p className="hidden text-small text-ink-soft sm:block">{side.caption}</p>
     </div>
   );
 }

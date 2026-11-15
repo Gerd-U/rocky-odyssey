@@ -121,11 +121,9 @@ export default function Footer() {
       <div className="relative mx-auto max-w-6xl px-6 pt-48 pb-10 lg:pt-72">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr] lg:gap-16">
           <div>
-            <p className="max-w-[16ch] text-[clamp(2rem,3.4vw,3rem)] leading-[0.95] font-extrabold tracking-[-0.02em] text-balance font-stretch-[75%] text-ink">
-              Todo viaje a otro mundo empieza con un paso en este.
-            </p>
-            <p className="mt-5 max-w-sm text-ink-soft">
-              Elige uno en el globo y compáralo con su gemelo.
+            <p className="text-h1 font-extrabold tracking-[-0.02em] font-stretch-[75%] text-ink">Rocky Odyssey</p>
+            <p className="mt-4 max-w-sm text-ink-soft">
+              Explorador de análogos terrestres. Elige un lugar en el globo y compáralo con su gemelo.
             </p>
             <ButtonLink to="/#globo" className="mt-6">
               Volver al globo
@@ -150,24 +148,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-6 border-t border-ink/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-6">
-            <div>
-              <p className="text-lg leading-none font-extrabold font-stretch-[75%] text-ink">
-                Rocky Odyssey
-              </p>
-              <p className="mt-1 text-xs text-ink-soft">
-                Explorador de análogos terrestres
-              </p>
-            </div>
-            <p className="border-l border-ink/10 pl-6 text-xs text-ink-soft">
-              © {YEAR} · NASA Space Apps Challenge
-              <br />
-              Datos provisionales
-            </p>
-          </div>
+          <p className="text-small text-ink-soft">
+            © {YEAR} · NASA Space Apps Challenge · Datos provisionales
+          </p>
 
           <div className="flex items-center gap-3">
-            <p className="text-xs text-ink-soft">Código y NASA en redes</p>
+            <p className="text-small text-ink-soft">Código y NASA en redes</p>
             <ul className="flex items-center gap-1">
               {SOCIALS.map(({ label, href, icon }) => (
                 <li key={href}>
@@ -193,7 +179,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <details className="group mt-6 text-xs text-ink-soft">
+        <details className="group mt-6 text-small text-ink-soft">
           <summary className="w-fit cursor-pointer list-none transition-colors duration-200 hover:text-ink [&::-webkit-details-marker]:hidden">
             <span className="inline-flex items-center gap-1.5">
               Créditos de imágenes y texturas

@@ -42,7 +42,7 @@ export default function Photo({
       {(caption || credit) && (
         <figcaption className="mt-2">
           {caption && <span className="block text-sm text-ink">{caption}</span>}
-          {credit && <span className="mt-0.5 block text-xs text-ink-soft">{credit}</span>}
+          {credit && <span className="mt-0.5 block text-small text-ink-soft">{credit}</span>}
         </figcaption>
       )}
     </figure>

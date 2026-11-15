@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 interface SectionHeadingProps {
   id?: string;
@@ -10,8 +10,8 @@ interface SectionHeadingProps {
 }
 
 const TITLE_SIZE = {
-  h1: "text-4xl md:text-5xl",
-  h2: "text-3xl md:text-4xl",
+  h1: "text-h1",
+  h2: "text-h2",
 };
 
 /** Encabezado común de sección: titular condensado y una intro corta en tinta suave. */
@@ -20,11 +20,15 @@ export default function SectionHeading({ id, title, as: Tag = "h2", children, cl
     <div className={className}>
       <Tag
         id={id}
-        className={`${TITLE_SIZE[Tag]} leading-[0.95] font-extrabold tracking-[-0.02em] text-balance font-stretch-[75%] text-ink`}
+        className={`${TITLE_SIZE[Tag]} rise font-extrabold tracking-[-0.02em] text-balance font-stretch-[75%] text-ink`}
       >
         {title}
       </Tag>
-      {children && <div className="mt-3 max-w-2xl text-ink-soft">{children}</div>}
+      {children && (
+        <div className="rise mt-4 max-w-2xl text-lead text-ink-soft" style={{ "--i": 1 } as CSSProperties}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

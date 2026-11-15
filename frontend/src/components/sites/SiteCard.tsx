@@ -6,7 +6,7 @@ export default function SiteCard({ pair }: { pair: Pair }) {
   const { site, base } = pair;
 
   return (
-    <Link to={`/ubicacion/${site.id}`} className="group block focus-visible:outline-offset-4">
+    <Link to={`/ubicacion/${site.id}`} className="rise group block focus-visible:outline-offset-4">
       <div className="relative aspect-4/3 overflow-hidden bg-night-800">
         <img
           src={site.image}
