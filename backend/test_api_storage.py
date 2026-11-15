@@ -33,12 +33,12 @@ def test_frontend_site_and_base_data_match_declared_contract():
     bases = frontend_route.get_bases()
     site_fields = {
         "id", "name", "country", "lat", "lng", "target", "analogOf",
-        "similarity", "factors", "missions", "image", "imageCredit",
-        "description",
+        "similarity", "factors", "missions", "image", "imageAuthor",
+        "imageLicense", "description", "dataSource",
     }
     base_fields = {
         "id", "name", "body", "lat", "lng", "factors", "image",
-        "imageCredit", "description",
+        "imageAuthor", "imageLicense", "description",
     }
     factor_fields = {"precipMm", "tempMin", "tempMax", "terrain"}
 

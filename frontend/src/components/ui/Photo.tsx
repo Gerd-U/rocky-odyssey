@@ -1,4 +1,29 @@
-import { useState } from "react";
+import { useState, type ImgHTMLAttributes } from "react";
+import { IMAGE_SIZES, responsiveSource } from "../../lib/images";
+
+interface PictureProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "srcSet" | "sizes"> {
+  /** Ruta original que viene en los datos, p. ej. /images/atacama.jpg */
+  src: string;
+  /** Ancho con el que se ve la foto; ver IMAGE_SIZES */
+  sizes: string;
+}
+
+/**
+ * <picture> con las versiones WebP optimizadas (srcset) y el JPG de respaldo.
+ * Si la foto no tiene versiones optimizadas, se usa la original.
+ * El <picture> va con display: contents para que el <img> siga ocupando el mismo sitio que antes.
+ */
+export function Picture({ src, sizes, ...img }: PictureProps) {
+  const responsive = responsiveSource(src);
+  if (!responsive) return <img src={src} {...img} />;
+
+  return (
+    <picture className="contents">
+      <source type="image/webp" srcSet={responsive.srcSet} sizes={sizes} />
+      <img src={responsive.fallback} {...img} />
+    </picture>
+  );
+}
 
 interface PhotoProps {
   src: string;
@@ -8,6 +33,8 @@ interface PhotoProps {
   ratio?: string;
   position?: string;
   priority?: boolean;
+  /** Ancho con el que se ve la foto; ver IMAGE_SIZES */
+  sizes?: string;
   className?: string;
 }
 
@@ -19,6 +46,7 @@ export default function Photo({
   ratio = "3 / 2",
   position = "center",
   priority = false,
+  sizes = IMAGE_SIZES.full,
   className = "",
 }: PhotoProps) {
   const [loaded, setLoaded] = useState(false);
@@ -26,8 +54,9 @@ export default function Photo({
   return (
     <figure className={className}>
       <div className="relative overflow-hidden bg-night-800" style={{ aspectRatio: ratio }}>
-        <img
+        <Picture
           src={src}
+          sizes={sizes}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}

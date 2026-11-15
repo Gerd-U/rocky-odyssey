@@ -1,68 +1,110 @@
 [
   {
     "id": "marius",
-    "name": "Pozo de Marius Hills",
+    "name": {
+      "es": "Pozo de Marius Hills",
+      "en": "Marius Hills Pit"
+    },
     "body": "moon",
     "lat": 14.09,
     "lng": -56.77,
     "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
     "image": "/images/bases/marius.jpg",
-    "imageCredit": "NASA/GSFC/Arizona State University · LRO",
-    "description": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura."
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura.",
+      "en": "An opening about 65 meters across in the volcanic Marius Hills that may lead into a lava tube, a natural shelter from radiation and temperature swings."
+    }
   },
   {
     "id": "tranquilidad",
-    "name": "Mar de la Tranquilidad",
+    "name": {
+      "es": "Mar de la Tranquilidad",
+      "en": "Sea of Tranquility"
+    },
     "body": "moon",
     "lat": 0.67,
     "lng": 23.47,
     "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
     "image": "/images/bases/tranquilidad.jpg",
-    "imageCredit": "NASA / Neil A. Armstrong · Apollo 11",
-    "description": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo."
+    "imageAuthor": "NASA / Neil A. Armstrong",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo.",
+      "en": "A plain of volcanic basalt where Apollo 11 landed in 1969, the first human base on another world."
+    }
   },
   {
     "id": "shackleton",
-    "name": "Cráter Shackleton (polo sur lunar)",
+    "name": {
+      "es": "Cráter Shackleton (polo sur lunar)",
+      "en": "Shackleton Crater (lunar south pole)"
+    },
     "body": "moon",
     "lat": -89.9,
     "lng": 0,
     "factors": { "precipMm": 0, "tempMin": -230, "tempMax": -20, "terrain": "extremo" },
     "image": "/images/bases/shackleton.jpg",
-    "imageCredit": "NASA Goddard / LRO",
-    "description": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua."
+    "imageAuthor": "NASA Goddard / LRO",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua.",
+      "en": "A crater at the Moon's south pole with permanently shadowed areas that could hold water ice, and rims with almost constant sunlight."
+    }
   },
   {
     "id": "jezero",
-    "name": "Cráter Jezero",
+    "name": {
+      "es": "Cráter Jezero",
+      "en": "Jezero Crater"
+    },
     "body": "mars",
     "lat": 18.4,
     "lng": 77.5,
     "factors": { "precipMm": 0, "tempMin": -85, "tempMax": -5, "terrain": "alto" },
     "image": "/images/bases/jezero.jpg",
-    "imageCredit": "NASA/JPL-Caltech/ASU · Perseverance, procesado por Andrea Luck",
-    "description": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada."
+    "imageAuthor": "NASA/JPL-Caltech/ASU, Andrea Luck",
+    "imageLicense": "CC BY 2.0",
+    "description": {
+      "es": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada.",
+      "en": "An ancient lake with a river delta, explored by the Perseverance rover in search of signs of past life."
+    }
   },
   {
     "id": "arcadia",
-    "name": "Arcadia Planitia",
+    "name": {
+      "es": "Arcadia Planitia",
+      "en": "Arcadia Planitia"
+    },
     "body": "mars",
     "lat": 47.0,
     "lng": -170.0,
     "factors": { "precipMm": 0, "tempMin": -110, "tempMax": -20, "terrain": "moderado" },
     "image": "/images/bases/arcadia.jpg",
-    "imageCredit": "ESA/DLR/FU Berlin · Mars Express",
-    "description": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana."
+    "imageAuthor": "ESA/DLR/FU Berlin",
+    "imageLicense": "CC BY-SA 3.0 IGO",
+    "description": {
+      "es": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana.",
+      "en": "A plain in the northern hemisphere with shallow underground ice, a candidate site for a human base."
+    }
   },
   {
     "id": "gale",
-    "name": "Cráter Gale",
+    "name": {
+      "es": "Cráter Gale",
+      "en": "Gale Crater"
+    },
     "body": "mars",
     "lat": -5.4,
     "lng": 137.8,
     "factors": { "precipMm": 0, "tempMin": -90, "tempMax": 5, "terrain": "extremo" },
     "image": "/images/bases/gale.jpg",
-    "imageCredit": "NASA/JPL-Caltech/MSSS · Curiosity",
-    "description": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity."
+    "imageAuthor": "NASA/JPL-Caltech/MSSS",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity.",
+      "en": "An impact crater with Mount Sharp at its center, studied by the Curiosity rover."
+    }
   }
 ]

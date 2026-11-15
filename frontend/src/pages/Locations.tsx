@@ -19,7 +19,7 @@ const GRID = "mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3";
 const normalize = (text: string) =>
   text
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
 export default function Locations() {

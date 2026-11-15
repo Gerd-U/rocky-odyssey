@@ -7,11 +7,13 @@ import type { GlobePoint } from "../components/globe/GlobeView";
 import { SITE_COLOR } from "../components/globe/colors";
 import { ButtonLink } from "../components/ui/Button";
 import ErrorState from "../components/ui/ErrorState";
+import { Picture } from "../components/ui/Photo";
 import SectionHeading from "../components/ui/SectionHeading";
 import Skeleton from "../components/ui/Skeleton";
 import { useMode } from "../context/ModeContext";
 import { usePairs } from "../hooks/usePairs";
-import { bodyLabel, bodyName, formatCoords, formatPercent } from "../lib/format";
+import { bodyLabel, bodyName, formatCoords, formatCredit, formatPercent } from "../lib/format";
+import { IMAGE_SIZES } from "../lib/images";
 
 const GlobeView = lazy(() => import("../components/globe/GlobeView"));
 
@@ -144,7 +146,10 @@ export default function LocationDetail() {
         }}
       />
       <p className="mt-3 text-small text-ink-soft">
-        {t("common.photos", { earth: site.imageCredit, target: base.imageCredit })}
+        {t("common.photos", {
+          earth: formatCredit(site.imageAuthor, site.imageLicense),
+          target: formatCredit(base.imageAuthor, base.imageLicense),
+        })}
       </p>
 
       <div data-reveal className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-16">
@@ -200,8 +205,9 @@ export default function LocationDetail() {
           data-reveal
           className="group mt-20 flex items-center gap-5 border-t border-ink/10 pt-8"
         >
-          <img
+          <Picture
             src={next.site.image}
+            sizes={IMAGE_SIZES.thumb}
             alt=""
             loading="lazy"
             decoding="async"

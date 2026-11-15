@@ -2,7 +2,8 @@ import { animate, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import type { Pair } from "../../hooks/usePairs";
-import { bodyLabel, formatPercent } from "../../lib/format";
+import { bodyLabel, formatCredit, formatPercent } from "../../lib/format";
+import { IMAGE_SIZES } from "../../lib/images";
 import { SWAP_EASE } from "../../lib/motion";
 import CompareTable from "../compare/CompareTable";
 import { ButtonLink } from "../ui/Button";
@@ -60,6 +61,7 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
           <Swap swapKey={site.id}>
             <Photo
               src={site.image}
+              sizes={IMAGE_SIZES.twin}
               alt={t("common.imageAlt", { name: site.name, place: site.country })}
               caption={t("home.twin.caption", { body: t("common.earth"), name: site.name })}
               ratio="1 / 1"
@@ -71,6 +73,7 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
           <Swap swapKey={base.id} delay={0.1}>
             <Photo
               src={base.image}
+              sizes={IMAGE_SIZES.twin}
               alt={t("common.imageAlt", { name: base.name, place: bodyLabel(base.body) })}
               caption={t("home.twin.caption", { body: bodyLabel(base.body), name: base.name })}
               ratio="1 / 1"
@@ -99,7 +102,10 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
       </div>
 
       <p className="mt-6 text-small text-ink-soft">
-        {t("common.photos", { earth: site.imageCredit, target: base.imageCredit })}
+        {t("common.photos", {
+          earth: formatCredit(site.imageAuthor, site.imageLicense),
+          target: formatCredit(base.imageAuthor, base.imageLicense),
+        })}
       </p>
     </article>
   );

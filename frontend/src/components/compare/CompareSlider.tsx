@@ -1,5 +1,7 @@
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { IMAGE_SIZES } from "../../lib/images";
+import { Picture } from "../ui/Photo";
 
 export interface CompareSide {
   src: string;
@@ -77,15 +79,17 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
         dragging ? "cursor-grabbing" : "cursor-ew-resize"
       } ${className}`}
     >
-      <img
+      <Picture
         src={earth.src}
+        sizes={IMAGE_SIZES.wide}
         alt={earth.alt}
         draggable={false}
         fetchPriority="high"
         className="absolute inset-0 size-full object-cover"
       />
-      <img
+      <Picture
         src={target.src}
+        sizes={IMAGE_SIZES.wide}
         alt={target.alt}
         draggable={false}
         fetchPriority="high"

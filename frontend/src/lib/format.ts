@@ -11,6 +11,22 @@ export function bodyLabel(target: Target): string {
   return i18n.t(`common.bodyLabel.${target}`);
 }
 
+/** Licencias con código propio que se traducen; las Creative Commons se muestran tal cual */
+const TRANSLATED_LICENSES = ["public-domain", "pixabay"] as const;
+type TranslatedLicense = (typeof TRANSLATED_LICENSES)[number];
+
+/** "public-domain" -> "Dominio público" / "Public domain"; "CC BY 4.0" se queda igual */
+export function licenseLabel(license: string): string {
+  return (TRANSLATED_LICENSES as readonly string[]).includes(license)
+    ? i18n.t(`licenses.${license as TranslatedLicense}`)
+    : license;
+}
+
+/** Crédito de una foto: "Autor · Licencia" */
+export function formatCredit(author: string, license: string): string {
+  return `${author} · ${licenseLabel(license)}`;
+}
+
 export function terrainLabel(terrain: SiteFactors["terrain"]): string {
   return i18n.t(`common.terrain.${terrain}`);
 }

@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import type { Pair } from "../../hooks/usePairs";
 import { bodyLabel, formatPercent } from "../../lib/format";
+import { IMAGE_SIZES } from "../../lib/images";
+import { Picture } from "../ui/Photo";
 
 export default function SiteCard({ pair }: { pair: Pair }) {
   const { t } = useTranslation();
@@ -13,16 +15,18 @@ export default function SiteCard({ pair }: { pair: Pair }) {
       className="group block focus-visible:outline-offset-4"
     >
       <div className="relative aspect-4/3 overflow-hidden bg-night-800">
-        <img
+        <Picture
           src={site.image}
+          sizes={IMAGE_SIZES.card}
           alt=""
           loading="lazy"
           decoding="async"
           className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-out-strong group-hover:scale-[1.03]"
         />
         {/* El gemelo en la esquina: cada lugar de la Tierra se ve junto a su base */}
-        <img
+        <Picture
           src={base.image}
+          sizes={IMAGE_SIZES.cardCorner}
           alt=""
           loading="lazy"
           decoding="async"

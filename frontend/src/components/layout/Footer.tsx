@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import credits from "../../data/credits.json";
 import { useSites } from "../../hooks/useSites";
+import { licenseLabel } from "../../lib/format";
 import type { ImageCredit } from "../../types/credit";
 import type { Site } from "../../types/site";
 import { ButtonLink } from "../ui/Button";
@@ -84,9 +85,6 @@ function SiteLinks({ sites }: { sites: Site[] }) {
     </FooterLink>
   ));
 }
-
-// La licencia viene en español en credits.json: la única que se traduce es "Dominio público"
-const PUBLIC_DOMAIN = "Dominio público";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -212,7 +210,7 @@ export default function Footer() {
                 >
                   {c.title}
                 </a>{" "}
-                · {c.author} · {c.license === PUBLIC_DOMAIN ? t("footer.publicDomain") : c.license}
+                · {c.author} · {licenseLabel(c.license)}
               </li>
             ))}
           </ul>

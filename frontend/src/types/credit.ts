@@ -4,6 +4,7 @@ export interface ImageCredit {
   path: string;
   title: string;
   author: string;
+  /** Código: "public-domain", "pixabay" o el nombre de una Creative Commons ("CC BY 4.0") */
   license: string;
   /** Página de la imagen en Wikimedia Commons */
   source: string;

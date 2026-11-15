@@ -11,9 +11,19 @@ REAL_DATA_DIR = BACKEND_DIR / "data"
 FIXTURE_LOCATIONS = BACKEND_DIR / "fixtures" / "test_locations.json"
 
 
-def load_backup_sites():
+def load_backup_sites(lang="en"):
+    """sites.json con los campos bilingües ya resueltos, como los devuelve la API."""
+
     with open(REAL_DATA_DIR / "sites.json", encoding="utf-8") as file:
-        return json.load(file)
+        sites = json.load(file)
+
+    return [
+        {
+            key: value[lang] if isinstance(value, dict) and set(value) == {"es", "en"} else value
+            for key, value in site.items()
+        }
+        for site in sites
+    ]
 
 
 @pytest.fixture

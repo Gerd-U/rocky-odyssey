@@ -2,8 +2,11 @@ import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
 import { useBases, useSites } from "../../hooks/useSites";
+import { formatCredit } from "../../lib/format";
+import { IMAGE_SIZES } from "../../lib/images";
 import type { Target } from "../../types/site";
 import { ButtonLink } from "../ui/Button";
+import { Picture } from "../ui/Photo";
 import SectionHeading from "../ui/SectionHeading";
 
 /** Foto de un ensayo real en la Tierra para cada destino, sacada de los sitios */
@@ -27,9 +30,10 @@ export default function Closing() {
       {MODES.map((m) => {
         const site = sites?.find((s) => s.id === PHOTO_SITE[m]);
         return (
-          <img
+          <Picture
             key={m}
             src={site?.image ?? `/images/${PHOTO_SITE[m]}.jpg`}
+            sizes={IMAGE_SIZES.full}
             alt={m === mode ? t(`home.closing.photoAlt.${m}`) : ""}
             aria-hidden={m !== mode}
             loading="lazy"
@@ -62,7 +66,7 @@ export default function Closing() {
         </ButtonLink>
         {photoSite && (
           <p className="mt-10 text-small text-ink-soft">
-            {t("common.photo", { place: photoSite.name, credit: photoSite.imageCredit })}
+            {t("common.photo", { place: photoSite.name, credit: formatCredit(photoSite.imageAuthor, photoSite.imageLicense) })}
           </p>
         )}
       </div>

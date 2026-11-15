@@ -19,7 +19,9 @@ export interface Site {
   factors: SiteFactors;
   missions: string[];
   image: string;
-  imageCredit: string;
+  imageAuthor: string;
+  /** Código de licencia: "public-domain" o el nombre de una Creative Commons ("CC BY-SA 3.0") */
+  imageLicense: string;
   description: string;
   // "real" si el backend aplicó datos de locations.json; "placeholder" si son los valores escritos a mano.
   dataSource?: "real" | "placeholder";
@@ -33,6 +35,8 @@ export interface Base {
   lng: number;
   factors: SiteFactors;
   image: string;
-  imageCredit: string;
+  imageAuthor: string;
+  /** Código de licencia: "public-domain" o el nombre de una Creative Commons ("CC BY-SA 3.0") */
+  imageLicense: string;
   description: string;
 }

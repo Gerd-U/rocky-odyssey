@@ -53,7 +53,14 @@ Las dependencias de ejecución están en `requirements.txt`; las de pruebas, en
 | GET | `/api/ranking/?target=mars&sort_by=priority` | Ranking por prioridad o similitud |
 
 `GET /api/sites` y `GET /api/bases` devuelven los tipos `Site[]` y `Base[]`
-que consume el frontend. Las estructuras de referencia son los archivos JSON
+que consume el frontend.
+
+`/api/sites`, `/api/sites/{site_id}` y `/api/bases` aceptan `?lang=es|en` (por
+defecto `en`; un valor no admitido también usa `en`). En `sites.json` y
+`bases.json`, los campos `name`, `country`, `description` y `missions` son
+objetos `{"es": ..., "en": ...}`, y la API los devuelve ya resueltos como texto.
+`imageLicense` es un código: `public-domain` o el nombre de una licencia
+Creative Commons (`CC BY-SA 3.0`), que se muestra tal cual. Las estructuras de referencia son los archivos JSON
 ya existentes en `data/`; las comparaciones guardadas en `locations.json`
 pueden completar campos compatibles cuando coinciden por ID.
 

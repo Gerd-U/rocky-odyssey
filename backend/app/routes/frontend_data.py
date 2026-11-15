@@ -1,4 +1,3 @@
-
 import json
 from pathlib import Path
 
@@ -7,6 +6,33 @@ from fastapi import APIRouter, HTTPException
 router = APIRouter(prefix="/api", tags=["Frontend"])
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
+
+SUPPORTED_LANGS = ("en", "es")
+DEFAULT_LANG = "en"
+
+# Campos de sites.json y bases.json que vienen como {"es": ..., "en": ...}
+TRANSLATED_FIELDS = ("name", "country", "description", "missions")
+
+
+def resolve_lang(lang) -> str:
+    """Idioma pedido si está admitido; si no, inglés."""
+
+    return lang if lang in SUPPORTED_LANGS else DEFAULT_LANG
+
+
+def localize(item: dict, lang) -> dict:
+    """Devuelve el item con los campos traducidos ya resueltos al idioma pedido."""
+
+    lang = resolve_lang(lang)
+    localized = dict(item)
+
+    for field in TRANSLATED_FIELDS:
+        value = localized.get(field)
+
+        if isinstance(value, dict):
+            localized[field] = value.get(lang, value.get(DEFAULT_LANG))
+
+    return localized
 
 
 def load_data(filename: str):
@@ -97,14 +123,14 @@ def merge_scientific_data(sites, locations=None):
 
 
 @router.get("/sites")
-def get_sites():
-    sites = load_data("sites.json")
-    return merge_scientific_data(sites)
+def get_sites(lang: str = DEFAULT_LANG):
+    sites = merge_scientific_data(load_data("sites.json"))
+    return [localize(site, lang) for site in sites]
 
 
 @router.get("/sites/{site_id}")
-def get_site(site_id: str):
-    for site in get_sites():
+def get_site(site_id: str, lang: str = DEFAULT_LANG):
+    for site in get_sites(lang):
         if site.get("id") == site_id:
             return site
 
@@ -112,5 +138,5 @@ def get_site(site_id: str):
 
 
 @router.get("/bases")
-def get_bases():
-    return load_data("bases.json")
+def get_bases(lang: str = DEFAULT_LANG):
+    return [localize(base, lang) for base in load_data("bases.json")]

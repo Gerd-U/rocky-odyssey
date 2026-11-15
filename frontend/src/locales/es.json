@@ -149,8 +149,11 @@
       "youtube": "NASA en YouTube",
       "instagram": "NASA en Instagram"
     },
-    "credits": "Créditos de imágenes y texturas",
-    "publicDomain": "Dominio público"
+    "credits": "Créditos de imágenes y texturas"
+  },
+  "licenses": {
+    "public-domain": "Dominio público",
+    "pixabay": "Licencia de contenido de Pixabay"
   },
   "notFound": {
     "title": "No encontramos esta página",
