@@ -27,7 +27,13 @@ const VARIABLES = {
 } as const;
 
 function describe(source: Source, kind: Kind, t: TFunction): { label: string; value: string } {
+  if (source.variable === "coordenadas") {
+    return { label: t("sources.variables.coordenadas"), value: String(source.value ?? t("common.noData")) };
+  }
   const known = VARIABLES[source.variable as keyof typeof VARIABLES];
+  if (typeof source.value === "string") {
+    return { label: known ? t(known.label) : source.variable, value: source.value };
+  }
   const value = known ? known.format(kind)(source.value) : source.value === null ? null : formatDecimal(source.value);
   return {
     label: known ? t(known.label) : source.variable,

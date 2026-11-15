@@ -58,9 +58,15 @@ IDS = {
     "Pozo Mare Tranquillitatis": "pozo-mare-tranquillitatis",
     "Jezero": "jezero",
     "Arcadia Planitia": "arcadia-planitia",
+    "Gale": "gale",
+    "Oxia Planum": "oxia-planum",
+    "Utopia Planitia": "utopia-planitia",
+    "Hellas Planitia": "hellas-planitia",
+    "Arsia Mons": "arsia-mons",
 }
 
 # ---------- Coordenadas de las bases (lat, lon) y de dónde salen ----------
+# Las bases que no están aquí se buscan en datos/bases_marte_candidatas.csv (medir_bases_marte.py)
 COORDENADAS_BASES = {
     "Jezero": (18.4, 77.5, "mars_roughness.py y sources_log_mars.csv"),
     "Arcadia Planitia": (47.0, 184.0, "mars_roughness.py y sources_log_mars.csv"),
@@ -88,6 +94,11 @@ FOTOS = {
     "pozo-mare-tranquillitatis": "/images/bases/tranquilidad.jpg",
     "jezero": "/images/bases/jezero.jpg",
     "arcadia-planitia": "/images/bases/arcadia.jpg",
+    "gale": "/images/bases/gale.jpg",
+    "oxia-planum": "/images/bases/oxia-planum.jpg",
+    "utopia-planitia": "/images/bases/utopia-planitia.jpg",
+    "hellas-planitia": "/images/bases/hellas-planitia.jpg",
+    "arsia-mons": "/images/bases/arsia-mons.jpg",
 }
 
 SALIDAS = [
@@ -114,6 +125,14 @@ def numero(valor: str):
     return int(n) if n.is_integer() and "." not in valor else n
 
 
+def valor_log(valor: str):
+    """Valor de una fila de los logs: número si lo es; si no, el texto tal cual (p. ej. coordenadas)."""
+    try:
+        return numero(valor)
+    except ValueError:
+        return valor.strip()
+
+
 def leer_csv(ruta: Path) -> list[dict]:
     with open(ruta, encoding="utf-8-sig", newline="") as f:
         return [{k.strip(): (v or "").strip() for k, v in fila.items()} for fila in csv.DictReader(f)]
@@ -134,7 +153,7 @@ def fuentes(log: list[dict], sitio: str) -> list[dict]:
             continue
         fuente = {
             "variable": fila["variable"],
-            "value": numero(fila["valor"]),
+            "value": valor_log(fila["valor"]),
             "note": fila["capa"],
             "url": fila["url"] or None,
             "date": fila["fecha_consulta"] or None,
@@ -180,6 +199,11 @@ def escribir(ruta: Path, datos) -> None:
 
 def main() -> None:
     textos = json.loads((DATOS / "textos_sitios.json").read_text(encoding="utf-8"))
+    ruta_candidatas = DATOS / "bases_marte_candidatas.csv"
+    candidatas_marte = {
+        f["nombre"]: (float(f["lat"]), float(f["lon"]), f["fuente_coordenadas"])
+        for f in (leer_csv(ruta_candidatas) if ruta_candidatas.exists() else [])
+    }
     creditos = {c["path"]: c for c in json.loads((RAIZ / "frontend" / "src" / "data" / "credits.json").read_text(encoding="utf-8"))}
     logs = {
         "tierra": leer_csv(DATOS / "sources_log_tierra.csv"),
@@ -197,11 +221,11 @@ def main() -> None:
         id_ = id_de(nombre)
         if id_ not in textos:
             avisos.append(f"{nombre}: sin textos en textos_sitios.json; se usa el nombre del CSV")
-        lat, lon, origen = COORDENADAS_BASES.get(nombre, (None, None, "sin coordenadas"))
+        lat, lon, origen = COORDENADAS_BASES.get(nombre) or candidatas_marte.get(nombre, (None, None, "sin coordenadas"))
         if lat is None:
             avisos.append(f"{nombre}: sin coordenadas")
         log = logs[cuerpo]
-        valores = {f["variable"]: numero(f["valor"]) for f in log if f["sitio"] == nombre}
+        valores = {f["variable"]: valor_log(f["valor"]) for f in log if f["sitio"] == nombre}
         m = metricas(fila)
         bases.append({
             "id": id_,

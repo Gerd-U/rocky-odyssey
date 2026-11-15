@@ -184,7 +184,8 @@
       "tmin_k": "Minimum temperature",
       "tmax_k": "Maximum temperature",
       "hielo": "Cold index",
-      "hielo_favorabilidad": "Ice favourability"
+      "hielo_favorabilidad": "Ice favourability",
+        "coordenadas": "Coordinates"
     }
   },
   "licenses": {

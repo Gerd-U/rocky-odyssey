@@ -20,7 +20,8 @@ export interface Match {
 export interface Source {
   /** Nombre de la variable en el log: rugosidad, rango_termico, hielo, tmax_k… */
   variable: string;
-  value: number | null;
+  /** Número, o texto cuando el log guarda algo que no es una cifra (las coordenadas: "-4.59, 137.44") */
+  value: number | string | null;
   /** Capa, producto y fórmula, tal como la escribió el equipo */
   note: string;
   url: string | null;

@@ -104,12 +104,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.6886,
+        "baseId": "utopia-planitia",
+        "score": 0.7162,
         "coverage": 42.86,
         "criteria": {
-          "topography": 88.18,
-          "temperature": 76.4,
+          "topography": 78.36,
+          "temperature": 94.5,
           "ice_water": 42
         }
       }
@@ -268,12 +268,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.7104,
+        "baseId": "hellas-planitia",
+        "score": 0.8053,
         "coverage": 42.86,
         "criteria": {
-          "topography": 80.81,
-          "temperature": 57.3,
+          "topography": 97.48,
+          "temperature": 69.1,
           "ice_water": 75
         }
       }
@@ -438,12 +438,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.5134,
+        "baseId": "hellas-planitia",
+        "score": 0.6251,
         "coverage": 42.86,
         "criteria": {
-          "topography": 75.13,
-          "temperature": 78.9,
+          "topography": 96.84,
+          "temperature": 90.7,
           "ice_water": 0
         }
       }
@@ -602,12 +602,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.5629,
+        "baseId": "utopia-planitia",
+        "score": 0.5659,
         "coverage": 42.86,
         "criteria": {
-          "topography": 91.87,
-          "temperature": 77.0,
+          "topography": 74.66,
+          "temperature": 95.1,
           "ice_water": 0
         }
       }
@@ -766,12 +766,12 @@
         }
       },
       "mars": {
-        "baseId": "arcadia-planitia",
-        "score": 0.5362,
+        "baseId": "utopia-planitia",
+        "score": 0.5854,
         "coverage": 42.86,
         "criteria": {
-          "topography": 90.77,
-          "temperature": 70.1,
+          "topography": 97.01,
+          "temperature": 78.6,
           "ice_water": 0
         }
       }
@@ -930,12 +930,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.6388,
+        "baseId": "hellas-planitia",
+        "score": 0.6781,
         "coverage": 42.86,
         "criteria": {
-          "topography": 89.15,
-          "temperature": 69.5,
+          "topography": 89.14,
+          "temperature": 81.3,
           "ice_water": 33
         }
       }
@@ -1100,12 +1100,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.7437,
+        "baseId": "hellas-planitia",
+        "score": 0.7986,
         "coverage": 42.86,
         "criteria": {
-          "topography": 86.82,
-          "temperature": 53.3,
+          "topography": 91.47,
+          "temperature": 65.1,
           "ice_water": 83
         }
       }
@@ -1920,12 +1920,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.6598,
+        "baseId": "hellas-planitia",
+        "score": 0.7715,
         "coverage": 42.86,
         "criteria": {
-          "topography": 63.63,
-          "temperature": 59.3,
+          "topography": 85.34,
+          "temperature": 71.1,
           "ice_water": 75
         }
       }
@@ -2090,12 +2090,12 @@
         }
       },
       "mars": {
-        "baseId": "jezero",
-        "score": 0.7479,
+        "baseId": "hellas-planitia",
+        "score": 0.8596,
         "coverage": 42.86,
         "criteria": {
-          "topography": 71.57,
-          "temperature": 52.8,
+          "topography": 93.28,
+          "temperature": 64.6,
           "ice_water": 100
         }
       }

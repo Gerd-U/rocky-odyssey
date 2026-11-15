@@ -119,6 +119,41 @@
     "source": "https://commons.wikimedia.org/wiki/File:Aldrin_Looks_Back_at_Tranquility_Base_-_GPN-2000-001102.jpg"
   },
   {
+    "path": "/images/bases/gale.jpg",
+    "title": "Curiosity Mars Rover's Approach to 'Pahrump Hills' (PIA18608)",
+    "author": "NASA/JPL-Caltech/MSSS",
+    "license": "public-domain",
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA18608"
+  },
+  {
+    "path": "/images/bases/oxia-planum.jpg",
+    "title": "Landing in Oxia Planum (HiRISE ESP_060015_1980)",
+    "author": "NASA/JPL-Caltech/UArizona",
+    "license": "public-domain",
+    "source": "https://www.uahirise.org/ESP_060015_1980"
+  },
+  {
+    "path": "/images/bases/utopia-planitia.jpg",
+    "title": "Ice-rich deposits in the Utopia Basin (HiRISE ESP_032569_2225)",
+    "author": "NASA/JPL-Caltech/UArizona",
+    "license": "public-domain",
+    "source": "https://www.uahirise.org/ESP_032569_2225"
+  },
+  {
+    "path": "/images/bases/hellas-planitia.jpg",
+    "title": "Banded Terrain in Hellas Planitia (PIA24947)",
+    "author": "NASA/JPL-Caltech/University of Arizona",
+    "license": "public-domain",
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA24947"
+  },
+  {
+    "path": "/images/bases/arsia-mons.jpg",
+    "title": "Seven Possible Cave Skylights on Mars (PIA09929)",
+    "author": "NASA/JPL-Caltech/ASU/USGS",
+    "license": "public-domain",
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA09929"
+  },
+  {
     "path": "/textures/earth.jpg",
     "title": "Textura de la Tierra de día",
     "author": "Solar System Scope",

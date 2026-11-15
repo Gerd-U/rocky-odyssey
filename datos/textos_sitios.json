@@ -307,5 +307,65 @@
       "es": "Llanura del hemisferio norte de Marte (47° N). Rugosidad de 9,2 m y rango térmico de 39,4 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
       "en": "Plain in Mars' northern hemisphere (47° N). Roughness of 9.2 m and a 39.4 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
     }
+  },
+  "gale": {
+    "review": true,
+    "source": "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+    "name": {
+      "es": "Cráter Gale",
+      "en": "Gale Crater"
+    },
+    "description": {
+      "es": "Cráter donde aterrizó el rover Curiosity de NASA en 2012, en el punto conocido como Bradbury Landing. Es uno de los lugares de Marte con más información disponible.",
+      "en": "Crater where NASA's Curiosity rover landed in 2012, at the spot known as Bradbury Landing. It is one of the places on Mars with the most information available."
+    }
+  },
+  "oxia-planum": {
+    "review": true,
+    "source": "https://exploration.esa.int/web/mars/-/54724-oxia-planum",
+    "name": {
+      "es": "Oxia Planum",
+      "en": "Oxia Planum"
+    },
+    "description": {
+      "es": "Llanura elegida como sitio de aterrizaje del rover europeo Rosalind Franklin (ExoMars), en terrenos antiguos de las tierras altas con cráteres.",
+      "en": "Plain chosen as the landing site for the European Rosalind Franklin rover (ExoMars), on ancient cratered highland terrain."
+    }
+  },
+  "utopia-planitia": {
+    "review": true,
+    "source": "https://www.uahirise.org/ESP_032569_2225",
+    "name": {
+      "es": "Utopia Planitia",
+      "en": "Utopia Planitia"
+    },
+    "description": {
+      "es": "Gran llanura del norte de Marte con hielo a poca profundidad, como Arcadia Planitia. La sonda Viking 2, que aterrizó allí, fotografió hielo sobre su superficie.",
+      "en": "Large plain in northern Mars with shallow ground ice, like Arcadia Planitia. The Viking 2 lander, which touched down there, photographed ice on its surface."
+    }
+  },
+  "hellas-planitia": {
+    "review": true,
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA24947",
+    "name": {
+      "es": "Hellas Planitia",
+      "en": "Hellas Planitia"
+    },
+    "description": {
+      "es": "Fondo de la cuenca de Hellas, la zona más baja de Marte y, por eso, la de mayor presión atmosférica.",
+      "en": "Floor of the Hellas basin, the lowest region on Mars and therefore the one with the highest atmospheric pressure."
+    }
+  },
+  "arsia-mons": {
+    "review": true,
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA09929",
+    "name": {
+      "es": "Arsia Mons (tragaluz Jeanne)",
+      "en": "Arsia Mons (Jeanne skylight)"
+    },
+    "description": {
+      "es": "Volcán con agujeros en sus flancos que podrían ser tragaluces de cuevas. Este punto es 'Jeanne', uno de los siete candidatos que vio la cámara THEMIS de Mars Odyssey.",
+      "en": "Volcano with holes on its flanks that may be cave skylights. This point is 'Jeanne', one of the seven candidates seen by the THEMIS camera on Mars Odyssey."
+    }
   }
 }

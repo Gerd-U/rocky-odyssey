@@ -188,7 +188,8 @@
       "tmin_k": "Temperatura mínima",
       "tmax_k": "Temperatura máxima",
       "hielo": "Índice de frío",
-      "hielo_favorabilidad": "Favorabilidad al hielo"
+      "hielo_favorabilidad": "Favorabilidad al hielo",
+        "coordenadas": "Coordenadas"
     }
   },
   "licenses": {

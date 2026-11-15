@@ -1,7 +1,7 @@
 # Metodología
 
-Cómo se calculan los datos que muestra Rocky Odyssey: 13 lugares de la Tierra y 4
-bases (2 en la Luna y 2 en Marte). Todo sale de los archivos de esta carpeta; los
+Cómo se calculan los datos que muestra Rocky Odyssey: 13 lugares de la Tierra y 9
+bases (2 en la Luna y 7 en Marte). Todo sale de los archivos de esta carpeta; los
 números de este documento son los que dan los scripts hoy.
 
 ## 1. Las tres variables
@@ -19,7 +19,8 @@ cuadrícula de 3 × 3 alrededor del lugar, redondeada a 1 decimal.
 | Tierra | ASTER GDEM v3 (`ASTGTM_NC.003`) vía NASA AppEEARS | paso de 0,05° | `metricas_tierra.py` |
 | Luna, Pozo Mare Tranquillitatis | LRO LOLA DEM global 128 ppd (Moon Trek) | centro + extremos de 4 perfiles | `rugosidad_mare.py` |
 | Luna, Shackleton (borde) | LRO LOLA DEM polar 87,5° (Moon Trek) | igual que el pozo | `rugosidad_shackleton.py` |
-| Marte | MGS MOLA DEM 463 m (USGS) | 5,5 km | `mars_roughness.py` |
+| Marte, Jezero y Arcadia Planitia | MGS MOLA DEM 463 m (USGS) | 5,5 km | `mars_roughness.py` |
+| Marte, bases nuevas | MOLA 128 píxeles/grado (COG de USGS, leído por HTTP) | 5,5 km | `medir_bases_marte.py` |
 
 ### Rango térmico
 
@@ -43,7 +44,7 @@ Porcentaje de los 12 meses con temperatura media bajo 0 °C, redondeado a entero
 - **Tierra:** media mensual de (día + noche) / 2 con MODIS 2023. Un mes sin datos
   cuenta como "no bajo 0 °C" (le pasa a Salar de Uyuni, con 9 meses con dato).
 - **Luna y Marte:** se usa la misma fórmula, con las temperaturas medias de los
-  logs. Las 4 bases dan 100.
+  logs. Las 9 bases dan 100.
 
 Cada valor de la Tierra, con su producto, fórmula, URL y fecha, está en
 `sources_log_tierra.csv`; los de la Luna y Marte, en `sources_log_moon.csv` y
@@ -96,12 +97,20 @@ porcentaje.
   PROVISIONAL y la web lo muestra con la etiqueta "aproximación". Sus coordenadas
   (-89,9°, 0°) no están en los scripts ni en los logs: se tomaron del `bases.json`
   anterior.
-- **Índice de frío en las bases.** Las 4 bases dan 100, así que en la práctica este
+- **Índice de frío en las bases.** Las 9 bases dan 100, así que en la práctica este
   criterio mide qué tan frío es el lugar de la Tierra: McMurdo (100) se parece más
   y Atacama (0) menos, sea cual sea la base.
-- **Solo 4 bases medidas.** Marius Hills y Gale, que estaban en la versión anterior
-  de la web, salieron por falta de datos. Con 2 bases por cuerpo, la mayoría de los
-  lugares terminan emparejados con la misma (en Marte, 10 de 13 con Jezero).
+- **Pocas bases en la Luna.** Solo hay 2 bases lunares medidas (Marius Hills salió
+  por falta de datos), así que la mayoría de los lugares se emparejan con
+  Shackleton. En Marte hay 7: Jezero y Arcadia Planitia, del equipo, y Gale, Oxia
+  Planum, Utopia Planitia, Hellas Planitia y Arsia Mons, que añadió
+  `medir_bases_marte.py`.
+- **Bases nuevas de Marte.** Se midieron con las mismas fórmulas, reutilizando las
+  funciones de `mars_roughness.py` y la lectura de `mcd_range.py`. Antes de guardar,
+  el script recalcula Jezero y Arcadia Planitia y exige quedar a menos de 5 % de los
+  valores del equipo; hoy coinciden exactamente (rugosidad, tmax_k y tmin_k). Las
+  coordenadas y su criterio están en `bases_marte_candidatas.csv`. No tienen
+  `hielo_favorabilidad`, que es un criterio manual del equipo.
 
 ## 4. Cómo actualizar los datos
 
@@ -109,12 +118,16 @@ Desde la raíz del repo, en este orden:
 
 ```powershell
 python datos/scripts/metricas_tierra.py   # Tierra -> datos_limpios/tierra.csv, tierra_detalle.json y sources_log_tierra.csv
+python datos/scripts/medir_bases_marte.py # bases nuevas de Marte -> targets_mars.csv y sources_log_mars.csv
 python datos/scripts/unir_objetivos.py    # Luna y Marte -> datos_limpios/objetivos.csv
 python datos/scripts/generar_web.py       # backend/data/sites.json y bases.json, y los mocks del frontend
 ```
 
 `metricas_tierra.py` y `generar_web.py` usan solo la biblioteca estándar de
-Python; `unir_objetivos.py` necesita pandas (`requirements.txt`). Los textos de
+Python; `unir_objetivos.py` necesita pandas y `medir_bases_marte.py` necesita
+numpy, rasterio y requests (`requirements.txt`). `medir_bases_marte.py` reutiliza
+los datos crudos ya descargados en `datos_crudos/`, así que puede volver a correrse
+sin internet. Los textos de
 cada lugar (nombre, país y descripción en español e inglés) están en
 `textos_sitios.json`; las entradas con `"review": true` están pendientes de
 revisión del equipo. Una base nueva en `objetivos.csv` entra sola en la web; si no

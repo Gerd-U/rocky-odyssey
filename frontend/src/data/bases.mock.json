@@ -62,6 +62,213 @@
     "dataSource": "real"
   },
   {
+    "id": "arsia-mons",
+    "name": {
+      "es": "Arsia Mons (tragaluz Jeanne)",
+      "en": "Arsia Mons (Jeanne skylight)"
+    },
+    "description": {
+      "es": "Volcán con agujeros en sus flancos que podrían ser tragaluces de cuevas. Este punto es 'Jeanne', uno de los siete candidatos que vio la cámara THEMIS de Mars Odyssey.",
+      "en": "Volcano with holes on its flanks that may be cave skylights. This point is 'Jeanne', one of the seven candidates seen by the THEMIS camera on Mars Odyssey."
+    },
+    "body": "mars",
+    "lat": -5.5332,
+    "lng": -118.6069,
+    "metrics": {
+      "roughnessM": 110.5,
+      "thermalRange": 78.3,
+      "coldIndex": 100,
+      "tminK": 168.6,
+      "tmaxK": 246.9
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-5.5332, -118.6069",
+        "note": "Tragaluz 'Jeanne' (APC075) del Mars Global Cave Candidate Catalog (Cushing, USGS/PDS): 241.3931°E, -5.5332°, 165 m de diámetro, 345 m de profundidad aparente; prioridad 0 = ya tiene observación HiRISE pública. Es el único de los siete tragaluces de Cushing et al. 2007 (doi:10.1029/2007GL030709) que el catálogo nombra. Cima del Gazetteer como referencia: -8.30°, 238.90°E (https://planetarynames.wr.usgs.gov/Feature/394)",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_global_cave_candidate_catalog_v1_cushing",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 110.5,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-5.5332, -118.6069 (lon este -180..180; 241.3931 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_arsia-mons_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 168.6,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 78.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -5.5332 N, 241.3931 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~208 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/arsia-mons.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/ASU/USGS",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "gale",
+    "name": {
+      "es": "Cráter Gale",
+      "en": "Gale Crater"
+    },
+    "description": {
+      "es": "Cráter donde aterrizó el rover Curiosity de NASA en 2012, en el punto conocido como Bradbury Landing. Es uno de los lugares de Marte con más información disponible.",
+      "en": "Crater where NASA's Curiosity rover landed in 2012, at the spot known as Bradbury Landing. It is one of the places on Mars with the most information available."
+    },
+    "body": "mars",
+    "lat": -4.59,
+    "lng": 137.44,
+    "metrics": {
+      "roughnessM": 171.9,
+      "thermalRange": 54.4,
+      "coldIndex": 100,
+      "tminK": 192.2,
+      "tmaxK": 246.6
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-4.59, 137.44",
+        "note": "Bradbury Landing, sitio de aterrizaje de Curiosity: NASA GISS Mars24 da 137.44°E 4.59°S para Mars Science Laboratory y dice que el sitio se conoce como Bradbury Landing",
+        "url": "https://www.giss.nasa.gov/tools/mars24/help/landers.html",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 171.9,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-4.5900, 137.4400 (lon este -180..180; 137.4400 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_gale_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.6,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 192.2,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 54.4,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -4.59 N, 137.44 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~219 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/gale.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/MSSS",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "hellas-planitia",
+    "name": {
+      "es": "Hellas Planitia",
+      "en": "Hellas Planitia"
+    },
+    "description": {
+      "es": "Fondo de la cuenca de Hellas, la zona más baja de Marte y, por eso, la de mayor presión atmosférica.",
+      "en": "Floor of the Hellas basin, the lowest region on Mars and therefore the one with the highest atmospheric pressure."
+    },
+    "body": "mars",
+    "lat": -42.66,
+    "lng": 70.0,
+    "metrics": {
+      "roughnessM": 226.2,
+      "thermalRange": 37.2,
+      "coldIndex": 100,
+      "tminK": 187.7,
+      "tmaxK": 224.9
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-42.66, 70.0",
+        "note": "Centro del Gazetteer of Planetary Nomenclature de USGS (planetocéntrico, +Este, 0-360)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/2432",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 226.2,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (-42.6600, 70.0000 (lon este -180..180; 70.0000 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_hellas-planitia_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 224.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 187.7,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 37.2,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto -42.66 N, 70 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~206 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/hellas-planitia.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/University of Arizona",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
     "id": "jezero",
     "name": {
       "es": "Cráter Jezero",
@@ -121,6 +328,144 @@
     "image": "/images/bases/jezero.jpg",
     "imageAuthor": "NASA/JPL-Caltech/ASU, procesado por Andrea Luck",
     "imageLicense": "CC BY 2.0",
+    "dataSource": "real"
+  },
+  {
+    "id": "oxia-planum",
+    "name": {
+      "es": "Oxia Planum",
+      "en": "Oxia Planum"
+    },
+    "description": {
+      "es": "Llanura elegida como sitio de aterrizaje del rover europeo Rosalind Franklin (ExoMars), en terrenos antiguos de las tierras altas con cráteres.",
+      "en": "Plain chosen as the landing site for the European Rosalind Franklin rover (ExoMars), on ancient cratered highland terrain."
+    },
+    "body": "mars",
+    "lat": 18.2,
+    "lng": -24.55,
+    "metrics": {
+      "roughnessM": 15.3,
+      "thermalRange": 45.3,
+      "coldIndex": 100,
+      "tminK": 195.0,
+      "tmaxK": 240.3
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "18.2, -24.55",
+        "note": "Sitio de aterrizaje de Oxia Planum según el portal científico de ESA (18.20°N, 335.45°E); ESA no publica en esa página otro centro para la elipse de Rosalind Franklin. Centro del Gazetteer de USGS como referencia: 17.28°N, 334.29°E (https://planetarynames.wr.usgs.gov/Feature/15821)",
+        "url": "https://exploration.esa.int/web/mars/-/54724-oxia-planum",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 15.3,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (18.2000, -24.5500 (lon este -180..180; 335.4500 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_oxia-planum_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 240.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 195.0,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 45.3,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.2 N, 335.45 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~218 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/oxia-planum.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/UArizona",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "utopia-planitia",
+    "name": {
+      "es": "Utopia Planitia",
+      "en": "Utopia Planitia"
+    },
+    "description": {
+      "es": "Gran llanura del norte de Marte con hielo a poca profundidad, como Arcadia Planitia. La sonda Viking 2, que aterrizó allí, fotografió hielo sobre su superficie.",
+      "en": "Large plain in northern Mars with shallow ground ice, like Arcadia Planitia. The Viking 2 lander, which touched down there, photographed ice on its surface."
+    },
+    "body": "mars",
+    "lat": 49.67,
+    "lng": 118.0,
+    "metrics": {
+      "roughnessM": 16.9,
+      "thermalRange": 30.9,
+      "coldIndex": 100,
+      "tminK": 177.1,
+      "tmaxK": 208.0
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "49.67, 118.0",
+        "note": "Centro del Gazetteer of Planetary Nomenclature de USGS (planetocéntrico, +Este, 0-360). No se encontró en una fuente oficial o con DOI la coordenada de un cráter con hielo expuesto confirmado dentro de Utopia Planitia",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/6260",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 16.9,
+        "note": "MOLA MEGDR mola128_mola64_merge (COG de USGS Astrogeology), 463.08 m/píxel, 128 píxeles/grado, int16 en metros, leído por HTTP; 9 puntos (3x3, 5.5 km sobre la esfera, R = 3396.19 km) centrados en (49.6700, 118.0000 (lon este -180..180; 118.0000 E en 0-360)); desviación estándar con ddof=0; elevaciones en datos_crudos/mola_utopia-planitia_9puntos.csv",
+        "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/wms_basemaps3/Mars/MOLA/mola128_mola64_merge_90Nto90S_SimpleC_clon0_cog.tif",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 208.0,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 177.1,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 30.9,
+        "note": "Mars Climate Database v6.2; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 49.67 N, 118 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~193 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/utopia-planitia.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/UArizona",
+    "imageLicense": "public-domain",
     "dataSource": "real"
   },
   {

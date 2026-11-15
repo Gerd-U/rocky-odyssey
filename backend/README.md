@@ -76,6 +76,7 @@ Desde la raíz del repo, en este orden:
 
 ```powershell
 python datos/scripts/metricas_tierra.py   # métricas de la Tierra -> datos/datos_limpios/tierra.csv
+python datos/scripts/medir_bases_marte.py # bases nuevas de Marte (opcional, ya medidas) -> targets_mars.csv
 python datos/scripts/unir_objetivos.py    # bases de la Luna y Marte -> datos/datos_limpios/objetivos.csv
 python datos/scripts/generar_web.py       # sites.json y bases.json (y los mocks del frontend)
 ```

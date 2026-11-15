@@ -1,5 +1,8 @@
 """Datos reales del equipo en /api/sites y /api/bases (generados por datos/scripts/generar_web.py)."""
 
+import csv
+from pathlib import Path
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -7,12 +10,20 @@ from app.main import app
 
 client = TestClient(app)
 
+# Ids del formato viejo. "gale" ya no está: volvió como base medida (medir_bases_marte.py).
 OLD_IDS = {
     "riotinto", "mdrs", "svalbard", "lanzarote", "hiseas", "meteorcrater",
-    "islandia", "concordia", "marius", "gale",
+    "islandia", "concordia", "marius",
 }
 OLD_FIELDS = {"factors", "target", "analogOf", "similarity", "precipMm", "terrain", "imageCredit"}
 CRITERIA = {"topography", "temperature", "ice_water"}
+OBJETIVOS = Path(__file__).resolve().parents[1] / "datos" / "datos_limpios" / "objetivos.csv"
+CUERPOS = {"luna": "moon", "marte": "mars"}
+
+
+def objetivos():
+    with open(OBJETIVOS, encoding="utf-8") as f:
+        return list(csv.DictReader(f))
 
 
 def get_json(path, **params):
@@ -31,11 +42,14 @@ def bases():
     return get_json("/api/bases")
 
 
-def test_there_are_13_sites_and_4_bases(sites, bases):
+def test_there_are_13_sites_and_one_base_per_target(sites, bases):
+    filas = objetivos()
+
     assert len(sites) == 13
-    assert len(bases) == 4
     assert len({site["id"] for site in sites}) == 13
-    assert sorted(base["body"] for base in bases) == ["mars", "mars", "moon", "moon"]
+    assert len(bases) == len(filas)
+    assert sorted(base["body"] for base in bases) == sorted(CUERPOS[f["cuerpo"]] for f in filas)
+    assert {"moon", "mars"} <= {base["body"] for base in bases}
 
 
 def test_old_ids_and_fields_are_gone(sites, bases):
