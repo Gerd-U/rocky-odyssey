@@ -89,7 +89,8 @@ export default function Criteria() {
             return (
               <div
                 key={c.term}
-                className="rise grid gap-x-10 gap-y-3 md:grid-cols-[10rem_1fr] lg:grid-cols-[11rem_1fr_22rem]"
+                data-reveal
+                className="grid gap-x-10 gap-y-3 md:grid-cols-[10rem_1fr] lg:grid-cols-[11rem_1fr_22rem]"
               >
                 <dt className="text-h3 font-extrabold font-stretch-[75%] text-ink">{c.term}</dt>
                 <dd className="max-w-prose text-ink">{c.text}</dd>

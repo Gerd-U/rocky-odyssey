@@ -1,12 +1,19 @@
+import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { Pair } from "../../hooks/usePairs";
 import { BODY_LABEL, formatPercent } from "../../lib/format";
 
-export default function SiteCard({ pair }: { pair: Pair }) {
+/** index escalona la entrada de las tarjetas de una misma fila (70 ms entre una y otra) */
+export default function SiteCard({ pair, index = 0 }: { pair: Pair; index?: number }) {
   const { site, base } = pair;
 
   return (
-    <Link to={`/ubicacion/${site.id}`} className="rise group block focus-visible:outline-offset-4">
+    <Link
+      to={`/ubicacion/${site.id}`}
+      data-reveal
+      style={{ "--i": index % 3 } as CSSProperties}
+      className="group block focus-visible:outline-offset-4"
+    >
       <div className="relative aspect-4/3 overflow-hidden bg-night-800">
         <img
           src={site.image}

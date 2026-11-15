@@ -88,7 +88,7 @@ export default function Locations() {
       ) : (
         <ul className={GRID}>
           <AnimatePresence mode="popLayout" initial={false}>
-            {results.map((pair) => (
+            {results.map((pair, i) => (
               <motion.li
                 key={pair.site.id}
                 layout={!reduce}
@@ -97,7 +97,7 @@ export default function Locations() {
                 exit={{ opacity: 0, transform: reduce ? "none" : "scale(0.96)" }}
                 transition={{ duration: reduce ? 0.15 : 0.3, ease: SWAP_EASE }}
               >
-                <SiteCard pair={pair} />
+                <SiteCard pair={pair} index={i} />
               </motion.li>
             ))}
           </AnimatePresence>

@@ -49,6 +49,10 @@
   /* Curvas de movimiento */
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  /* Revelados largos (800 ms o más) y subidas de línea */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Escala y deriva lentas en fotos */
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
 
   --animate-twinkle: twinkle 3s ease-in-out infinite;
 
@@ -112,35 +116,117 @@
 }
 
 /*
- * Entradas al hacer scroll, sin JavaScript. Solo se activan si el navegador entiende
- * animation-timeline y la persona no pidió menos movimiento; si no, el contenido
- * está visible desde el principio (nunca se queda oculto).
- * --i escalona los hijos de una sección: 0 titular, 1 texto, 2 imagen...
+ * Movimiento al hacer scroll, según las recetas de design-taste-frontend (references/motion.md)
+ * e impeccable (animate). Reglas: cada revelado ocurre una sola vez; nada visible se queda
+ * oculto más de 900 ms; todo estado oculto vive dentro de prefers-reduced-motion: no-preference,
+ * así que con movimiento reducido la página aparece ya terminada.
  */
+
+/* Revelados (los activa useScrollReveal añadiendo .js-reveal a <html> y .is-in al elemento) */
+[data-mask] {
+  display: block;
+  overflow: clip;
+  /* deja sitio a los descendentes (g, p, y) para que la máscara no los corte */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+[data-mask] > * {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Bloque que sube 24 px y aparece. --i escalona elementos de una misma lista (70 ms) */
+  .js-reveal [data-reveal] {
+    transition:
+      opacity 700ms var(--ease-out-strong),
+      transform 900ms var(--ease-expo);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .js-reveal [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  /* Titular que sube desde detrás de su propia línea */
+  .js-reveal [data-mask] > * {
+    transition: transform 900ms var(--ease-expo);
+  }
+  .js-reveal [data-mask]:not(.is-in) > * {
+    transform: translateY(110%);
+  }
+
+  /* Persiana: la foto se abre de abajo arriba mientras se asienta dentro del marco */
+  .js-reveal [data-shutter] {
+    transition: clip-path 1200ms var(--ease-in-out-strong) calc(var(--i, 0) * 90ms);
+  }
+  .js-reveal [data-shutter] img {
+    transition:
+      transform 1500ms var(--ease-soft) calc(var(--i, 0) * 90ms),
+      opacity 500ms var(--ease-out-strong);
+  }
+  .js-reveal [data-shutter]:not(.is-in) {
+    clip-path: inset(0 0 100% 0);
+  }
+  .js-reveal [data-shutter]:not(.is-in) img {
+    transform: scale(1.12);
+  }
+
+  /*
+   * Entrada del hero en 1,2 s, sin esperar a nada: el titular sube de 150 a 1.050 ms y la frase,
+   * los controles y la línea de hoy llegan entre 420 y 1.140 ms. Cuatro piezas como máximo.
+   */
+  .load-line {
+    animation: load-line 900ms var(--ease-expo) 150ms both;
+  }
+  .load-rise {
+    animation: load-rise 600ms var(--ease-out-strong) var(--d, 0ms) both;
+  }
+}
+
+@keyframes load-line {
+  from {
+    transform: translateY(105%);
+  }
+}
+@keyframes load-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Ligado al scroll: lineal (el scroll es la curva), recorridos de menos del 8 % */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .rise {
-      animation: rise linear both;
-      animation-timeline: view();
-      animation-range: entry calc(var(--i, 0) * 6%) entry calc(55% + var(--i, 0) * 6%);
-    }
-    /* La foto se acerca muy despacio mientras cruza la pantalla */
+    /* La foto del cierre se acerca muy despacio mientras cruza la pantalla */
     .drift {
       animation: drift linear both;
       animation-timeline: view();
       animation-range: cover;
     }
-  }
-}
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
+    /*
+     * Hero que se retira: al bajar, el vídeo se hunde y se oscurece, y el texto sube y se
+     * desvanece algo más rápido. El rango exit dura la primera pantalla de scroll.
+     */
+    .hero-recede {
+      view-timeline-name: --hero;
+    }
+    .hero-recede__media {
+      animation: hero-sink linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-recede__dim {
+      animation: hero-dim linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-recede__copy {
+      animation: hero-lift linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 70%;
+    }
   }
 }
 
@@ -150,6 +236,25 @@
   }
   to {
     transform: scale(1.06);
+  }
+}
+@keyframes hero-sink {
+  to {
+    transform: translateY(8%) scale(1.06);
+  }
+}
+@keyframes hero-dim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+@keyframes hero-lift {
+  to {
+    transform: translateY(-6%);
+    opacity: 0;
   }
 }
 

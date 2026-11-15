@@ -1,5 +1,5 @@
 import { animate, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { Pair } from "../../hooks/usePairs";
 import { BODY_LABEL, formatPercent } from "../../lib/format";
 import { SWAP_EASE } from "../../lib/motion";
@@ -53,35 +53,42 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
   return (
     <article aria-labelledby="twin-title" className={className}>
       <div className="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-[1fr_21rem_1fr] lg:items-center lg:gap-x-10">
-        <Swap swapKey={site.id} className="rise">
-          <Photo src={site.image} alt={`${site.name}, ${site.country}`} caption={`Tierra · ${site.name}`} ratio="1 / 1" />
-        </Swap>
+        {/* Las dos fotos gemelas se abren como una persiana al entrar en pantalla (data-shutter) */}
+        <div data-shutter>
+          <Swap swapKey={site.id}>
+            <Photo src={site.image} alt={`${site.name}, ${site.country}`} caption={`Tierra · ${site.name}`} ratio="1 / 1" />
+          </Swap>
+        </div>
 
-        <Swap swapKey={base.id} delay={0.1} className="rise lg:order-last">
-          <Photo
-            src={base.image}
-            alt={`${base.name}, ${BODY_LABEL[base.body]}`}
-            caption={`${BODY_LABEL[base.body]} · ${base.name}`}
-            ratio="1 / 1"
-          />
-        </Swap>
+        <div data-shutter className="lg:order-last" style={{ "--i": 1 } as CSSProperties}>
+          <Swap swapKey={base.id} delay={0.1}>
+            <Photo
+              src={base.image}
+              alt={`${base.name}, ${BODY_LABEL[base.body]}`}
+              caption={`${BODY_LABEL[base.body]} · ${base.name}`}
+              ratio="1 / 1"
+            />
+          </Swap>
+        </div>
 
-        <Swap swapKey={site.id} delay={0.05} className="col-span-2 lg:col-span-1">
-          <h3 id="twin-title" className="text-h3 font-extrabold text-balance font-stretch-[75%] text-ink">
-            {site.name} y {base.name}
-          </h3>
-          <p className="mt-5">
-            <span className="block text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
-              <span className="sr-only">{formatPercent(site.similarity)}</span>
-              <CountUp from={from} to={site.similarity} />
-            </span>
-            <span className="mt-1 block text-sm text-ink-soft">de similitud (valor provisional)</span>
-          </p>
-          <CompareTable pair={pair} className="mt-6" />
-          <ButtonLink to={`/ubicacion/${site.id}`} variant="secondary" size="sm" className="mt-6">
-            Ver detalle →
-          </ButtonLink>
-        </Swap>
+        <div data-reveal className="col-span-2 lg:col-span-1" style={{ "--i": 2 } as CSSProperties}>
+          <Swap swapKey={site.id} delay={0.05}>
+            <h3 id="twin-title" className="text-h3 font-extrabold text-balance font-stretch-[75%] text-ink">
+              {site.name} y {base.name}
+            </h3>
+            <p className="mt-5">
+              <span className="block text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
+                <span className="sr-only">{formatPercent(site.similarity)}</span>
+                <CountUp from={from} to={site.similarity} />
+              </span>
+              <span className="mt-1 block text-sm text-ink-soft">de similitud (valor provisional)</span>
+            </p>
+            <CompareTable pair={pair} className="mt-6" />
+            <ButtonLink to={`/ubicacion/${site.id}`} variant="secondary" size="sm" className="mt-6">
+              Ver detalle →
+            </ButtonLink>
+          </Swap>
+        </div>
       </div>
 
       <p className="mt-6 text-small text-ink-soft">

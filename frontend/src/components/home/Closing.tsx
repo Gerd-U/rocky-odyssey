@@ -21,7 +21,7 @@ export default function Closing() {
   const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode].id);
 
   return (
-    <section aria-labelledby="closing-title" className="relative isolate mt-section flex min-h-[70svh] items-end overflow-hidden">
+    <section aria-labelledby="closing-title" className="relative isolate mt-section flex min-h-[70svh] items-end overflow-clip">
       {MODES.map((m) => {
         const site = sites?.find((s) => s.id === PHOTO_SITE[m].id);
         return (
@@ -55,7 +55,7 @@ export default function Closing() {
             </p>
           )}
         </SectionHeading>
-        <ButtonLink to="/ubicaciones" size="lg" className="rise mt-8" style={{ "--i": 2 } as CSSProperties}>
+        <ButtonLink to="/ubicaciones" size="lg" className="mt-8" data-reveal style={{ "--i": 3 } as CSSProperties}>
           Ver todas las ubicaciones
         </ButtonLink>
         {photoSite && (

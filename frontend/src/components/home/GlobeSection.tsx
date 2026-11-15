@@ -140,7 +140,7 @@ export default function GlobeSection() {
           </div>
         ) : (
           <>
-            <div className={`rise mt-8 ${STAGE_GRID} lg:items-center`}>
+            <div data-reveal className={`mt-8 ${STAGE_GRID} lg:items-center`}>
               <figure>
                 <Suspense fallback={<Skeleton className="h-[320px] md:h-[360px] lg:h-[440px]" />}>
                   <GlobeView
@@ -197,7 +197,7 @@ export default function GlobeSection() {
               )}
             </div>
 
-            <div className="rise mt-6">
+            <div className="mt-6">
               <Legend mode={mode} />
             </div>
 

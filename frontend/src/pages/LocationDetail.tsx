@@ -19,7 +19,7 @@ const BODY_TEXTURE = {
   mars: "/textures/mars.jpg",
 } as const;
 
-const SLIDER_FRAME = "rise mt-8 aspect-4/3 w-full md:aspect-video";
+const SLIDER_FRAME = "mt-8 aspect-4/3 w-full md:aspect-video";
 const GLOBE_HEIGHT = 380;
 
 function BackLink() {
@@ -140,7 +140,7 @@ export default function LocationDetail() {
         Fotos: {site.imageCredit} · {base.imageCredit}
       </p>
 
-      <div className="rise mt-14 grid gap-14 lg:grid-cols-2 lg:gap-16">
+      <div data-reveal className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-16">
         <section aria-labelledby="factors-title">
           <h2 id="factors-title" className="text-sm text-ink-soft">
             Similitud <span className="text-ink-soft/80">(provisional)</span>
@@ -186,7 +186,8 @@ export default function LocationDetail() {
       {next && (
         <Link
           to={`/ubicacion/${next.site.id}`}
-          className="rise group mt-20 flex items-center gap-5 border-t border-ink/10 pt-8"
+          data-reveal
+          className="group mt-20 flex items-center gap-5 border-t border-ink/10 pt-8"
         >
           <img
             src={next.site.image}

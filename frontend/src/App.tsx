@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import { ModeProvider } from "./context/ModeContext";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 import Home from "./pages/Home";
 import LocationDetail from "./pages/LocationDetail";
 import Locations from "./pages/Locations";
@@ -36,6 +37,7 @@ function Starfield() {
 
 function Pages() {
   const { pathname, hash, key } = useLocation();
+  useScrollReveal();
   const onHome = pathname === "/";
 
   useEffect(() => {
