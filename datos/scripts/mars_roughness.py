@@ -36,6 +36,9 @@ def nueve_puntos(lat, lon):
 SITIOS = {
     "Jezero": (18.4, 77.5),
     "Arcadia Planitia": (47.0, 184.0),   # aproximado
+    "Gale": (-4.6, 137.4),
+    "Oxia Planum": (18.2, 335.4),
+    "Arsia Mons": (-8.35, 239.9),
 }
 resultados = {}
 

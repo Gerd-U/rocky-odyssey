@@ -17,7 +17,8 @@ obj["cuerpo"] = obj["cuerpo"].astype(str).str.strip().str.lower()
 
 assert set(obj["cuerpo"]) == {"luna", "marte"}, f"Valores raros en 'cuerpo': {set(obj['cuerpo'])}"
 assert not obj["nombre"].duplicated().any(), "Hay nombres repetidos"
-assert len(obj) == 4, f"Se esperaban 4 objetivos y hay {len(obj)}"
+print(obj["cuerpo"].value_counts().to_string())
+assert (obj["cuerpo"].value_counts() >= 2).all(), "Cada cuerpo necesita al menos 2 objetivos"
 
 # Aviso de casillas vacías
 vacias = obj[COLUMNAS[2:]].isna()
