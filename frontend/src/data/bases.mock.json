@@ -1,10 +1,35 @@
 [
   {
+    "id": "marius",
+    "name": "Pozo de Marius Hills",
+    "body": "moon",
+    "lat": 14.09,
+    "lng": -56.77,
+    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
+    "image": "/images/bases/marius.jpg",
+    "imageCredit": "NASA/GSFC/Arizona State University · LRO",
+    "description": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura."
+  },
+  {
+    "id": "tranquilidad",
+    "name": "Mar de la Tranquilidad",
+    "body": "moon",
+    "lat": 0.67,
+    "lng": 23.47,
+    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
+    "image": "/images/bases/tranquilidad.jpg",
+    "imageCredit": "NASA / Neil A. Armstrong · Apollo 11",
+    "description": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo."
+  },
+  {
     "id": "shackleton",
     "name": "Cráter Shackleton (polo sur lunar)",
     "body": "moon",
     "lat": -89.9,
     "lng": 0,
+    "factors": { "precipMm": 0, "tempMin": -230, "tempMax": -20, "terrain": "extremo" },
+    "image": "/images/bases/shackleton.jpg",
+    "imageCredit": "NASA Goddard / LRO",
     "description": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua."
   },
   {
@@ -13,6 +38,9 @@
     "body": "mars",
     "lat": 18.4,
     "lng": 77.5,
+    "factors": { "precipMm": 0, "tempMin": -85, "tempMax": -5, "terrain": "alto" },
+    "image": "/images/bases/jezero.jpg",
+    "imageCredit": "NASA/JPL-Caltech/ASU · Perseverance, procesado por Andrea Luck",
     "description": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada."
   },
   {
@@ -21,6 +49,9 @@
     "body": "mars",
     "lat": 47.0,
     "lng": -170.0,
+    "factors": { "precipMm": 0, "tempMin": -110, "tempMax": -20, "terrain": "moderado" },
+    "image": "/images/bases/arcadia.jpg",
+    "imageCredit": "ESA/DLR/FU Berlin · Mars Express",
     "description": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana."
   },
   {
@@ -29,6 +60,9 @@
     "body": "mars",
     "lat": -5.4,
     "lng": 137.8,
+    "factors": { "precipMm": 0, "tempMin": -90, "tempMax": 5, "terrain": "extremo" },
+    "image": "/images/bases/gale.jpg",
+    "imageCredit": "NASA/JPL-Caltech/MSSS · Curiosity",
     "description": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity."
   }
 ]

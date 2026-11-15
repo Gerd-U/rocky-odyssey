@@ -11,6 +11,7 @@
     "factors": { "precipMm": 1, "tempMin": -2, "tempMax": 30, "terrain": "alto" },
     "missions": ["ARADS (NASA Ames)", "Life in the Atacama (NASA/CMU)"],
     "image": "/images/atacama.jpg",
+    "imageCredit": "Claire Provost · CC BY-SA 3.0",
     "description": "Uno de los desiertos más secos del planeta, con suelos oxidantes y radiación UV intensa."
   },
   {
@@ -25,6 +26,7 @@
     "factors": { "precipMm": 50, "tempMin": -50, "tempMax": 5, "terrain": "extremo" },
     "missions": ["NASA ASTEP", "McMurdo Dry Valleys LTER"],
     "image": "/images/mcmurdo.jpg",
+    "imageCredit": "U.S. Department of State · Dominio público",
     "description": "Valles sin hielo, fríos y muy secos, con permafrost similar al de las llanuras marcianas."
   },
   {
@@ -39,6 +41,7 @@
     "factors": { "precipMm": 150, "tempMin": -45, "tempMax": 10, "terrain": "alto" },
     "missions": ["Haughton-Mars Project (NASA/SETI)", "FMARS (Mars Society)"],
     "image": "/images/devon.jpg",
+    "imageCredit": "NASA · Dominio público",
     "description": "Cráter de impacto en el Ártico, frío y aislado, usado para ensayar operaciones de exploración."
   },
   {
@@ -53,6 +56,7 @@
     "factors": { "precipMm": 600, "tempMin": 2, "tempMax": 38, "terrain": "moderado" },
     "missions": ["MARTE (NASA/CAB)"],
     "image": "/images/riotinto.jpg",
+    "imageCredit": "David Mata Verdejo · CC BY-SA 4.0",
     "description": "Río ácido rico en hierro y sulfatos, parecido a la química de antiguos ambientes acuosos marcianos."
   },
   {
@@ -67,6 +71,7 @@
     "factors": { "precipMm": 180, "tempMin": -15, "tempMax": 38, "terrain": "moderado" },
     "missions": ["Tripulaciones MDRS (Mars Society)"],
     "image": "/images/mdrs.jpg",
+    "imageCredit": "Sokoloff et al. (2020) · CC BY 4.0",
     "description": "Estación de simulación en un desierto de rocas sedimentarias rojizas."
   },
   {
@@ -81,6 +86,7 @@
     "factors": { "precipMm": 400, "tempMin": -25, "tempMax": 8, "terrain": "alto" },
     "missions": ["AMASE (NASA/ESA)"],
     "image": "/images/svalbard.jpg",
+    "imageCredit": "Bernt Rostad · CC BY 2.0",
     "description": "Archipiélago ártico con volcanes, permafrost y manantiales que sirven para probar instrumentos."
   },
   {
@@ -90,11 +96,12 @@
     "lat": 29.0,
     "lng": -13.7,
     "target": "moon",
-    "analogOf": "shackleton",
+    "analogOf": "marius",
     "similarity": 0.72,
     "factors": { "precipMm": 140, "tempMin": 12, "tempMax": 30, "terrain": "moderado" },
     "missions": ["PANGAEA (ESA)"],
     "image": "/images/lanzarote.jpg",
+    "imageCredit": "H. Zell · CC BY-SA 3.0",
     "description": "Isla volcánica con campos de lava y tubos volcánicos usados para entrenar astronautas."
   },
   {
@@ -104,11 +111,12 @@
     "lat": 19.6,
     "lng": -155.48,
     "target": "moon",
-    "analogOf": "shackleton",
+    "analogOf": "tranquilidad",
     "similarity": 0.75,
     "factors": { "precipMm": 400, "tempMin": -5, "tempMax": 20, "terrain": "alto" },
     "missions": ["HI-SEAS (NASA HRP)"],
     "image": "/images/hiseas.jpg",
+    "imageCredit": "Tiffany Swarmer, NASA · Dominio público",
     "description": "Hábitat de aislamiento en las laderas de basalto de un volcán, sin vegetación alrededor."
   },
   {
@@ -118,11 +126,12 @@
     "lat": 35.03,
     "lng": -111.02,
     "target": "moon",
-    "analogOf": "shackleton",
+    "analogOf": "tranquilidad",
     "similarity": 0.7,
     "factors": { "precipMm": 250, "tempMin": -10, "tempMax": 35, "terrain": "moderado" },
     "missions": ["Entrenamiento de astronautas Apollo"],
     "image": "/images/meteorcrater.jpg",
+    "imageCredit": "USGS · Dominio público",
     "description": "Cráter de impacto bien conservado donde se entrenó a las tripulaciones del programa Apollo."
   },
   {
@@ -132,11 +141,12 @@
     "lat": 64.87,
     "lng": -16.83,
     "target": "moon",
-    "analogOf": "shackleton",
+    "analogOf": "marius",
     "similarity": 0.69,
     "factors": { "precipMm": 450, "tempMin": -20, "tempMax": 15, "terrain": "alto" },
     "missions": ["SAND-E (NASA PSTAR)"],
     "image": "/images/islandia.jpg",
+    "imageCredit": "NASA Earth Observatory / USGS (Landsat 8) · Dominio público",
     "description": "Campo de lava reciente y sin vegetación, útil para estudiar terrenos basálticos."
   },
   {
@@ -151,6 +161,7 @@
     "factors": { "precipMm": 25, "tempMin": -80, "tempMax": -25, "terrain": "extremo" },
     "missions": ["Estudios de aislamiento (ESA)"],
     "image": "/images/concordia.jpg",
+    "imageCredit": "Paride Legovini · CC BY 4.0",
     "description": "Base en la meseta antártica, con frío extremo, aislamiento y meses de noche polar."
   }
 ]

@@ -1,0 +1,160 @@
+{
+  "common": {
+    "bodyName": { "moon": "the Moon", "mars": "Mars" },
+    "bodyLabel": { "moon": "Moon", "mars": "Mars" },
+    "earth": "Earth",
+    "terrain": { "moderado": "Moderate", "alto": "High", "extremo": "Extreme" },
+    "similarityLevel": { "muy-alta": "Very high", "alta": "High", "moderada": "Moderate" },
+    "tempSpan": "{{min}} to {{max}}",
+    "precip": "{{value}} mm/year",
+    "coordSouth": "S",
+    "coordNorth": "N",
+    "coordEast": "E",
+    "coordWest": "W",
+    "similarityProvisional": "similarity (provisional value)",
+    "photos": "Photos: {{earth}} · {{target}}",
+    "photo": "Photo: {{place}} · {{credit}}",
+    "imageAlt": "{{name}}, {{place}}",
+    "loading": "Loading",
+    "seeAllLocations": "See all locations",
+    "factors": {
+      "rain": "Rainfall",
+      "temperature": "Temperature",
+      "terrain": "Terrain difficulty"
+    },
+    "error": {
+      "title": "The data could not be loaded",
+      "retry": "Try again",
+      "unknown": "Unknown error",
+      "missingId": "Missing id"
+    }
+  },
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "locations": "Locations",
+    "switchLanguage": "Switch to Spanish",
+    "backToTop": "Back to top"
+  },
+  "home": {
+    "hero": {
+      "headline": {
+        "mars": "Mars begins on Earth",
+        "moon": "The Moon begins on Earth"
+      },
+      "lead": "We look for places on Earth that resemble the bases proposed on {{body}}. That is where crews train and technology is tested before leaving the planet.",
+      "explore": "Explore the globe",
+      "todayMars": "Today Mars is about {{millions}} million km away: its light takes {{minutes}} minutes to reach us.",
+      "todayMoon": "Today the Moon is about {{km}} km away and appears {{percent}} illuminated ({{phase}}).",
+      "waxing": "waxing",
+      "waning": "waning"
+    },
+    "globe": {
+      "title": "Pick a place and see its twin",
+      "hint": {
+        "mars": "Tap a point on the globe or a name in the list to see its twin on Mars.",
+        "moon": "Tap a point on the globe or a name in the list to see its twin on the Moon."
+      },
+      "listLabel": "Analog sites",
+      "legendLabel": "Globe legend",
+      "legendLevel": {
+        "muy-alta": "Very high similarity",
+        "alta": "High similarity",
+        "moderada": "Moderate similarity"
+      },
+      "selected": "Selected",
+      "modeLabel": "Destination"
+    },
+    "twin": {
+      "title": "{{site}} and {{base}}",
+      "caption": "{{body}} · {{name}}",
+      "seeDetail": "See details →"
+    },
+    "criteria": {
+      "title": "How we measure similarity",
+      "intro": "We compare each place on Earth with its twin base using the same data: rainfall, temperature and terrain difficulty. We also count whether missions have already been rehearsed there. The percentages are provisional: we are still working out how they combine.",
+      "rain": "It never rains on the Moon or Mars, so we look for the places on Earth where it almost never rains.",
+      "temperature": "The cold and the gap between the lowest and highest temperatures put equipment and crews to the test.",
+      "terrain": "Relief, rock type and how hard it is to move across: craters, lava, permafrost.",
+      "historyTerm": "Track record",
+      "history": "Missions and studies that have already used the place to rehearse exploring another world.",
+      "noMissions": "No missions recorded",
+      "exampleOf": "{{term}} example"
+    },
+    "closing": {
+      "title": "Every mission is rehearsed here first",
+      "summary": "{{sites}} places on Earth compared with {{bases}} bases on the Moon and Mars.",
+      "photoAlt": {
+        "mars": "Two test rovers at Haughton Crater, Devon Island, Canada",
+        "moon": "Testing an analog spacesuit on the slopes of Mauna Loa, Hawaii"
+      }
+    }
+  },
+  "locations": {
+    "title": "Twin places on Earth",
+    "intro": "Each one resembles a proposed base on the Moon or Mars. They are called analogs: because of that resemblance, crews train and technology is tested there. Open any of them to compare it with its twin.",
+    "count_one": "{{count}} location",
+    "count_other": "{{count}} locations",
+    "loading": "Loading locations",
+    "emptyTitle": "No location matches these filters.",
+    "emptyHint": "Try another name or show both destinations.",
+    "clearFilters": "Clear filters",
+    "filters": {
+      "search": "Search by name or country",
+      "target": "Destination",
+      "sort": "Sort",
+      "all": "All",
+      "mostSimilar": "Most similar",
+      "az": "A–Z"
+    },
+    "card": {
+      "similarity": "Similarity ",
+      "provisional": "provisional",
+      "looksLike": "Resembles"
+    }
+  },
+  "detail": {
+    "back": "← Locations",
+    "loading": "Loading location",
+    "notFoundTitle": "We couldn't find this location",
+    "notFoundText": "The link may be mistyped, or the place may no longer be on the list.",
+    "resembles": "A place on Earth that resembles <accent>{{base}}</accent>, on {{body}}",
+    "factorsTitle": "Similarity and factors",
+    "missions": "Missions and studies",
+    "next": "Next site"
+  },
+  "compare": {
+    "caption": "Factors of {{site}} compared with {{base}}",
+    "factor": "Factor",
+    "sliderLabel": "Compare Earth with the destination",
+    "sliderValue": "{{earth}} {{earthPercent}}%, {{target}} {{targetPercent}}%",
+    "dragHint": "Drag to compare"
+  },
+  "footer": {
+    "tagline": "An explorer of terrestrial analogs. Pick a place on the globe and compare it with its twin.",
+    "backToGlobe": "Back to the globe",
+    "explore": "Explore",
+    "exploreLinks": {
+      "globe": "Interactive globe",
+      "locations": "All locations",
+      "criteria": "How we measure similarity"
+    },
+    "marsAnalogs": "Mars analogs",
+    "moonAnalogs": "Lunar analogs",
+    "legal": "© {{year}} · NASA Space Apps Challenge · Provisional data",
+    "socialsTitle": "Code and NASA on social media",
+    "socials": {
+      "github": "Code on GitHub",
+      "x": "NASA on X",
+      "youtube": "NASA on YouTube",
+      "instagram": "NASA on Instagram"
+    },
+    "credits": "Image and texture credits",
+    "publicDomain": "Public domain"
+  },
+  "notFound": {
+    "title": "We couldn't find this page",
+    "text": "The link may be mistyped, or the page may no longer exist.",
+    "home": "Back to home"
+  }
+}

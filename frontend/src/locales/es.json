@@ -1,0 +1,160 @@
+{
+  "common": {
+    "bodyName": { "moon": "la Luna", "mars": "Marte" },
+    "bodyLabel": { "moon": "Luna", "mars": "Marte" },
+    "earth": "Tierra",
+    "terrain": { "moderado": "Moderado", "alto": "Alto", "extremo": "Extremo" },
+    "similarityLevel": { "muy-alta": "Muy alta", "alta": "Alta", "moderada": "Moderada" },
+    "tempSpan": "{{min}} a {{max}}",
+    "precip": "{{value}} mm/año",
+    "coordSouth": "S",
+    "coordNorth": "N",
+    "coordEast": "E",
+    "coordWest": "O",
+    "similarityProvisional": "de similitud (valor provisional)",
+    "photos": "Fotos: {{earth}} · {{target}}",
+    "photo": "Foto: {{place}} · {{credit}}",
+    "imageAlt": "{{name}}, {{place}}",
+    "loading": "Cargando",
+    "seeAllLocations": "Ver todas las ubicaciones",
+    "factors": {
+      "rain": "Lluvia",
+      "temperature": "Temperatura",
+      "terrain": "Dificultad del terreno"
+    },
+    "error": {
+      "title": "No se pudieron cargar los datos",
+      "retry": "Reintentar",
+      "unknown": "Error desconocido",
+      "missingId": "Falta el id"
+    }
+  },
+  "nav": {
+    "label": "Principal",
+    "home": "Inicio",
+    "locations": "Ubicaciones",
+    "switchLanguage": "Cambiar a inglés",
+    "backToTop": "Volver arriba"
+  },
+  "home": {
+    "hero": {
+      "headline": {
+        "mars": "Marte empieza en la Tierra",
+        "moon": "La Luna empieza en la Tierra"
+      },
+      "lead": "Buscamos lugares de la Tierra que se parecen a las bases propuestas en {{body}}. Ahí se entrenan tripulaciones y se prueba tecnología antes de salir del planeta.",
+      "explore": "Explorar el globo",
+      "todayMars": "Hoy Marte está a unos {{millions}} millones de km: su luz tarda {{minutes}} minutos en llegar aquí.",
+      "todayMoon": "Hoy la Luna está a unos {{km}} km y se ve iluminada al {{percent}} ({{phase}}).",
+      "waxing": "creciente",
+      "waning": "menguante"
+    },
+    "globe": {
+      "title": "Elige un lugar y mira su gemelo",
+      "hint": {
+        "mars": "Toca un punto del globo o un nombre de la lista para ver su gemelo en Marte.",
+        "moon": "Toca un punto del globo o un nombre de la lista para ver su gemelo en la Luna."
+      },
+      "listLabel": "Lugares análogos",
+      "legendLabel": "Leyenda del globo",
+      "legendLevel": {
+        "muy-alta": "Similitud muy alta",
+        "alta": "Similitud alta",
+        "moderada": "Similitud moderada"
+      },
+      "selected": "Seleccionado",
+      "modeLabel": "Destino"
+    },
+    "twin": {
+      "title": "{{site}} y {{base}}",
+      "caption": "{{body}} · {{name}}",
+      "seeDetail": "Ver detalle →"
+    },
+    "criteria": {
+      "title": "Cómo medimos la similitud",
+      "intro": "Comparamos cada lugar de la Tierra con su base gemela con los mismos datos: lluvia, temperatura y dificultad del terreno. También contamos si ya se ensayaron misiones allí. Los porcentajes son provisionales: todavía estamos definiendo cómo se combinan.",
+      "rain": "En la Luna y Marte no llueve, así que buscamos los lugares de la Tierra donde casi nunca llueve.",
+      "temperature": "El frío y la diferencia entre la mínima y la máxima ponen a prueba equipos y tripulaciones.",
+      "terrain": "Relieve, tipo de roca y lo difícil que es moverse por él: cráteres, lava, permafrost.",
+      "historyTerm": "Historial",
+      "history": "Misiones y estudios que ya usaron el lugar para ensayar la exploración de otro mundo.",
+      "noMissions": "Sin misiones registradas",
+      "exampleOf": "Ejemplo de {{term}}"
+    },
+    "closing": {
+      "title": "Cada misión se ensaya aquí primero",
+      "summary": "{{sites}} lugares de la Tierra comparados con {{bases}} bases en la Luna y Marte.",
+      "photoAlt": {
+        "mars": "Dos rovers de prueba en el cráter Haughton, isla Devon, Canadá",
+        "moon": "Prueba de un traje espacial análogo en las laderas del Mauna Loa, Hawái"
+      }
+    }
+  },
+  "locations": {
+    "title": "Lugares gemelos en la Tierra",
+    "intro": "Cada uno se parece a una base propuesta en la Luna o en Marte. Se les llama análogos: por ese parecido, ahí se entrenan tripulaciones y se prueba tecnología. Abre cualquiera para compararlo con su gemelo.",
+    "count_one": "{{count}} ubicación",
+    "count_other": "{{count}} ubicaciones",
+    "loading": "Cargando ubicaciones",
+    "emptyTitle": "Ninguna ubicación coincide con estos filtros.",
+    "emptyHint": "Prueba con otro nombre o muestra los dos destinos.",
+    "clearFilters": "Quitar filtros",
+    "filters": {
+      "search": "Buscar por nombre o país",
+      "target": "Destino",
+      "sort": "Orden",
+      "all": "Todos",
+      "mostSimilar": "Más similares",
+      "az": "A–Z"
+    },
+    "card": {
+      "similarity": "Similitud ",
+      "provisional": "provisional",
+      "looksLike": "Se parece a"
+    }
+  },
+  "detail": {
+    "back": "← Ubicaciones",
+    "loading": "Cargando ubicación",
+    "notFoundTitle": "No encontramos esta ubicación",
+    "notFoundText": "Puede que el enlace esté mal escrito o que el lugar ya no esté en la lista.",
+    "resembles": "Lugar de la Tierra que se parece a <accent>{{base}}</accent>, en {{body}}",
+    "factorsTitle": "Similitud y factores",
+    "missions": "Misiones y estudios",
+    "next": "Siguiente sitio"
+  },
+  "compare": {
+    "caption": "Factores de {{site}} comparados con {{base}}",
+    "factor": "Factor",
+    "sliderLabel": "Comparar la Tierra con el destino",
+    "sliderValue": "{{earth}} {{earthPercent}} %, {{target}} {{targetPercent}} %",
+    "dragHint": "Arrastra para comparar"
+  },
+  "footer": {
+    "tagline": "Explorador de análogos terrestres. Elige un lugar en el globo y compáralo con su gemelo.",
+    "backToGlobe": "Volver al globo",
+    "explore": "Explorar",
+    "exploreLinks": {
+      "globe": "Globo interactivo",
+      "locations": "Todas las ubicaciones",
+      "criteria": "Cómo medimos la similitud"
+    },
+    "marsAnalogs": "Análogos de Marte",
+    "moonAnalogs": "Análogos lunares",
+    "legal": "© {{year}} · NASA Space Apps Challenge · Datos provisionales",
+    "socialsTitle": "Código y NASA en redes",
+    "socials": {
+      "github": "Código en GitHub",
+      "x": "NASA en X",
+      "youtube": "NASA en YouTube",
+      "instagram": "NASA en Instagram"
+    },
+    "credits": "Créditos de imágenes y texturas",
+    "publicDomain": "Dominio público"
+  },
+  "notFound": {
+    "title": "No encontramos esta página",
+    "text": "Puede que el enlace esté mal escrito o que la página ya no exista.",
+    "home": "Volver al inicio"
+  }
+}
