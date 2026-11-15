@@ -1,6 +1,6 @@
 ﻿import pandas as pd
 
-sitios = pd.read_csv("datos/sitios_candidatos.csv")
+sitios = pd.read_csv("datos/sitios_candidatos.csv", encoding="utf-8-sig")
 paso = 0.05
 filas = []
 for _, s in sitios.iterrows():

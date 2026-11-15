@@ -21,60 +21,74 @@
     "source": "https://commons.wikimedia.org/wiki/File:Rovers_Red_and_Black_at_Houghton_Crater_Devon_Island_Canada.jpg"
   },
   {
-    "path": "/images/riotinto.jpg",
-    "title": "Ribera del Río Tinto (Huelva, Andalucía)",
-    "author": "David Mata Verdejo",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:P71012-115351_ribera_Rio_Tinto_(Huelva-Andaluc%C3%ADa._Spain).jpg"
-  },
-  {
-    "path": "/images/mdrs.jpg",
-    "title": "Mars Desert Research Station",
-    "author": "Sokoloff, Murray, McBeth, Irvine y Rupert (2020), Biodiversity Data Journal 8: e55063",
-    "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Mars_Desert_Research_Station_(10.3897-BDJ.8.e55063)_Figure_1_a.jpeg"
-  },
-  {
-    "path": "/images/svalbard.jpg",
-    "title": "Adventfjorden, Svalbard",
-    "author": "Bernt Rostad",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Adventfjorden,_Svalbard.jpg"
-  },
-  {
-    "path": "/images/lanzarote.jpg",
-    "title": "Timanfaya, Lanzarote",
-    "author": "H. Zell",
-    "license": "CC BY-SA 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Timanfaya_-_Lanzarote_02.jpg"
-  },
-  {
-    "path": "/images/hiseas.jpg",
-    "title": "HI-SEAS analogue suit test",
-    "author": "Tiffany Swarmer, NASA",
+    "path": "/images/altiplano-del-tibet.jpg",
+    "title": "A Proliferation of Lakes on the Tibetan Plateau (Landsat 9, 2024)",
+    "author": "NASA Earth Observatory / Michala Garrison, Landsat (USGS)",
     "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:HI_SEAS_Analogue_suit_test.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:A_Proliferation_of_Lakes_on_the_Tibetan_Plateau_(154011_-_oli2_20240811_lrg).jpg"
   },
   {
-    "path": "/images/meteorcrater.jpg",
-    "title": "Meteor Crater, Arizona",
-    "author": "USGS National Map",
+    "path": "/images/askja.jpg",
+    "title": "Öskjuvatn, Askja volcano (Copernicus Sentinel-2, 17 Feb 2023; panel central)",
+    "author": "European Union, Copernicus Sentinel-2",
+    "license": "copernicus",
+    "source": "https://commons.wikimedia.org/wiki/File:%C3%96skjuvatn,_Askja_volcano.jpg"
+  },
+  {
+    "path": "/images/dasht-e-lut.jpg",
+    "title": "Dasht-e Lut salt desert, Iran (Envisat)",
+    "author": "ESA",
+    "license": "CC BY-SA 3.0 IGO",
+    "source": "https://commons.wikimedia.org/wiki/File:Dasht-e_Lut_salt_desert_Iran.jpg"
+  },
+  {
+    "path": "/images/depresion-de-danakil.jpg",
+    "title": "View of Ethiopia, Danakil (ISS014-E-20450)",
+    "author": "NASA Johnson Space Center, ISS Expedition 14",
     "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Meteor_Crater_-_Arizona.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:ISS014-E-20450_-_View_of_Ethiopia.jpg"
   },
   {
-    "path": "/images/islandia.jpg",
-    "title": "Holuhraun, color natural (Landsat 8 OLI)",
-    "author": "NASA Earth Observatory / USGS",
+    "path": "/images/desierto-de-gobi.jpg",
+    "title": "Massive dust storm engulfs Gobi Desert (ISS Expedition 43)",
+    "author": "NASA",
     "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Holuhraun_Natural_Color_OLI_Landsat_8.jpg"
+    "source": "https://commons.wikimedia.org/wiki/File:ISS-43_Massive_dust_storm_engulfs_Gobi_Desert.jpg"
   },
   {
-    "path": "/images/concordia.jpg",
-    "title": "Lidar measurement and aurora at Dome C",
-    "author": "Paride Legovini",
-    "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Lidar_measurement_and_aurora_at_Dome_C.jpg"
+    "path": "/images/mojave.jpg",
+    "title": "Mojave Trails National Monument dunes",
+    "author": "Bob Wick, Bureau of Land Management",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Mojave_Trails_National_Monument_dunes.jpg"
+  },
+  {
+    "path": "/images/salar-de-uyuni.jpg",
+    "title": "Salar de Uyuni (ISS012-E-6456)",
+    "author": "NASA Johnson Space Center, ISS Expedition 12",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Salar_de_Uyuni_ISS012-E-6456.jpg"
+  },
+  {
+    "path": "/images/taklamakan.jpg",
+    "title": "Taklamakan Desert (MODIS, 2019)",
+    "author": "NASA GSFC, MODIS Land Rapid Response Team",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Taklamakan_Desert_(MODIS_2019-10-03).jpg"
+  },
+  {
+    "path": "/images/tibesti.jpg",
+    "title": "Tibesti Mountains, Chad (ISS Expedition 61)",
+    "author": "NASA",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:ISS-61_Tibesti_Mountains,_Chad.jpg"
+  },
+  {
+    "path": "/images/tolbachik-kamchatka.jpg",
+    "title": "Eruption of Tolbachik Volcano, 22 Dec 2012 (EO-1)",
+    "author": "NASA Earth Observatory / Jesse Allen, Robert Simmon",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Eruption_of_Tolbachik_Volcano_22dec2012_EO-1.jpg"
   },
   {
     "path": "/images/bases/jezero.jpg",
@@ -82,13 +96,6 @@
     "author": "NASA/JPL-Caltech/ASU, procesado por Andrea Luck",
     "license": "CC BY 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Mars_-_Kodiak_-_Nasa%E2%80%99s_Perseverance_SOL_114_(51262638022).png"
-  },
-  {
-    "path": "/images/bases/gale.jpg",
-    "title": "Curiosity llegando a Pahrump Hills, cráter Gale",
-    "author": "NASA/JPL-Caltech/MSSS",
-    "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Pia18608-Curiosity_Mars_Rover%27s_Approach_to_%27Pahrump_Hills%27_.jpg"
   },
   {
     "path": "/images/bases/arcadia.jpg",
@@ -105,25 +112,11 @@
     "source": "https://commons.wikimedia.org/wiki/File:Rimlight-_Shackleton_Crater_(3929168011).jpg"
   },
   {
-    "path": "/images/bases/marius.jpg",
-    "title": "Marius Hills pit, posible tragaluz de un tubo de lava (LRO)",
-    "author": "NASA/GSFC/Arizona State University",
-    "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Marius_hills_pit.png"
-  },
-  {
     "path": "/images/bases/tranquilidad.jpg",
     "title": "Aldrin mira hacia la base Tranquilidad, Apollo 11",
     "author": "NASA / Neil A. Armstrong",
     "license": "public-domain",
     "source": "https://commons.wikimedia.org/wiki/File:Aldrin_Looks_Back_at_Tranquility_Base_-_GPN-2000-001102.jpg"
-  },
-  {
-    "path": "/images/moon-surface.jpg",
-    "title": "Schmitt junto a una gran roca, Apollo 17",
-    "author": "NASA / Eugene A. Cernan",
-    "license": "public-domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Schmitt_Next_to_Big_Boulder_-_GPN-2000-001148.jpg"
   },
   {
     "path": "/textures/earth.jpg",

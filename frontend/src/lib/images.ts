@@ -54,3 +54,9 @@ export function responsiveSource(src: string): ResponsiveSource | null {
 
   return { srcSet: entries.join(", "), fallback: `${base}.jpg` };
 }
+
+/** "4 / 3" -> 0,75 (alto / ancho), para recortar la textura de respaldo en el mismo hueco */
+export function ratioAspect(ratio: string): number {
+  const [w, h] = ratio.split("/").map((part) => Number(part.trim()));
+  return w && h ? h / w : 1;
+}

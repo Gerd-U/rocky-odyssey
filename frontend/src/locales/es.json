@@ -3,10 +3,7 @@
     "bodyName": { "moon": "la Luna", "mars": "Marte" },
     "bodyLabel": { "moon": "Luna", "mars": "Marte" },
     "earth": "Tierra",
-    "terrain": { "moderado": "Moderado", "alto": "Alto", "extremo": "Extremo" },
     "similarityLevel": { "muy-alta": "Muy alta", "alta": "Alta", "moderada": "Moderada" },
-    "tempSpan": "{{min}} a {{max}}",
-    "precip": "{{value}} mm/año",
     "coordSouth": "S",
     "coordNorth": "N",
     "coordEast": "E",
@@ -17,17 +14,15 @@
     "imageAlt": "{{name}}, {{place}}",
     "loading": "Cargando",
     "seeAllLocations": "Ver todas las ubicaciones",
-    "factors": {
-      "rain": "Lluvia",
-      "temperature": "Temperatura",
-      "terrain": "Dificultad del terreno"
-    },
     "error": {
       "title": "No se pudieron cargar los datos",
       "retry": "Reintentar",
       "unknown": "Error desconocido",
       "missingId": "Falta el id"
-    }
+    },
+    "noData": "sin datos",
+    "photoPending": "Foto pendiente",
+    "photoPendingAlt": "{{name}}: foto pendiente, textura de la Tierra alrededor del lugar"
   },
   "nav": {
     "label": "Principal",
@@ -66,21 +61,21 @@
     },
     "criteria": {
       "title": "Cómo medimos la similitud",
-      "intro": "Comparamos cada lugar de la Tierra con su base gemela con los mismos datos: lluvia, temperatura y dificultad del terreno. También contamos si ya se ensayaron misiones allí. Los porcentajes son provisionales: todavía estamos definiendo cómo se combinan.",
-      "rain": "En la Luna y Marte no llueve, así que buscamos los lugares de la Tierra donde casi nunca llueve.",
-      "temperature": "El frío y la diferencia entre la mínima y la máxima ponen a prueba equipos y tripulaciones.",
-      "terrain": "Relieve, tipo de roca y lo difícil que es moverse por él: cráteres, lava, permafrost.",
+      "intro": "Comparamos cada lugar de la Tierra con todas las bases de la Luna y Marte usando las mismas tres medidas. Cada una da una similitud de 0 a 100, y el porcentaje que ves es su promedio. Los valores son provisionales: el equipo todavía revisa las fórmulas.",
+      "temperature": "La diferencia media entre la temperatura de día y de noche a lo largo de un año. En la Tierra se mide en °C y en las bases en K: una diferencia de 1 °C es igual a 1 K.",
       "historyTerm": "Historial",
       "history": "Misiones y estudios que ya usaron el lugar para ensayar la exploración de otro mundo.",
       "noMissions": "Sin misiones registradas",
-      "exampleOf": "Ejemplo de {{term}}"
+      "exampleOf": "Ejemplo de {{term}}",
+      "topography": "Cuánto sube y baja el terreno: la desviación estándar de nueve elevaciones medidas en una cuadrícula de 3 × 3 de unos pocos kilómetros.",
+      "cold": "El porcentaje de los 12 meses con temperatura media bajo 0 °C. Todas las bases dan 100, así que aquí mide qué tan frío es el lugar de la Tierra."
     },
     "closing": {
       "title": "Cada misión se ensaya aquí primero",
       "summary": "{{sites}} lugares de la Tierra comparados con {{bases}} bases en la Luna y Marte.",
       "photoAlt": {
         "mars": "Dos rovers de prueba en el cráter Haughton, isla Devon, Canadá",
-        "moon": "Prueba de un traje espacial análogo en las laderas del Mauna Loa, Hawái"
+        "moon": "Gargoyle Ridge en los Valles Secos de McMurdo, Antártida"
       }
     }
   },
@@ -115,14 +110,24 @@
     "resembles": "Lugar de la Tierra que se parece a <accent>{{base}}</accent>, en {{body}}",
     "factorsTitle": "Similitud y factores",
     "missions": "Misiones y estudios",
-    "next": "Siguiente sitio"
+    "next": "Siguiente sitio",
+    "compareOther": "Compáralo también con {{body}} ({{percent}})",
+    "climateTitle": "Temperatura a lo largo del año",
+    "climateText": "Promedio mensual de la temperatura de la superficie de día y de noche en {{place}} durante 2023.",
+    "facts": {
+      "region": "Región",
+      "geology": "Geología",
+      "elevation": "Elevación"
+    }
   },
   "compare": {
     "caption": "Factores de {{site}} comparados con {{base}}",
     "factor": "Factor",
     "sliderLabel": "Comparar la Tierra con el destino",
     "sliderValue": "{{earth}} {{earthPercent}} %, {{target}} {{targetPercent}} %",
-    "dragHint": "Arrastra para comparar"
+    "dragHint": "Arrastra para comparar",
+    "similarity": "Similitud",
+    "thermalNote": "Rango térmico en °C en la Tierra y en K en la base: una diferencia de 1 °C es igual a 1 K."
   },
   "footer": {
     "tagline": "Explorador de análogos terrestres. Elige un lugar en el globo y compáralo con su gemelo.",
@@ -145,9 +150,51 @@
     },
     "credits": "Créditos de imágenes y texturas"
   },
+  "units": {
+    "meters": "{{value}} m",
+    "celsius": "{{value}} °C",
+    "kelvin": "{{value}} K"
+  },
+  "criteria": {
+    "topography": { "label": "Rugosidad" },
+    "temperature": { "label": "Rango térmico" },
+    "ice_water": { "label": "Índice de frío" }
+  },
+  "geology": {
+    "sedimentos": "Sedimentos",
+    "basalto": "Basalto",
+    "hielo": "Hielo",
+    "regolito": "Regolito"
+  },
+  "chart": {
+    "title": "Temperatura mensual en {{place}}",
+    "day": "Día",
+    "night": "Noche",
+    "month": "Mes",
+    "caption": "Temperatura de la superficie según MODIS (MOD11A2.061) vía NASA AppEEARS, 2023. La línea discontinua marca 0 °C."
+  },
+  "sources": {
+    "title": "Fuentes",
+    "intro": "Cada valor sale de los registros del equipo: producto o publicación, fórmula y fecha de la consulta.",
+    "approximation": "aproximación",
+    "approximationHint": "El registro del equipo marca este valor como provisional",
+    "consulted": "consultado el {{date}}",
+    "variables": {
+      "rugosidad": "Rugosidad",
+      "elevacion_m": "Elevación",
+      "rango_termico": "Rango térmico",
+      "temp_min_c": "Temperatura mínima",
+      "temp_max_c": "Temperatura máxima",
+      "tmin_k": "Temperatura mínima",
+      "tmax_k": "Temperatura máxima",
+      "hielo": "Índice de frío",
+      "hielo_favorabilidad": "Favorabilidad al hielo"
+    }
+  },
   "licenses": {
     "public-domain": "Dominio público",
-    "pixabay": "Licencia de contenido de Pixabay"
+    "pixabay": "Licencia de contenido de Pixabay",
+    "copernicus": "Contiene datos modificados de Copernicus Sentinel (2023)"
   },
   "notFound": {
     "title": "No encontramos esta página",

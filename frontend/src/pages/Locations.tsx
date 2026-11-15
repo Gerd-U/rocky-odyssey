@@ -25,20 +25,18 @@ const normalize = (text: string) =>
 export default function Locations() {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage;
-  const { data: pairs, loading, error } = usePairs();
   const { setMode } = useMode();
   const [filters, setFilters] = useState<Filters>(INITIAL_FILTERS);
+  // Con "Todos", cada sitio con su base más parecida de los dos cuerpos; con un destino, la de ese cuerpo
+  const { data: pairs, loading, error } = usePairs(filters.target === "all" ? undefined : filters.target);
   const reduce = useReducedMotion() ?? false;
 
   const results = useMemo(() => {
     const q = normalize(filters.query.trim());
     return (pairs ?? [])
-      .filter(({ site }) => filters.target === "all" || site.target === filters.target)
       .filter(({ site, base }) => !q || normalize(`${site.name} ${site.country} ${base.name}`).includes(q))
       .sort((a, b) =>
-        filters.sort === "name"
-          ? a.site.name.localeCompare(b.site.name, lang)
-          : b.site.similarity - a.site.similarity,
+        filters.sort === "name" ? a.site.name.localeCompare(b.site.name, lang) : b.match.score - a.match.score,
       );
   }, [pairs, filters, lang]);
 

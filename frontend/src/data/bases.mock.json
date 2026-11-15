@@ -1,57 +1,65 @@
 [
   {
-    "id": "marius",
+    "id": "arcadia-planitia",
     "name": {
-      "es": "Pozo de Marius Hills",
-      "en": "Marius Hills Pit"
+      "es": "Arcadia Planitia",
+      "en": "Arcadia Planitia"
     },
-    "body": "moon",
-    "lat": 14.09,
-    "lng": -56.77,
-    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "extremo" },
-    "image": "/images/bases/marius.jpg",
-    "imageAuthor": "NASA/GSFC/Arizona State University",
-    "imageLicense": "public-domain",
     "description": {
-      "es": "Abertura de unos 65 metros en las colinas volcánicas de Marius que podría dar a un tubo de lava, un refugio natural contra la radiación y los cambios de temperatura.",
-      "en": "An opening about 65 meters across in the volcanic Marius Hills that may lead into a lava tube, a natural shelter from radiation and temperature swings."
-    }
-  },
-  {
-    "id": "tranquilidad",
-    "name": {
-      "es": "Mar de la Tranquilidad",
-      "en": "Sea of Tranquility"
+      "es": "Llanura del hemisferio norte de Marte (47° N). Rugosidad de 9,2 m y rango térmico de 39,4 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Plain in Mars' northern hemisphere (47° N). Roughness of 9.2 m and a 39.4 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
     },
-    "body": "moon",
-    "lat": 0.67,
-    "lng": 23.47,
-    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
-    "image": "/images/bases/tranquilidad.jpg",
-    "imageAuthor": "NASA / Neil A. Armstrong",
-    "imageLicense": "public-domain",
-    "description": {
-      "es": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo.",
-      "en": "A plain of volcanic basalt where Apollo 11 landed in 1969, the first human base on another world."
-    }
-  },
-  {
-    "id": "shackleton",
-    "name": {
-      "es": "Cráter Shackleton (polo sur lunar)",
-      "en": "Shackleton Crater (lunar south pole)"
+    "body": "mars",
+    "lat": 47.0,
+    "lng": -176.0,
+    "metrics": {
+      "roughnessM": 9.2,
+      "thermalRange": 39.4,
+      "coldIndex": 100,
+      "tminK": 173.4,
+      "tmaxK": 212.8
     },
-    "body": "moon",
-    "lat": -89.9,
-    "lng": 0,
-    "factors": { "precipMm": 0, "tempMin": -230, "tempMax": -20, "terrain": "extremo" },
-    "image": "/images/bases/shackleton.jpg",
-    "imageAuthor": "NASA Goddard / LRO",
-    "imageLicense": "public-domain",
-    "description": {
-      "es": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua.",
-      "en": "A crater at the Moon's south pole with permanently shadowed areas that could hold water ice, and rims with almost constant sunlight."
-    }
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 9.2,
+        "note": "Mars MGS MOLA DEM 463m (mosaico global USGS); 9 puntos (3x3, 5.5 km) centrados en (47.0, 184.0) aprox.",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 212.8,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 173.4,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 39.4,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 47.0 N, 184.0 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~193 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/arcadia.jpg",
+    "imageAuthor": "ESA/DLR/FU Berlin",
+    "imageLicense": "CC BY-SA 3.0 IGO",
+    "dataSource": "real"
   },
   {
     "id": "jezero",
@@ -59,52 +67,185 @@
       "es": "Cráter Jezero",
       "en": "Jezero Crater"
     },
+    "description": {
+      "es": "Cráter Jezero, en Marte. Rugosidad de 82,6 m y rango térmico de 49 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Jezero Crater, on Mars. Roughness of 82.6 m and a 49 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
+    },
     "body": "mars",
     "lat": 18.4,
     "lng": 77.5,
-    "factors": { "precipMm": 0, "tempMin": -85, "tempMax": -5, "terrain": "alto" },
+    "metrics": {
+      "roughnessM": 82.6,
+      "thermalRange": 49.0,
+      "coldIndex": 100,
+      "tminK": 194.7,
+      "tmaxK": 243.7
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 82.6,
+        "note": "Mars MGS MOLA DEM 463m (mosaico global USGS); 9 puntos (3x3, 5.5 km) centrados en (18.4, 77.5) aprox.",
+        "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 243.7,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. promedio de las 4 máximas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 194.7,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. promedio de las 4 mínimas diarias",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 49.0,
+        "note": "Mars Climate Database 6.X; Temperature (K) a 2 m sobre la superficie; Ls 0, 90, 180, 270; hora local: all; escenario de polvo: climatology ave solar; topografía de alta resolución; punto 18.4 N, 77.5 E. tmax_k - tmin_k",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~219 K (aire a 2 m, MCD, promedio de 4 estaciones), muy por debajo de 273 K.",
+        "url": "https://www-mars.lmd.jussieu.fr/mcd_python/",
+        "date": "2026-11-15"
+      }
+    ],
     "image": "/images/bases/jezero.jpg",
-    "imageAuthor": "NASA/JPL-Caltech/ASU, Andrea Luck",
+    "imageAuthor": "NASA/JPL-Caltech/ASU, procesado por Andrea Luck",
     "imageLicense": "CC BY 2.0",
-    "description": {
-      "es": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada.",
-      "en": "An ancient lake with a river delta, explored by the Perseverance rover in search of signs of past life."
-    }
+    "dataSource": "real"
   },
   {
-    "id": "arcadia",
+    "id": "pozo-mare-tranquillitatis",
     "name": {
-      "es": "Arcadia Planitia",
-      "en": "Arcadia Planitia"
+      "es": "Pozo del Mare Tranquillitatis",
+      "en": "Mare Tranquillitatis pit"
     },
-    "body": "mars",
-    "lat": 47.0,
-    "lng": -170.0,
-    "factors": { "precipMm": 0, "tempMin": -110, "tempMax": -20, "terrain": "moderado" },
-    "image": "/images/bases/arcadia.jpg",
-    "imageAuthor": "ESA/DLR/FU Berlin",
-    "imageLicense": "CC BY-SA 3.0 IGO",
     "description": {
-      "es": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana.",
-      "en": "A plain in the northern hemisphere with shallow underground ice, a candidate site for a human base."
-    }
-  },
-  {
-    "id": "gale",
-    "name": {
-      "es": "Cráter Gale",
-      "en": "Gale Crater"
+      "es": "Pozo en el Mare Tranquillitatis, en la zona ecuatorial de la Luna. Rugosidad de 34,5 m y rango térmico de 297 K entre las temperaturas máxima y mínima publicadas.",
+      "en": "Pit in Mare Tranquillitatis, in the Moon's equatorial region. Roughness of 34.5 m and a 297 K range between the published maximum and minimum temperatures."
     },
-    "body": "mars",
-    "lat": -5.4,
-    "lng": 137.8,
-    "factors": { "precipMm": 0, "tempMin": -90, "tempMax": 5, "terrain": "extremo" },
-    "image": "/images/bases/gale.jpg",
-    "imageAuthor": "NASA/JPL-Caltech/MSSS",
+    "body": "moon",
+    "lat": 8.3,
+    "lng": 33.2,
+    "metrics": {
+      "roughnessM": 34.5,
+      "thermalRange": 297.0,
+      "coldIndex": 100,
+      "tminK": 95,
+      "tmaxK": 392
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 34.5,
+        "note": "LRO_LOLA_DEM_Global_128ppd_v04",
+        "url": "https://trek.nasa.gov/moon/#v=0.1&x=31.931762099671268&y=8.924331498568433&z=6&p=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A104903&d=&l=LRO_LOLA_Shade_Global_128ppd_v04%2Ctrue%2C1&l=LRO_LOLA_DEM_Global_128ppd_v04%2Ctrue%2C1&locale=&b=moon&e=26.87255809248097%2C4.886855987944253%2C36.99096610686156%2C12.961807009192613&sfz=&w=",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 392,
+        "note": "Valor publicado (no leido de una capa): Williams et al. 2017, Icarus 283, 300-325; maximo ecuatorial 387-397 K, se usa el punto medio",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 95,
+        "note": "Valor publicado: Williams et al. 2017; minimo ecuatorial antes del amanecer, unos 95 K",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 297,
+        "note": "tmax_k - tmin_k",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Media diaria ~243 K. Valor anterior 0.0 era presencia de hielo.",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo_favorabilidad",
+        "value": 0,
+        "note": "Criterio propio, escala 0-100 de favorabilidad al hielo: 0 sin evidencia; 25 estable solo en lugares muy locales; 50 condiciones favorables mas evidencia indirecta; 75 evidencia fuerte por teledeteccion; 100 deteccion directa. Zona ecuatorial con maximas cercanas a 390 K, muy por encima del umbral de ~110 K de las trampas frias (Paige et al. 2010)",
+        "url": "https://doi.org/10.1126/science.1187726",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/tranquilidad.jpg",
+    "imageAuthor": "NASA / Neil A. Armstrong",
     "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "shackleton",
+    "name": {
+      "es": "Cráter Shackleton (borde)",
+      "en": "Shackleton Crater (rim)"
+    },
     "description": {
-      "es": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity.",
-      "en": "An impact crater with Mount Sharp at its center, studied by the Curiosity rover."
-    }
+      "es": "Borde del cráter Shackleton, en el polo sur de la Luna. Rugosidad de 909,9 m; su rango térmico de 130 K es una aproximación: el contraste entre el borde y el fondo del cráter.",
+      "en": "Rim of Shackleton Crater, at the Moon's south pole. Roughness of 909.9 m; its 130 K thermal range is an approximation: the contrast between the rim and the crater floor."
+    },
+    "body": "moon",
+    "lat": -89.9,
+    "lng": 0.0,
+    "metrics": {
+      "roughnessM": 909.9,
+      "thermalRange": 130.0,
+      "coldIndex": 100,
+      "tminK": null,
+      "tmaxK": null
+    },
+    "sources": [
+      {
+        "variable": "rugosidad",
+        "value": 909.9,
+        "note": "LRO LOLA DEM, 87.5 deg v4, S Pole",
+        "url": "https://trek.nasa.gov/moon/#v=0.1&x=17324.577026367668&y=-4949.879150390865&z=7&p=urn%3Aogc%3Adef%3Acrs%3AIAU2000%3A%3A30120&d=&locale=&b=moon&e=-34047.14172363226%2C-29532.049255371297%2C68696.2957763676%2C19632.290954589567&sfz=&w=",
+        "date": "2026-11-14"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 130,
+        "note": "PROVISIONAL: contraste borde (~220 K) y fondo (~88 K); no es rango diurno",
+        "url": "https://science.nasa.gov/solar-system/moon/phenomena-nasa-astronauts-will-encounter-at-moons-south-pole",
+        "date": "2026-11-15",
+        "provisional": true
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Valor anterior 25.0 era presencia de hielo.",
+        "url": "https://www.diviner.ucla.edu/single-post/2020/07/20/new-diviner-seasonal-polar-data-products",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo_favorabilidad",
+        "value": 25,
+        "note": "Criterio propio, escala 0-100 de favorabilidad al hielo: 0 sin evidencia; 25 estable solo en lugares muy locales; 50 condiciones favorables mas evidencia indirecta; 75 evidencia fuerte por teledeteccion; 100 deteccion directa. El borde esta iluminado gran parte de cada orbita, no es trampa fria; el piso vecino si lo es, pero su albedo no indica hielo expuesto en superficie (Zuber et al. 2012, Nature; verificar)",
+        "url": "https://doi.org/10.1126/science.1187726",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/shackleton.jpg",
+    "imageAuthor": "NASA Goddard / LRO",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
   }
 ]

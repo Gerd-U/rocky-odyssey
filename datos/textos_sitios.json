@@ -1,0 +1,311 @@
+{
+  "altiplano-del-tibet": {
+    "review": true,
+    "name": {
+      "es": "Altiplano del Tíbet",
+      "en": "Tibetan Plateau"
+    },
+    "country": {
+      "es": "China",
+      "en": "China"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en China, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 47,5 m, rango térmico de 25,4 °C entre día y noche y 42 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in China, with a study level of 0.1 out of 1. Roughness of 47.5 m, a day–night range of 25.4 °C and 42% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "askja": {
+    "review": true,
+    "name": {
+      "es": "Askja",
+      "en": "Askja"
+    },
+    "country": {
+      "es": "Islandia",
+      "en": "Iceland"
+    },
+    "description": {
+      "es": "Terreno basáltico en Islandia, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 201,3 m, rango térmico de 6,3 °C entre día y noche y 75 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Iceland, with a study level of 0.9 out of 1. Roughness of 201.3 m, a day–night range of 6.3 °C and 75% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "atacama": {
+    "review": true,
+    "name": {
+      "es": "Desierto de Atacama",
+      "en": "Atacama Desert"
+    },
+    "country": {
+      "es": "Chile",
+      "en": "Chile"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Chile, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 261,8 m, rango térmico de 27,9 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Chile, with a study level of 0.9 out of 1. Roughness of 261.8 m, a day–night range of 27.9 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "ARADS (NASA Ames)",
+        "Life in the Atacama (NASA/CMU)"
+      ],
+      "en": [
+        "ARADS (NASA Ames)",
+        "Life in the Atacama (NASA/CMU)"
+      ]
+    }
+  },
+  "dasht-e-lut": {
+    "review": true,
+    "name": {
+      "es": "Dasht-e Lut",
+      "en": "Dasht-e Lut"
+    },
+    "country": {
+      "es": "Irán",
+      "en": "Iran"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Irán, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 56,5 m, rango térmico de 26 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Iran, with a study level of 0.2 out of 1. Roughness of 56.5 m, a day–night range of 26 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "depresion-de-danakil": {
+    "review": true,
+    "name": {
+      "es": "Depresión de Danakil",
+      "en": "Danakil Depression"
+    },
+    "country": {
+      "es": "Etiopía",
+      "en": "Ethiopia"
+    },
+    "description": {
+      "es": "Terreno basáltico en Etiopía, con un nivel de estudio de 0,3 sobre 1. Rugosidad de 14,6 m, rango térmico de 9,5 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Ethiopia, with a study level of 0.3 out of 1. Roughness of 14.6 m, a day–night range of 9.5 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "desierto-de-gobi": {
+    "review": true,
+    "name": {
+      "es": "Desierto de Gobi",
+      "en": "Gobi Desert"
+    },
+    "country": {
+      "es": "Mongolia",
+      "en": "Mongolia"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Mongolia, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 136,8 m, rango térmico de 18,5 °C entre día y noche y 33 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Mongolia, with a study level of 0.2 out of 1. Roughness of 136.8 m, a day–night range of 18.5 °C and 33% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "isla-devon": {
+    "review": true,
+    "name": {
+      "es": "Isla Devon",
+      "en": "Devon Island"
+    },
+    "country": {
+      "es": "Canadá",
+      "en": "Canada"
+    },
+    "description": {
+      "es": "Terreno de regolito en Canadá, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 152,4 m, rango térmico de 2,3 °C entre día y noche y 83 % de los meses con media bajo 0 °C.",
+      "en": "Regolith terrain in Canada, with a study level of 0.9 out of 1. Roughness of 152.4 m, a day–night range of 2.3 °C and 83% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "Haughton-Mars Project (NASA/SETI)",
+        "FMARS (Mars Society)"
+      ],
+      "en": [
+        "Haughton-Mars Project (NASA/SETI)",
+        "FMARS (Mars Society)"
+      ]
+    }
+  },
+  "mojave": {
+    "review": true,
+    "name": {
+      "es": "Desierto de Mojave",
+      "en": "Mojave Desert"
+    },
+    "country": {
+      "es": "EE. UU.",
+      "en": "USA"
+    },
+    "description": {
+      "es": "Terreno basáltico en EE. UU., con un nivel de estudio de 0,8 sobre 1. Rugosidad de 73,4 m, rango térmico de 19,8 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in the USA, with a study level of 0.8 out of 1. Roughness of 73.4 m, a day–night range of 19.8 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "salar-de-uyuni": {
+    "review": true,
+    "name": {
+      "es": "Salar de Uyuni",
+      "en": "Salar de Uyuni"
+    },
+    "country": {
+      "es": "Bolivia",
+      "en": "Bolivia"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en Bolivia, con un nivel de estudio de 0,4 sobre 1. Rugosidad de 7,5 m, rango térmico de 6,5 °C entre día y noche y 17 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in Bolivia, with a study level of 0.4 out of 1. Roughness of 7.5 m, a day–night range of 6.5 °C and 17% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "taklamakan": {
+    "review": true,
+    "name": {
+      "es": "Taklamakán",
+      "en": "Taklamakan"
+    },
+    "country": {
+      "es": "China",
+      "en": "China"
+    },
+    "description": {
+      "es": "Terreno de sedimentos en China, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 6,4 m, rango térmico de 25,4 °C entre día y noche y 17 % de los meses con media bajo 0 °C.",
+      "en": "Sedimentary terrain in China, with a study level of 0.1 out of 1. Roughness of 6.4 m, a day–night range of 25.4 °C and 17% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "tibesti": {
+    "review": true,
+    "name": {
+      "es": "Tibesti",
+      "en": "Tibesti"
+    },
+    "country": {
+      "es": "Chad",
+      "en": "Chad"
+    },
+    "description": {
+      "es": "Terreno basáltico en Chad, con un nivel de estudio de 0,1 sobre 1. Rugosidad de 65,7 m, rango térmico de 20,1 °C entre día y noche y 0 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Chad, with a study level of 0.1 out of 1. Roughness of 65.7 m, a day–night range of 20.1 °C and 0% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "tolbachik-kamchatka": {
+    "review": true,
+    "name": {
+      "es": "Tolbachik, Kamchatka",
+      "en": "Tolbachik, Kamchatka"
+    },
+    "country": {
+      "es": "Rusia",
+      "en": "Russia"
+    },
+    "description": {
+      "es": "Terreno basáltico en Rusia, con un nivel de estudio de 0,2 sobre 1. Rugosidad de 445,2 m, rango térmico de 8,3 °C entre día y noche y 75 % de los meses con media bajo 0 °C.",
+      "en": "Basaltic terrain in Russia, with a study level of 0.2 out of 1. Roughness of 445.2 m, a day–night range of 8.3 °C and 75% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [],
+      "en": []
+    }
+  },
+  "valles-secos-mcmurdo": {
+    "review": true,
+    "name": {
+      "es": "Valles Secos de McMurdo",
+      "en": "McMurdo Dry Valleys"
+    },
+    "country": {
+      "es": "Antártida",
+      "en": "Antarctica"
+    },
+    "description": {
+      "es": "Terreno con hielo en Antártida, con un nivel de estudio de 0,9 sobre 1. Rugosidad de 308,6 m, rango térmico de 1,8 °C entre día y noche y 100 % de los meses con media bajo 0 °C.",
+      "en": "Icy terrain in Antarctica, with a study level of 0.9 out of 1. Roughness of 308.6 m, a day–night range of 1.8 °C and 100% of months with an average below 0 °C."
+    },
+    "missions": {
+      "es": [
+        "NASA ASTEP",
+        "McMurdo Dry Valleys LTER"
+      ],
+      "en": [
+        "NASA ASTEP",
+        "McMurdo Dry Valleys LTER"
+      ]
+    }
+  },
+  "shackleton": {
+    "review": true,
+    "name": {
+      "es": "Cráter Shackleton (borde)",
+      "en": "Shackleton Crater (rim)"
+    },
+    "description": {
+      "es": "Borde del cráter Shackleton, en el polo sur de la Luna. Rugosidad de 909,9 m; su rango térmico de 130 K es una aproximación: el contraste entre el borde y el fondo del cráter.",
+      "en": "Rim of Shackleton Crater, at the Moon's south pole. Roughness of 909.9 m; its 130 K thermal range is an approximation: the contrast between the rim and the crater floor."
+    }
+  },
+  "pozo-mare-tranquillitatis": {
+    "review": true,
+    "name": {
+      "es": "Pozo del Mare Tranquillitatis",
+      "en": "Mare Tranquillitatis pit"
+    },
+    "description": {
+      "es": "Pozo en el Mare Tranquillitatis, en la zona ecuatorial de la Luna. Rugosidad de 34,5 m y rango térmico de 297 K entre las temperaturas máxima y mínima publicadas.",
+      "en": "Pit in Mare Tranquillitatis, in the Moon's equatorial region. Roughness of 34.5 m and a 297 K range between the published maximum and minimum temperatures."
+    }
+  },
+  "jezero": {
+    "review": true,
+    "name": {
+      "es": "Cráter Jezero",
+      "en": "Jezero Crater"
+    },
+    "description": {
+      "es": "Cráter Jezero, en Marte. Rugosidad de 82,6 m y rango térmico de 49 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Jezero Crater, on Mars. Roughness of 82.6 m and a 49 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
+    }
+  },
+  "arcadia-planitia": {
+    "review": true,
+    "name": {
+      "es": "Arcadia Planitia",
+      "en": "Arcadia Planitia"
+    },
+    "description": {
+      "es": "Llanura del hemisferio norte de Marte (47° N). Rugosidad de 9,2 m y rango térmico de 39,4 K en el aire a 2 m de la superficie, según la Mars Climate Database.",
+      "en": "Plain in Mars' northern hemisphere (47° N). Roughness of 9.2 m and a 39.4 K thermal range in the air 2 m above the surface, according to the Mars Climate Database."
+    }
+  }
+}

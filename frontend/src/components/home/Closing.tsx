@@ -9,10 +9,13 @@ import { ButtonLink } from "../ui/Button";
 import { Picture } from "../ui/Photo";
 import SectionHeading from "../ui/SectionHeading";
 
-/** Foto de un ensayo real en la Tierra para cada destino, sacada de los sitios */
-const PHOTO_SITE: Record<Target, string> = {
-  mars: "devon",
-  moon: "hiseas",
+/**
+ * Foto de un lugar de la Tierra para cada destino, sacada de los sitios con foto.
+ * Isla Devon y McMurdo son los lugares más parecidos a Marte y a la Luna que tienen foto.
+ */
+const PHOTO_SITE: Record<Target, { id: string; image: string }> = {
+  mars: { id: "isla-devon", image: "/images/devon.jpg" },
+  moon: { id: "valles-secos-mcmurdo", image: "/images/mcmurdo.jpg" },
 };
 
 const MODES: Target[] = ["mars", "moon"];
@@ -23,16 +26,16 @@ export default function Closing() {
   const { data: sites } = useSites();
   const { data: bases } = useBases();
 
-  const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode]);
+  const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode].id);
 
   return (
     <section aria-labelledby="closing-title" className="relative isolate mt-section flex min-h-[70svh] items-end overflow-clip">
       {MODES.map((m) => {
-        const site = sites?.find((s) => s.id === PHOTO_SITE[m]);
+        const site = sites?.find((s) => s.id === PHOTO_SITE[m].id);
         return (
           <Picture
             key={m}
-            src={site?.image ?? `/images/${PHOTO_SITE[m]}.jpg`}
+            src={site?.image ?? PHOTO_SITE[m].image}
             sizes={IMAGE_SIZES.full}
             alt={m === mode ? t(`home.closing.photoAlt.${m}`) : ""}
             aria-hidden={m !== mode}
