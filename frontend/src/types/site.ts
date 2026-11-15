@@ -21,6 +21,8 @@ export interface Site {
   image: string;
   imageCredit: string;
   description: string;
+  // "real" si el backend aplicó datos de locations.json; "placeholder" si son los valores escritos a mano.
+  dataSource?: "real" | "placeholder";
 }
 
 export interface Base {

@@ -57,6 +57,53 @@ que consume el frontend. Las estructuras de referencia son los archivos JSON
 ya existentes en `data/`; las comparaciones guardadas en `locations.json`
 pueden completar campos compatibles cuando coinciden por ID.
 
+## Cómo cargar datos reales
+
+Mientras `data/locations.json` esté vacío (`{"locations": []}`), `/api/sites`
+devuelve los valores escritos a mano en `data/sites.json`, y cada sitio sale
+con `"dataSource": "placeholder"`. Para reemplazarlos, agrega a
+`locations.json` un location cuyo `id` sea igual al de `sites.json`
+(`atacama`, `mcmurdo`, `devon`…). Si el `id` no existe en `sites.json`, ese
+location se ignora.
+
+El merge solo lee estos campos:
+
+| Campo en `locations.json` | Campo en `/api/sites` |
+| --- | --- |
+| `coordinates.latitude` | `lat` |
+| `coordinates.longitude` | `lng` |
+| `temperature.minimum_c` | `factors.tempMin` |
+| `temperature.maximum_c` | `factors.tempMax` |
+| `comparison.<mars\|moon>.score` (de 0 a 100) | `similarity` (de 0 a 1) |
+
+Del bloque `comparison` solo se usa el del cuerpo que indica el campo `target`
+del sitio en `sites.json`. Los campos que no mandes, o que mandes como `null`,
+se quedan con el valor escrito a mano. Si se aplica al menos uno, el sitio sale
+con `"dataSource": "real"`.
+
+Ejemplo de estructura para `atacama` (los valores son solo para mostrar el
+formato; sustitúyelos por datos con fuente):
+
+```json
+{
+    "locations": [
+        {
+            "id": "atacama",
+            "name": "Desierto de Atacama",
+            "country": "Chile",
+            "coordinates": { "latitude": 0.0, "longitude": 0.0 },
+            "temperature": { "minimum_c": 0.0, "maximum_c": 0.0 },
+            "comparison": {
+                "mars": { "score": 0 }
+            }
+        }
+    ]
+}
+```
+
+Los registros de prueba que antes estaban en `locations.json` ahora viven en
+`fixtures/test_locations.json` y solo los usan las pruebas.
+
 Los siete grupos de entrada científica son `geology`, `topography`,
 `temperature`, `ice_water`, `dust_atmosphere`, `habitability` y `subsurface`.
 La similitud de cada criterio acepta un valor de 0 a 100 o `null` cuando todavía
