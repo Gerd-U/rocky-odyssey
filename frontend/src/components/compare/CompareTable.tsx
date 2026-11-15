@@ -21,7 +21,7 @@ export default function CompareTable({ pair, className = "" }: CompareTableProps
       target: formatTempSpan(base.factors.tempMin, base.factors.tempMax),
     },
     {
-      label: "Terreno",
+      label: "Dificultad del terreno",
       earth: TERRAIN_LABEL[site.factors.terrain],
       target: TERRAIN_LABEL[base.factors.terrain],
     },

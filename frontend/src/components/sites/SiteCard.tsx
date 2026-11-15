@@ -1,17 +1,13 @@
-import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { Pair } from "../../hooks/usePairs";
 import { BODY_LABEL, formatPercent } from "../../lib/format";
 
-/** index escalona la entrada de las tarjetas de una misma fila (70 ms entre una y otra) */
-export default function SiteCard({ pair, index = 0 }: { pair: Pair; index?: number }) {
+export default function SiteCard({ pair }: { pair: Pair }) {
   const { site, base } = pair;
 
   return (
     <Link
       to={`/ubicacion/${site.id}`}
-      data-reveal
-      style={{ "--i": index % 3 } as CSSProperties}
       className="group block focus-visible:outline-offset-4"
     >
       <div className="relative aspect-4/3 overflow-hidden bg-night-800">
@@ -22,6 +18,14 @@ export default function SiteCard({ pair, index = 0 }: { pair: Pair; index?: numb
           decoding="async"
           className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-out-strong group-hover:scale-[1.03]"
         />
+        {/* El gemelo en la esquina: cada lugar de la Tierra se ve junto a su base */}
+        <img
+          src={base.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute right-3 bottom-3 aspect-square w-[30%] object-cover ring-2 ring-night-900"
+        />
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div className="min-w-0">
@@ -30,13 +34,17 @@ export default function SiteCard({ pair, index = 0 }: { pair: Pair; index?: numb
           </h2>
           <p className="mt-1 text-sm text-ink-soft">{site.country}</p>
         </div>
-        <p className="shrink-0 text-3xl leading-none font-extrabold font-stretch-[75%] text-ink tabular-nums">
-          <span className="sr-only">Similitud </span>
-          {formatPercent(site.similarity)}
+        {/* Cifra más contenida y siempre con "provisional": aún no es el resultado de un modelo */}
+        <p className="shrink-0 text-right">
+          <span className="block text-2xl leading-none font-extrabold font-stretch-[75%] text-ink tabular-nums">
+            <span className="sr-only">Similitud </span>
+            {formatPercent(site.similarity)}
+          </span>
+          <span className="mt-1 block text-small text-ink-soft">provisional</span>
         </p>
       </div>
       <p className="mt-3 text-sm text-ink-soft">
-        Análogo de <span className="text-ink">{base.name}</span> ·{" "}
+        Se parece a <span className="text-ink">{base.name}</span> ·{" "}
         <span className={base.body === "mars" ? "text-plum-200" : "text-indigo-200"}>{BODY_LABEL[base.body]}</span>
       </p>
     </Link>

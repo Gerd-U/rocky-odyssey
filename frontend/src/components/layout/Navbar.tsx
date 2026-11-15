@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   `h-9 items-center rounded-full px-4 text-sm font-medium transition-colors duration-200 ${
@@ -8,6 +8,10 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
   }`;
 
 export default function Navbar() {
+  // La ficha de un sitio (/ubicacion/:id) cuenta como parte de "Ubicaciones"
+  const { pathname } = useLocation();
+  const inLocations = pathname.startsWith("/ubicacion/");
+
   return (
     <header className="sticky top-3 z-30 px-2 sm:top-4">
       {/*
@@ -35,7 +39,10 @@ export default function Navbar() {
           >
             Inicio
           </NavLink>
-          <NavLink to="/ubicaciones" className={(s) => `${linkClass(s)} inline-flex`}>
+          <NavLink
+            to="/ubicaciones"
+            className={({ isActive }) => `${linkClass({ isActive: isActive || inLocations })} inline-flex`}
+          >
             Ubicaciones
           </NavLink>
         </div>

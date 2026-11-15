@@ -9,6 +9,8 @@ interface SwapProps {
   delay?: number;
   /** "span" para usarlo dentro de un titular o un párrafo */
   as?: "div" | "span";
+  /** false en titulares grandes: solo fundido y desplazamiento */
+  blur?: boolean;
   className?: string;
   children: ReactNode;
 }
@@ -46,9 +48,17 @@ function SwapItem({ as, custom, children, ref }: SwapItemProps) {
   );
 }
 
-export default function Swap({ swapKey, direction = 0, delay = 0, as = "div", className = "", children }: SwapProps) {
+export default function Swap({
+  swapKey,
+  direction = 0,
+  delay = 0,
+  as = "div",
+  blur = true,
+  className = "",
+  children,
+}: SwapProps) {
   const reduce = useReducedMotion() ?? false;
-  const custom: SwapCustom = { direction, delay, reduce };
+  const custom: SwapCustom = { direction, delay, reduce, blur };
   const Wrapper = as;
 
   return (

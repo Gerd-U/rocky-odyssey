@@ -50,10 +50,10 @@ export default function Locations() {
 
   return (
     <section aria-labelledby="locations-title" className="mx-auto max-w-6xl px-6 pt-12 pb-16 lg:pt-16">
-      <SectionHeading id="locations-title" as="h1" title="Ubicaciones análogas">
+      <SectionHeading id="locations-title" as="h1" title="Lugares gemelos en la Tierra">
         <p>
-          Lugares de la Tierra que se parecen a una base propuesta en la Luna o en Marte. Abre cualquiera para
-          compararlo con su gemelo.
+          Cada uno se parece a una base propuesta en la Luna o en Marte. Se les llama análogos: por ese parecido, ahí se
+          entrenan tripulaciones y se prueba tecnología. Abre cualquiera para compararlo con su gemelo.
         </p>
       </SectionHeading>
 
@@ -88,7 +88,7 @@ export default function Locations() {
       ) : (
         <ul className={GRID}>
           <AnimatePresence mode="popLayout" initial={false}>
-            {results.map((pair, i) => (
+            {results.map((pair) => (
               <motion.li
                 key={pair.site.id}
                 layout={!reduce}
@@ -97,7 +97,7 @@ export default function Locations() {
                 exit={{ opacity: 0, transform: reduce ? "none" : "scale(0.96)" }}
                 transition={{ duration: reduce ? 0.15 : 0.3, ease: SWAP_EASE }}
               >
-                <SiteCard pair={pair} index={i} />
+                <SiteCard pair={pair} />
               </motion.li>
             ))}
           </AnimatePresence>

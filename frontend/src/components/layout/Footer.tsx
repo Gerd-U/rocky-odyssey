@@ -196,7 +196,7 @@ export default function Footer() {
               </svg>
             </span>
           </summary>
-          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="credits-list mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
             {(credits as ImageCredit[]).map((c) => (
               <li key={c.path}>
                 <a

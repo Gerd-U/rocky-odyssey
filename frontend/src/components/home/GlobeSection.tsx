@@ -11,6 +11,7 @@ import type { Target } from "../../types/site";
 import type { GlobePoint } from "../globe/GlobeView";
 import { LEVEL_COLOR, LEVEL_SIZE, SITE_COLOR } from "../globe/colors";
 import Legend from "../globe/Legend";
+import ModeToggle from "../globe/ModeToggle";
 import SiteList from "../sites/SiteList";
 import ErrorState from "../ui/ErrorState";
 import SectionHeading from "../ui/SectionHeading";
@@ -55,7 +56,10 @@ function alternateBases(sorted: Pair[]): Pair[] {
   return result;
 }
 
-const STAGE_GRID = "grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_16rem_1fr]";
+// Los dos globos siempre lado a lado (también en móvil, más pequeños) y la lista debajo hasta lg
+const STAGE_GRID = "grid grid-cols-2 gap-x-4 gap-y-6 md:gap-x-6 lg:grid-cols-[1fr_16rem_1fr]";
+const LIST_CELL = "order-last col-span-2 min-w-0 lg:order-none lg:col-span-1";
+const GLOBE_SKELETON = "h-[200px] md:h-[360px] lg:h-[440px]";
 
 function GlobeCaption({ body, place, accent = false }: { body: string; place: string; accent?: boolean }) {
   return (
@@ -72,9 +76,9 @@ export default function GlobeSection() {
   const { mode, selectedSiteId, setSelectedSiteId } = useMode();
   const { data: pairs, loading, error } = usePairs(mode);
   const { data: bases } = useBases();
-  const twoGlobes = useMediaQuery("(min-width: 768px)");
+  const medium = useMediaQuery("(min-width: 768px)");
   const large = useMediaQuery("(min-width: 1024px)");
-  const globeHeight = large ? 440 : twoGlobes ? 360 : 320;
+  const globeHeight = large ? 440 : medium ? 360 : 200;
 
   const reduce = useReducedMotion() ?? false;
   const direction = MODE_DIRECTION[mode];
@@ -124,25 +128,29 @@ export default function GlobeSection() {
   return (
     <section id="globo" aria-labelledby="stage-title" className="scroll-mt-20 pt-section">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading id="stage-title" title="Elige un lugar y mira su gemelo">
-          <Swap swapKey={mode} direction={direction}>
-            <p>{STAGE_HINT[mode]}</p>
-          </Swap>
-        </SectionHeading>
+        {/* El selector también aquí: cambiar de destino no obliga a volver al hero */}
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+          <SectionHeading id="stage-title" title="Elige un lugar y mira su gemelo">
+            <Swap swapKey={mode} direction={direction}>
+              <p>{STAGE_HINT[mode]}</p>
+            </Swap>
+          </SectionHeading>
+          <ModeToggle size="sm" />
+        </div>
 
         {error ? (
           <ErrorState message={error} className="mt-8" />
         ) : loading || !pairs || !selected ? (
           <div aria-busy="true" aria-label="Cargando" className={`mt-8 ${STAGE_GRID}`}>
-            <Skeleton className="h-[320px] md:h-[360px] lg:h-[440px]" />
-            <Skeleton className="h-14 md:order-last md:col-span-2 lg:order-none lg:col-span-1 lg:h-[440px]" />
-            <Skeleton className="hidden h-[360px] md:block lg:h-[440px]" />
+            <Skeleton className={GLOBE_SKELETON} />
+            <Skeleton className={`h-14 lg:h-[440px] ${LIST_CELL}`} />
+            <Skeleton className={GLOBE_SKELETON} />
           </div>
         ) : (
           <>
             <div data-reveal className={`mt-8 ${STAGE_GRID} lg:items-center`}>
               <figure>
-                <Suspense fallback={<Skeleton className="h-[320px] md:h-[360px] lg:h-[440px]" />}>
+                <Suspense fallback={<Skeleton className={GLOBE_SKELETON} />}>
                   <GlobeView
                     texture={EARTH_TEXTURE}
                     fallbackTexture={EARTH_FALLBACK}
@@ -157,44 +165,39 @@ export default function GlobeSection() {
                 <GlobeCaption body="Tierra" place={selected.site.name} />
               </figure>
 
-              <Swap
-                swapKey={mode}
-                direction={direction}
-                className="min-w-0 md:order-last md:col-span-2 lg:order-none lg:col-span-1"
-              >
+              <Swap swapKey={mode} direction={direction} className={LIST_CELL}>
                 <SiteList pairs={listOrder} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
               </Swap>
 
-              {twoGlobes && (
-                <figure>
-                  <motion.div
-                    initial={false}
-                    animate={
-                      switching && !reduce
-                        ? { opacity: 0, filter: "blur(8px)", transform: `scale(0.94) translateX(${-direction * 12}px)` }
-                        : { opacity: switching ? 0 : 1, filter: "blur(0px)", transform: "scale(1) translateX(0px)" }
-                    }
-                    transition={
-                      switching
-                        ? { duration: SWAP_EXIT_S, ease: SWAP_EASE }
-                        : { duration: reduce ? 0.15 : 0.5, ease: SWAP_EASE }
-                    }
-                  >
-                    <Suspense fallback={<Skeleton className="h-[360px] lg:h-[440px]" />}>
-                      <GlobeView
-                        texture={TARGET_TEXTURE[shownMode]}
-                        preloadTextures={ALL_TARGET_TEXTURES}
-                        points={targetPoints}
-                        selectedId={selected.base.id}
-                        height={globeHeight}
-                        atmosphereColor={SITE_COLOR[shownMode]}
-                        initialAltitude={1.9}
-                      />
-                    </Suspense>
-                  </motion.div>
-                  <GlobeCaption body={BODY_LABEL[mode]} place={selected.base.name} accent />
-                </figure>
-              )}
+              {/* Globo del destino: también en móvil, que es donde más se comparte la web */}
+              <figure>
+                <motion.div
+                  initial={false}
+                  animate={
+                    switching && !reduce
+                      ? { opacity: 0, transform: `scale(0.97) translateX(${-direction * 12}px)` }
+                      : { opacity: switching ? 0 : 1, transform: "scale(1) translateX(0px)" }
+                  }
+                  transition={
+                    switching
+                      ? { duration: SWAP_EXIT_S, ease: SWAP_EASE }
+                      : { duration: reduce ? 0.15 : 0.5, ease: SWAP_EASE }
+                  }
+                >
+                  <Suspense fallback={<Skeleton className={GLOBE_SKELETON} />}>
+                    <GlobeView
+                      texture={TARGET_TEXTURE[shownMode]}
+                      preloadTextures={ALL_TARGET_TEXTURES}
+                      points={targetPoints}
+                      selectedId={selected.base.id}
+                      height={globeHeight}
+                      atmosphereColor={SITE_COLOR[shownMode]}
+                      initialAltitude={1.9}
+                    />
+                  </Suspense>
+                </motion.div>
+                <GlobeCaption body={BODY_LABEL[mode]} place={selected.base.name} accent />
+              </figure>
             </div>
 
             <div className="mt-6">

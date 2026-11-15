@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import BackToTop from "./components/layout/BackToTop";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import { ModeProvider } from "./context/ModeContext";
@@ -7,6 +8,7 @@ import { useScrollReveal } from "./hooks/useScrollReveal";
 import Home from "./pages/Home";
 import LocationDetail from "./pages/LocationDetail";
 import Locations from "./pages/Locations";
+import NotFound from "./pages/NotFound";
 
 /** Fondo de estrellas fijo detrás de todo el contenido */
 function Starfield() {
@@ -76,6 +78,7 @@ function Pages() {
         <Route path="/" element={null} />
         <Route path="/ubicaciones" element={<Locations />} />
         <Route path="/ubicacion/:id" element={<LocationDetail />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
   );
@@ -86,10 +89,11 @@ export default function App() {
     <ModeProvider>
       <BrowserRouter>
         <Starfield />
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-svh flex-col">
           <Navbar />
           <Pages />
           <Footer />
+          <BackToTop />
         </div>
       </BrowserRouter>
     </ModeProvider>

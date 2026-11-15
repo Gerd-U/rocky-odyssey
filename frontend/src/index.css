@@ -157,11 +157,11 @@
 
   /* Persiana: la foto se abre de abajo arriba mientras se asienta dentro del marco */
   .js-reveal [data-shutter] {
-    transition: clip-path 1200ms var(--ease-in-out-strong) calc(var(--i, 0) * 90ms);
+    transition: clip-path 700ms var(--ease-out-strong) calc(var(--i, 0) * 90ms);
   }
   .js-reveal [data-shutter] img {
     transition:
-      transform 1500ms var(--ease-soft) calc(var(--i, 0) * 90ms),
+      transform 900ms var(--ease-soft) calc(var(--i, 0) * 90ms),
       opacity 500ms var(--ease-out-strong);
   }
   .js-reveal [data-shutter]:not(.is-in) {
@@ -192,6 +192,19 @@
   from {
     opacity: 0;
     transform: translateY(12px);
+  }
+}
+
+/* Créditos del Footer: el contenido se funde a la vez que gira la flecha */
+@media (prefers-reduced-motion: no-preference) {
+  details[open] > .credits-list {
+    transition:
+      opacity 200ms var(--ease-out-strong),
+      transform 200ms var(--ease-out-strong);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
   }
 }
 

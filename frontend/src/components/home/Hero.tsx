@@ -4,7 +4,6 @@ import { BODY_NAME } from "../../lib/format";
 import { MODE_DIRECTION } from "../../lib/motion";
 import { marsToday, moonToday } from "../../lib/sky";
 import type { Target } from "../../types/site";
-import ModeToggle from "../globe/ModeToggle";
 import { ButtonLink } from "../ui/Button";
 import Swap from "../ui/Swap";
 import EarthLoop from "./EarthLoop";
@@ -60,7 +59,7 @@ export default function Hero() {
           <h1 id="hero-title" className="max-w-[13ch] text-display font-extrabold font-stretch-[75%] text-ink">
             <span className="block overflow-clip pb-[0.08em] -mb-[0.08em]">
               <span className="load-line block">
-                <Swap as="span" swapKey={mode} direction={direction}>
+                <Swap as="span" swapKey={mode} direction={direction} blur={false}>
                   {HEADLINE[mode]}
                 </Swap>
               </span>
@@ -77,7 +76,6 @@ export default function Hero() {
           </div>
 
           <div className="load-rise mt-8 flex flex-wrap items-center gap-3" style={{ "--d": "480ms" } as CSSProperties}>
-            <ModeToggle />
             <ButtonLink to="/#globo" size="md">
               Explorar el globo
             </ButtonLink>
@@ -85,7 +83,7 @@ export default function Hero() {
 
           <div className="load-rise" style={{ "--d": "540ms" } as CSSProperties}>
             <Swap swapKey={mode} direction={direction} delay={0.1}>
-              <p className="mt-8 text-small text-ink-soft">{today}</p>
+              <p className="mt-8 text-base text-ink-soft">{today}</p>
             </Swap>
           </div>
         </div>

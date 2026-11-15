@@ -163,7 +163,7 @@ export default function GlobeView({
     const p = points.find((pt) => pt.id === selectedId);
     if (!p) return;
     globe.controls().autoRotate = false;
-    globe.pointOfView({ lat: p.lat, lng: p.lng, altitude: 1.6 }, 1200);
+    globe.pointOfView({ lat: p.lat, lng: p.lng, altitude: 1.6 }, 800); // se repite mucho al recorrer la lista: corto
   }, [selectedId, points]);
 
   // Anillos que salen del punto elegido: en los dos globos a la vez, marcan a los gemelos

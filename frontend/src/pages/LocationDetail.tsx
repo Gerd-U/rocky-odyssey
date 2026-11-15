@@ -117,7 +117,8 @@ export default function LocationDetail() {
           {site.country} · <span className="tabular-nums">{formatCoords(site.lat, site.lng)}</span>
         </p>
         <p className="mt-1 text-ink">
-          Análogo de <span className="text-accent-soft">{base.name}</span>, en {BODY_NAME[base.body]}
+          Lugar de la Tierra que se parece a <span className="text-accent-soft">{base.name}</span>, en{" "}
+          {BODY_NAME[base.body]}
         </p>
       </SectionHeading>
 
@@ -142,11 +143,15 @@ export default function LocationDetail() {
 
       <div data-reveal className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-16">
         <section aria-labelledby="factors-title">
-          <h2 id="factors-title" className="text-sm text-ink-soft">
-            Similitud <span className="text-ink-soft/80">(provisional)</span>
+          {/* La cifra primero y su etiqueta debajo, como en la portada: no es un resultado definitivo */}
+          <h2 id="factors-title" className="sr-only">
+            Similitud y factores
           </h2>
-          <p className="text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
-            {formatPercent(site.similarity)}
+          <p>
+            <span className="block text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
+              {formatPercent(site.similarity)}
+            </span>
+            <span className="mt-1 block text-sm text-ink-soft">de similitud (valor provisional)</span>
           </p>
           <CompareTable pair={pair} className="mt-8" />
           <p className="mt-8 max-w-prose text-ink">{site.description}</p>

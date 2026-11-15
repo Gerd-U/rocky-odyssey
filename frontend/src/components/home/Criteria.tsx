@@ -1,13 +1,19 @@
 import { usePairs, type Pair } from "../../hooks/usePairs";
+import type { Target } from "../../types/site";
 import { TERRAIN_LABEL, formatPrecip, formatTempSpan } from "../../lib/format";
 import SectionHeading from "../ui/SectionHeading";
 
 interface ExampleLine {
   place: string;
   value: string;
-  /** true si el lugar está en la Luna o Marte */
-  away?: boolean;
+  /** Destino del lugar si está en la Luna o Marte: su color sale de ahí y no del modo activo */
+  body?: Target;
 }
+
+const BODY_TINT: Record<Target, string> = {
+  mars: "text-plum-200",
+  moon: "text-indigo-200",
+};
 
 interface Criterion {
   term: string;
@@ -19,12 +25,12 @@ interface Criterion {
 
 const CRITERIA: Criterion[] = [
   {
-    term: "Aridez",
-    text: "En la Luna y Marte no llueve, así que buscamos los lugares más secos del planeta.",
+    term: "Lluvia",
+    text: "En la Luna y Marte no llueve, así que buscamos los lugares de la Tierra donde casi nunca llueve.",
     siteId: "atacama",
     example: ({ site, base }) => [
       { place: site.name, value: formatPrecip(site.factors.precipMm) },
-      { place: base.name, value: formatPrecip(base.factors.precipMm), away: true },
+      { place: base.name, value: formatPrecip(base.factors.precipMm), body: base.body },
     ],
   },
   {
@@ -33,32 +39,42 @@ const CRITERIA: Criterion[] = [
     siteId: "concordia",
     example: ({ site, base }) => [
       { place: site.name, value: formatTempSpan(site.factors.tempMin, site.factors.tempMax) },
-      { place: base.name, value: formatTempSpan(base.factors.tempMin, base.factors.tempMax), away: true },
+      { place: base.name, value: formatTempSpan(base.factors.tempMin, base.factors.tempMax), body: base.body },
     ],
   },
   {
-    term: "Terreno",
+    term: "Dificultad del terreno",
     text: "Relieve, tipo de roca y lo difícil que es moverse por él: cráteres, lava, permafrost.",
-    siteId: "devon",
+    siteId: "meteorcrater",
     example: ({ site, base }) => [
       { place: site.name, value: TERRAIN_LABEL[site.factors.terrain] },
-      { place: base.name, value: TERRAIN_LABEL[base.factors.terrain], away: true },
+      { place: base.name, value: TERRAIN_LABEL[base.factors.terrain], body: base.body },
     ],
   },
   {
     term: "Historial",
     text: "Misiones y estudios que ya usaron el lugar para ensayar la exploración de otro mundo.",
-    siteId: "meteorcrater",
+    siteId: "devon",
     example: ({ site }) => [{ place: site.name, value: site.missions[0] ?? "Sin misiones registradas" }],
   },
 ];
 
 function Example({ lines }: { lines: ExampleLine[] }) {
+  // Un único ejemplo (Historial) va en dos líneas: nombre arriba y misión debajo, sin partirse a lo raro
+  if (lines.length === 1) {
+    const [line] = lines;
+    return (
+      <p>
+        <span className="block text-ink-soft">{line.place}</span>
+        <span className="block text-ink">{line.value}</span>
+      </p>
+    );
+  }
   return (
     <ul className="space-y-2 tabular-nums">
       {lines.map((line) => (
         <li key={line.place} className="flex items-baseline justify-between gap-4">
-          <span className={`min-w-0 ${line.away ? "text-accent-soft" : "text-ink-soft"}`}>{line.place}</span>
+          <span className={`min-w-0 ${line.body ? BODY_TINT[line.body] : "text-ink-soft"}`}>{line.place}</span>
           {/* Las cifras cortas no se parten; los textos largos (misiones) sí pueden */}
           <span className={`text-right text-balance text-ink ${line.value.length <= 16 ? "shrink-0 whitespace-nowrap" : "min-w-0"}`}>
             {line.value}
@@ -78,7 +94,8 @@ export default function Criteria() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading id="criteria-title" title="Cómo medimos la similitud">
           <p>
-            Comparamos cada lugar de la Tierra con su base gemela usando los mismos cuatro factores. Los porcentajes son
+            Comparamos cada lugar de la Tierra con su base gemela con los mismos datos: lluvia, temperatura y
+            dificultad del terreno. También contamos si ya se ensayaron misiones allí. Los porcentajes son
             provisionales: todavía estamos definiendo cómo se combinan.
           </p>
         </SectionHeading>

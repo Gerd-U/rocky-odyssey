@@ -16,32 +16,34 @@ export interface SwapCustom {
   direction: number;
   delay: number;
   reduce: boolean;
+  /** Desenfoque al cambiar. En titulares grandes se apaga: filtrar mucho texto a la vez es caro */
+  blur: boolean;
 }
 
 const SHIFT_X = 16;
 const SHIFT_Y = 8;
 
 export const swapVariants: Variants = {
-  enter: ({ direction, reduce }: SwapCustom) =>
+  enter: ({ direction, reduce, blur }: SwapCustom) =>
     reduce
       ? { opacity: 0 }
       : {
           opacity: 0,
-          filter: "blur(6px)",
+          ...(blur && { filter: "blur(4px)" }),
           transform: direction ? `translate(${direction * SHIFT_X}px, 0px)` : `translate(0px, ${SHIFT_Y}px)`,
         },
-  center: ({ delay, reduce }: SwapCustom) => ({
+  center: ({ delay, reduce, blur }: SwapCustom) => ({
     opacity: 1,
-    filter: "blur(0px)",
+    ...(blur && { filter: "blur(0px)" }),
     transform: "translate(0px, 0px)",
     transition: { duration: reduce ? 0.15 : SWAP_ENTER_S, delay: reduce ? 0 : delay, ease: SWAP_EASE },
   }),
-  exit: ({ direction, reduce }: SwapCustom) =>
+  exit: ({ direction, reduce, blur }: SwapCustom) =>
     reduce
       ? { opacity: 0, transition: { duration: 0.1 } }
       : {
           opacity: 0,
-          filter: "blur(4px)",
+          ...(blur && { filter: "blur(3px)" }),
           transform: direction ? `translate(${-direction * SHIFT_X}px, 0px)` : `translate(0px, ${-SHIFT_Y / 2}px)`,
           transition: { duration: SWAP_EXIT_S, ease: SWAP_EASE },
         },

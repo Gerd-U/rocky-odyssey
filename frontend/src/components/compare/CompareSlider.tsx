@@ -110,17 +110,22 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
             aria-valuenow={shown}
             aria-valuetext={`${earth.label} ${shown} %, ${target.label} ${100 - shown} %`}
             onKeyDown={onKeyDown}
-            className="pointer-events-auto grid size-14 cursor-grab touch-none place-items-center rounded-full border-2 border-ink bg-violet text-ink"
+            className={`pointer-events-auto grid size-14 cursor-grab touch-none place-items-center rounded-full border-2 border-ink bg-violet text-ink transition-transform duration-150 ease-out-strong active:scale-95 ${
+              dragging ? "scale-95" : ""
+            }`}
           >
             <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
               <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          {!touched && (
-            <p className="absolute top-full left-1/2 mt-3 -translate-x-1/2 bg-night-900/85 px-3 py-1.5 text-sm whitespace-nowrap text-ink">
-              Arrastra para comparar
-            </p>
-          )}
+          <p
+            aria-hidden={touched}
+            className={`absolute top-full left-1/2 mt-3 -translate-x-1/2 bg-night-900/85 px-3 py-1.5 text-sm whitespace-nowrap text-ink transition-opacity duration-200 ease-out-strong ${
+              touched ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            Arrastra para comparar
+          </p>
         </div>
       </div>
     </div>
