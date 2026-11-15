@@ -1,0 +1,118 @@
+ID,Category,Latitude,Longitude
+Desierto de Gobi_-0.05_-0.05,Desierto de Gobi,43.45,103.95
+Desierto de Gobi_-0.05_+0.00,Desierto de Gobi,43.45,104.0
+Desierto de Gobi_-0.05_+0.05,Desierto de Gobi,43.45,104.05
+Desierto de Gobi_+0.00_-0.05,Desierto de Gobi,43.5,103.95
+Desierto de Gobi_+0.00_+0.00,Desierto de Gobi,43.5,104.0
+Desierto de Gobi_+0.00_+0.05,Desierto de Gobi,43.5,104.05
+Desierto de Gobi_+0.05_-0.05,Desierto de Gobi,43.55,103.95
+Desierto de Gobi_+0.05_+0.00,Desierto de Gobi,43.55,104.0
+Desierto de Gobi_+0.05_+0.05,Desierto de Gobi,43.55,104.05
+Dasht-e Lut_-0.05_-0.05,Dasht-e Lut,30.45,58.95
+Dasht-e Lut_-0.05_+0.00,Dasht-e Lut,30.45,59.0
+Dasht-e Lut_-0.05_+0.05,Dasht-e Lut,30.45,59.05
+Dasht-e Lut_+0.00_-0.05,Dasht-e Lut,30.5,58.95
+Dasht-e Lut_+0.00_+0.00,Dasht-e Lut,30.5,59.0
+Dasht-e Lut_+0.00_+0.05,Dasht-e Lut,30.5,59.05
+Dasht-e Lut_+0.05_-0.05,Dasht-e Lut,30.55,58.95
+Dasht-e Lut_+0.05_+0.00,Dasht-e Lut,30.55,59.0
+Dasht-e Lut_+0.05_+0.05,Dasht-e Lut,30.55,59.05
+Depresion de Danakil_-0.05_-0.05,Depresion de Danakil,14.15,40.25
+Depresion de Danakil_-0.05_+0.00,Depresion de Danakil,14.15,40.3
+Depresion de Danakil_-0.05_+0.05,Depresion de Danakil,14.15,40.35
+Depresion de Danakil_+0.00_-0.05,Depresion de Danakil,14.2,40.25
+Depresion de Danakil_+0.00_+0.00,Depresion de Danakil,14.2,40.3
+Depresion de Danakil_+0.00_+0.05,Depresion de Danakil,14.2,40.35
+Depresion de Danakil_+0.05_-0.05,Depresion de Danakil,14.25,40.25
+Depresion de Danakil_+0.05_+0.00,Depresion de Danakil,14.25,40.3
+Depresion de Danakil_+0.05_+0.05,Depresion de Danakil,14.25,40.35
+Salar de Uyuni_-0.05_-0.05,Salar de Uyuni,-20.25,-67.55
+Salar de Uyuni_-0.05_+0.00,Salar de Uyuni,-20.25,-67.5
+Salar de Uyuni_-0.05_+0.05,Salar de Uyuni,-20.25,-67.45
+Salar de Uyuni_+0.00_-0.05,Salar de Uyuni,-20.2,-67.55
+Salar de Uyuni_+0.00_+0.00,Salar de Uyuni,-20.2,-67.5
+Salar de Uyuni_+0.00_+0.05,Salar de Uyuni,-20.2,-67.45
+Salar de Uyuni_+0.05_-0.05,Salar de Uyuni,-20.15,-67.55
+Salar de Uyuni_+0.05_+0.00,Salar de Uyuni,-20.15,-67.5
+Salar de Uyuni_+0.05_+0.05,Salar de Uyuni,-20.15,-67.45
+Tibesti_-0.05_-0.05,Tibesti,19.95,17.95
+Tibesti_-0.05_+0.00,Tibesti,19.95,18.0
+Tibesti_-0.05_+0.05,Tibesti,19.95,18.05
+Tibesti_+0.00_-0.05,Tibesti,20.0,17.95
+Tibesti_+0.00_+0.00,Tibesti,20.0,18.0
+Tibesti_+0.00_+0.05,Tibesti,20.0,18.05
+Tibesti_+0.05_-0.05,Tibesti,20.05,17.95
+Tibesti_+0.05_+0.00,Tibesti,20.05,18.0
+Tibesti_+0.05_+0.05,Tibesti,20.05,18.05
+Taklamakan_-0.05_-0.05,Taklamakan,38.85,82.95
+Taklamakan_-0.05_+0.00,Taklamakan,38.85,83.0
+Taklamakan_-0.05_+0.05,Taklamakan,38.85,83.05
+Taklamakan_+0.00_-0.05,Taklamakan,38.9,82.95
+Taklamakan_+0.00_+0.00,Taklamakan,38.9,83.0
+Taklamakan_+0.00_+0.05,Taklamakan,38.9,83.05
+Taklamakan_+0.05_-0.05,Taklamakan,38.95,82.95
+Taklamakan_+0.05_+0.00,Taklamakan,38.95,83.0
+Taklamakan_+0.05_+0.05,Taklamakan,38.95,83.05
+Tolbachik Kamchatka_-0.05_-0.05,Tolbachik Kamchatka,55.75,160.25
+Tolbachik Kamchatka_-0.05_+0.00,Tolbachik Kamchatka,55.75,160.3
+Tolbachik Kamchatka_-0.05_+0.05,Tolbachik Kamchatka,55.75,160.35
+Tolbachik Kamchatka_+0.00_-0.05,Tolbachik Kamchatka,55.8,160.25
+Tolbachik Kamchatka_+0.00_+0.00,Tolbachik Kamchatka,55.8,160.3
+Tolbachik Kamchatka_+0.00_+0.05,Tolbachik Kamchatka,55.8,160.35
+Tolbachik Kamchatka_+0.05_-0.05,Tolbachik Kamchatka,55.85,160.25
+Tolbachik Kamchatka_+0.05_+0.00,Tolbachik Kamchatka,55.85,160.3
+Tolbachik Kamchatka_+0.05_+0.05,Tolbachik Kamchatka,55.85,160.35
+Altiplano del Tibet_-0.05_-0.05,Altiplano del Tibet,33.95,84.95
+Altiplano del Tibet_-0.05_+0.00,Altiplano del Tibet,33.95,85.0
+Altiplano del Tibet_-0.05_+0.05,Altiplano del Tibet,33.95,85.05
+Altiplano del Tibet_+0.00_-0.05,Altiplano del Tibet,34.0,84.95
+Altiplano del Tibet_+0.00_+0.00,Altiplano del Tibet,34.0,85.0
+Altiplano del Tibet_+0.00_+0.05,Altiplano del Tibet,34.0,85.05
+Altiplano del Tibet_+0.05_-0.05,Altiplano del Tibet,34.05,84.95
+Altiplano del Tibet_+0.05_+0.00,Altiplano del Tibet,34.05,85.0
+Altiplano del Tibet_+0.05_+0.05,Altiplano del Tibet,34.05,85.05
+Atacama_-0.05_-0.05,Atacama,-24.55,-69.25
+Atacama_-0.05_+0.00,Atacama,-24.55,-69.2
+Atacama_-0.05_+0.05,Atacama,-24.55,-69.15
+Atacama_+0.00_-0.05,Atacama,-24.5,-69.25
+Atacama_+0.00_+0.00,Atacama,-24.5,-69.2
+Atacama_+0.00_+0.05,Atacama,-24.5,-69.15
+Atacama_+0.05_-0.05,Atacama,-24.45,-69.25
+Atacama_+0.05_+0.00,Atacama,-24.45,-69.2
+Atacama_+0.05_+0.05,Atacama,-24.45,-69.15
+Valles secos McMurdo_-0.05_-0.05,Valles secos McMurdo,-77.55,161.95
+Valles secos McMurdo_-0.05_+0.00,Valles secos McMurdo,-77.55,162.0
+Valles secos McMurdo_-0.05_+0.05,Valles secos McMurdo,-77.55,162.05
+Valles secos McMurdo_+0.00_-0.05,Valles secos McMurdo,-77.5,161.95
+Valles secos McMurdo_+0.00_+0.00,Valles secos McMurdo,-77.5,162.0
+Valles secos McMurdo_+0.00_+0.05,Valles secos McMurdo,-77.5,162.05
+Valles secos McMurdo_+0.05_-0.05,Valles secos McMurdo,-77.45,161.95
+Valles secos McMurdo_+0.05_+0.00,Valles secos McMurdo,-77.45,162.0
+Valles secos McMurdo_+0.05_+0.05,Valles secos McMurdo,-77.45,162.05
+Askja_-0.05_-0.05,Askja,64.95,-16.75
+Askja_-0.05_+0.00,Askja,64.95,-16.7
+Askja_-0.05_+0.05,Askja,64.95,-16.65
+Askja_+0.00_-0.05,Askja,65.0,-16.75
+Askja_+0.00_+0.00,Askja,65.0,-16.7
+Askja_+0.00_+0.05,Askja,65.0,-16.65
+Askja_+0.05_-0.05,Askja,65.05,-16.75
+Askja_+0.05_+0.00,Askja,65.05,-16.7
+Askja_+0.05_+0.05,Askja,65.05,-16.65
+Mojave_-0.05_-0.05,Mojave,34.95,-116.55
+Mojave_-0.05_+0.00,Mojave,34.95,-116.5
+Mojave_-0.05_+0.05,Mojave,34.95,-116.45
+Mojave_+0.00_-0.05,Mojave,35.0,-116.55
+Mojave_+0.00_+0.00,Mojave,35.0,-116.5
+Mojave_+0.00_+0.05,Mojave,35.0,-116.45
+Mojave_+0.05_-0.05,Mojave,35.05,-116.55
+Mojave_+0.05_+0.00,Mojave,35.05,-116.5
+Mojave_+0.05_+0.05,Mojave,35.05,-116.45
+Isla Devon_-0.05_-0.05,Isla Devon,75.35,-89.05
+Isla Devon_-0.05_+0.00,Isla Devon,75.35,-89.0
+Isla Devon_-0.05_+0.05,Isla Devon,75.35,-88.95
+Isla Devon_+0.00_-0.05,Isla Devon,75.4,-89.05
+Isla Devon_+0.00_+0.00,Isla Devon,75.4,-89.0
+Isla Devon_+0.00_+0.05,Isla Devon,75.4,-88.95
+Isla Devon_+0.05_-0.05,Isla Devon,75.45,-89.05
+Isla Devon_+0.05_+0.00,Isla Devon,75.45,-89.0
+Isla Devon_+0.05_+0.05,Isla Devon,75.45,-88.95

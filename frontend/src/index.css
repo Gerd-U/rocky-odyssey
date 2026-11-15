@@ -1,111 +1,283 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta de la marca */
+  --color-night-900: #0e1841; /* fondo de página */
+  --color-night-800: #17125e; /* superficies: tarjetas, bandas */
+  --color-indigo: #42649e;    /* acento Luna */
+  --color-violet: #5b2e97;    /* acción principal (CTA) */
+  --color-plum: #6f286c;      /* acento Marte */
+
+  /* Tintes claros derivados: para texto o iconos en color sobre el fondo oscuro */
+  --color-indigo-200: #a9bce6;
+  --color-plum-200: #e3a6dd;
+
+  /* Tinta */
+  --color-ink: #eef0fa;      /* todo el texto de lectura */
+  --color-ink-soft: #b9c2e6; /* solo notas y pies de foto */
+
+  /* Acento según el modo (lo cambia data-mode, ver abajo) */
+  --color-accent: var(--color-plum);
+  --color-accent-soft: var(--color-plum-200);
+
+  /* Tipografía */
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  /*
+   * Escala de letra. Pocos tamaños, y los grandes crecen con la pantalla:
+   * small 13 · sm 14 (controles) · base 16 · lead 18 · h3 24 · h2 · h1 · figure · display
+   */
+  --text-small: 0.8125rem;
+  --text-small--line-height: 1.45;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.55;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.1;
+  --text-h2: clamp(2rem, 1.4rem + 1.9vw, 3rem);
+  --text-h2--line-height: 0.95;
+  --text-h1: clamp(2.5rem, 1.6rem + 2.8vw, 4rem);
+  --text-h1--line-height: 0.95;
+  --text-figure: clamp(3.5rem, 2.6rem + 2.6vw, 4.5rem);
+  --text-figure--line-height: 1;
+  --text-display: clamp(2.75rem, 1.4rem + 4.2vw, 5.5rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.03em;
+
+  /* Separación entre secciones: una sola para toda la web */
+  --spacing-section: clamp(4.5rem, 2.8rem + 4.5vw, 7rem);
+
+  /* Curvas de movimiento */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  /* Revelados largos (800 ms o más) y subidas de línea */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Escala y deriva lentas en fotos */
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Registrar el acento como color permite que el cambio Luna/Marte se interpole en vez de saltar */
+@property --color-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6f286c;
+}
+@property --color-accent-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e3a6dd;
+}
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  transition:
+    --color-accent 400ms var(--ease-out-strong),
+    --color-accent-soft 400ms var(--ease-out-strong);
+}
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* ModeContext escribe data-mode en <html> */
+:root[data-mode="mars"] {
+  --color-accent: var(--color-plum);
+  --color-accent-soft: var(--color-plum-200);
+}
+:root[data-mode="moon"] {
+  --color-accent: var(--color-indigo);
+  --color-accent-soft: var(--color-indigo-200);
+}
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-night-900);
+  }
+  body {
+    @apply bg-night-900 font-sans text-ink antialiased;
+    /* Ningún elemento decorativo (arco del footer, fotos a sangre) ensancha la página */
+    overflow-x: clip;
+  }
+  ::selection {
+    background-color: var(--color-violet);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 3px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+/*
+ * Movimiento al hacer scroll, según las recetas de design-taste-frontend (references/motion.md)
+ * e impeccable (animate). Reglas: cada revelado ocurre una sola vez; nada visible se queda
+ * oculto más de 900 ms; todo estado oculto vive dentro de prefers-reduced-motion: no-preference,
+ * así que con movimiento reducido la página aparece ya terminada.
+ */
+
+/* Revelados (los activa useScrollReveal añadiendo .js-reveal a <html> y .is-in al elemento) */
+[data-mask] {
+  display: block;
+  overflow: clip;
+  /* deja sitio a los descendentes (g, p, y) para que la máscara no los corte */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+[data-mask] > * {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Bloque que sube 24 px y aparece. --i escalona elementos de una misma lista (70 ms) */
+  .js-reveal [data-reveal] {
+    transition:
+      opacity 700ms var(--ease-out-strong),
+      transform 900ms var(--ease-expo);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .js-reveal [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translateY(24px);
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  /* Titular que sube desde detrás de su propia línea */
+  .js-reveal [data-mask] > * {
+    transition: transform 900ms var(--ease-expo);
+  }
+  .js-reveal [data-mask]:not(.is-in) > * {
+    transform: translateY(110%);
+  }
+
+  /* Persiana: la foto se abre de abajo arriba mientras se asienta dentro del marco */
+  .js-reveal [data-shutter] {
+    transition: clip-path 700ms var(--ease-out-strong) calc(var(--i, 0) * 90ms);
+  }
+  .js-reveal [data-shutter] img {
+    transition:
+      transform 900ms var(--ease-soft) calc(var(--i, 0) * 90ms),
+      opacity 500ms var(--ease-out-strong);
+  }
+  .js-reveal [data-shutter]:not(.is-in) {
+    clip-path: inset(0 0 100% 0);
+  }
+  .js-reveal [data-shutter]:not(.is-in) img {
+    transform: scale(1.12);
+  }
+
+  /*
+   * Entrada del hero en 1,2 s, sin esperar a nada: el titular sube de 150 a 1.050 ms y la frase,
+   * los controles y la línea de hoy llegan entre 420 y 1.140 ms. Cuatro piezas como máximo.
+   */
+  .load-line {
+    animation: load-line 900ms var(--ease-expo) 150ms both;
+  }
+  .load-rise {
+    animation: load-rise 600ms var(--ease-out-strong) var(--d, 0ms) both;
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+@keyframes load-line {
+  from {
+    transform: translateY(105%);
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+@keyframes load-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
-p {
-  margin: 0;
+
+/* Créditos del Footer: el contenido se funde a la vez que gira la flecha */
+@media (prefers-reduced-motion: no-preference) {
+  details[open] > .credits-list {
+    transition:
+      opacity 200ms var(--ease-out-strong),
+      transform 200ms var(--ease-out-strong);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* Ligado al scroll: lineal (el scroll es la curva), recorridos de menos del 8 % */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* La foto del cierre se acerca muy despacio mientras cruza la pantalla */
+    .drift {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+
+    /*
+     * Hero que se retira: al bajar, el vídeo se hunde y se oscurece, y el texto sube y se
+     * desvanece algo más rápido. El rango exit dura la primera pantalla de scroll.
+     */
+    .hero-recede {
+      view-timeline-name: --hero;
+    }
+    .hero-recede__media {
+      animation: hero-sink linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-recede__dim {
+      animation: hero-dim linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-recede__copy {
+      animation: hero-lift linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 70%;
+    }
+  }
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+@keyframes drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+@keyframes hero-sink {
+  to {
+    transform: translateY(8%) scale(1.06);
+  }
+}
+@keyframes hero-dim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+@keyframes hero-lift {
+  to {
+    transform: translateY(-6%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
