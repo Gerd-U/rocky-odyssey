@@ -60,39 +60,18 @@ defecto `en`; un valor no admitido también usa `en`). En `sites.json` y
 `bases.json`, los campos `name`, `country`, `description` y `missions` son
 objetos `{"es": ..., "en": ...}`, y la API los devuelve ya resueltos como texto.
 `imageLicense` es un código: `public-domain` o el nombre de una licencia
-Creative Commons (`CC BY-SA 3.0`), que se muestra tal cual. Los sitios sin foto
-traen `image`, `imageAuthor` e `imageLicense` en `null`.
+Creative Commons (`CC BY-SA 3.0`), que se muestra tal cual. Las estructuras de referencia son los archivos JSON
+ya existentes en `data/`; las comparaciones guardadas en `locations.json`
+pueden completar campos compatibles cuando coinciden por ID.
 
-`data/sites.json` y `data/bases.json` no se editan a mano: los genera
-`datos/scripts/generar_web.py` con los datos del equipo (ver "Actualizar los
-datos"). Cada sitio trae sus métricas (`metrics`), la serie mensual de
-temperatura (`monthlyTemp`), sus fuentes (`sources`) y, en `matches`, la base
-más parecida de la Luna y la de Marte con su `score` (0 a 1), la cobertura y la
-similitud de cada criterio.
+## Cómo cargar datos reales
 
-## Actualizar los datos
-
-Desde la raíz del repo, en este orden:
-
-```powershell
-python datos/scripts/metricas_tierra.py   # métricas de la Tierra -> datos/datos_limpios/tierra.csv
-python datos/scripts/medir_bases_marte.py # bases nuevas de Marte (opcional, ya medidas) -> targets_mars.csv
-python datos/scripts/unir_objetivos.py    # bases de la Luna y Marte -> datos/datos_limpios/objetivos.csv
-python datos/scripts/generar_web.py       # sites.json y bases.json (y los mocks del frontend)
-```
-
-`metricas_tierra.py` y `generar_web.py` solo usan la biblioteca estándar de
-Python; `unir_objetivos.py` necesita pandas (`datos/requirements.txt`). Las
-fórmulas están explicadas en `datos/METODOLOGIA.md` y las de similitud se
-ajustan en `datos/scripts/similitud_config.py`.
-
-## Cómo cargar datos de `locations.json`
-
-Con `data/locations.json` vacío (`{"locations": []}`), `/api/sites` devuelve
-exactamente lo que tiene `data/sites.json`. Para corregir un sitio sin volver a
-generar los datos, agrega a `locations.json` un location cuyo `id` sea igual al
-de `sites.json` (`atacama`, `valles-secos-mcmurdo`, `isla-devon`…). Si el `id`
-no existe en `sites.json`, ese location se ignora.
+Mientras `data/locations.json` esté vacío (`{"locations": []}`), `/api/sites`
+devuelve los valores escritos a mano en `data/sites.json`, y cada sitio sale
+con `"dataSource": "placeholder"`. Para reemplazarlos, agrega a
+`locations.json` un location cuyo `id` sea igual al de `sites.json`
+(`atacama`, `mcmurdo`, `devon`…). Si el `id` no existe en `sites.json`, ese
+location se ignora.
 
 El merge solo lee estos campos:
 
@@ -100,13 +79,14 @@ El merge solo lee estos campos:
 | --- | --- |
 | `coordinates.latitude` | `lat` |
 | `coordinates.longitude` | `lng` |
-| `temperature.minimum_c` | `metrics.tempMinC` |
-| `temperature.maximum_c` | `metrics.tempMaxC` |
-| `comparison.<mars\|moon>.score` (de 0 a 100) | `matches.<mars\|moon>.score` (de 0 a 1) |
+| `temperature.minimum_c` | `factors.tempMin` |
+| `temperature.maximum_c` | `factors.tempMax` |
+| `comparison.<mars\|moon>.score` (de 0 a 100) | `similarity` (de 0 a 1) |
 
-El score solo se aplica si el sitio ya tiene una base emparejada en ese cuerpo.
-Los campos que no mandes, o que mandes como `null`, se quedan con el valor de
-`sites.json`. Si se aplica al menos uno, el sitio sale con `"dataSource": "real"`.
+Del bloque `comparison` solo se usa el del cuerpo que indica el campo `target`
+del sitio en `sites.json`. Los campos que no mandes, o que mandes como `null`,
+se quedan con el valor escrito a mano. Si se aplica al menos uno, el sitio sale
+con `"dataSource": "real"`.
 
 Ejemplo de estructura para `atacama` (los valores son solo para mostrar el
 formato; sustitúyelos por datos con fuente):

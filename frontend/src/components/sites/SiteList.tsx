@@ -23,7 +23,7 @@ export default function SiteList({ pairs, selectedId, onSelect, className = "" }
 
   return (
     <ol aria-label={t("home.globe.listLabel")} className={`flex flex-wrap gap-2 lg:flex-col ${className}`}>
-      {pairs.map(({ site, match }, i) => {
+      {pairs.map(({ site }, i) => {
         const active = site.id === selectedId;
         return (
           <motion.li
@@ -50,7 +50,7 @@ export default function SiteList({ pairs, selectedId, onSelect, className = "" }
                 />
               )}
               <span className="relative font-semibold text-balance">{site.name}</span>
-              <span className="relative tabular-nums">{formatPercent(match.score)}</span>
+              <span className="relative tabular-nums">{formatPercent(site.similarity)}</span>
             </button>
           </motion.li>
         );

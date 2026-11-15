@@ -1,6 +1,6 @@
 // Genera versiones optimizadas de las fotos de public/images.
 //
-// Por cada JPG (también en subcarpetas, salvo optimized/ y las que empiezan por "_") escribe en public/images/optimized/
+// Por cada JPG (también en subcarpetas, salvo optimized/) escribe en public/images/optimized/
 // la misma ruta relativa con:
 //   <nombre>-800.webp, <nombre>-1600.webp, <nombre>-2400.webp  (WebP calidad 88)
 //   <nombre>.jpg                                               (respaldo, JPEG calidad 90, sin metadatos)
@@ -31,8 +31,7 @@ async function findJpgs(dir) {
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      // optimized/ es la salida; las carpetas con "_" (como _sin_uso/) guardan fotos que la web ya no usa
-      if (full !== OUT_DIR && !entry.name.startsWith("_")) found.push(...(await findJpgs(full)));
+      if (full !== OUT_DIR) found.push(...(await findJpgs(full)));
     } else if (/\.jpe?g$/i.test(entry.name)) {
       found.push(full);
     }
