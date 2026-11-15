@@ -1,0 +1,118 @@
+Category,ID,Latitude,Longitude,Date,GDEM_Tile,ASTGTM_NC_003_Line_Y_30m,ASTGTM_NC_003_Sample_X_30m,ASTGTM_NC_003_ASTER_GDEM_DEM,ASTGTM_NUMNC_003_ASTER_GDEM_NUM,ASTGTM_NUMNC_003_ASTER_GDEM_NUM_DEM_Source_Description
+Altiplano del Tibet,Altiplano del Tibet-0.05-0.05,33.95,84.95,2000-03-01,N33E084,180.0,3420.0,4890.0,23.0,GDEM V3 (23 scenes)
+Altiplano del Tibet,Altiplano del Tibet-0.050.00,33.95,85.0,2000-03-01,N33E085,180.0,0.0,4947.0,-6.0,Interpolation
+Altiplano del Tibet,Altiplano del Tibet-0.050.05,33.95,85.05,2000-03-01,N33E085,180.0,180.0,5031.0,13.0,GDEM V3 (13 scenes)
+Altiplano del Tibet,Altiplano del Tibet0.00-0.05,34.0,84.95,2000-03-01,N34E084,3600.0,3420.0,4916.0,-6.0,Interpolation
+Altiplano del Tibet,Altiplano del Tibet0.000.00,34.0,85.0,2000-03-01,N34E085,3600.0,0.0,4955.0,18.0,GDEM V3 (18 scenes)
+Altiplano del Tibet,Altiplano del Tibet0.000.05,34.0,85.05,2000-03-01,N34E085,3600.0,180.0,5017.0,-6.0,Interpolation
+Altiplano del Tibet,Altiplano del Tibet0.05-0.05,34.05,84.95,2000-03-01,N34E084,3420.0,3420.0,5031.0,15.0,GDEM V3 (15 scenes)
+Altiplano del Tibet,Altiplano del Tibet0.050.00,34.05,85.0,2000-03-01,N34E085,3420.0,0.0,4958.0,-6.0,Interpolation
+Altiplano del Tibet,Altiplano del Tibet0.050.05,34.05,85.05,2000-03-01,N34E085,3420.0,180.0,4992.0,20.0,GDEM V3 (20 scenes)
+Askja,Askja-0.05-0.05,64.95,-16.75,2000-03-01,N64W017,180.0,900.0,722.0,32.0,GDEM V3 (32 scenes)
+Askja,Askja-0.050.00,64.95,-16.7,2000-03-01,N64W017,180.0,1080.0,708.0,19.0,GDEM V3 (19 scenes)
+Askja,Askja-0.050.05,64.95,-16.65,2000-03-01,N64W017,180.0,1260.0,677.0,21.0,GDEM V3 (21 scenes)
+Askja,Askja0.00-0.05,65.0,-16.75,2000-03-01,N65W017,3600.0,900.0,1091.0,-6.0,Interpolation
+Askja,Askja0.000.00,65.0,-16.7,2000-03-01,N65W017,3600.0,1080.0,1093.0,-6.0,Interpolation
+Askja,Askja0.000.05,65.0,-16.65,2000-03-01,N65W017,3600.0,1260.0,1099.0,-6.0,Interpolation
+Askja,Askja0.05-0.05,65.05,-16.75,2000-03-01,N65W017,3420.0,900.0,1081.0,78.0,GDEM V2 (18 scenes)
+Askja,Askja0.050.00,65.05,-16.7,2000-03-01,N65W017,3420.0,1080.0,1270.0,35.0,GDEM V3 (35 scenes)
+Askja,Askja0.050.05,65.05,-16.65,2000-03-01,N65W017,3420.0,1260.0,982.0,38.0,GDEM V3 (38 scenes)
+Atacama,Atacama-0.05-0.05,-24.55,-69.25,2000-03-01,S25W070,1980.0,2700.0,2624.0,27.0,GDEM V3 (27 scenes)
+Atacama,Atacama-0.050.00,-24.55,-69.2,2000-03-01,S25W070,1980.0,2880.0,3126.0,31.0,GDEM V3 (31 scenes)
+Atacama,Atacama-0.050.05,-24.55,-69.15,2000-03-01,S25W070,1980.0,3060.0,3243.0,31.0,GDEM V3 (31 scenes)
+Atacama,Atacama0.00-0.05,-24.5,-69.25,2000-03-01,S25W070,1800.0,2700.0,2652.0,24.0,GDEM V3 (24 scenes)
+Atacama,Atacama0.000.00,-24.5,-69.2,2000-03-01,S25W070,1800.0,2880.0,3157.0,29.0,GDEM V3 (29 scenes)
+Atacama,Atacama0.000.05,-24.5,-69.15,2000-03-01,S25W070,1800.0,3060.0,3167.0,31.0,GDEM V3 (31 scenes)
+Atacama,Atacama0.05-0.05,-24.45,-69.25,2000-03-01,S25W070,1620.0,2700.0,2490.0,22.0,GDEM V3 (22 scenes)
+Atacama,Atacama0.050.00,-24.45,-69.2,2000-03-01,S25W070,1620.0,2880.0,2889.0,27.0,GDEM V3 (27 scenes)
+Atacama,Atacama0.050.05,-24.45,-69.15,2000-03-01,S25W070,1620.0,3060.0,3012.0,31.0,GDEM V3 (31 scenes)
+Dasht-e Lut,Dasht-e Lut-0.05-0.05,30.45,58.95,2000-03-01,N30E058,1980.0,3420.0,493.0,17.0,GDEM V3 (17 scenes)
+Dasht-e Lut,Dasht-e Lut-0.050.00,30.45,59.0,2000-03-01,N30E059,1980.0,0.0,439.0,-6.0,Interpolation
+Dasht-e Lut,Dasht-e Lut-0.050.05,30.45,59.05,2000-03-01,N30E059,1980.0,180.0,446.0,22.0,GDEM V3 (22 scenes)
+Dasht-e Lut,Dasht-e Lut0.00-0.05,30.5,58.95,2000-03-01,N30E058,1800.0,3420.0,526.0,18.0,GDEM V3 (18 scenes)
+Dasht-e Lut,Dasht-e Lut0.000.00,30.5,59.0,2000-03-01,N30E059,1800.0,0.0,564.0,-6.0,Interpolation
+Dasht-e Lut,Dasht-e Lut0.000.05,30.5,59.05,2000-03-01,N30E059,1800.0,180.0,529.0,23.0,GDEM V3 (23 scenes)
+Dasht-e Lut,Dasht-e Lut0.05-0.05,30.55,58.95,2000-03-01,N30E058,1620.0,3420.0,558.0,6.0,GDEM V3 (6 scenes)
+Dasht-e Lut,Dasht-e Lut0.050.00,30.55,59.0,2000-03-01,N30E059,1620.0,0.0,582.0,-6.0,Interpolation
+Dasht-e Lut,Dasht-e Lut0.050.05,30.55,59.05,2000-03-01,N30E059,1620.0,180.0,616.0,6.0,GDEM V3 (6 scenes)
+Depresion de Danakil,Depresion de Danakil-0.05-0.05,14.15,40.25,2000-03-01,N14E040,3060.0,900.0,-81.0,32.0,GDEM V3 (32 scenes)
+Depresion de Danakil,Depresion de Danakil-0.050.00,14.15,40.3,2000-03-01,N14E040,3060.0,1080.0,-129.0,27.0,GDEM V3 (27 scenes)
+Depresion de Danakil,Depresion de Danakil-0.050.05,14.15,40.35,2000-03-01,N14E040,3060.0,1260.0,-125.0,24.0,GDEM V3 (24 scenes)
+Depresion de Danakil,Depresion de Danakil0.00-0.05,14.2,40.25,2000-03-01,N14E040,2880.0,900.0,-127.0,33.0,GDEM V3 (33 scenes)
+Depresion de Danakil,Depresion de Danakil0.000.00,14.2,40.3,2000-03-01,N14E040,2880.0,1080.0,-125.0,27.0,GDEM V3 (27 scenes)
+Depresion de Danakil,Depresion de Danakil0.000.05,14.2,40.35,2000-03-01,N14E040,2880.0,1260.0,-130.0,31.0,GDEM V3 (31 scenes)
+Depresion de Danakil,Depresion de Danakil0.05-0.05,14.25,40.25,2000-03-01,N14E040,2700.0,900.0,-127.0,37.0,GDEM V3 (37 scenes)
+Depresion de Danakil,Depresion de Danakil0.050.00,14.25,40.3,2000-03-01,N14E040,2700.0,1080.0,-116.0,29.0,GDEM V3 (29 scenes)
+Depresion de Danakil,Depresion de Danakil0.050.05,14.25,40.35,2000-03-01,N14E040,2700.0,1260.0,-128.0,31.0,GDEM V3 (31 scenes)
+Desierto de Gobi,Desierto de Gobi-0.05-0.05,43.45,103.95,2000-03-01,N43E103,1980.0,3420.0,2242.0,26.0,GDEM V3 (26 scenes)
+Desierto de Gobi,Desierto de Gobi-0.050.00,43.45,104.0,2000-03-01,N43E104,1980.0,0.0,2524.0,-6.0,Interpolation
+Desierto de Gobi,Desierto de Gobi-0.050.05,43.45,104.05,2000-03-01,N43E104,1980.0,180.0,2514.0,18.0,GDEM V3 (18 scenes)
+Desierto de Gobi,Desierto de Gobi0.00-0.05,43.5,103.95,2000-03-01,N43E103,1800.0,3420.0,2379.0,22.0,GDEM V3 (22 scenes)
+Desierto de Gobi,Desierto de Gobi0.000.00,43.5,104.0,2000-03-01,N43E104,1800.0,0.0,2394.0,-6.0,Interpolation
+Desierto de Gobi,Desierto de Gobi0.000.05,43.5,104.05,2000-03-01,N43E104,1800.0,180.0,2412.0,20.0,GDEM V3 (20 scenes)
+Desierto de Gobi,Desierto de Gobi0.05-0.05,43.55,103.95,2000-03-01,N43E103,1620.0,3420.0,2262.0,23.0,GDEM V3 (23 scenes)
+Desierto de Gobi,Desierto de Gobi0.050.00,43.55,104.0,2000-03-01,N43E104,1620.0,0.0,2193.0,-6.0,Interpolation
+Desierto de Gobi,Desierto de Gobi0.050.05,43.55,104.05,2000-03-01,N43E104,1620.0,180.0,2100.0,22.0,GDEM V3 (22 scenes)
+Isla Devon,Isla Devon-0.05-0.05,75.35,-89.05,2000-03-01,N75W090,2340.0,3420.0,359.0,4.0,GDEM V3 (4 scenes)
+Isla Devon,Isla Devon-0.050.00,75.35,-89.0,2000-03-01,N75W090,2340.0,3600.0,105.0,-6.0,Interpolation
+Isla Devon,Isla Devon-0.050.05,75.35,-88.95,2000-03-01,N75W089,2340.0,180.0,317.0,9.0,GDEM V3 (9 scenes)
+Isla Devon,Isla Devon0.00-0.05,75.4,-89.05,2000-03-01,N75W090,2160.0,3420.0,334.0,8.0,GDEM V3 (8 scenes)
+Isla Devon,Isla Devon0.000.00,75.4,-89.0,2000-03-01,N75W090,2160.0,3600.0,376.0,-6.0,Interpolation
+Isla Devon,Isla Devon0.000.05,75.4,-88.95,2000-03-01,N75W089,2160.0,180.0,387.0,5.0,GDEM V3 (5 scenes)
+Isla Devon,Isla Devon0.05-0.05,75.45,-89.05,2000-03-01,N75W090,1980.0,3420.0,148.0,9.0,GDEM V3 (9 scenes)
+Isla Devon,Isla Devon0.050.00,75.45,-89.0,2000-03-01,N75W090,1980.0,3600.0,0.0,-6.0,Interpolation
+Isla Devon,Isla Devon0.050.05,75.45,-88.95,2000-03-01,N75W089,1980.0,180.0,0.0,4.0,GDEM V3 (4 scenes)
+Mojave,Mojave-0.05-0.05,34.95,-116.55,2000-03-01,N34W117,180.0,1620.0,496.0,50.0,GDEM V3 (50 scenes)
+Mojave,Mojave-0.050.00,34.95,-116.5,2000-03-01,N34W117,180.0,1800.0,575.0,50.0,GDEM V3 (50 scenes)
+Mojave,Mojave-0.050.05,34.95,-116.45,2000-03-01,N34W117,180.0,1980.0,743.0,50.0,GDEM V3 (50 scenes)
+Mojave,Mojave0.00-0.05,35.0,-116.55,2000-03-01,N35W117,3600.0,1620.0,546.0,-6.0,Interpolation
+Mojave,Mojave0.000.00,35.0,-116.5,2000-03-01,N35W117,3600.0,1800.0,527.0,-6.0,Interpolation
+Mojave,Mojave0.000.05,35.0,-116.45,2000-03-01,N35W117,3600.0,1980.0,530.0,-6.0,Interpolation
+Mojave,Mojave0.05-0.05,35.05,-116.55,2000-03-01,N35W117,3420.0,1620.0,648.0,50.0,GDEM V3 (50 scenes)
+Mojave,Mojave0.050.00,35.05,-116.5,2000-03-01,N35W117,3420.0,1800.0,615.0,50.0,GDEM V3 (50 scenes)
+Mojave,Mojave0.050.05,35.05,-116.45,2000-03-01,N35W117,3420.0,1980.0,530.0,50.0,GDEM V3 (50 scenes)
+Salar de Uyuni,Salar de Uyuni-0.05-0.05,-20.25,-67.55,2000-03-01,S21W068,900.0,1620.0,3652.0,20.0,GDEM V3 (20 scenes)
+Salar de Uyuni,Salar de Uyuni-0.050.00,-20.25,-67.5,2000-03-01,S21W068,900.0,1800.0,3656.0,10.0,GDEM V3 (10 scenes)
+Salar de Uyuni,Salar de Uyuni-0.050.05,-20.25,-67.45,2000-03-01,S21W068,900.0,1980.0,3645.0,10.0,GDEM V3 (10 scenes)
+Salar de Uyuni,Salar de Uyuni0.00-0.05,-20.2,-67.55,2000-03-01,S21W068,720.0,1620.0,3660.0,14.0,GDEM V3 (14 scenes)
+Salar de Uyuni,Salar de Uyuni0.000.00,-20.2,-67.5,2000-03-01,S21W068,720.0,1800.0,3646.0,9.0,GDEM V3 (9 scenes)
+Salar de Uyuni,Salar de Uyuni0.000.05,-20.2,-67.45,2000-03-01,S21W068,720.0,1980.0,3646.0,10.0,GDEM V3 (10 scenes)
+Salar de Uyuni,Salar de Uyuni0.05-0.05,-20.15,-67.55,2000-03-01,S21W068,540.0,1620.0,3642.0,14.0,GDEM V3 (14 scenes)
+Salar de Uyuni,Salar de Uyuni0.050.00,-20.15,-67.5,2000-03-01,S21W068,540.0,1800.0,3661.0,10.0,GDEM V3 (10 scenes)
+Salar de Uyuni,Salar de Uyuni0.050.05,-20.15,-67.45,2000-03-01,S21W068,540.0,1980.0,3663.0,10.0,GDEM V3 (10 scenes)
+Taklamakan,Taklamakan-0.05-0.05,38.85,82.95,2000-03-01,N38E082,540.0,3420.0,1145.0,10.0,GDEM V3 (10 scenes)
+Taklamakan,Taklamakan-0.050.00,38.85,83.0,2000-03-01,N38E083,540.0,0.0,1127.0,-6.0,Interpolation
+Taklamakan,Taklamakan-0.050.05,38.85,83.05,2000-03-01,N38E083,540.0,180.0,1139.0,12.0,GDEM V3 (12 scenes)
+Taklamakan,Taklamakan0.00-0.05,38.9,82.95,2000-03-01,N38E082,360.0,3420.0,1128.0,9.0,GDEM V3 (9 scenes)
+Taklamakan,Taklamakan0.000.00,38.9,83.0,2000-03-01,N38E083,360.0,0.0,1143.0,-6.0,Interpolation
+Taklamakan,Taklamakan0.000.05,38.9,83.05,2000-03-01,N38E083,360.0,180.0,1135.0,10.0,GDEM V3 (10 scenes)
+Taklamakan,Taklamakan0.05-0.05,38.95,82.95,2000-03-01,N38E082,180.0,3420.0,1127.0,8.0,GDEM V3 (8 scenes)
+Taklamakan,Taklamakan0.050.00,38.95,83.0,2000-03-01,N38E083,180.0,0.0,1133.0,-6.0,Interpolation
+Taklamakan,Taklamakan0.050.05,38.95,83.05,2000-03-01,N38E083,180.0,180.0,1131.0,9.0,GDEM V3 (9 scenes)
+Tibesti,Tibesti-0.05-0.05,19.95,17.95,2000-03-01,N19E017,180.0,3420.0,726.0,15.0,GDEM V3 (15 scenes)
+Tibesti,Tibesti-0.050.00,19.95,18.0,2000-03-01,N19E018,180.0,0.0,826.0,-6.0,Interpolation
+Tibesti,Tibesti-0.050.05,19.95,18.05,2000-03-01,N19E018,180.0,180.0,782.0,16.0,GDEM V3 (16 scenes)
+Tibesti,Tibesti0.00-0.05,20.0,17.95,2000-03-01,N20E017,3600.0,3420.0,799.0,-6.0,Interpolation
+Tibesti,Tibesti0.000.00,20.0,18.0,2000-03-01,N20E018,3600.0,0.0,869.0,17.0,GDEM V3 (17 scenes)
+Tibesti,Tibesti0.000.05,20.0,18.05,2000-03-01,N20E018,3600.0,180.0,821.0,-6.0,Interpolation
+Tibesti,Tibesti0.05-0.05,20.05,17.95,2000-03-01,N20E017,3420.0,3420.0,840.0,15.0,GDEM V3 (15 scenes)
+Tibesti,Tibesti0.050.00,20.05,18.0,2000-03-01,N20E018,3420.0,0.0,910.0,-6.0,Interpolation
+Tibesti,Tibesti0.050.05,20.05,18.05,2000-03-01,N20E018,3420.0,180.0,961.0,16.0,GDEM V3 (16 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka-0.05-0.05,55.75,160.25,2000-03-01,N55E160,900.0,900.0,1056.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka-0.050.00,55.75,160.3,2000-03-01,N55E160,900.0,1080.0,1383.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka-0.050.05,55.75,160.35,2000-03-01,N55E160,900.0,1260.0,1322.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.00-0.05,55.8,160.25,2000-03-01,N55E160,720.0,900.0,1292.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.000.00,55.8,160.3,2000-03-01,N55E160,720.0,1080.0,1914.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.000.05,55.8,160.35,2000-03-01,N55E160,720.0,1260.0,2270.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.05-0.05,55.85,160.25,2000-03-01,N55E160,540.0,900.0,1257.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.050.00,55.85,160.3,2000-03-01,N55E160,540.0,1080.0,1874.0,50.0,GDEM V3 (50 scenes)
+Tolbachik Kamchatka,Tolbachik Kamchatka0.050.05,55.85,160.35,2000-03-01,N55E160,540.0,1260.0,2334.0,50.0,GDEM V3 (50 scenes)
+Valles secos McMurdo,Valles secos McMurdo-0.05-0.05,-77.55,161.95,2000-03-01,S78E161,1980.0,3420.0,756.0,5.0,GDEM V3 (5 scenes)
+Valles secos McMurdo,Valles secos McMurdo-0.050.00,-77.55,162.0,2000-03-01,S78E162,1980.0,0.0,721.0,-6.0,Interpolation
+Valles secos McMurdo,Valles secos McMurdo-0.050.05,-77.55,162.05,2000-03-01,S78E162,1980.0,180.0,729.0,6.0,GDEM V3 (6 scenes)
+Valles secos McMurdo,Valles secos McMurdo0.00-0.05,-77.5,161.95,2000-03-01,S78E161,1800.0,3420.0,728.0,6.0,GDEM V3 (6 scenes)
+Valles secos McMurdo,Valles secos McMurdo0.000.00,-77.5,162.0,2000-03-01,S78E162,1800.0,0.0,974.0,-6.0,Interpolation
+Valles secos McMurdo,Valles secos McMurdo0.000.05,-77.5,162.05,2000-03-01,S78E162,1800.0,180.0,887.0,6.0,GDEM V3 (6 scenes)
+Valles secos McMurdo,Valles secos McMurdo0.05-0.05,-77.45,161.95,2000-03-01,S78E161,1620.0,3420.0,1428.0,6.0,GDEM V3 (6 scenes)
+Valles secos McMurdo,Valles secos McMurdo0.050.00,-77.45,162.0,2000-03-01,S78E162,1620.0,0.0,1580.0,-6.0,Interpolation
+Valles secos McMurdo,Valles secos McMurdo0.050.05,-77.45,162.05,2000-03-01,S78E162,1620.0,180.0,1198.0,5.0,GDEM V3 (5 scenes)
