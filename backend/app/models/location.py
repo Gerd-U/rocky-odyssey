@@ -1,5 +1,5 @@
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Optional
 
 
@@ -52,26 +52,30 @@ class Subsurface(BaseModel):
     evidence: Optional[str] = None
 
 
+class DataSource(BaseModel):
+    name: str
+    organization: Optional[str] = None
+    url: Optional[str] = None
+    criteria_supported: list[str] = Field(default_factory=list)
+    accessed_at: Optional[str] = None
+
+
 class Location(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     id: str
     name: str
     country: str
     coordinates: Coordinates
-
     geology: Geology = Field(default_factory=Geology)
     topography: Topography = Field(default_factory=Topography)
     temperature: Temperature = Field(default_factory=Temperature)
     ice_water: IceWater = Field(default_factory=IceWater)
-    dust_atmosphere: DustAtmosphere = Field(
-        default_factory=DustAtmosphere
-    )
-    habitability: Habitability = Field(
-        default_factory=Habitability
-    )
+    dust_atmosphere: DustAtmosphere = Field(default_factory=DustAtmosphere)
+    habitability: Habitability = Field(default_factory=Habitability)
     subsurface: Subsurface = Field(default_factory=Subsurface)
-
     research_level: Optional[str] = None
     data_sources: list[str] = Field(default_factory=list)
+    sources: list[DataSource] = Field(default_factory=list)
+    comparison: Optional[dict] = None
 
-    class Config:
-        extra = "forbid"

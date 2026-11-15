@@ -1,7 +1,7 @@
 
 import math
 from app.models.location import Location
-
+from urllib.parse import urlparse
 
 def is_missing(value):
     """Determinar si un valor está vacío o no disponible."""
@@ -12,8 +12,8 @@ def is_missing(value):
     if isinstance(value, str) and not value.strip():
         return True
 
-    if isinstance(value, list) and len(value) == 0:
-        return True
+    if isinstance(value, list):
+        return not value or all(is_missing(item) for item in value)
 
     if isinstance(value, dict):
         return all(is_missing(v) for v in value.values())
@@ -121,13 +121,93 @@ def validate_location(location: Location) -> dict:
     }
 
 
-def prepare_location_data(location: Location) -> dict:
-    """Preparar los datos para su posterior comparación."""
-
+def prepare_location_data(location):
     validation = validate_location(location)
 
+    sources_validation = validate_sources(
+    [source.model_dump() for source in location.sources]
+)
+
     return {
-        "location": location.model_dump(),
+        "location": location,
         "validation": validation,
-        "ready_for_comparison": validation["valid"]
+        "sources_validation": sources_validation,
+        "ready_for_comparison": (
+            validation["valid"]
+            and sources_validation["valid"]
+        )
+    }
+
+def validate_sources(sources):
+    errors = []
+    warnings = []
+
+    valid_criteria = [
+        "geology",
+        "topography",
+        "temperature",
+        "ice_water",
+        "dust_atmosphere",
+        "habitability",
+        "subsurface"
+    ]
+
+    if not isinstance(sources, list):
+        return {
+            "valid": False,
+            "total_sources": 0,
+            "errors": ["Sources must be a list"],
+            "warnings": warnings,
+        }
+
+    if not sources:
+        warnings.append("Location has no registered scientific sources")
+
+    for index, source in enumerate(sources):
+        if not isinstance(source, dict):
+            errors.append(f"Source {index + 1}: must be an object")
+            continue
+
+        name = source.get("name")
+
+        if not isinstance(name, str) or not name.strip():
+            errors.append(f"Source {index + 1}: missing name")
+
+        url = source.get("url")
+
+        if url is None or (isinstance(url, str) and not url.strip()):
+            warnings.append(f"Source {index + 1}: missing URL")
+        else:
+            try:
+                parsed_url = urlparse(url) if isinstance(url, str) else None
+                valid_url = (
+                    parsed_url is not None
+                    and parsed_url.scheme in ["http", "https"]
+                    and bool(parsed_url.netloc)
+                )
+            except ValueError:
+                valid_url = False
+
+            if not valid_url:
+                errors.append(f"Source {index + 1}: invalid URL")
+
+        criteria = source.get("criteria_supported", [])
+
+        if not isinstance(criteria, list):
+            errors.append(
+                f"Source {index + 1}: criteria_supported must be a list"
+            )
+            continue
+
+        for criterion in criteria:
+            if not isinstance(criterion, str) or criterion not in valid_criteria:
+                errors.append(
+                    f"Source {index + 1}: invalid criterion '{criterion}'"
+                )
+
+    return {
+        "valid": len(errors) == 0,
+        "total_sources": len(sources),
+        "errors": errors,
+        "warnings": warnings
     }

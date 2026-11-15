@@ -1,8 +1,9 @@
 
 from typing import Optional
+from math import isfinite
 
 
-# Variables que utiliza Rocky Odyssey
+# Criterios oficiales de Rocky Odyssey
 CRITERIA = [
     "geology",
     "topography",
@@ -14,44 +15,76 @@ CRITERIA = [
 ]
 
 
+def validate_weights(weights: Optional[dict[str, float]] = None) -> dict:
+    """Valida y devuelve los pesos de los siete criterios."""
+
+    if weights is None:
+        return {criterion: 1.0 for criterion in CRITERIA}
+
+    unknown = set(weights) - set(CRITERIA)
+
+    if unknown:
+        raise ValueError(f"Unknown criteria weights: {sorted(unknown)}")
+
+    validated = {}
+
+    for criterion in CRITERIA:
+        weight = weights.get(criterion, 1.0)
+
+        if not isinstance(weight, (int, float)) or isinstance(weight, bool):
+            raise ValueError(f"Invalid weight for {criterion}")
+
+        if not isfinite(weight) or weight < 0:
+            raise ValueError(f"Invalid weight for {criterion}")
+
+        validated[criterion] = float(weight)
+
+    return validated
+
+
 def calculate_score(
     similarities: dict[str, Optional[float]],
     weights: Optional[dict[str, float]] = None
 ) -> dict:
     """
-    Calcula el score de similitud de una ubicación.
+    Calcula la similitud ponderada de una ubicación.
 
-    Cada similitud debe estar entre 0 y 100.
+    Las similitudes deben estar entre 0 y 100.
     Los criterios sin datos se excluyen del cálculo.
     """
 
-    if weights is None:
-        weights = {
-            criterion: 1.0 for criterion in CRITERIA
-        }
+    if not isinstance(similarities, dict):
+        raise ValueError("Similarities must be a dictionary")
 
-    total_weight = 0
-    weighted_score = 0
+    unknown = set(similarities) - set(CRITERIA)
+
+    if unknown:
+        raise ValueError(f"Unknown similarity criteria: {sorted(unknown)}")
+
+    validated_weights = validate_weights(weights)
+
+    total_weight = 0.0
+    weighted_score = 0.0
     evaluated_criteria = []
     missing_criteria = []
 
     for criterion in CRITERIA:
 
         similarity = similarities.get(criterion)
-        weight = weights.get(criterion, 0)
+        weight = validated_weights[criterion]
 
         if similarity is None:
             missing_criteria.append(criterion)
             continue
 
-        if not 0 <= similarity <= 100:
+        if (
+            not isinstance(similarity, (int, float))
+            or isinstance(similarity, bool)
+            or not isfinite(similarity)
+            or not 0 <= similarity <= 100
+        ):
             raise ValueError(
-                f"Invalid similarity for {criterion}"
-            )
-
-        if weight < 0:
-            raise ValueError(
-                f"Weight cannot be negative: {criterion}"
+                f"Invalid similarity for {criterion}: must be between 0 and 100"
             )
 
         if weight == 0:
@@ -59,7 +92,6 @@ def calculate_score(
 
         weighted_score += similarity * weight
         total_weight += weight
-
         evaluated_criteria.append(criterion)
 
     if total_weight == 0:
@@ -91,12 +123,17 @@ def calculate_planetary_scores(
     moon_similarities: dict,
     weights: Optional[dict] = None
 ) -> dict:
+    """Calcula las puntuaciones independientes para Marte y la Luna."""
+
+    validated_weights = validate_weights(weights)
 
     return {
         "mars": calculate_score(
-            mars_similarities, weights
+            mars_similarities,
+            validated_weights
         ),
         "moon": calculate_score(
-            moon_similarities, weights
+            moon_similarities,
+            validated_weights
         )
     }

@@ -47,8 +47,257 @@
                 "underground_structures": "Unknown",
                 "evidence": "No data"
             },
-            "research_level": "Unknown",
-            "data_sources": []
+            "research_level": "low",
+            "data_sources": [],
+            "comparison": {
+                "mars": {
+                    "score": 79,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography",
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "missing_criteria": [],
+                    "coverage_percent": 100,
+                    "status": "calculated"
+                },
+                "moon": {
+                    "score": 71.86,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography",
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "missing_criteria": [],
+                    "coverage_percent": 100,
+                    "status": "calculated"
+                }
+            }
+        },
+        {
+            "id": "site-low-coverage",
+            "name": "High Similarity Site",
+            "country": "Chile",
+            "coordinates": {
+                "latitude": -23.0,
+                "longitude": -68.0
+            },
+            "geology": {
+                "composition": null,
+                "rock_types": [],
+                "minerals": []
+            },
+            "topography": {
+                "elevation_m": null,
+                "slope_degrees": null,
+                "roughness": null
+            },
+            "temperature": {
+                "minimum_c": null,
+                "maximum_c": null,
+                "average_c": null
+            },
+            "ice_water": {
+                "water_presence": null,
+                "ice_presence": null,
+                "evidence": null
+            },
+            "dust_atmosphere": {
+                "dust_level": null,
+                "atmospheric_conditions": null,
+                "humidity_percent": null
+            },
+            "habitability": {
+                "description": null,
+                "radiation_level": null,
+                "environmental_conditions": null
+            },
+            "subsurface": {
+                "caves_present": null,
+                "underground_structures": null,
+                "evidence": null
+            },
+            "research_level": "low",
+            "data_sources": [],
+            "comparison": {
+                "mars": {
+                    "score": 92.5,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography"
+                    ],
+                    "missing_criteria": [
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "coverage_percent": 28.57,
+                    "status": "calculated"
+                },
+                "moon": {
+                    "score": 82.5,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography"
+                    ],
+                    "missing_criteria": [
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "coverage_percent": 28.57,
+                    "status": "calculated"
+                }
+            }
+        },
+        {
+            "id": "site-full-coverage",
+            "name": "Complete Data Site",
+            "country": "Costa Rica",
+            "coordinates": {
+                "latitude": 9.9,
+                "longitude": -84.1
+            },
+            "geology": {
+                "composition": null,
+                "rock_types": [],
+                "minerals": []
+            },
+            "topography": {
+                "elevation_m": null,
+                "slope_degrees": null,
+                "roughness": null
+            },
+            "temperature": {
+                "minimum_c": null,
+                "maximum_c": null,
+                "average_c": null
+            },
+            "ice_water": {
+                "water_presence": null,
+                "ice_presence": null,
+                "evidence": null
+            },
+            "dust_atmosphere": {
+                "dust_level": null,
+                "atmospheric_conditions": null,
+                "humidity_percent": null
+            },
+            "habitability": {
+                "description": null,
+                "radiation_level": null,
+                "environmental_conditions": null
+            },
+            "subsurface": {
+                "caves_present": null,
+                "underground_structures": null,
+                "evidence": null
+            },
+            "research_level": "low",
+            "data_sources": [],
+            "comparison": {
+                "mars": {
+                    "score": 83.57,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography",
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "missing_criteria": [],
+                    "coverage_percent": 100.0,
+                    "status": "calculated"
+                },
+                "moon": {
+                    "score": 78.57,
+                    "evaluated_criteria": [
+                        "geology",
+                        "topography",
+                        "temperature",
+                        "ice_water",
+                        "dust_atmosphere",
+                        "habitability",
+                        "subsurface"
+                    ],
+                    "missing_criteria": [],
+                    "coverage_percent": 100.0,
+                    "status": "calculated"
+                }
+            }
+        },
+        {
+            "id": "source-test-001",
+            "name": "Source Validation Test",
+            "country": "Costa Rica",
+            "coordinates": {
+                "latitude": 10.0,
+                "longitude": -84.0
+            },
+            "geology": {
+                "composition": null,
+                "rock_types": [],
+                "minerals": []
+            },
+            "topography": {
+                "elevation_m": null,
+                "slope_degrees": null,
+                "roughness": null
+            },
+            "temperature": {
+                "minimum_c": null,
+                "maximum_c": null,
+                "average_c": null
+            },
+            "ice_water": {
+                "water_presence": null,
+                "ice_presence": null,
+                "evidence": null
+            },
+            "dust_atmosphere": {
+                "dust_level": null,
+                "atmospheric_conditions": null,
+                "humidity_percent": null
+            },
+            "habitability": {
+                "description": null,
+                "radiation_level": null,
+                "environmental_conditions": null
+            },
+            "subsurface": {
+                "caves_present": null,
+                "underground_structures": null,
+                "evidence": null
+            },
+            "research_level": null,
+            "data_sources": [],
+            "sources": [
+                {
+                    "name": "NASA",
+                    "organization": "NASA",
+                    "url": "https://www.nasa.gov",
+                    "criteria_supported": [
+                        "geology",
+                        "temperature"
+                    ],
+                    "accessed_at": "2026-11-14"
+                }
+            ],
+            "comparison": null
         }
     ]
 }

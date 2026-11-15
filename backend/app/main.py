@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import locations
-from app.routes import ranking
+from app.routes import locations, ranking, comparison
+from app.routes.frontend_data import router as frontend_data_router
 
 #crear aplicacion
 app = FastAPI(
@@ -9,6 +9,8 @@ app = FastAPI(
     description="Sistema de comparacion de ubicaciones terrestres con Marte y la Luna",
     version="1.0.0"
 )
+# Registrar rutas
+app.include_router(frontend_data_router)
 
 #configuracion CORS para conectar el Frontend
 app.add_middleware(
@@ -22,6 +24,8 @@ app.add_middleware(
 app.include_router(locations.router)
 
 app.include_router(ranking.router)
+
+app.include_router(comparison.router)
 
 #Ruta principal
 @app.get("/")
