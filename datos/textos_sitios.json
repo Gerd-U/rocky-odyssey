@@ -367,5 +367,65 @@
       "es": "Volcán con agujeros en sus flancos que podrían ser tragaluces de cuevas. Este punto es 'Jeanne', uno de los siete candidatos que vio la cámara THEMIS de Mars Odyssey.",
       "en": "Volcano with holes on its flanks that may be cave skylights. This point is 'Jeanne', one of the seven candidates seen by the THEMIS camera on Mars Odyssey."
     }
+  },
+  "malapert": {
+    "review": true,
+    "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/",
+    "name": {
+      "es": "Cráter Malapert",
+      "en": "Malapert Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur de la Luna, junto al macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Crater near the Moon's south pole, next to the Malapert Massif, one of NASA's candidate landing regions for Artemis III."
+    }
+  },
+  "malapert-massif": {
+    "review": true,
+    "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/",
+    "name": {
+      "es": "Macizo Malapert",
+      "en": "Malapert Massif"
+    },
+    "description": {
+      "es": "Montaña cerca del polo sur de la Luna, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Mountain near the Moon's south pole, one of NASA's candidate landing regions for Artemis III."
+    }
+  },
+  "cabeus": {
+    "review": true,
+    "source": "https://science.nasa.gov/image-detail/20110615lcross/",
+    "name": {
+      "es": "Cráter Cabeus",
+      "en": "Cabeus Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur donde impactó la misión LCROSS en 2009, en una zona en sombra permanente; los datos de LRO y LCROSS revelaron agua y otros volátiles.",
+      "en": "Crater near the south pole where the LCROSS mission impacted in 2009, in a permanently shadowed region; LRO and LCROSS data revealed water and other volatiles."
+    }
+  },
+  "rimae-bode": {
+    "review": true,
+    "source": "https://science.nasa.gov/photojournal/rima-bode/",
+    "name": {
+      "es": "Rimae Bode",
+      "en": "Rimae Bode"
+    },
+    "description": {
+      "es": "Sistema de surcos en la cara visible de la Luna, junto a un depósito piroclástico regional que podría tener más de 100 metros de espesor.",
+      "en": "System of rilles on the Moon's near side, next to a regional pyroclastic deposit that may be more than 100 meters thick."
+    }
+  },
+  "peary": {
+    "review": true,
+    "source": "https://doi.org/10.1038/nature03278",
+    "name": {
+      "es": "Cráter Peary",
+      "en": "Peary Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo norte de la Luna cuyo borde tiene zonas con iluminación casi constante (Bussey et al. 2005).",
+      "en": "Crater near the Moon's north pole whose rim has areas with nearly constant illumination (Bussey et al. 2005)."
+    }
   }
 }

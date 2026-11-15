@@ -154,6 +154,34 @@
     "source": "https://photojournal.jpl.nasa.gov/catalog/PIA09929"
   },
   {
+    "path": "/images/bases/malapert-massif.jpg",
+    "title": "Malapert Massif (LRO, 3 mar 2023)",
+    "author": "NASA/GSFC/Arizona State University",
+    "license": "public-domain",
+    "source": "https://science.nasa.gov/resource/malapert-massif/"
+  },
+  {
+    "path": "/images/bases/peary.jpg",
+    "title": "Peary Crater: Greetings from the North Pole of the Moon (PIA12937)",
+    "author": "NASA/GSFC/Arizona State University",
+    "license": "public-domain",
+    "source": "https://science.nasa.gov/photojournal/peary-crater-greetings-from-the-north-pole-of-the-moon/"
+  },
+  {
+    "path": "/images/bases/rimae-bode.jpg",
+    "title": "Rima Bode (PIA13148, LROC NAC)",
+    "author": "NASA/GSFC/Arizona State University",
+    "license": "public-domain",
+    "source": "https://science.nasa.gov/photojournal/rima-bode/"
+  },
+  {
+    "path": "/images/bases/cabeus.jpg",
+    "title": "LCROSS impact site, Cabeus (mapa topográfico de LOLA, recortado sin ejes)",
+    "author": "NASA (LRO/LOLA)",
+    "license": "public-domain",
+    "source": "https://science.nasa.gov/image-detail/20110615lcross/"
+  },
+  {
     "path": "/textures/earth.jpg",
     "title": "Textura de la Tierra de día",
     "author": "Solar System Scope",

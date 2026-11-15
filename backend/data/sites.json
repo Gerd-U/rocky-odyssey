@@ -94,13 +94,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "pozo-mare-tranquillitatis",
-        "score": 0.4823,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.9169,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 93.22,
-          "temperature": 9.47,
-          "ice_water": 42
+          "topography": 91.69,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -110,7 +110,7 @@
         "criteria": {
           "topography": 78.36,
           "temperature": 94.5,
-          "ice_water": 42
+          "ice_water": 42.0
         }
       }
     },
@@ -258,13 +258,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.6703,
+        "baseId": "cabeus",
+        "score": 0.785,
         "coverage": 42.86,
         "criteria": {
-          "topography": 67.33,
-          "temperature": 58.77,
-          "ice_water": 75
+          "topography": 87.21,
+          "temperature": 73.3,
+          "ice_water": 75.0
         }
       },
       "mars": {
@@ -274,7 +274,7 @@
         "criteria": {
           "topography": 97.48,
           "temperature": 69.1,
-          "ice_water": 75
+          "ice_water": 75.0
         }
       }
     },
@@ -428,13 +428,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.4632,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.7161,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 73.01,
-          "temperature": 65.97,
-          "ice_water": 0
+          "topography": 71.61,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -444,7 +444,7 @@
         "criteria": {
           "topography": 96.84,
           "temperature": 90.7,
-          "ice_water": 0
+          "ice_water": 0.0
         }
       }
     },
@@ -592,13 +592,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.3511,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.9539,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 40.01,
-          "temperature": 65.33,
-          "ice_water": 0
+          "topography": 95.39,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -608,7 +608,7 @@
         "criteria": {
           "topography": 74.66,
           "temperature": 95.1,
-          "ice_water": 0
+          "ice_water": 0.0
         }
       }
     },
@@ -756,13 +756,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "pozo-mare-tranquillitatis",
-        "score": 0.2877,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.6706,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 82.14,
-          "temperature": 4.17,
-          "ice_water": 0
+          "topography": 67.06,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -772,7 +772,7 @@
         "criteria": {
           "topography": 97.01,
           "temperature": 78.6,
-          "ice_water": 0
+          "ice_water": 0.0
         }
       }
     },
@@ -920,13 +920,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.5161,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.8563,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 58.99,
-          "temperature": 62.83,
-          "ice_water": 33
+          "topography": 85.63,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -936,7 +936,7 @@
         "criteria": {
           "topography": 89.14,
           "temperature": 81.3,
-          "ice_water": 33
+          "ice_water": 33.0
         }
       }
     },
@@ -1090,13 +1090,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.6725,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.833,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 61.32,
-          "temperature": 57.43,
-          "ice_water": 83
+          "topography": 83.3,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -1106,7 +1106,7 @@
         "criteria": {
           "topography": 91.47,
           "temperature": 65.1,
-          "ice_water": 83
+          "ice_water": 83.0
         }
       }
     },
@@ -1254,13 +1254,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.3629,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.9901,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 45.61,
-          "temperature": 63.27,
-          "ice_water": 0
+          "topography": 99.01,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -1270,7 +1270,7 @@
         "criteria": {
           "topography": 97.47,
           "temperature": 70.8,
-          "ice_water": 0
+          "ice_water": 0.0
         }
       }
     },
@@ -1418,13 +1418,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "pozo-mare-tranquillitatis",
-        "score": 0.2971,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.5388,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 68.96,
-          "temperature": 3.17,
-          "ice_water": 17
+          "topography": 53.88,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -1434,7 +1434,7 @@
         "criteria": {
           "topography": 96.04,
           "temperature": 67.1,
-          "ice_water": 17
+          "ice_water": 17.0
         }
       }
     },
@@ -1582,13 +1582,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "pozo-mare-tranquillitatis",
-        "score": 0.3081,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.5087,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 65.95,
-          "temperature": 9.47,
-          "ice_water": 17
+          "topography": 50.87,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -1598,7 +1598,7 @@
         "criteria": {
           "topography": 93.03,
           "temperature": 86.0,
-          "ice_water": 17
+          "ice_water": 17.0
         }
       }
     },
@@ -1746,13 +1746,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.3553,
-        "coverage": 42.86,
+        "baseId": "peary",
+        "score": 0.9861,
+        "coverage": 14.29,
         "criteria": {
-          "topography": 43.23,
-          "temperature": 63.37,
-          "ice_water": 0
+          "topography": 98.61,
+          "temperature": null,
+          "ice_water": null
         }
       },
       "mars": {
@@ -1762,7 +1762,7 @@
         "criteria": {
           "topography": 95.1,
           "temperature": 71.1,
-          "ice_water": 0
+          "ice_water": 0.0
         }
       }
     },
@@ -1910,13 +1910,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.7298,
+        "baseId": "cabeus",
+        "score": 0.8153,
         "coverage": 42.86,
         "criteria": {
-          "topography": 84.5,
-          "temperature": 59.43,
-          "ice_water": 75
+          "topography": 95.61,
+          "temperature": 73.97,
+          "ice_water": 75.0
         }
       },
       "mars": {
@@ -1926,7 +1926,7 @@
         "criteria": {
           "topography": 85.34,
           "temperature": 71.1,
-          "ice_water": 75
+          "ice_water": 75.0
         }
       }
     },
@@ -2080,13 +2080,13 @@
     ],
     "matches": {
       "moon": {
-        "baseId": "shackleton",
-        "score": 0.7794,
+        "baseId": "cabeus",
+        "score": 0.8942,
         "coverage": 42.86,
         "criteria": {
-          "topography": 76.57,
-          "temperature": 57.27,
-          "ice_water": 100
+          "topography": 96.46,
+          "temperature": 71.8,
+          "ice_water": 100.0
         }
       },
       "mars": {
@@ -2096,7 +2096,7 @@
         "criteria": {
           "topography": 93.28,
           "temperature": 64.6,
-          "ice_water": 100
+          "ice_water": 100.0
         }
       }
     },

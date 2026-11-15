@@ -63,10 +63,16 @@ IDS = {
     "Utopia Planitia": "utopia-planitia",
     "Hellas Planitia": "hellas-planitia",
     "Arsia Mons": "arsia-mons",
+    "Malapert": "malapert",
+    "Cabeus": "cabeus",
+    "Rimae Bode": "rimae-bode",
+    "Peary": "peary",
+    "Mons Malapert": "malapert-massif",
 }
 
 # ---------- Coordenadas de las bases (lat, lon) y de dónde salen ----------
-# Las bases que no están aquí se buscan en datos/bases_marte_candidatas.csv (medir_bases_marte.py)
+# Las bases que no están aquí se buscan en datos/bases_marte_candidatas.csv y bases_luna_candidatas.csv
+# (medir_bases_marte.py y medir_bases_luna.py)
 COORDENADAS_BASES = {
     "Jezero": (18.4, 77.5, "mars_roughness.py y sources_log_mars.csv"),
     "Arcadia Planitia": (47.0, 184.0, "mars_roughness.py y sources_log_mars.csv"),
@@ -99,6 +105,10 @@ FOTOS = {
     "utopia-planitia": "/images/bases/utopia-planitia.jpg",
     "hellas-planitia": "/images/bases/hellas-planitia.jpg",
     "arsia-mons": "/images/bases/arsia-mons.jpg",
+    "cabeus": "/images/bases/cabeus.jpg",
+    "rimae-bode": "/images/bases/rimae-bode.jpg",
+    "peary": "/images/bases/peary.jpg",
+    "malapert-massif": "/images/bases/malapert-massif.jpg",
 }
 
 SALIDAS = [
@@ -199,10 +209,11 @@ def escribir(ruta: Path, datos) -> None:
 
 def main() -> None:
     textos = json.loads((DATOS / "textos_sitios.json").read_text(encoding="utf-8"))
-    ruta_candidatas = DATOS / "bases_marte_candidatas.csv"
     candidatas_marte = {
         f["nombre"]: (float(f["lat"]), float(f["lon"]), f["fuente_coordenadas"])
-        for f in (leer_csv(ruta_candidatas) if ruta_candidatas.exists() else [])
+        for archivo in ("bases_marte_candidatas.csv", "bases_luna_candidatas.csv")
+        if (DATOS / archivo).exists()
+        for f in leer_csv(DATOS / archivo)
     }
     creditos = {c["path"]: c for c in json.loads((RAIZ / "frontend" / "src" / "data" / "credits.json").read_text(encoding="utf-8"))}
     logs = {

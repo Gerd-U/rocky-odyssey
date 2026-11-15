@@ -15,7 +15,7 @@
     "metrics": {
       "roughnessM": 9.2,
       "thermalRange": 39.4,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 173.4,
       "tmaxK": 212.8
     },
@@ -77,7 +77,7 @@
     "metrics": {
       "roughnessM": 110.5,
       "thermalRange": 78.3,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 168.6,
       "tmaxK": 246.9
     },
@@ -146,7 +146,7 @@
     "metrics": {
       "roughnessM": 171.9,
       "thermalRange": 54.4,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 192.2,
       "tmaxK": 246.6
     },
@@ -215,7 +215,7 @@
     "metrics": {
       "roughnessM": 226.2,
       "thermalRange": 37.2,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 187.7,
       "tmaxK": 224.9
     },
@@ -284,7 +284,7 @@
     "metrics": {
       "roughnessM": 82.6,
       "thermalRange": 49.0,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 194.7,
       "tmaxK": 243.7
     },
@@ -346,7 +346,7 @@
     "metrics": {
       "roughnessM": 15.3,
       "thermalRange": 45.3,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 195.0,
       "tmaxK": 240.3
     },
@@ -415,7 +415,7 @@
     "metrics": {
       "roughnessM": 16.9,
       "thermalRange": 30.9,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 177.1,
       "tmaxK": 208.0
     },
@@ -469,6 +469,254 @@
     "dataSource": "real"
   },
   {
+    "id": "cabeus",
+    "name": {
+      "es": "Cráter Cabeus",
+      "en": "Cabeus Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur donde impactó la misión LCROSS en 2009, en una zona en sombra permanente; los datos de LRO y LCROSS revelaron agua y otros volátiles.",
+      "en": "Crater near the south pole where the LCROSS mission impacted in 2009, in a permanently shadowed region; LRO and LCROSS data revealed water and other volatiles."
+    },
+    "body": "moon",
+    "lat": -85.277073,
+    "lng": -41.8055,
+    "metrics": {
+      "roughnessM": 363.5,
+      "thermalRange": 86.4,
+      "coldIndex": 100.0,
+      "tminK": 42.8,
+      "tmaxK": 129.2
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-85.277073, -41.8055",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (cráter Cabeus según el Gazetteer de USGS: -85.33, -42.13, https://planetarynames.wr.usgs.gov/Feature/953). Motivo: Cráter donde impactó LCROSS, misión que identificó hielo de agua en la Luna (https://astrobiology.nasa.gov/missions/lcross/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/953",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 363.5,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-85.277073, -41.8055); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_cabeus_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 129.2,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. máximo; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 42.8,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. mínimo; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 86.4,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.277073, -41.8055), 152 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_cabeus.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~86 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/cabeus.jpg",
+    "imageAuthor": "NASA (LRO/LOLA)",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "malapert",
+    "name": {
+      "es": "Cráter Malapert",
+      "en": "Malapert Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo sur de la Luna, junto al macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Crater near the Moon's south pole, next to the Malapert Massif, one of NASA's candidate landing regions for Artemis III."
+    },
+    "body": "moon",
+    "lat": -84.798043,
+    "lng": 12.3057,
+    "metrics": {
+      "roughnessM": 879.5,
+      "thermalRange": 193.1,
+      "coldIndex": 100.0,
+      "tminK": 53.5,
+      "tmaxK": 246.6
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-84.798043, 12.305737",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (cráter Malapert según el Gazetteer de USGS: -85.00, 11.40, https://planetarynames.wr.usgs.gov/Feature/3603). Motivo: Cráter junto al macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III (https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/3603",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 879.5,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-84.798043, 12.305737); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_malapert_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 246.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. máximo; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 53.5,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. mínimo; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 193.1,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-84.798043, 12.305737), 142 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_malapert.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~150 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": null,
+    "imageAuthor": null,
+    "imageLicense": null,
+    "dataSource": "real"
+  },
+  {
+    "id": "malapert-massif",
+    "name": {
+      "es": "Macizo Malapert",
+      "en": "Malapert Massif"
+    },
+    "description": {
+      "es": "Montaña cerca del polo sur de la Luna, una de las regiones candidatas de NASA para el aterrizaje de Artemis III.",
+      "en": "Mountain near the Moon's south pole, one of NASA's candidate landing regions for Artemis III."
+    },
+    "body": "moon",
+    "lat": -85.98,
+    "lng": -1.67,
+    "metrics": {
+      "roughnessM": 797.3,
+      "thermalRange": 204.6,
+      "coldIndex": 100.0,
+      "tminK": 52.6,
+      "tmaxK": 257.2
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "-85.98, -1.67",
+        "note": "Fuente: https://planetarynames.wr.usgs.gov/Feature/16338. Motivo: Macizo Malapert, una de las regiones candidatas de NASA para el aterrizaje de Artemis III (https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/16338",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 797.3,
+        "note": "LOLA LDEM_80S_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (-85.98, -1.67); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_malapert-massif_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80s_80m.img",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 257.2,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. máximo; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 52.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. mínimo; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 204.6,
+        "note": "Diviner PCP diurno 240 m (Williams et al. (2019), JGR Planets, 'Seasonal polar temperatures on the Moon'), verano e invierno, 96 horas locales cada uno: temperatura bolométrica de superficie en la celda del punto (-85.98, -1.67), 147 valores con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_malapert-massif.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~155 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/diurnal/ltim/",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/malapert-massif.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
+    "id": "peary",
+    "name": {
+      "es": "Cráter Peary",
+      "en": "Peary Crater"
+    },
+    "description": {
+      "es": "Cráter cerca del polo norte de la Luna cuyo borde tiene zonas con iluminación casi constante (Bussey et al. 2005).",
+      "en": "Crater near the Moon's north pole whose rim has areas with nearly constant illumination (Bussey et al. 2005)."
+    },
+    "body": "moon",
+    "lat": 88.568812,
+    "lng": 25.7342,
+    "metrics": {
+      "roughnessM": 70.1,
+      "thermalRange": null,
+      "coldIndex": null,
+      "tminK": null,
+      "tmaxK": null
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "88.568812, 25.734194",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (coinciden con el Gazetteer de USGS: 88.57, 25.73, https://planetarynames.wr.usgs.gov/Feature/4627). Motivo: Cráter del polo norte cuyo borde tiene zonas con iluminación casi constante (Bussey et al. 2005, Nature, https://doi.org/10.1038/nature03278)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/4627",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rugosidad",
+        "value": 70.1,
+        "note": "LOLA LDEM_80N_80M (PDS, estereográfica polar, CRS leído del archivo, altura = DN * 0.5 m; puntos transformados con pyproj); 9 puntos (3x3, 5.5 km sobre la esfera, R = 1737.4 km) centrados en (88.568812, 25.734194); desviación estándar con ddof=0; elevaciones en datos_crudos/lola_peary_9puntos.csv",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/polar/img/ldem_80n_80m.img",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/peary.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
     "id": "pozo-mare-tranquillitatis",
     "name": {
       "es": "Pozo del Mare Tranquillitatis",
@@ -484,7 +732,7 @@
     "metrics": {
       "roughnessM": 34.5,
       "thermalRange": 297.0,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": 95,
       "tmaxK": 392
     },
@@ -538,6 +786,68 @@
     "dataSource": "real"
   },
   {
+    "id": "rimae-bode",
+    "name": {
+      "es": "Rimae Bode",
+      "en": "Rimae Bode"
+    },
+    "description": {
+      "es": "Sistema de surcos en la cara visible de la Luna, junto a un depósito piroclástico regional que podría tener más de 100 metros de espesor.",
+      "en": "System of rilles on the Moon's near side, next to a regional pyroclastic deposit that may be more than 100 meters thick."
+    },
+    "body": "moon",
+    "lat": 9.542316,
+    "lng": -3.222,
+    "metrics": {
+      "roughnessM": null,
+      "thermalRange": 298.7,
+      "coldIndex": 100.0,
+      "tminK": 93.6,
+      "tmaxK": 392.3
+    },
+    "sources": [
+      {
+        "variable": "coordenadas",
+        "value": "9.542316, -3.22197",
+        "note": "Fuente: Coordenadas del equipo, tomadas de un mapa (coinciden con el Gazetteer de USGS: 9.54, -3.22, https://planetarynames.wr.usgs.gov/Feature/5097). Motivo: Sistema de surcos (rimae) en la cara visible de la Luna, cerca de su centro (https://planetarynames.wr.usgs.gov/Feature/5097)",
+        "url": "https://planetarynames.wr.usgs.gov/Feature/5097",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmax_k",
+        "value": 392.3,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. máximo; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "tmin_k",
+        "value": 93.6,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. mínimo; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "rango_termico",
+        "value": 298.7,
+        "note": "Diviner GCP (Williams et al. 2017, Icarus 283), global_cumul_avg_cyl_00n10n_002.tab: temperatura bolométrica de superficie, celda de 0.5° del punto (9.542316, -3.22197), 55 horas locales con dato. tmax_k - tmin_k; datos en datos_crudos/diviner_rimae-bode.csv",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      },
+      {
+        "variable": "hielo",
+        "value": 100,
+        "note": "Indice de frio: % de meses con temperatura media bajo 0 C (misma formula que la Tierra). Punto medio entre tmax_k y tmin_k ~243 K (superficie, Diviner), por debajo de 273 K.",
+        "url": "https://doi.org/10.1016/j.icarus.2016.08.012",
+        "date": "2026-11-15"
+      }
+    ],
+    "image": "/images/bases/rimae-bode.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "dataSource": "real"
+  },
+  {
     "id": "shackleton",
     "name": {
       "es": "Cráter Shackleton (borde)",
@@ -553,7 +863,7 @@
     "metrics": {
       "roughnessM": 909.9,
       "thermalRange": 130.0,
-      "coldIndex": 100,
+      "coldIndex": 100.0,
       "tminK": null,
       "tmaxK": null
     },

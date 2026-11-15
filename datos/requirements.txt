@@ -4,3 +4,4 @@ earthaccess
 rasterio
 matplotlib
 requests
+pyproj
