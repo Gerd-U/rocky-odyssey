@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Target } from "../types/site";
 
 interface ModeContextValue {
@@ -19,13 +19,19 @@ export function ModeProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.mode = mode;
   }, [mode]);
 
-  const setMode = (next: Target) => {
+  // Estable entre renders: así se puede usar en efectos sin provocar bucles
+  const setMode = useCallback((next: Target) => {
     setModeState(next);
     setSelectedSiteId(null);
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({ mode, setMode, selectedSiteId, setSelectedSiteId }),
+    [mode, setMode, selectedSiteId],
+  );
 
   return (
-    <ModeContext.Provider value={{ mode, setMode, selectedSiteId, setSelectedSiteId }}>
+    <ModeContext.Provider value={value}>
       {children}
     </ModeContext.Provider>
   );

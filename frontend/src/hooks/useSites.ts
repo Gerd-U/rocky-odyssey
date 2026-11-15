@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import i18n from "../i18n";
 import type { Base, Site } from "../types/site";
-import { getBases, getSite, getSites } from "../services/api";
+import { getBases, getSites } from "../services/api";
 
 export interface AsyncState<T> {
   data: T | null;
@@ -30,14 +31,14 @@ function useAsync<T>(key: string | null, fetcher: (key: string) => Promise<T>): 
       })
       .catch((err: unknown) => {
         if (!cancelled)
-          setSettled({ key, data: null, error: err instanceof Error ? err.message : "Error desconocido" });
+          setSettled({ key, data: null, error: err instanceof Error ? err.message : i18n.t("common.error.unknown") });
       });
     return () => {
       cancelled = true;
     };
   }, [key, fetcher]);
 
-  if (key === null) return { data: null, loading: false, error: "Falta el id" };
+  if (key === null) return { data: null, loading: false, error: i18n.t("common.error.missingId") };
   // Mientras la respuesta no corresponda a la key actual, seguimos cargando
   if (!settled || settled.key !== key) return { data: null, loading: true, error: null };
   return { data: settled.data, loading: false, error: settled.error };
@@ -45,10 +46,6 @@ function useAsync<T>(key: string | null, fetcher: (key: string) => Promise<T>): 
 
 export function useSites(): AsyncState<Site[]> {
   return useAsync("sites", getSites);
-}
-
-export function useSite(id: string | undefined): AsyncState<Site> {
-  return useAsync(id ?? null, getSite);
 }
 
 export function useBases(): AsyncState<Base[]> {
