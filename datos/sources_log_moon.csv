@@ -1,2 +1,3 @@
 sitio, variable, valor, capa, url, fecha_consulta
 Shackleton (borde),rugosidad,909.9,"LRO LOLA DEM, 87.5 deg v4, S Pole",https://trek.nasa.gov/moon/#v=0.1&x=17324.577026367668&y=-4949.879150390865&z=7&p=urn%3Aogc%3Adef%3Acrs%3AIAU2000%3A%3A30120&d=&locale=&b=moon&e=-34047.14172363226%2C-29532.049255371297%2C68696.2957763676%2C19632.290954589567&sfz=&w=,2026-11-14
+Pozo Mare Tranquillitatis,rugosidad,34.5,LRO_LOLA_DEM_Global_128ppd_v04,https://trek.nasa.gov/moon/#v=0.1&x=31.931762099671268&y=8.924331498568433&z=6&p=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A104903&d=&l=LRO_LOLA_Shade_Global_128ppd_v04%2Ctrue%2C1&l=LRO_LOLA_DEM_Global_128ppd_v04%2Ctrue%2C1&locale=&b=moon&e=26.87255809248097%2C4.886855987944253%2C36.99096610686156%2C12.961807009192613&sfz=&w=,2026-11-14
