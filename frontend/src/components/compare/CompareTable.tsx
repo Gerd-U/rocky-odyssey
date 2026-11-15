@@ -1,5 +1,6 @@
+import { useTranslation } from "react-i18next";
 import type { Pair } from "../../hooks/usePairs";
-import { BODY_LABEL, TERRAIN_LABEL, formatPrecip, formatTempSpan } from "../../lib/format";
+import { bodyLabel, formatPrecip, formatTempSpan, terrainLabel } from "../../lib/format";
 
 interface CompareTableProps {
   pair: Pair;
@@ -7,41 +8,42 @@ interface CompareTableProps {
 }
 
 export default function CompareTable({ pair, className = "" }: CompareTableProps) {
+  const { t } = useTranslation();
   const { site, base } = pair;
 
   const rows = [
     {
-      label: "Lluvia",
+      label: t("common.factors.rain"),
       earth: formatPrecip(site.factors.precipMm),
       target: formatPrecip(base.factors.precipMm),
     },
     {
-      label: "Temperatura",
+      label: t("common.factors.temperature"),
       earth: formatTempSpan(site.factors.tempMin, site.factors.tempMax),
       target: formatTempSpan(base.factors.tempMin, base.factors.tempMax),
     },
     {
-      label: "Dificultad del terreno",
-      earth: TERRAIN_LABEL[site.factors.terrain],
-      target: TERRAIN_LABEL[base.factors.terrain],
+      label: t("common.factors.terrain"),
+      earth: terrainLabel(site.factors.terrain),
+      target: terrainLabel(base.factors.terrain),
     },
   ];
 
   return (
     <table className={`w-full text-left text-sm tabular-nums ${className}`}>
       <caption className="sr-only">
-        Factores de {site.name} comparados con {base.name}
+        {t("compare.caption", { site: site.name, base: base.name })}
       </caption>
       <thead>
         <tr>
           <th scope="col" className="px-2 pb-2">
-            <span className="sr-only">Factor</span>
+            <span className="sr-only">{t("compare.factor")}</span>
           </th>
           <th scope="col" className="px-2 pb-2 font-semibold text-ink-soft">
-            Tierra
+            {t("common.earth")}
           </th>
           <th scope="col" className="px-2 pb-2 font-semibold text-accent-soft">
-            {BODY_LABEL[base.body]}
+            {bodyLabel(base.body)}
           </th>
         </tr>
       </thead>

@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useId } from "react";
+import { useTranslation } from "react-i18next";
 import type { Pair } from "../../hooks/usePairs";
 import { formatPercent } from "../../lib/format";
 import { SWAP_EASE } from "../../lib/motion";
@@ -16,11 +17,12 @@ interface SiteListProps {
  * en varias líneas. En ningún caso hay scroll propio: todos los sitios del modo quedan a la vista.
  */
 export default function SiteList({ pairs, selectedId, onSelect, className = "" }: SiteListProps) {
+  const { t } = useTranslation();
   const reduce = useReducedMotion();
   const indicatorId = useId();
 
   return (
-    <ol aria-label="Lugares análogos" className={`flex flex-wrap gap-2 lg:flex-col ${className}`}>
+    <ol aria-label={t("home.globe.listLabel")} className={`flex flex-wrap gap-2 lg:flex-col ${className}`}>
       {pairs.map(({ site }, i) => {
         const active = site.id === selectedId;
         return (

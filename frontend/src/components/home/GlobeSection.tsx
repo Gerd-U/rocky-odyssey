@@ -1,10 +1,11 @@
 import { motion, useReducedMotion } from "motion/react";
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { usePairs, type Pair } from "../../hooks/usePairs";
 import { useBases } from "../../hooks/useSites";
-import { BODY_LABEL, formatPercent } from "../../lib/format";
+import { bodyLabel, formatPercent } from "../../lib/format";
 import { MODE_DIRECTION, SWAP_EASE, SWAP_EXIT_S } from "../../lib/motion";
 import { similarityLevel } from "../../lib/similarity";
 import type { Target } from "../../types/site";
@@ -31,11 +32,6 @@ const EARTH_FALLBACK = "https://unpkg.com/three-globe/example/img/earth-blue-mar
 const TARGET_TEXTURE: Record<Target, string> = {
   moon: "/textures/moon.jpg",
   mars: "/textures/mars.jpg",
-};
-
-const STAGE_HINT: Record<Target, string> = {
-  mars: "Toca un punto del globo o un nombre de la lista para ver su gemelo en Marte.",
-  moon: "Toca un punto del globo o un nombre de la lista para ver su gemelo en la Luna.",
 };
 
 const ALL_TARGET_TEXTURES = Object.values(TARGET_TEXTURE);
@@ -73,6 +69,8 @@ function GlobeCaption({ body, place, accent = false }: { body: string; place: st
 }
 
 export default function GlobeSection() {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage;
   const { mode, selectedSiteId, setSelectedSiteId } = useMode();
   const { data: pairs, loading, error } = usePairs(mode);
   const { data: bases } = useBases();
@@ -102,12 +100,13 @@ export default function GlobeSection() {
           id: site.id,
           lat: site.lat,
           lng: site.lng,
-          label: `${site.name} · ${formatPercent(site.similarity)}`,
+          label: `${site.name} · ${formatPercent(site.similarity, lang)}`,
           color: LEVEL_COLOR[mode][level.id],
           size: LEVEL_SIZE[level.id],
         };
       }),
-    [pairs, mode],
+    // lang: la etiqueta lleva el porcentaje formateado en el idioma activo
+    [pairs, mode, lang],
   );
 
   const targetPoints = useMemo<GlobePoint[]>(
@@ -130,9 +129,9 @@ export default function GlobeSection() {
       <div className="mx-auto max-w-6xl px-6">
         {/* El selector también aquí: cambiar de destino no obliga a volver al hero */}
         <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
-          <SectionHeading id="stage-title" title="Elige un lugar y mira su gemelo">
+          <SectionHeading id="stage-title" title={t("home.globe.title")}>
             <Swap swapKey={mode} direction={direction}>
-              <p>{STAGE_HINT[mode]}</p>
+              <p>{t(`home.globe.hint.${mode}`)}</p>
             </Swap>
           </SectionHeading>
           <ModeToggle size="sm" />
@@ -141,7 +140,7 @@ export default function GlobeSection() {
         {error ? (
           <ErrorState message={error} className="mt-8" />
         ) : loading || !pairs || !selected ? (
-          <div aria-busy="true" aria-label="Cargando" className={`mt-8 ${STAGE_GRID}`}>
+          <div aria-busy="true" aria-label={t("common.loading")} className={`mt-8 ${STAGE_GRID}`}>
             <Skeleton className={GLOBE_SKELETON} />
             <Skeleton className={`h-14 lg:h-[440px] ${LIST_CELL}`} />
             <Skeleton className={GLOBE_SKELETON} />
@@ -162,7 +161,7 @@ export default function GlobeSection() {
                     initialAltitude={1.9}
                   />
                 </Suspense>
-                <GlobeCaption body="Tierra" place={selected.site.name} />
+                <GlobeCaption body={t("common.earth")} place={selected.site.name} />
               </figure>
 
               <Swap swapKey={mode} direction={direction} className={LIST_CELL}>
@@ -196,7 +195,7 @@ export default function GlobeSection() {
                     />
                   </Suspense>
                 </motion.div>
-                <GlobeCaption body={BODY_LABEL[mode]} place={selected.base.name} accent />
+                <GlobeCaption body={bodyLabel(mode)} place={selected.base.name} accent />
               </figure>
             </div>
 

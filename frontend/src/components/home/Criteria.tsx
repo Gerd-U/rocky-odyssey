@@ -1,6 +1,8 @@
+import type { TFunction } from "i18next";
+import { useTranslation } from "react-i18next";
 import { usePairs, type Pair } from "../../hooks/usePairs";
 import type { Target } from "../../types/site";
-import { TERRAIN_LABEL, formatPrecip, formatTempSpan } from "../../lib/format";
+import { formatPrecip, formatTempSpan, terrainLabel } from "../../lib/format";
 import SectionHeading from "../ui/SectionHeading";
 
 interface ExampleLine {
@@ -23,10 +25,10 @@ interface Criterion {
   example: (pair: Pair) => ExampleLine[];
 }
 
-const CRITERIA: Criterion[] = [
+const criteria = (t: TFunction): Criterion[] => [
   {
-    term: "Lluvia",
-    text: "En la Luna y Marte no llueve, así que buscamos los lugares de la Tierra donde casi nunca llueve.",
+    term: t("common.factors.rain"),
+    text: t("home.criteria.rain"),
     siteId: "atacama",
     example: ({ site, base }) => [
       { place: site.name, value: formatPrecip(site.factors.precipMm) },
@@ -34,8 +36,8 @@ const CRITERIA: Criterion[] = [
     ],
   },
   {
-    term: "Temperatura",
-    text: "El frío y la diferencia entre la mínima y la máxima ponen a prueba equipos y tripulaciones.",
+    term: t("common.factors.temperature"),
+    text: t("home.criteria.temperature"),
     siteId: "concordia",
     example: ({ site, base }) => [
       { place: site.name, value: formatTempSpan(site.factors.tempMin, site.factors.tempMax) },
@@ -43,19 +45,19 @@ const CRITERIA: Criterion[] = [
     ],
   },
   {
-    term: "Dificultad del terreno",
-    text: "Relieve, tipo de roca y lo difícil que es moverse por él: cráteres, lava, permafrost.",
+    term: t("common.factors.terrain"),
+    text: t("home.criteria.terrain"),
     siteId: "meteorcrater",
     example: ({ site, base }) => [
-      { place: site.name, value: TERRAIN_LABEL[site.factors.terrain] },
-      { place: base.name, value: TERRAIN_LABEL[base.factors.terrain], body: base.body },
+      { place: site.name, value: terrainLabel(site.factors.terrain) },
+      { place: base.name, value: terrainLabel(base.factors.terrain), body: base.body },
     ],
   },
   {
-    term: "Historial",
-    text: "Misiones y estudios que ya usaron el lugar para ensayar la exploración de otro mundo.",
+    term: t("home.criteria.historyTerm"),
+    text: t("home.criteria.history"),
     siteId: "devon",
-    example: ({ site }) => [{ place: site.name, value: site.missions[0] ?? "Sin misiones registradas" }],
+    example: ({ site }) => [{ place: site.name, value: site.missions[0] ?? t("home.criteria.noMissions") }],
   },
 ];
 
@@ -86,32 +88,29 @@ function Example({ lines }: { lines: ExampleLine[] }) {
 }
 
 export default function Criteria() {
+  const { t } = useTranslation();
   const { data: pairs } = usePairs();
   const pairById = new Map((pairs ?? []).map((pair) => [pair.site.id, pair]));
 
   return (
     <section id="criterios" aria-labelledby="criteria-title" className="mt-section scroll-mt-24 bg-night-800 py-section">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading id="criteria-title" title="Cómo medimos la similitud">
-          <p>
-            Comparamos cada lugar de la Tierra con su base gemela con los mismos datos: lluvia, temperatura y
-            dificultad del terreno. También contamos si ya se ensayaron misiones allí. Los porcentajes son
-            provisionales: todavía estamos definiendo cómo se combinan.
-          </p>
+        <SectionHeading id="criteria-title" title={t("home.criteria.title")}>
+          <p>{t("home.criteria.intro")}</p>
         </SectionHeading>
 
         <dl className="mt-14 grid gap-y-12 lg:gap-y-14">
-          {CRITERIA.map((c) => {
+          {criteria(t).map((c) => {
             const pair = pairById.get(c.siteId);
             return (
               <div
-                key={c.term}
+                key={c.siteId}
                 data-reveal
                 className="grid gap-x-10 gap-y-3 md:grid-cols-[10rem_1fr] lg:grid-cols-[11rem_1fr_22rem]"
               >
                 <dt className="text-h3 font-extrabold font-stretch-[75%] text-ink">{c.term}</dt>
                 <dd className="max-w-prose text-ink">{c.text}</dd>
-                <dd className="md:col-start-2 lg:col-start-auto" aria-label={`Ejemplo de ${c.term.toLowerCase()}`}>
+                <dd className="md:col-start-2 lg:col-start-auto" aria-label={t("home.criteria.exampleOf", { term: c.term.toLowerCase() })}>
                   {pair ? <Example lines={c.example(pair)} /> : <div className="h-12" aria-hidden />}
                 </dd>
               </div>

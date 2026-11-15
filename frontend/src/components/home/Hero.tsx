@@ -1,6 +1,8 @@
 import { useMemo, type CSSProperties } from "react";
+import type { TFunction } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
-import { BODY_NAME } from "../../lib/format";
+import { bodyName, formatNumber, formatPercent } from "../../lib/format";
 import { MODE_DIRECTION } from "../../lib/motion";
 import { marsToday, moonToday } from "../../lib/sky";
 import type { Target } from "../../types/site";
@@ -8,29 +10,30 @@ import { ButtonLink } from "../ui/Button";
 import Swap from "../ui/Swap";
 import EarthLoop from "./EarthLoop";
 
-const HEADLINE: Record<Target, string> = {
-  mars: "Marte empieza en la Tierra",
-  moon: "La Luna empieza en la Tierra",
-};
-
-const millionsFmt = new Intl.NumberFormat("es", { maximumFractionDigits: 0 });
-const thousandsFmt = new Intl.NumberFormat("es", { maximumFractionDigits: 0 });
-
 /** Una frase sobre el destino calculada para hoy (cambia cada día) */
-function todayLine(mode: Target): string {
+function todayLine(mode: Target, t: TFunction): string {
   if (mode === "mars") {
     const { distanceKm, lightMinutes } = marsToday();
-    return `Hoy Marte está a unos ${millionsFmt.format(distanceKm / 1e6)} millones de km: su luz tarda ${Math.round(lightMinutes)} minutos en llegar aquí.`;
+    return t("home.hero.todayMars", {
+      millions: formatNumber(distanceKm / 1e6),
+      minutes: Math.round(lightMinutes),
+    });
   }
   const { distanceKm, illuminated, waxing } = moonToday();
   const rounded = Math.round(distanceKm / 1000) * 1000;
-  return `Hoy la Luna está a unos ${thousandsFmt.format(rounded)} km y se ve iluminada al ${Math.round(illuminated * 100)} % (${waxing ? "creciente" : "menguante"}).`;
+  return t("home.hero.todayMoon", {
+    km: formatNumber(rounded),
+    percent: formatPercent(Math.round(illuminated * 100) / 100),
+    phase: t(waxing ? "home.hero.waxing" : "home.hero.waning"),
+  });
 }
 
 export default function Hero() {
+  const { t } = useTranslation();
   const { mode } = useMode();
   const direction = MODE_DIRECTION[mode];
-  const today = useMemo(() => todayLine(mode), [mode]);
+  // t cambia con el idioma: la frase se vuelve a armar al cambiar de idioma
+  const today = useMemo(() => todayLine(mode, t), [mode, t]);
 
   return (
     <section
@@ -60,7 +63,7 @@ export default function Hero() {
             <span className="block overflow-clip pb-[0.08em] -mb-[0.08em]">
               <span className="load-line block">
                 <Swap as="span" swapKey={mode} direction={direction} blur={false}>
-                  {HEADLINE[mode]}
+                  {t(`home.hero.headline.${mode}`)}
                 </Swap>
               </span>
             </span>
@@ -69,15 +72,14 @@ export default function Hero() {
           <div className="load-rise" style={{ "--d": "420ms" } as CSSProperties}>
             <Swap swapKey={mode} direction={direction} delay={0.06}>
               <p className="mt-6 text-lead text-ink">
-                Buscamos lugares de la Tierra que se parecen a las bases propuestas en {BODY_NAME[mode]}. Ahí se
-                entrenan tripulaciones y se prueba tecnología antes de salir del planeta.
+                {t("home.hero.lead", { body: bodyName(mode) })}
               </p>
             </Swap>
           </div>
 
           <div className="load-rise mt-8 flex flex-wrap items-center gap-3" style={{ "--d": "480ms" } as CSSProperties}>
             <ButtonLink to="/#globo" size="md">
-              Explorar el globo
+              {t("home.hero.explore")}
             </ButtonLink>
           </div>
 

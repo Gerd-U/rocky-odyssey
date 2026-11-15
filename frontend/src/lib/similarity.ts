@@ -2,16 +2,16 @@ import type { SiteFactors } from "../types/site";
 
 export type SimilarityLevelId = "muy-alta" | "alta" | "moderada";
 
+/** El nombre de cada nivel está en locales/*.json (common.similarityLevel) */
 export interface SimilarityLevel {
   id: SimilarityLevelId;
-  label: string;
   min: number;
 }
 
 export const SIMILARITY_LEVELS: SimilarityLevel[] = [
-  { id: "muy-alta", label: "Muy alta", min: 0.85 },
-  { id: "alta", label: "Alta", min: 0.75 },
-  { id: "moderada", label: "Moderada", min: 0 },
+  { id: "muy-alta", min: 0.85 },
+  { id: "alta", min: 0.75 },
+  { id: "moderada", min: 0 },
 ];
 
 export function similarityLevel(similarity: number): SimilarityLevel {

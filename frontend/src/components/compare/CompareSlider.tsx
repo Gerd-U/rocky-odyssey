@@ -1,4 +1,5 @@
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 export interface CompareSide {
   src: string;
@@ -27,6 +28,7 @@ const KEY_MOVES: Record<string, (position: number) => number> = {
 const clamp = (value: number) => Math.min(100, Math.max(0, value));
 
 export default function CompareSlider({ earth, target, className = "" }: CompareSliderProps) {
+  const { t } = useTranslation();
   const frameRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -104,11 +106,16 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
             data-handle
             role="slider"
             tabIndex={0}
-            aria-label="Comparar la Tierra con el destino"
+            aria-label={t("compare.sliderLabel")}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={shown}
-            aria-valuetext={`${earth.label} ${shown} %, ${target.label} ${100 - shown} %`}
+            aria-valuetext={t("compare.sliderValue", {
+              earth: earth.label,
+              earthPercent: shown,
+              target: target.label,
+              targetPercent: 100 - shown,
+            })}
             onKeyDown={onKeyDown}
             className={`pointer-events-auto grid size-14 cursor-grab touch-none place-items-center rounded-full border-2 border-ink bg-violet text-ink transition-transform duration-150 ease-out-strong active:scale-95 ${
               dragging ? "scale-95" : ""
@@ -124,7 +131,7 @@ export default function CompareSlider({ earth, target, className = "" }: Compare
               touched ? "opacity-0" : "opacity-100"
             }`}
           >
-            Arrastra para comparar
+            {t("compare.dragHint")}
           </p>
         </div>
       </div>

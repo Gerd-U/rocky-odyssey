@@ -1,44 +1,57 @@
+import i18n, { getLang } from "../i18n";
 import type { SiteFactors, Target } from "../types/site";
 
-export const BODY_NAME: Record<Target, string> = {
-  moon: "la Luna",
-  mars: "Marte",
-};
+/** Nombre del destino dentro de una frase: "la Luna" / "the Moon" */
+export function bodyName(target: Target): string {
+  return i18n.t(`common.bodyName.${target}`);
+}
 
-export const BODY_LABEL: Record<Target, string> = {
-  moon: "Luna",
-  mars: "Marte",
-};
+/** Nombre corto del destino, como etiqueta: "Luna" / "Moon" */
+export function bodyLabel(target: Target): string {
+  return i18n.t(`common.bodyLabel.${target}`);
+}
 
-export const TERRAIN_LABEL: Record<SiteFactors["terrain"], string> = {
-  moderado: "Moderado",
-  alto: "Alto",
-  extremo: "Extremo",
-};
+export function terrainLabel(terrain: SiteFactors["terrain"]): string {
+  return i18n.t(`common.terrain.${terrain}`);
+}
 
-const percentFmt = new Intl.NumberFormat("es", { style: "percent", maximumFractionDigits: 0 });
-const tempFmt = new Intl.NumberFormat("es", { style: "unit", unit: "celsius", maximumFractionDigits: 0 });
-const numberFmt = new Intl.NumberFormat("es", { maximumFractionDigits: 0 });
-const coordFmt = new Intl.NumberFormat("es", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Los Intl.NumberFormat se crean una vez por idioma y formato
+const formatters = new Map<string, Intl.NumberFormat>();
 
-export function formatPercent(ratio: number): string {
-  return percentFmt.format(ratio);
+function numberFormat(name: string, options: Intl.NumberFormatOptions, lang: string = getLang()): Intl.NumberFormat {
+  const key = `${lang}:${name}`;
+  let fmt = formatters.get(key);
+  if (!fmt) {
+    fmt = new Intl.NumberFormat(lang, options);
+    formatters.set(key, fmt);
+  }
+  return fmt;
+}
+
+export function formatNumber(value: number): string {
+  return numberFormat("number", { maximumFractionDigits: 0 }).format(value);
+}
+
+/** `lang` solo hace falta dentro de un useMemo que dependa del idioma */
+export function formatPercent(ratio: number, lang?: string): string {
+  return numberFormat("percent", { style: "percent", maximumFractionDigits: 0 }, lang).format(ratio);
 }
 
 export function formatTemp(celsius: number): string {
-  return tempFmt.format(celsius);
+  return numberFormat("temp", { style: "unit", unit: "celsius", maximumFractionDigits: 0 }).format(celsius);
 }
 
 export function formatTempSpan(min: number, max: number): string {
-  return `${numberFmt.format(min)} a ${formatTemp(max)}`;
+  return i18n.t("common.tempSpan", { min: formatNumber(min), max: formatTemp(max) });
 }
 
 export function formatPrecip(mm: number): string {
-  return `${numberFmt.format(mm)} mm/año`;
+  return i18n.t("common.precip", { value: formatNumber(mm) });
 }
 
 export function formatCoords(lat: number, lng: number): string {
-  const ns = lat >= 0 ? "N" : "S";
-  const eo = lng >= 0 ? "E" : "O";
-  return `${coordFmt.format(Math.abs(lat))}° ${ns} · ${coordFmt.format(Math.abs(lng))}° ${eo}`;
+  const coord = numberFormat("coord", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const ns = i18n.t(lat >= 0 ? "common.coordNorth" : "common.coordSouth");
+  const ew = i18n.t(lng >= 0 ? "common.coordEast" : "common.coordWest");
+  return `${coord.format(Math.abs(lat))}° ${ns} · ${coord.format(Math.abs(lng))}° ${ew}`;
 }

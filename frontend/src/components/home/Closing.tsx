@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
 import { useBases, useSites } from "../../hooks/useSites";
 import type { Target } from "../../types/site";
@@ -6,29 +7,30 @@ import { ButtonLink } from "../ui/Button";
 import SectionHeading from "../ui/SectionHeading";
 
 /** Foto de un ensayo real en la Tierra para cada destino, sacada de los sitios */
-const PHOTO_SITE: Record<Target, { id: string; alt: string }> = {
-  mars: { id: "devon", alt: "Dos rovers de prueba en el cráter Haughton, isla Devon, Canadá" },
-  moon: { id: "hiseas", alt: "Prueba de un traje espacial análogo en las laderas del Mauna Loa, Hawái" },
+const PHOTO_SITE: Record<Target, string> = {
+  mars: "devon",
+  moon: "hiseas",
 };
 
 const MODES: Target[] = ["mars", "moon"];
 
 export default function Closing() {
+  const { t } = useTranslation();
   const { mode } = useMode();
   const { data: sites } = useSites();
   const { data: bases } = useBases();
 
-  const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode].id);
+  const photoSite = sites?.find((s) => s.id === PHOTO_SITE[mode]);
 
   return (
     <section aria-labelledby="closing-title" className="relative isolate mt-section flex min-h-[70svh] items-end overflow-clip">
       {MODES.map((m) => {
-        const site = sites?.find((s) => s.id === PHOTO_SITE[m].id);
+        const site = sites?.find((s) => s.id === PHOTO_SITE[m]);
         return (
           <img
             key={m}
-            src={site?.image ?? `/images/${PHOTO_SITE[m].id}.jpg`}
-            alt={m === mode ? PHOTO_SITE[m].alt : ""}
+            src={site?.image ?? `/images/${PHOTO_SITE[m]}.jpg`}
+            alt={m === mode ? t(`home.closing.photoAlt.${m}`) : ""}
             aria-hidden={m !== mode}
             loading="lazy"
             decoding="async"
@@ -47,20 +49,20 @@ export default function Closing() {
       <div className="mx-auto w-full max-w-6xl px-6 pt-40 pb-16 lg:pb-24">
         <SectionHeading
           id="closing-title"
-          title={<span className="block text-display">Cada misión se ensaya aquí primero</span>}
+          title={<span className="block text-display">{t("home.closing.title")}</span>}
         >
           {sites && bases && (
             <p className="text-lg text-ink">
-              {sites.length} lugares de la Tierra comparados con {bases.length} bases en la Luna y Marte.
+              {t("home.closing.summary", { sites: sites.length, bases: bases.length })}
             </p>
           )}
         </SectionHeading>
         <ButtonLink to="/ubicaciones" size="lg" className="mt-8" data-reveal style={{ "--i": 3 } as CSSProperties}>
-          Ver todas las ubicaciones
+          {t("common.seeAllLocations")}
         </ButtonLink>
         {photoSite && (
           <p className="mt-10 text-small text-ink-soft">
-            Foto: {photoSite.name} · {photoSite.imageCredit}
+            {t("common.photo", { place: photoSite.name, credit: photoSite.imageCredit })}
           </p>
         )}
       </div>

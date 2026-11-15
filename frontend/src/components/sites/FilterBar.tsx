@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useId, useRef, type KeyboardEvent } from "react";
+import { useTranslation } from "react-i18next";
+import { bodyLabel } from "../../lib/format";
 import type { Target } from "../../types/site";
 
 export type TargetFilter = Target | "all";
@@ -15,17 +17,6 @@ interface FilterBarProps {
   value: Filters;
   onChange: (next: Filters) => void;
 }
-
-const TARGET_OPTIONS: { value: TargetFilter; label: string }[] = [
-  { value: "all", label: "Todos" },
-  { value: "moon", label: "Luna" },
-  { value: "mars", label: "Marte" },
-];
-
-const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: "similarity", label: "Más similares" },
-  { value: "name", label: "A–Z" },
-];
 
 interface ChipGroupProps<T extends string> {
   label: string;
@@ -97,10 +88,23 @@ function ChipGroup<T extends string>({ label, options, value, onChange, neutral 
 }
 
 export default function FilterBar({ value, onChange }: FilterBarProps) {
+  const { t } = useTranslation();
+
+  const targetOptions: { value: TargetFilter; label: string }[] = [
+    { value: "all", label: t("locations.filters.all") },
+    { value: "moon", label: bodyLabel("moon") },
+    { value: "mars", label: bodyLabel("mars") },
+  ];
+
+  const sortOptions: { value: SortKey; label: string }[] = [
+    { value: "similarity", label: t("locations.filters.mostSimilar") },
+    { value: "name", label: t("locations.filters.az") },
+  ];
+
   return (
     <div className="flex flex-wrap items-center gap-3">
       <label className="relative min-w-60 flex-1">
-        <span className="sr-only">Buscar por nombre o país</span>
+        <span className="sr-only">{t("locations.filters.search")}</span>
         <svg
           viewBox="0 0 20 20"
           aria-hidden
@@ -111,22 +115,22 @@ export default function FilterBar({ value, onChange }: FilterBarProps) {
         </svg>
         <input
           type="search"
-          placeholder="Buscar por nombre o país"
+          placeholder={t("locations.filters.search")}
           value={value.query}
           onChange={(e) => onChange({ ...value, query: e.target.value })}
           className="h-11 w-full rounded-full bg-ink/10 pr-4 pl-11 text-sm text-ink placeholder:text-ink-soft transition-colors duration-200 hover:bg-ink/15 focus:bg-ink/15 focus:outline-none focus-visible:outline-2 focus-visible:outline-accent-soft"
         />
       </label>
       <ChipGroup
-        label="Destino"
-        options={TARGET_OPTIONS}
+        label={t("locations.filters.target")}
+        options={targetOptions}
         value={value.target}
         onChange={(target) => onChange({ ...value, target })}
         neutral={(target) => target === "all"}
       />
       <ChipGroup
-        label="Orden"
-        options={SORT_OPTIONS}
+        label={t("locations.filters.sort")}
+        options={sortOptions}
         value={value.sort}
         onChange={(sort) => onChange({ ...value, sort })}
         neutral={() => true}

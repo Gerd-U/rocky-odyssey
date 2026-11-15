@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Flecha flotante para volver arriba. Aparece después de bajar casi una pantalla,
@@ -6,6 +7,7 @@ import { useEffect, useState } from "react";
  * sube de golpe.
  */
 export default function BackToTop() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,8 +40,8 @@ export default function BackToTop() {
     <button
       type="button"
       onClick={goTop}
-      aria-label="Volver arriba"
-      title="Volver arriba"
+      aria-label={t("nav.backToTop")}
+      title={t("nav.backToTop")}
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
       className={`fixed right-4 bottom-4 z-30 grid size-12 place-items-center rounded-full bg-night-900/75 text-ink shadow-[0_12px_40px_-12px_rgb(0_0_0/0.6)] ring-1 ring-ink/10 backdrop-blur-md transition-[opacity,transform,background-color] duration-200 ease-out-strong hover:bg-night-800 active:scale-[0.94] sm:right-6 sm:bottom-6 ${

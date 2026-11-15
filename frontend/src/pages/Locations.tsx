@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import FilterBar, { type Filters } from "../components/sites/FilterBar";
 import SiteCard from "../components/sites/SiteCard";
 import Button from "../components/ui/Button";
@@ -22,6 +23,8 @@ const normalize = (text: string) =>
     .toLowerCase();
 
 export default function Locations() {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage;
   const { data: pairs, loading, error } = usePairs();
   const { setMode } = useMode();
   const [filters, setFilters] = useState<Filters>(INITIAL_FILTERS);
@@ -34,10 +37,10 @@ export default function Locations() {
       .filter(({ site, base }) => !q || normalize(`${site.name} ${site.country} ${base.name}`).includes(q))
       .sort((a, b) =>
         filters.sort === "name"
-          ? a.site.name.localeCompare(b.site.name, "es")
+          ? a.site.name.localeCompare(b.site.name, lang)
           : b.site.similarity - a.site.similarity,
       );
-  }, [pairs, filters]);
+  }, [pairs, filters, lang]);
 
   const onFiltersChange = (next: Filters) => {
     // El acento de toda la web sigue al destino elegido; "Todos" deja el modo como está
@@ -50,11 +53,8 @@ export default function Locations() {
 
   return (
     <section aria-labelledby="locations-title" className="mx-auto max-w-6xl px-6 pt-12 pb-16 lg:pt-16">
-      <SectionHeading id="locations-title" as="h1" title="Lugares gemelos en la Tierra">
-        <p>
-          Cada uno se parece a una base propuesta en la Luna o en Marte. Se les llama análogos: por ese parecido, ahí se
-          entrenan tripulaciones y se prueba tecnología. Abre cualquiera para compararlo con su gemelo.
-        </p>
+      <SectionHeading id="locations-title" as="h1" title={t("locations.title")}>
+        <p>{t("locations.intro")}</p>
       </SectionHeading>
 
       <div className="mt-10">
@@ -62,13 +62,13 @@ export default function Locations() {
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-ink-soft tabular-nums">
-        {pairs && `${count} ${count === 1 ? "ubicación" : "ubicaciones"}`}
+        {pairs && t("locations.count", { count })}
       </p>
 
       {error ? (
         <ErrorState message={error} className="mt-6" />
       ) : loading || !pairs ? (
-        <div aria-busy="true" aria-label="Cargando ubicaciones" className={GRID}>
+        <div aria-busy="true" aria-label={t("locations.loading")} className={GRID}>
           {Array.from({ length: 6 }, (_, i) => (
             <div key={i}>
               <Skeleton className="aspect-4/3" />
@@ -79,10 +79,10 @@ export default function Locations() {
         </div>
       ) : count === 0 ? (
         <div className="mt-10 border-t border-ink/10 pt-10">
-          <p className="text-lg text-ink">Ninguna ubicación coincide con estos filtros.</p>
-          <p className="mt-1 text-ink-soft">Prueba con otro nombre o muestra los dos destinos.</p>
+          <p className="text-lg text-ink">{t("locations.emptyTitle")}</p>
+          <p className="mt-1 text-ink-soft">{t("locations.emptyHint")}</p>
           <Button variant="secondary" size="sm" className="mt-6" onClick={() => setFilters(INITIAL_FILTERS)}>
-            Quitar filtros
+            {t("locations.clearFilters")}
           </Button>
         </div>
       ) : (
@@ -106,7 +106,7 @@ export default function Locations() {
 
       {filtered && count > 0 && (
         <Button variant="ghost" className="mt-12 text-sm" onClick={() => setFilters(INITIAL_FILTERS)}>
-          Quitar filtros
+          {t("locations.clearFilters")}
         </Button>
       )}
     </section>

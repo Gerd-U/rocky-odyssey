@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import type { Pair } from "../../hooks/usePairs";
-import { BODY_LABEL, formatPercent } from "../../lib/format";
+import { bodyLabel, formatPercent } from "../../lib/format";
 
 export default function SiteCard({ pair }: { pair: Pair }) {
+  const { t } = useTranslation();
   const { site, base } = pair;
 
   return (
@@ -37,15 +39,15 @@ export default function SiteCard({ pair }: { pair: Pair }) {
         {/* Cifra más contenida y siempre con "provisional": aún no es el resultado de un modelo */}
         <p className="shrink-0 text-right">
           <span className="block text-2xl leading-none font-extrabold font-stretch-[75%] text-ink tabular-nums">
-            <span className="sr-only">Similitud </span>
+            <span className="sr-only">{t("locations.card.similarity")}</span>
             {formatPercent(site.similarity)}
           </span>
-          <span className="mt-1 block text-small text-ink-soft">provisional</span>
+          <span className="mt-1 block text-small text-ink-soft">{t("locations.card.provisional")}</span>
         </p>
       </div>
       <p className="mt-3 text-sm text-ink-soft">
-        Se parece a <span className="text-ink">{base.name}</span> ·{" "}
-        <span className={base.body === "mars" ? "text-plum-200" : "text-indigo-200"}>{BODY_LABEL[base.body]}</span>
+        {t("locations.card.looksLike")} <span className="text-ink">{base.name}</span> ·{" "}
+        <span className={base.body === "mars" ? "text-plum-200" : "text-indigo-200"}>{bodyLabel(base.body)}</span>
       </p>
     </Link>
   );

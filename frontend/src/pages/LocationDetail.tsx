@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import CompareSlider from "../components/compare/CompareSlider";
 import CompareTable from "../components/compare/CompareTable";
@@ -10,7 +11,7 @@ import SectionHeading from "../components/ui/SectionHeading";
 import Skeleton from "../components/ui/Skeleton";
 import { useMode } from "../context/ModeContext";
 import { usePairs } from "../hooks/usePairs";
-import { BODY_LABEL, BODY_NAME, formatCoords, formatPercent } from "../lib/format";
+import { bodyLabel, bodyName, formatCoords, formatPercent } from "../lib/format";
 
 const GlobeView = lazy(() => import("../components/globe/GlobeView"));
 
@@ -23,14 +24,16 @@ const SLIDER_FRAME = "mt-8 aspect-4/3 w-full md:aspect-video";
 const GLOBE_HEIGHT = 380;
 
 function BackLink() {
+  const { t } = useTranslation();
   return (
     <ButtonLink to="/ubicaciones" variant="ghost" className="text-sm">
-      ← Ubicaciones
+      {t("detail.back")}
     </ButtonLink>
   );
 }
 
 export default function LocationDetail() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { data: pairs, loading, error } = usePairs();
   const { setMode, setSelectedSiteId } = useMode();
@@ -83,7 +86,7 @@ export default function LocationDetail() {
 
   if (loading || !pairs) {
     return (
-      <div aria-busy="true" aria-label="Cargando ubicación" className="mx-auto max-w-6xl px-6 pt-12 pb-16">
+      <div aria-busy="true" aria-label={t("detail.loading")} className="mx-auto max-w-6xl px-6 pt-12 pb-16">
         <BackLink />
         <Skeleton className="mt-6 h-12 w-2/3 max-w-xl" />
         <Skeleton className="mt-3 h-5 w-1/3 max-w-xs" />
@@ -96,11 +99,11 @@ export default function LocationDetail() {
     return (
       <div className="mx-auto max-w-6xl px-6 pt-12 pb-16">
         <BackLink />
-        <SectionHeading as="h1" title="No encontramos esta ubicación" className="mt-6">
-          <p>Puede que el enlace esté mal escrito o que el lugar ya no esté en la lista.</p>
+        <SectionHeading as="h1" title={t("detail.notFoundTitle")} className="mt-6">
+          <p>{t("detail.notFoundText")}</p>
         </SectionHeading>
         <ButtonLink to="/ubicaciones" className="mt-8">
-          Ver todas las ubicaciones
+          {t("common.seeAllLocations")}
         </ButtonLink>
       </div>
     );
@@ -117,8 +120,11 @@ export default function LocationDetail() {
           {site.country} · <span className="tabular-nums">{formatCoords(site.lat, site.lng)}</span>
         </p>
         <p className="mt-1 text-ink">
-          Lugar de la Tierra que se parece a <span className="text-accent-soft">{base.name}</span>, en{" "}
-          {BODY_NAME[base.body]}
+          <Trans
+            i18nKey="detail.resembles"
+            values={{ base: base.name, body: bodyName(base.body) }}
+            components={{ accent: <span className="text-accent-soft" /> }}
+          />
         </p>
       </SectionHeading>
 
@@ -126,39 +132,39 @@ export default function LocationDetail() {
         className={SLIDER_FRAME}
         earth={{
           src: site.image,
-          alt: `${site.name}, ${site.country}`,
-          label: "Tierra",
+          alt: t("common.imageAlt", { name: site.name, place: site.country }),
+          label: t("common.earth"),
           caption: site.name,
         }}
         target={{
           src: base.image,
-          alt: `${base.name}, ${BODY_LABEL[base.body]}`,
-          label: BODY_LABEL[base.body],
+          alt: t("common.imageAlt", { name: base.name, place: bodyLabel(base.body) }),
+          label: bodyLabel(base.body),
           caption: base.name,
         }}
       />
       <p className="mt-3 text-small text-ink-soft">
-        Fotos: {site.imageCredit} · {base.imageCredit}
+        {t("common.photos", { earth: site.imageCredit, target: base.imageCredit })}
       </p>
 
       <div data-reveal className="mt-14 grid gap-14 lg:grid-cols-2 lg:gap-16">
         <section aria-labelledby="factors-title">
           {/* La cifra primero y su etiqueta debajo, como en la portada: no es un resultado definitivo */}
           <h2 id="factors-title" className="sr-only">
-            Similitud y factores
+            {t("detail.factorsTitle")}
           </h2>
           <p>
             <span className="block text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
               {formatPercent(site.similarity)}
             </span>
-            <span className="mt-1 block text-sm text-ink-soft">de similitud (valor provisional)</span>
+            <span className="mt-1 block text-sm text-ink-soft">{t("common.similarityProvisional")}</span>
           </p>
           <CompareTable pair={pair} className="mt-8" />
           <p className="mt-8 max-w-prose text-ink">{site.description}</p>
 
           {site.missions.length > 0 && (
             <>
-              <h2 className="mt-10 text-xl font-extrabold font-stretch-[75%] text-ink">Misiones y estudios</h2>
+              <h2 className="mt-10 text-xl font-extrabold font-stretch-[75%] text-ink">{t("detail.missions")}</h2>
               <ul className="mt-3 divide-y divide-ink/10 border-y border-ink/10">
                 {site.missions.map((mission) => (
                   <li key={mission} className="py-3 text-ink">
@@ -181,7 +187,7 @@ export default function LocationDetail() {
             />
           </Suspense>
           <figcaption className="mt-4">
-            <span className="block text-sm text-accent-soft">{BODY_LABEL[base.body]}</span>
+            <span className="block text-sm text-accent-soft">{bodyLabel(base.body)}</span>
             <span className="block font-semibold text-ink">{base.name}</span>
             <span className="mt-3 block max-w-prose text-ink-soft">{base.description}</span>
           </figcaption>
@@ -202,7 +208,7 @@ export default function LocationDetail() {
             className="aspect-4/3 w-24 shrink-0 object-cover sm:w-32"
           />
           <span className="min-w-0 flex-1">
-            <span className="block text-sm text-ink-soft">Siguiente sitio</span>
+            <span className="block text-sm text-ink-soft">{t("detail.next")}</span>
             <span className="block text-2xl leading-tight font-extrabold font-stretch-[75%] text-ink underline-offset-4 group-hover:underline sm:text-3xl">
               {next.site.name}
             </span>

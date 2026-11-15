@@ -1,7 +1,8 @@
 import { motion, useReducedMotion } from "motion/react";
 import { useId, useRef, type KeyboardEvent } from "react";
+import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
-import { BODY_LABEL } from "../../lib/format";
+import { bodyLabel } from "../../lib/format";
 import type { Target } from "../../types/site";
 
 const OPTIONS: Target[] = ["moon", "mars"];
@@ -20,6 +21,7 @@ export default function ModeToggle({
   size = "md",
   className = "inline-flex",
 }: ModeToggleProps) {
+  const { t } = useTranslation();
   const { mode, setMode } = useMode();
   const indicatorId = useId();
   const reduceMotion = useReducedMotion();
@@ -39,7 +41,7 @@ export default function ModeToggle({
   return (
     <div
       role="radiogroup"
-      aria-label="Destino"
+      aria-label={t("home.globe.modeLabel")}
       onKeyDown={onKeyDown}
       className={`${className} rounded-full bg-night-800 p-1 ring-1 ring-ink/10`}
     >
@@ -71,7 +73,7 @@ export default function ModeToggle({
                 }
               />
             )}
-            <span className="relative">{BODY_LABEL[value]}</span>
+            <span className="relative">{bodyLabel(value)}</span>
           </button>
         );
       })}
