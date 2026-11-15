@@ -42,16 +42,15 @@ function CountUp({ from, to }: { from: number; to: number }) {
 
 export default function TwinRow({ pair, className = "" }: TwinRowProps) {
   const { t } = useTranslation();
-  const { site, base, match } = pair;
-  const score = match.score;
+  const { site, base } = pair;
 
   // Al cambiar de par, el porcentaje nuevo cuenta desde el anterior
   // (estado derivado durante el render, el patrón que recomienda React)
-  const [shown, setShown] = useState(score);
-  const [from, setFrom] = useState(score);
-  if (shown !== score) {
+  const [shown, setShown] = useState(site.similarity);
+  const [from, setFrom] = useState(site.similarity);
+  if (shown !== site.similarity) {
     setFrom(shown);
-    setShown(score);
+    setShown(site.similarity);
   }
 
   return (
@@ -62,7 +61,6 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
           <Swap swapKey={site.id}>
             <Photo
               src={site.image}
-              place={site}
               sizes={IMAGE_SIZES.twin}
               alt={t("common.imageAlt", { name: site.name, place: site.country })}
               caption={t("home.twin.caption", { body: t("common.earth"), name: site.name })}
@@ -75,7 +73,6 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
           <Swap swapKey={base.id} delay={0.1}>
             <Photo
               src={base.image}
-              place={base}
               sizes={IMAGE_SIZES.twin}
               alt={t("common.imageAlt", { name: base.name, place: bodyLabel(base.body) })}
               caption={t("home.twin.caption", { body: bodyLabel(base.body), name: base.name })}
@@ -91,8 +88,8 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
             </h3>
             <p className="mt-5">
               <span className="block text-figure font-extrabold font-stretch-[75%] text-ink tabular-nums">
-                <span className="sr-only">{formatPercent(score)}</span>
-                <CountUp from={from} to={score} />
+                <span className="sr-only">{formatPercent(site.similarity)}</span>
+                <CountUp from={from} to={site.similarity} />
               </span>
               <span className="mt-1 block text-sm text-ink-soft">{t("common.similarityProvisional")}</span>
             </p>
