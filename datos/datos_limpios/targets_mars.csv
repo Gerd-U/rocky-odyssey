@@ -1,6 +1,6 @@
 nombre,cuerpo,rugosidad,rango_termico,hielo
-Jezero,marte,82.6,49.0,100.0
-Arcadia Planitia,marte,9.2,39.4,100.0
-Gale,marte,135.5,54.3,100.0
-Oxia Planum,marte,23.0,45.3,100.0
-Arsia Mons,marte,51.0,67.0,100.0
+Jezero,marte,82.6,49.0,0.0
+Arcadia Planitia,marte,9.2,39.4,0.0
+Gale,marte,135.5,54.3,0.0
+Oxia Planum,marte,23.0,45.3,0.0
+Arsia Mons,marte,51.0,67.0,0.0
