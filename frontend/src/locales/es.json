@@ -38,16 +38,10 @@
   },
   "home": {
     "hero": {
-      "headline": {
-        "mars": "Marte empieza en la Tierra",
-        "moon": "La Luna empieza en la Tierra"
-      },
-      "lead": "Buscamos lugares de la Tierra que se parecen a las bases propuestas en {{body}}. Ahí se entrenan tripulaciones y se prueba tecnología antes de salir del planeta.",
+      "title": "La Luna y Marte empiezan en la Tierra",
+      "lead": "Algunos desiertos, volcanes y valles polares de la Tierra se parecen mucho a los lugares propuestos para bases en la Luna y Marte. Se llaman análogos: ahí se entrenan tripulaciones y se prueba tecnología antes de salir del planeta.",
       "explore": "Explorar el globo",
-      "todayMars": "Hoy Marte está a unos {{millions}} millones de km: su luz tarda {{minutes}} minutos en llegar aquí.",
-      "todayMoon": "Hoy la Luna está a unos {{km}} km y se ve iluminada al {{percent}} ({{phase}}).",
-      "waxing": "creciente",
-      "waning": "menguante"
+      "today": "Hoy la Luna está a unos {{km}} km, y Marte a unos {{millions}} millones de km: su luz tarda {{minutes}} minutos en llegar aquí."
     },
     "globe": {
       "title": "Elige un lugar y mira su gemelo",

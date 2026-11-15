@@ -38,16 +38,10 @@
   },
   "home": {
     "hero": {
-      "headline": {
-        "mars": "Mars begins on Earth",
-        "moon": "The Moon begins on Earth"
-      },
-      "lead": "We look for places on Earth that resemble the bases proposed on {{body}}. That is where crews train and technology is tested before leaving the planet.",
+      "title": "The Moon and Mars begin on Earth",
+      "lead": "Some deserts, volcanoes and polar valleys on Earth closely resemble the places proposed for bases on the Moon and Mars. They're called analogs: crews train there and technology is tested before leaving the planet.",
       "explore": "Explore the globe",
-      "todayMars": "Today Mars is about {{millions}} million km away: its light takes {{minutes}} minutes to reach us.",
-      "todayMoon": "Today the Moon is about {{km}} km away and appears {{percent}} illuminated ({{phase}}).",
-      "waxing": "waxing",
-      "waning": "waning"
+      "today": "Today the Moon is about {{km}} km away, and Mars about {{millions}} million km: its light takes {{minutes}} minutes to reach us."
     },
     "globe": {
       "title": "Pick a place and see its twin",
