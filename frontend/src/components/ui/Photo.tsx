@@ -1,7 +1,5 @@
 import { useState, type ImgHTMLAttributes } from "react";
-import { IMAGE_SIZES, ratioAspect, responsiveSource } from "../../lib/images";
-import type { Target } from "../../types/site";
-import PlaceFallback from "./PlaceFallback";
+import { IMAGE_SIZES, responsiveSource } from "../../lib/images";
 
 interface PictureProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "srcSet" | "sizes"> {
   /** Ruta original que viene en los datos, p. ej. /images/atacama.jpg */
@@ -27,19 +25,8 @@ export function Picture({ src, sizes, ...img }: PictureProps) {
   );
 }
 
-/** Lugar que se dibuja con PlaceFallback cuando no hay foto */
-export interface PhotoPlace {
-  name: string;
-  lat: number;
-  lng: number;
-  /** Bases de la Luna o Marte; los lugares de la Tierra no lo traen */
-  body?: Target;
-}
-
 interface PhotoProps {
-  /** null: el lugar aún no tiene foto y se muestra `place` sobre la textura */
-  src: string | null;
-  place?: PhotoPlace;
+  src: string;
   alt: string;
   caption?: string;
   credit?: string;
@@ -53,7 +40,6 @@ interface PhotoProps {
 
 export default function Photo({
   src,
-  place,
   alt,
   caption,
   credit,
@@ -68,31 +54,19 @@ export default function Photo({
   return (
     <figure className={className}>
       <div className="relative overflow-hidden bg-night-800" style={{ aspectRatio: ratio }}>
-        {src === null ? (
-          place && (
-            <PlaceFallback
-              name={place.name}
-              lat={place.lat}
-              lng={place.lng}
-              body={place.body}
-              aspect={ratioAspect(ratio)}
-            />
-          )
-        ) : (
-          <Picture
-            src={src}
-            sizes={sizes}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            fetchPriority={priority ? "high" : "auto"}
-            decoding="async"
-            onLoad={() => setLoaded(true)}
-            style={{ objectPosition: position }}
-            className={`absolute inset-0 size-full object-cover transition-opacity duration-500 ease-out-strong ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        )}
+        <Picture
+          src={src}
+          sizes={sizes}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
+          onLoad={() => setLoaded(true)}
+          style={{ objectPosition: position }}
+          className={`absolute inset-0 size-full object-cover transition-opacity duration-500 ease-out-strong ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
       </div>
       {(caption || credit) && (
         <figcaption className="mt-2">

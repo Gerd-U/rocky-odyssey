@@ -73,19 +73,12 @@ def _is_number(value) -> bool:
 
 
 def merge_scientific_data(sites, locations=None):
-    """Sobrescribe campo por campo los valores de sites.json con los de locations.json.
+    """Sobrescribe campo por campo los valores de sites.json con datos reales.
 
     Un campo solo se reemplaza si el location trae un valor; si falta o es
-    null se conserva el de sites.json. Los locations cuyo id no existe en
-    sites.json se ignoran. Campos que lee:
-
-    - coordinates.latitude / longitude      -> lat / lng
-    - temperature.minimum_c / maximum_c     -> metrics.tempMinC / tempMaxC
-    - comparison.<moon|mars>.score (0-100)  -> matches.<moon|mars>.score (0-1),
-      solo si el sitio ya tiene una base emparejada en ese cuerpo
-
-    ``dataSource`` pasa a "real" si se aplicó al menos un dato; si no, se
-    conserva el que trae sites.json ("placeholder" si no trae ninguno).
+    null se conserva el valor escrito a mano en sites.json. Los locations cuyo
+    id no existe en sites.json se ignoran. Cada sitio recibe ``dataSource``:
+    "real" si se aplicó al menos un dato y "placeholder" si no.
     """
 
     if locations is None:
@@ -104,13 +97,13 @@ def merge_scientific_data(sites, locations=None):
         coordinates = location.get("coordinates") or {}
         temperature = location.get("temperature") or {}
         comparison = location.get("comparison") or {}
-        metrics = site.setdefault("metrics", {})
+        result = comparison.get(site.get("target")) or {}
 
         updates = [
             (site, "lat", coordinates.get("latitude")),
             (site, "lng", coordinates.get("longitude")),
-            (metrics, "tempMinC", temperature.get("minimum_c")),
-            (metrics, "tempMaxC", temperature.get("maximum_c")),
+            (site.setdefault("factors", {}), "tempMin", temperature.get("minimum_c")),
+            (site.setdefault("factors", {}), "tempMax", temperature.get("maximum_c")),
         ]
 
         for container, key, value in updates:
@@ -118,14 +111,13 @@ def merge_scientific_data(sites, locations=None):
                 container[key] = value
                 applied = True
 
-        for body, match in (site.get("matches") or {}).items():
-            score = (comparison.get(body) or {}).get("score")
+        score = result.get("score")
 
-            if isinstance(match, dict) and _is_number(score) and 0 <= score <= 100:
-                match["score"] = round(score / 100, 4)
-                applied = True
+        if _is_number(score) and 0 <= score <= 100:
+            site["similarity"] = score / 100
+            applied = True
 
-        site["dataSource"] = "real" if applied else site.get("dataSource") or "placeholder"
+        site["dataSource"] = "real" if applied else "placeholder"
 
     return sites
 

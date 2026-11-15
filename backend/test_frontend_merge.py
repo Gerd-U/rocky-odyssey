@@ -1,4 +1,3 @@
-import copy
 import json
 import shutil
 from pathlib import Path
@@ -42,10 +41,11 @@ def write_locations(data_dir, locations):
     )
 
 
-def site_with_matches(backup):
-    """Primer sitio que tiene base emparejada en la Luna y en Marte."""
-
-    return next(site for site in backup if {"moon", "mars"} <= set(site["matches"]))
+def without_data_source(sites):
+    return [
+        {key: value for key, value in site.items() if key != "dataSource"}
+        for site in sites
+    ]
 
 
 def test_repository_locations_file_is_empty():
@@ -54,13 +54,13 @@ def test_repository_locations_file_is_empty():
     assert stored == {"locations": []}
 
 
-def test_empty_locations_returns_sites_json_unchanged(data_dir):
+def test_empty_locations_returns_backup_values_as_placeholder(data_dir):
     write_locations(data_dir, [])
 
     sites = frontend_route.get_sites()
 
-    assert sites == load_backup_sites()
-    assert {site["dataSource"] for site in sites} == {"real"}
+    assert without_data_source(sites) == load_backup_sites()
+    assert {site["dataSource"] for site in sites} == {"placeholder"}
 
 
 @pytest.mark.parametrize("content", [None, "", '{"locations": null}', "{}"])
@@ -68,24 +68,31 @@ def test_missing_or_blank_locations_file_does_not_fail(data_dir, content):
     if content is not None:
         (data_dir / "locations.json").write_text(content, encoding="utf-8")
 
-    assert frontend_route.get_sites() == load_backup_sites()
+    sites = frontend_route.get_sites()
+
+    assert without_data_source(sites) == load_backup_sites()
+    assert {site["dataSource"] for site in sites} == {"placeholder"}
 
 
 def test_test_fixture_ids_do_not_match_any_site_and_are_ignored(data_dir):
     shutil.copy(FIXTURE_LOCATIONS, data_dir / "locations.json")
 
-    assert frontend_route.get_sites() == load_backup_sites()
+    sites = frontend_route.get_sites()
+
+    assert without_data_source(sites) == load_backup_sites()
+    assert {site["dataSource"] for site in sites} == {"placeholder"}
 
 
 def test_matching_location_replaces_values_only_for_that_site(data_dir):
     backup = load_backup_sites()
-    target_site = site_with_matches(backup)
+    target_site = backup[0]
+    target = target_site["target"]
     write_locations(data_dir, [
         {
             "id": target_site["id"],
             "coordinates": {"latitude": -10.5, "longitude": 20.25},
             "temperature": {"minimum_c": -30, "maximum_c": 45},
-            "comparison": {"moon": {"score": 42}},
+            "comparison": {target: {"score": 42}},
         },
         {"id": "not-in-sites", "coordinates": {"latitude": 1, "longitude": 2}},
     ])
@@ -96,27 +103,28 @@ def test_matching_location_replaces_values_only_for_that_site(data_dir):
 
     assert merged["lat"] == -10.5
     assert merged["lng"] == 20.25
-    assert merged["metrics"]["tempMinC"] == -30
-    assert merged["metrics"]["tempMaxC"] == 45
-    assert merged["matches"]["moon"]["score"] == pytest.approx(0.42)
-    assert merged["matches"]["moon"]["baseId"] == target_site["matches"]["moon"]["baseId"]
-    assert merged["matches"]["mars"] == target_site["matches"]["mars"]
+    assert merged["factors"]["tempMin"] == -30
+    assert merged["factors"]["tempMax"] == 45
+    assert merged["similarity"] == pytest.approx(0.42)
     assert merged["dataSource"] == "real"
     assert "not-in-sites" not in by_id
 
     others = [site for site in sites if site["id"] != target_site["id"]]
-    assert others == [site for site in backup if site["id"] != target_site["id"]]
+    assert without_data_source(others) == backup[1:]
+    assert {site["dataSource"] for site in others} == {"placeholder"}
 
 
 def test_incomplete_location_mixes_new_values_with_backup(data_dir):
-    target_site = site_with_matches(load_backup_sites())
+    backup = load_backup_sites()
+    target_site = backup[0]
+    other_target = "moon" if target_site["target"] == "mars" else "mars"
     write_locations(data_dir, [
         {
             "id": target_site["id"],
             "coordinates": {"latitude": -11.0, "longitude": None},
             "temperature": {"minimum_c": None, "maximum_c": 38},
-            # Score fuera de rango: se ignora y la similitud se queda como estaba.
-            "comparison": {"mars": {"score": 140}},
+            # Solo trae score del otro cuerpo: no debe tocar la similitud.
+            "comparison": {other_target: {"score": 10}},
         },
     ])
 
@@ -124,15 +132,16 @@ def test_incomplete_location_mixes_new_values_with_backup(data_dir):
 
     assert merged["lat"] == -11.0
     assert merged["lng"] == target_site["lng"]
-    assert merged["metrics"]["tempMinC"] == target_site["metrics"]["tempMinC"]
-    assert merged["metrics"]["tempMaxC"] == 38
-    assert merged["metrics"]["roughnessM"] == target_site["metrics"]["roughnessM"]
-    assert merged["matches"] == target_site["matches"]
+    assert merged["factors"]["tempMin"] == target_site["factors"]["tempMin"]
+    assert merged["factors"]["tempMax"] == 38
+    assert merged["factors"]["precipMm"] == target_site["factors"]["precipMm"]
+    assert merged["factors"]["terrain"] == target_site["factors"]["terrain"]
+    assert merged["similarity"] == target_site["similarity"]
     assert merged["name"] == target_site["name"]
     assert merged["dataSource"] == "real"
 
 
-def test_location_with_only_nulls_changes_nothing(data_dir):
+def test_location_with_only_nulls_stays_placeholder(data_dir):
     target_site = load_backup_sites()[0]
     write_locations(data_dir, [
         {
@@ -143,17 +152,7 @@ def test_location_with_only_nulls_changes_nothing(data_dir):
         },
     ])
 
-    assert frontend_route.get_site(target_site["id"]) == target_site
+    merged = frontend_route.get_site(target_site["id"])
 
-
-def test_site_without_data_source_is_marked_placeholder_or_real():
-    site = {"id": "x", "lat": 1, "lng": 2, "metrics": {}, "matches": {}}
-
-    untouched = frontend_route.merge_scientific_data([copy.deepcopy(site)], [])[0]
-    updated = frontend_route.merge_scientific_data(
-        [copy.deepcopy(site)], [{"id": "x", "coordinates": {"latitude": 5}}]
-    )[0]
-
-    assert untouched["dataSource"] == "placeholder"
-    assert updated["dataSource"] == "real"
-    assert updated["lat"] == 5
+    assert merged["dataSource"] == "placeholder"
+    assert {k: v for k, v in merged.items() if k != "dataSource"} == target_site

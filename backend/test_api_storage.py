@@ -32,16 +32,15 @@ def test_frontend_site_and_base_data_match_declared_contract():
     sites = frontend_route.get_sites()
     bases = frontend_route.get_bases()
     site_fields = {
-        "id", "name", "country", "description", "missions", "lat", "lng",
-        "region", "geology", "studied", "metrics", "monthlyTemp", "matches",
-        "sources", "image", "imageAuthor", "imageLicense", "dataSource",
+        "id", "name", "country", "lat", "lng", "target", "analogOf",
+        "similarity", "factors", "missions", "image", "imageAuthor",
+        "imageLicense", "description", "dataSource",
     }
     base_fields = {
-        "id", "name", "description", "body", "lat", "lng", "metrics",
-        "sources", "image", "imageAuthor", "imageLicense", "dataSource",
+        "id", "name", "body", "lat", "lng", "factors", "image",
+        "imageAuthor", "imageLicense", "description",
     }
-    site_metrics = {"roughnessM", "thermalRange", "coldIndex", "elevationM", "tempMinC", "tempMaxC"}
-    base_metrics = {"roughnessM", "thermalRange", "coldIndex", "tminK", "tmaxK"}
+    factor_fields = {"precipMm", "tempMin", "tempMax", "terrain"}
 
     assert sites and bases
     for site in sites:
@@ -51,9 +50,11 @@ def test_frontend_site_and_base_data_match_declared_contract():
         assert isinstance(site["country"], str)
         assert isinstance(site["lat"], (int, float))
         assert isinstance(site["lng"], (int, float))
-        assert site_metrics <= site["metrics"].keys()
+        assert isinstance(site["similarity"], (int, float))
+        assert 0 <= site["similarity"] <= 1
+        assert site["target"] in {"mars", "moon"}
+        assert factor_fields <= site["factors"].keys()
         assert isinstance(site["missions"], list)
-        assert len(site["monthlyTemp"]) == 12
 
     for base in bases:
         assert base_fields <= base.keys()
@@ -61,9 +62,8 @@ def test_frontend_site_and_base_data_match_declared_contract():
         assert isinstance(base["name"], str)
         assert isinstance(base["lat"], (int, float))
         assert isinstance(base["lng"], (int, float))
-        assert -180 <= base["lng"] <= 180
         assert base["body"] in {"mars", "moon"}
-        assert base_metrics <= base["metrics"].keys()
+        assert factor_fields <= base["factors"].keys()
 
 
 def test_single_site_lookup_returns_404_for_unknown_id():

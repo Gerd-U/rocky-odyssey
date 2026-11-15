@@ -76,8 +76,7 @@ def test_spanish_and_english_differ():
     assert en["name"] == "Atacama Desert"
     assert es["name"] == "Desierto de Atacama"
     # Lo que no se traduce es igual en los dos idiomas
-    for key in ("id", "lat", "lng", "metrics", "monthlyTemp", "matches", "sources", "image",
-                "imageAuthor", "imageLicense", "region", "geology", "studied"):
+    for key in ("id", "lat", "lng", "similarity", "factors", "image", "imageAuthor", "imageLicense"):
         assert en[key] == es[key]
 
 
@@ -94,18 +93,18 @@ def test_translated_fields_arrive_as_strings_not_objects(lang):
         assert_strings(item)
         assert not any(isinstance(value, dict) and "es" in value for value in item.values())
 
-    assert_strings(get_json("/api/sites/valles-secos-mcmurdo", lang=lang))
+    assert_strings(get_json("/api/sites/mcmurdo", lang=lang))
 
 
 def test_response_matches_frontend_types():
     site_keys = {
-        "id", "name", "country", "description", "missions", "lat", "lng", "region",
-        "geology", "studied", "metrics", "monthlyTemp", "matches", "sources",
-        "image", "imageAuthor", "imageLicense", "dataSource",
+        "id", "name", "country", "lat", "lng", "target", "analogOf", "similarity",
+        "factors", "missions", "image", "imageAuthor", "imageLicense",
+        "description", "dataSource",
     }
     base_keys = {
-        "id", "name", "description", "body", "lat", "lng", "metrics", "sources",
-        "image", "imageAuthor", "imageLicense", "dataSource",
+        "id", "name", "body", "lat", "lng", "factors", "image",
+        "imageAuthor", "imageLicense", "description",
     }
 
     for site in get_json("/api/sites"):
@@ -118,8 +117,7 @@ def test_license_codes_are_codes_not_spanish_text():
     licenses = {
         item["imageLicense"]
         for item in get_json("/api/sites", lang="es") + get_json("/api/bases", lang="es")
-        if item["image"]
     }
 
     assert "Dominio público" not in licenses
-    assert all(lic in {"public-domain", "copernicus"} or lic.startswith("CC ") for lic in licenses)
+    assert all(lic == "public-domain" or lic.startswith("CC ") for lic in licenses)
