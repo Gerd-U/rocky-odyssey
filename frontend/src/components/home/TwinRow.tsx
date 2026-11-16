@@ -5,6 +5,7 @@ import type { Pair } from "../../hooks/usePairs";
 import { bodyLabel, formatCredit, formatPercent } from "../../lib/format";
 import { IMAGE_SIZES } from "../../lib/images";
 import { SWAP_EASE } from "../../lib/motion";
+import { siteUrl } from "../../services/api";
 import CompareTable from "../compare/CompareTable";
 import { ButtonLink } from "../ui/Button";
 import Photo from "../ui/Photo";
@@ -94,7 +95,7 @@ export default function TwinRow({ pair, className = "" }: TwinRowProps) {
               <span className="mt-1 block text-sm text-ink-soft">{t("common.similarityProvisional")}</span>
             </p>
             <CompareTable pair={pair} className="mt-6" />
-            <ButtonLink to={`/ubicacion/${site.id}`} variant="secondary" size="sm" className="mt-6">
+            <ButtonLink to={siteUrl(site)} variant="secondary" size="sm" className="mt-6">
               {t("home.twin.seeDetail")}
             </ButtonLink>
           </Swap>

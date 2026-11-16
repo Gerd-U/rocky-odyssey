@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import credits from "../../data/credits.json";
 import { useSites } from "../../hooks/useSites";
+import { siteUrl } from "../../services/api";
 import { licenseLabel } from "../../lib/format";
 import type { ImageCredit } from "../../types/credit";
 import type { Site } from "../../types/site";
@@ -80,7 +81,7 @@ function FooterLink({ to, children }: { to: string; children: ReactNode }) {
 
 function SiteLinks({ sites }: { sites: Site[] }) {
   return sites.map((site) => (
-    <FooterLink key={site.id} to={`/ubicacion/${site.id}`}>
+    <FooterLink key={site.id} to={siteUrl(site)}>
       {site.name}
     </FooterLink>
   ));

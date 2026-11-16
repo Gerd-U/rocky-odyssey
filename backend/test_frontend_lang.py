@@ -109,7 +109,13 @@ def test_response_matches_frontend_types():
     }
 
     for site in get_json("/api/sites"):
-        assert set(site) == site_keys
+        # twins y measures son opcionales: solo los tienen los sitios con datos reales
+        assert set(site) - {"twins", "measures"} == site_keys
+        if "measures" in site:
+            assert set(site["measures"]) == {"thermalRange", "ice", "roughness"}
+        for body, twin in site.get("twins", {}).items():
+            assert body in {"moon", "mars"}
+            assert set(twin) == {"analogOf", "similarity"}
     for base in get_json("/api/bases"):
         assert set(base) == base_keys
         assert isinstance(base["scientificData"], list)
@@ -118,10 +124,14 @@ def test_response_matches_frontend_types():
 
 
 def test_license_codes_are_codes_not_spanish_text():
-    licenses = {
-        item["imageLicense"]
-        for item in get_json("/api/sites", lang="es") + get_json("/api/bases", lang="es")
-    }
+    items = get_json("/api/sites", lang="es") + get_json("/api/bases", lang="es")
+
+    # Un lugar sin foto (image "", p. ej. Rimae Bode) no lleva licencia ni autor
+    for item in items:
+        if not item["image"]:
+            assert item["imageLicense"] == "" and item["imageAuthor"] == ""
+
+    licenses = {item["imageLicense"] for item in items if item["image"]}
 
     assert "Dominio público" not in licenses
     assert all(lic == "public-domain" or lic.startswith("CC ") for lic in licenses)

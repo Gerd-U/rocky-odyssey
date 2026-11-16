@@ -18,3 +18,6 @@ export const LEVEL_SIZE: Record<SimilarityLevelId, number> = {
 };
 
 export const SELECTED_COLOR = "#eef0fa";
+
+/** Sitios de la Tierra con la misma base gemela que el elegido: claros, pero menos que él */
+export const RELATED_COLOR = "rgba(238, 240, 250, 0.7)";

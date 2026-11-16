@@ -90,7 +90,7 @@ export default function Locations() {
           <AnimatePresence mode="popLayout" initial={false}>
             {results.map((pair) => (
               <motion.li
-                key={pair.site.id}
+                key={`${pair.site.id}-${pair.site.target}`}
                 layout={!reduce}
                 initial={{ opacity: 0, transform: reduce ? "none" : "scale(0.96)" }}
                 animate={{ opacity: 1, transform: "scale(1)" }}

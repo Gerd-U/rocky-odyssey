@@ -6,9 +6,13 @@ export interface SimilarityLevel {
   min: number;
 }
 
+/**
+ * Umbrales para la similitud en proporción (datos/scripts/generar_datos_web.py), que hoy va
+ * de 23 % a 67 %. Si cambia la fórmula, hay que revisarlos.
+ */
 export const SIMILARITY_LEVELS: SimilarityLevel[] = [
-  { id: "muy-alta", min: 0.85 },
-  { id: "alta", min: 0.75 },
+  { id: "muy-alta", min: 0.6 },
+  { id: "alta", min: 0.45 },
   { id: "moderada", min: 0 },
 ];
 

@@ -12,7 +12,7 @@ import SectionHeading from "../ui/SectionHeading";
 /** Foto de un ensayo real en la Tierra para cada destino, sacada de los sitios */
 const PHOTO_SITE: Record<Target, string> = {
   mars: "devon",
-  moon: "hiseas",
+  moon: "atacama",
 };
 
 const MODES: Target[] = ["mars", "moon"];
@@ -57,7 +57,7 @@ export default function Closing() {
         >
           {sites && bases && (
             <p className="text-lg text-ink">
-              {t("home.closing.summary", { sites: sites.length, bases: bases.length })}
+              {t("home.closing.summary", { sites: new Set(sites.map((s) => s.id)).size, bases: bases.length })}
             </p>
           )}
         </SectionHeading>

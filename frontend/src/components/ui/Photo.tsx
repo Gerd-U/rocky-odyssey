@@ -14,6 +14,8 @@ interface PictureProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" |
  * El <picture> va con display: contents para que el <img> siga ocupando el mismo sitio que antes.
  */
 export function Picture({ src, sizes, ...img }: PictureProps) {
+  // Sin foto: fondo neutro en el mismo sitio, en vez de una imagen rota
+  if (!src) return <div aria-hidden className={`${img.className ?? ""} bg-night-800`} style={img.style} />;
   const responsive = responsiveSource(src);
   if (!responsive) return <img src={src} {...img} />;
 

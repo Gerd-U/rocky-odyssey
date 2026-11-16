@@ -21,7 +21,7 @@
   --color-accent-soft: var(--color-plum-200);
 
   /* Tipografía */
-  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 
   /*
    * Escala de letra. Pocos tamaños, y los grandes crecen con la pantalla:

@@ -2,11 +2,11 @@
   "common": {
     "bodyName": { "moon": "the Moon", "mars": "Mars" },
     "bodyLabel": { "moon": "Moon", "mars": "Mars" },
+    "noData": "No data",
+    "meters": "{{value}} m",
     "earth": "Earth",
-    "terrain": { "moderado": "Moderate", "alto": "High", "extremo": "Extreme" },
     "similarityLevel": { "muy-alta": "Very high", "alta": "High", "moderada": "Moderate" },
     "tempSpan": "{{min}} to {{max}}",
-    "precip": "{{value}} mm/year",
     "coordSouth": "S",
     "coordNorth": "N",
     "coordEast": "E",
@@ -18,9 +18,9 @@
     "loading": "Loading",
     "seeAllLocations": "See all locations",
     "factors": {
-      "rain": "Rainfall",
       "temperature": "Temperature",
-      "terrain": "Terrain difficulty"
+      "thermalRange": "Thermal range",
+      "roughness": "Roughness"
     },
     "error": {
       "title": "The data could not be loaded",
@@ -46,10 +46,14 @@
     "globe": {
       "title": "Pick a place and see its twin",
       "hint": {
-        "mars": "Tap a point on the globe or a name in the list to see its twin on Mars.",
-        "moon": "Tap a point on the globe or a name in the list to see its twin on the Moon."
+        "mars": "Tap a point on the globe or pick one from the menu to see its twin on Mars.",
+        "moon": "Tap a point on the globe or pick one from the menu to see its twin on the Moon."
       },
       "listLabel": "Analog sites",
+      "prev": "Previous site",
+      "next": "Next site",
+      "position": "{{index}} of {{total}}",
+      "otherTwin": "On {{body}} it resembles <strong>{{base}}</strong> · {{percent}}",
       "legendLabel": "Globe legend",
       "legendLevel": {
         "muy-alta": "Very high similarity",
@@ -57,6 +61,7 @@
         "moderada": "Moderate similarity"
       },
       "selected": "Selected",
+      "sameBase": "Same twin base",
       "modeLabel": "Destination"
     },
     "twin": {
@@ -66,10 +71,9 @@
     },
     "criteria": {
       "title": "How we measure similarity",
-      "intro": "We compare each place on Earth with its twin base using the same data: rainfall, temperature and terrain difficulty. We also count whether missions have already been rehearsed there. The percentages are provisional: we are still working out how they combine.",
-      "rain": "It never rains on the Moon or Mars, so we look for the places on Earth where it almost never rains.",
-      "temperature": "The cold and the gap between the lowest and highest temperatures put equipment and crews to the test.",
-      "terrain": "Relief, rock type and how hard it is to move across: craters, lava, permafrost.",
+      "intro": "We compare each place on Earth with its twin base using the same measurements: thermal range and ground roughness. The percentage is provisional. We also count whether missions have already been rehearsed there.",
+      "thermalRange": "The gap between the lowest and highest temperature of the year. It puts equipment and crews to the test.",
+      "roughness": "How much the ground's height changes within about 5 km: how hard it is to move across.",
       "historyTerm": "Track record",
       "history": "Missions and studies that have already used the place to rehearse exploring another world.",
       "noMissions": "No missions recorded",

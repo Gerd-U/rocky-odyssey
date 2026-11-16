@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { SIMILARITY_LEVELS } from "../../lib/similarity";
 import type { Target } from "../../types/site";
-import { LEVEL_COLOR, SELECTED_COLOR } from "./colors";
+import { LEVEL_COLOR, RELATED_COLOR, SELECTED_COLOR } from "./colors";
 
 export default function Legend({ mode }: { mode: Target }) {
   const { t } = useTranslation();
@@ -17,6 +17,10 @@ export default function Legend({ mode }: { mode: Target }) {
       <li className="flex items-center gap-2">
         <span className="size-2.5 rounded-full" style={{ background: SELECTED_COLOR }} />
         {t("home.globe.selected")}
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="size-2.5 rounded-full" style={{ background: RELATED_COLOR }} />
+        {t("home.globe.sameBase")}
       </li>
     </ul>
   );

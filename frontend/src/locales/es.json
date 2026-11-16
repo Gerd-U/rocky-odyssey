@@ -2,11 +2,11 @@
   "common": {
     "bodyName": { "moon": "la Luna", "mars": "Marte" },
     "bodyLabel": { "moon": "Luna", "mars": "Marte" },
+    "noData": "Sin datos",
+    "meters": "{{value}} m",
     "earth": "Tierra",
-    "terrain": { "moderado": "Moderado", "alto": "Alto", "extremo": "Extremo" },
     "similarityLevel": { "muy-alta": "Muy alta", "alta": "Alta", "moderada": "Moderada" },
     "tempSpan": "{{min}} a {{max}}",
-    "precip": "{{value}} mm/año",
     "coordSouth": "S",
     "coordNorth": "N",
     "coordEast": "E",
@@ -18,9 +18,9 @@
     "loading": "Cargando",
     "seeAllLocations": "Ver todas las ubicaciones",
     "factors": {
-      "rain": "Lluvia",
       "temperature": "Temperatura",
-      "terrain": "Dificultad del terreno"
+      "thermalRange": "Rango térmico",
+      "roughness": "Rugosidad"
     },
     "error": {
       "title": "No se pudieron cargar los datos",
@@ -46,10 +46,14 @@
     "globe": {
       "title": "Elige un lugar y mira su gemelo",
       "hint": {
-        "mars": "Toca un punto del globo o un nombre de la lista para ver su gemelo en Marte.",
-        "moon": "Toca un punto del globo o un nombre de la lista para ver su gemelo en la Luna."
+        "mars": "Toca un punto del globo o elígelo en el menú para ver su gemelo en Marte.",
+        "moon": "Toca un punto del globo o elígelo en el menú para ver su gemelo en la Luna."
       },
       "listLabel": "Lugares análogos",
+      "prev": "Sitio anterior",
+      "next": "Sitio siguiente",
+      "position": "{{index}} de {{total}}",
+      "otherTwin": "En {{body}} se parece a <strong>{{base}}</strong> · {{percent}}",
       "legendLabel": "Leyenda del globo",
       "legendLevel": {
         "muy-alta": "Similitud muy alta",
@@ -57,6 +61,7 @@
         "moderada": "Similitud moderada"
       },
       "selected": "Seleccionado",
+      "sameBase": "Misma base gemela",
       "modeLabel": "Destino"
     },
     "twin": {
@@ -66,10 +71,9 @@
     },
     "criteria": {
       "title": "Cómo medimos la similitud",
-      "intro": "Comparamos cada lugar de la Tierra con su base gemela con los mismos datos: lluvia, temperatura y dificultad del terreno. También contamos si ya se ensayaron misiones allí. Los porcentajes son provisionales: todavía estamos definiendo cómo se combinan.",
-      "rain": "En la Luna y Marte no llueve, así que buscamos los lugares de la Tierra donde casi nunca llueve.",
-      "temperature": "El frío y la diferencia entre la mínima y la máxima ponen a prueba equipos y tripulaciones.",
-      "terrain": "Relieve, tipo de roca y lo difícil que es moverse por él: cráteres, lava, permafrost.",
+      "intro": "Comparamos cada lugar de la Tierra con su base gemela con las mismas medidas: el rango térmico y la rugosidad del terreno. El porcentaje es provisional. También contamos si ya se ensayaron misiones allí.",
+      "thermalRange": "La diferencia entre la temperatura más baja y la más alta del año. Pone a prueba equipos y tripulaciones.",
+      "roughness": "Cuánto cambia la altura del terreno en unos 5 km a la redonda: lo difícil que es moverse por él.",
       "historyTerm": "Historial",
       "history": "Misiones y estudios que ya usaron el lugar para ensayar la exploración de otro mundo.",
       "noMissions": "Sin misiones registradas",

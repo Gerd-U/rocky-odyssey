@@ -12,8 +12,8 @@
     "lat": -24.5,
     "lng": -69.25,
     "target": "mars",
-    "analogOf": "jezero",
-    "similarity": 0.91,
+    "analogOf": "gale",
+    "similarity": 0.5157,
     "factors": { "precipMm": 1, "tempMin": -2, "tempMax": 30, "terrain": "alto" },
     "missions": {
       "es": ["ARADS (NASA Ames)", "Life in the Atacama (NASA/CMU)"],
@@ -25,6 +25,21 @@
     "description": {
       "es": "Uno de los desiertos más secos del planeta, con suelos oxidantes y radiación UV intensa.",
       "en": "One of the driest deserts on Earth, with oxidizing soils and intense UV radiation."
+    },
+    "twins": {
+      "moon": {
+        "analogOf": "cabeus",
+        "similarity": 0.4782
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.5157
+      }
+    },
+    "measures": {
+      "thermalRange": 27.9,
+      "ice": 0.0,
+      "roughness": 261.8
     }
   },
   {
@@ -39,9 +54,9 @@
     },
     "lat": -77.5,
     "lng": 162.0,
-    "target": "mars",
-    "analogOf": "arcadia",
-    "similarity": 0.88,
+    "target": "moon",
+    "analogOf": "cabeus",
+    "similarity": 0.469,
     "factors": { "precipMm": 50, "tempMin": -50, "tempMax": 5, "terrain": "extremo" },
     "missions": {
       "es": ["NASA ASTEP", "McMurdo Dry Valleys LTER"],
@@ -53,6 +68,21 @@
     "description": {
       "es": "Valles sin hielo, fríos y muy secos, con permafrost similar al de las llanuras marcianas.",
       "en": "Ice-free valleys, cold and very dry, with permafrost similar to that of the Martian plains."
+    },
+    "twins": {
+      "moon": {
+        "analogOf": "cabeus",
+        "similarity": 0.469
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.2361
+      }
+    },
+    "measures": {
+      "thermalRange": 1.8,
+      "ice": 97.0,
+      "roughness": 308.6
     }
   },
   {
@@ -69,7 +99,7 @@
     "lng": -89.68,
     "target": "mars",
     "analogOf": "gale",
-    "similarity": 0.86,
+    "similarity": 0.4657,
     "factors": { "precipMm": 150, "tempMin": -45, "tempMax": 10, "terrain": "alto" },
     "missions": {
       "es": ["Haughton-Mars Project (NASA/SETI)", "FMARS (Mars Society)"],
@@ -81,230 +111,451 @@
     "description": {
       "es": "Cráter de impacto en el Ártico, frío y aislado, usado para ensayar operaciones de exploración.",
       "en": "An impact crater in the Arctic, cold and isolated, used to rehearse exploration operations."
+    },
+    "twins": {
+      "moon": {
+        "analogOf": "rimaebode",
+        "similarity": 0.3556
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.4657
+      }
+    },
+    "measures": {
+      "thermalRange": 2.3,
+      "ice": 78.5,
+      "roughness": 152.4
     }
   },
   {
-    "id": "riotinto",
+    "id": "altiplanodeltibet",
     "name": {
-      "es": "Río Tinto",
-      "en": "Río Tinto"
+      "es": "Altiplano del Tibet",
+      "en": "Altiplano del Tibet"
     },
     "country": {
-      "es": "España",
-      "en": "Spain"
+      "es": "China",
+      "en": "China"
     },
-    "lat": 37.69,
-    "lng": -6.59,
+    "lat": 34.0,
+    "lng": 85.0,
     "target": "mars",
-    "analogOf": "jezero",
-    "similarity": 0.78,
-    "factors": { "precipMm": 600, "tempMin": 2, "tempMax": 38, "terrain": "moderado" },
-    "missions": {
-      "es": ["MARTE (NASA/CAB)"],
-      "en": ["MARTE (NASA/CAB)"]
+    "analogOf": "arsiamons",
+    "similarity": 0.6552,
+    "twins": {
+      "moon": {
+        "analogOf": "peary",
+        "similarity": 0.4487
+      },
+      "mars": {
+        "analogOf": "arsiamons",
+        "similarity": 0.6552
+      }
     },
-    "image": "/images/riotinto.jpg",
-    "imageAuthor": "David Mata Verdejo",
+    "measures": {
+      "thermalRange": 25.4,
+      "ice": 13.0,
+      "roughness": 47.5
+    },
+    "factors": { "precipMm": null, "tempMin": -26.96, "tempMax": 33.24, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/altiplanodeltibet.jpg",
+    "imageAuthor": "Jan Kranendonk",
     "imageLicense": "CC BY-SA 4.0",
     "description": {
-      "es": "Río ácido rico en hierro y sulfatos, parecido a la química de antiguos ambientes acuosos marcianos.",
-      "en": "An acidic river rich in iron and sulfates, with chemistry similar to ancient watery environments on Mars."
+      "es": "Rango térmico diario medio de 25.4 °C; entre -26.96 °C y 33.24 °C a lo largo de 2023, elevación de 4970.8 m, rugosidad de 47.5 m y nieve en el 13 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 25.4 °C; between -26.96 °C and 33.24 °C over 2023, elevation of 4970.8 m, roughness of 47.5 m and snow on 13% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
-    "id": "mdrs",
+    "id": "askja",
     "name": {
-      "es": "Mars Desert Research Station",
-      "en": "Mars Desert Research Station"
-    },
-    "country": {
-      "es": "Utah, EE. UU.",
-      "en": "Utah, USA"
-    },
-    "lat": 38.41,
-    "lng": -110.79,
-    "target": "mars",
-    "analogOf": "gale",
-    "similarity": 0.8,
-    "factors": { "precipMm": 180, "tempMin": -15, "tempMax": 38, "terrain": "moderado" },
-    "missions": {
-      "es": ["Tripulaciones MDRS (Mars Society)"],
-      "en": ["MDRS crews (Mars Society)"]
-    },
-    "image": "/images/mdrs.jpg",
-    "imageAuthor": "Sokoloff et al. (2020)",
-    "imageLicense": "CC BY 4.0",
-    "description": {
-      "es": "Estación de simulación en un desierto de rocas sedimentarias rojizas.",
-      "en": "A simulation station in a desert of reddish sedimentary rock."
-    }
-  },
-  {
-    "id": "svalbard",
-    "name": {
-      "es": "Svalbard",
-      "en": "Svalbard"
-    },
-    "country": {
-      "es": "Noruega",
-      "en": "Norway"
-    },
-    "lat": 79.4,
-    "lng": 13.3,
-    "target": "mars",
-    "analogOf": "arcadia",
-    "similarity": 0.74,
-    "factors": { "precipMm": 400, "tempMin": -25, "tempMax": 8, "terrain": "alto" },
-    "missions": {
-      "es": ["AMASE (NASA/ESA)"],
-      "en": ["AMASE (NASA/ESA)"]
-    },
-    "image": "/images/svalbard.jpg",
-    "imageAuthor": "Bernt Rostad",
-    "imageLicense": "CC BY 2.0",
-    "description": {
-      "es": "Archipiélago ártico con volcanes, permafrost y manantiales que sirven para probar instrumentos.",
-      "en": "An Arctic archipelago with volcanoes, permafrost and springs that are used to test instruments."
-    }
-  },
-  {
-    "id": "lanzarote",
-    "name": {
-      "es": "Lanzarote",
-      "en": "Lanzarote"
-    },
-    "country": {
-      "es": "España",
-      "en": "Spain"
-    },
-    "lat": 29.0,
-    "lng": -13.7,
-    "target": "moon",
-    "analogOf": "marius",
-    "similarity": 0.72,
-    "factors": { "precipMm": 140, "tempMin": 12, "tempMax": 30, "terrain": "moderado" },
-    "missions": {
-      "es": ["PANGAEA (ESA)"],
-      "en": ["PANGAEA (ESA)"]
-    },
-    "image": "/images/lanzarote.jpg",
-    "imageAuthor": "H. Zell",
-    "imageLicense": "CC BY-SA 3.0",
-    "description": {
-      "es": "Isla volcánica con campos de lava y tubos volcánicos usados para entrenar astronautas.",
-      "en": "A volcanic island with lava fields and lava tubes used to train astronauts."
-    }
-  },
-  {
-    "id": "hiseas",
-    "name": {
-      "es": "HI-SEAS, Mauna Loa",
-      "en": "HI-SEAS, Mauna Loa"
-    },
-    "country": {
-      "es": "Hawái, EE. UU.",
-      "en": "Hawaii, USA"
-    },
-    "lat": 19.6,
-    "lng": -155.48,
-    "target": "moon",
-    "analogOf": "tranquilidad",
-    "similarity": 0.75,
-    "factors": { "precipMm": 400, "tempMin": -5, "tempMax": 20, "terrain": "alto" },
-    "missions": {
-      "es": ["HI-SEAS (NASA HRP)"],
-      "en": ["HI-SEAS (NASA HRP)"]
-    },
-    "image": "/images/hiseas.jpg",
-    "imageAuthor": "Tiffany Swarmer, NASA",
-    "imageLicense": "public-domain",
-    "description": {
-      "es": "Hábitat de aislamiento en las laderas de basalto de un volcán, sin vegetación alrededor.",
-      "en": "An isolation habitat on the basalt slopes of a volcano, with no vegetation around it."
-    }
-  },
-  {
-    "id": "meteorcrater",
-    "name": {
-      "es": "Meteor Crater",
-      "en": "Meteor Crater"
-    },
-    "country": {
-      "es": "Arizona, EE. UU.",
-      "en": "Arizona, USA"
-    },
-    "lat": 35.03,
-    "lng": -111.02,
-    "target": "moon",
-    "analogOf": "tranquilidad",
-    "similarity": 0.7,
-    "factors": { "precipMm": 250, "tempMin": -10, "tempMax": 35, "terrain": "moderado" },
-    "missions": {
-      "es": ["Entrenamiento de astronautas Apollo"],
-      "en": ["Apollo astronaut training"]
-    },
-    "image": "/images/meteorcrater.jpg",
-    "imageAuthor": "USGS",
-    "imageLicense": "public-domain",
-    "description": {
-      "es": "Cráter de impacto bien conservado donde se entrenó a las tripulaciones del programa Apollo.",
-      "en": "A well-preserved impact crater where the Apollo crews trained."
-    }
-  },
-  {
-    "id": "islandia",
-    "name": {
-      "es": "Holuhraun",
-      "en": "Holuhraun"
+      "es": "Askja",
+      "en": "Askja"
     },
     "country": {
       "es": "Islandia",
-      "en": "Iceland"
+      "en": "Islandia"
     },
-    "lat": 64.87,
-    "lng": -16.83,
-    "target": "moon",
-    "analogOf": "marius",
-    "similarity": 0.69,
-    "factors": { "precipMm": 450, "tempMin": -20, "tempMax": 15, "terrain": "alto" },
+    "lat": 65.0,
+    "lng": -16.7,
+    "target": "mars",
+    "analogOf": "gale",
+    "similarity": 0.3946,
+    "twins": {
+      "moon": {
+        "analogOf": "cabeus",
+        "similarity": 0.3215
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.3946
+      }
+    },
+    "measures": {
+      "thermalRange": 6.3,
+      "ice": 75.3,
+      "roughness": 201.3
+    },
+    "factors": { "precipMm": null, "tempMin": -21.36, "tempMax": 20.27, "terrain": null },
     "missions": {
-      "es": ["SAND-E (NASA PSTAR)"],
-      "en": ["SAND-E (NASA PSTAR)"]
+      "es": [],
+      "en": []
     },
-    "image": "/images/islandia.jpg",
-    "imageAuthor": "NASA Earth Observatory / USGS (Landsat 8)",
-    "imageLicense": "public-domain",
+    "image": "/images/askja.jpg",
+    "imageAuthor": "Luca Temporelli",
+    "imageLicense": "CC BY-SA 2.0",
     "description": {
-      "es": "Campo de lava reciente y sin vegetación, útil para estudiar terrenos basálticos.",
-      "en": "A recent lava field with no vegetation, useful for studying basaltic terrain."
+      "es": "Rango térmico diario medio de 6.3 °C; entre -21.36 °C y 20.27 °C a lo largo de 2023, elevación de 969.2 m, rugosidad de 201.3 m y nieve en el 75.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 6.3 °C; between -21.36 °C and 20.27 °C over 2023, elevation of 969.2 m, roughness of 201.3 m and snow on 75.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
-    "id": "concordia",
+    "id": "dasht-elut",
     "name": {
-      "es": "Estación Concordia",
-      "en": "Concordia Station"
+      "es": "Dasht-e Lut",
+      "en": "Dasht-e Lut"
     },
     "country": {
-      "es": "Antártida",
-      "en": "Antarctica"
+      "es": "Iran",
+      "en": "Iran"
     },
-    "lat": -75.1,
-    "lng": 123.3,
-    "target": "moon",
-    "analogOf": "shackleton",
-    "similarity": 0.83,
-    "factors": { "precipMm": 25, "tempMin": -80, "tempMax": -25, "terrain": "extremo" },
+    "lat": 30.5,
+    "lng": 59.0,
+    "target": "mars",
+    "analogOf": "arsiamons",
+    "similarity": 0.6454,
+    "twins": {
+      "moon": {
+        "analogOf": "peary",
+        "similarity": 0.5166
+      },
+      "mars": {
+        "analogOf": "arsiamons",
+        "similarity": 0.6454
+      }
+    },
+    "measures": {
+      "thermalRange": 26.0,
+      "ice": 0.0,
+      "roughness": 56.5
+    },
+    "factors": { "precipMm": null, "tempMin": -0.44, "tempMax": 60.42, "terrain": null },
     "missions": {
-      "es": ["Estudios de aislamiento (ESA)"],
-      "en": ["Isolation studies (ESA)"]
+      "es": [],
+      "en": []
     },
-    "image": "/images/concordia.jpg",
-    "imageAuthor": "Paride Legovini",
+    "image": "/images/dasht-elut.jpg",
+    "imageAuthor": "Lrkrol",
     "imageLicense": "CC BY 4.0",
     "description": {
-      "es": "Base en la meseta antártica, con frío extremo, aislamiento y meses de noche polar.",
-      "en": "A base on the Antarctic plateau, with extreme cold, isolation and months of polar night."
+      "es": "Rango térmico diario medio de 26 °C; entre -0.44 °C y 60.42 °C a lo largo de 2023, elevación de 528.1 m, rugosidad de 56.5 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 26 °C; between -0.44 °C and 60.42 °C over 2023, elevation of 528.1 m, roughness of 56.5 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "depresiondedanakil",
+    "name": {
+      "es": "Depresion de Danakil",
+      "en": "Depresion de Danakil"
+    },
+    "country": {
+      "es": "Etiopia",
+      "en": "Etiopia"
+    },
+    "lat": 14.2,
+    "lng": 40.3,
+    "target": "moon",
+    "analogOf": "tranquilidad",
+    "similarity": 0.461,
+    "twins": {
+      "moon": {
+        "analogOf": "tranquilidad",
+        "similarity": 0.461
+      },
+      "mars": {
+        "analogOf": "arcadia",
+        "similarity": 0.4356
+      }
+    },
+    "measures": {
+      "thermalRange": 9.5,
+      "ice": 0.0,
+      "roughness": 14.6
+    },
+    "factors": { "precipMm": null, "tempMin": 27.11, "tempMax": 50.04, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/depresiondedanakil.jpg",
+    "imageAuthor": "Thomas Fuhrmann",
+    "imageLicense": "CC BY-SA 4.0",
+    "description": {
+      "es": "Rango térmico diario medio de 9.5 °C; entre 27.11 °C y 50.04 °C a lo largo de 2023, elevación de -120.9 m, rugosidad de 14.6 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 9.5 °C; between 27.11 °C and 50.04 °C over 2023, elevation of -120.9 m, roughness of 14.6 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "desiertodegobi",
+    "name": {
+      "es": "Desierto de Gobi",
+      "en": "Desierto de Gobi"
+    },
+    "country": {
+      "es": "Mongolia",
+      "en": "Mongolia"
+    },
+    "lat": 43.5,
+    "lng": 104.0,
+    "target": "mars",
+    "analogOf": "gale",
+    "similarity": 0.6656,
+    "twins": {
+      "moon": {
+        "analogOf": "rimaebode",
+        "similarity": 0.4228
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.6656
+      }
+    },
+    "measures": {
+      "thermalRange": 18.5,
+      "ice": 33.0,
+      "roughness": 136.8
+    },
+    "factors": { "precipMm": null, "tempMin": -28.36, "tempMax": 38.0, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/desiertodegobi.jpg",
+    "imageAuthor": "Marcin Konsek",
+    "imageLicense": "CC BY-SA 4.0",
+    "description": {
+      "es": "Rango térmico diario medio de 18.5 °C; entre -28.36 °C y 38 °C a lo largo de 2023, elevación de 2335.6 m, rugosidad de 136.8 m y nieve en el 33 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 18.5 °C; between -28.36 °C and 38 °C over 2023, elevation of 2335.6 m, roughness of 136.8 m and snow on 33% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "mojave",
+    "name": {
+      "es": "Mojave",
+      "en": "Mojave"
+    },
+    "country": {
+      "es": "EEUU",
+      "en": "EEUU"
+    },
+    "lat": 35.0,
+    "lng": -116.5,
+    "target": "mars",
+    "analogOf": "jezero",
+    "similarity": 0.6464,
+    "twins": {
+      "moon": {
+        "analogOf": "peary",
+        "similarity": 0.5493
+      },
+      "mars": {
+        "analogOf": "jezero",
+        "similarity": 0.6464
+      }
+    },
+    "measures": {
+      "thermalRange": 19.8,
+      "ice": 0.3,
+      "roughness": 73.4
+    },
+    "factors": { "precipMm": null, "tempMin": 0.93, "tempMax": 54.83, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/mojave.jpg",
+    "imageAuthor": "BLM Nevada",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rango térmico diario medio de 19.8 °C; entre 0.93 °C y 54.83 °C a lo largo de 2023, elevación de 578.9 m, rugosidad de 73.4 m y nieve en el 0.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 19.8 °C; between 0.93 °C and 54.83 °C over 2023, elevation of 578.9 m, roughness of 73.4 m and snow on 0.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "salardeuyuni",
+    "name": {
+      "es": "Salar de Uyuni",
+      "en": "Salar de Uyuni"
+    },
+    "country": {
+      "es": "Bolivia",
+      "en": "Bolivia"
+    },
+    "lat": -20.2,
+    "lng": -67.5,
+    "target": "mars",
+    "analogOf": "arcadia",
+    "similarity": 0.4901,
+    "twins": {
+      "moon": {
+        "analogOf": "tranquilidad",
+        "similarity": 0.2993
+      },
+      "mars": {
+        "analogOf": "arcadia",
+        "similarity": 0.4901
+      }
+    },
+    "measures": {
+      "thermalRange": 6.5,
+      "ice": 100.0,
+      "roughness": 7.5
+    },
+    "factors": { "precipMm": null, "tempMin": -7.27, "tempMax": 20.53, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/salardeuyuni.jpg",
+    "imageAuthor": "Diego Delso",
+    "imageLicense": "CC BY-SA 4.0",
+    "description": {
+      "es": "Rango térmico diario medio de 6.5 °C; entre -7.27 °C y 20.53 °C a lo largo de 2023, elevación de 3652.3 m, rugosidad de 7.5 m y nieve en el 100 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 6.5 °C; between -7.27 °C and 20.53 °C over 2023, elevation of 3652.3 m, roughness of 7.5 m and snow on 100% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "taklamakan",
+    "name": {
+      "es": "Taklamakan",
+      "en": "Taklamakan"
+    },
+    "country": {
+      "es": "China",
+      "en": "China"
+    },
+    "lat": 38.9,
+    "lng": 83.0,
+    "target": "mars",
+    "analogOf": "arcadia",
+    "similarity": 0.6702,
+    "twins": {
+      "moon": {
+        "analogOf": "tranquilidad",
+        "similarity": 0.2884
+      },
+      "mars": {
+        "analogOf": "arcadia",
+        "similarity": 0.6702
+      }
+    },
+    "measures": {
+      "thermalRange": 25.4,
+      "ice": 0.7,
+      "roughness": 6.4
+    },
+    "factors": { "precipMm": null, "tempMin": -19.51, "tempMax": 54.84, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/taklamakan.jpg",
+    "imageAuthor": "NASA GSFC (MODIS)",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rango térmico diario medio de 25.4 °C; entre -19.51 °C y 54.84 °C a lo largo de 2023, elevación de 1134.2 m, rugosidad de 6.4 m y nieve en el 0.7 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 25.4 °C; between -19.51 °C and 54.84 °C over 2023, elevation of 1134.2 m, roughness of 6.4 m and snow on 0.7% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "tibesti",
+    "name": {
+      "es": "Tibesti",
+      "en": "Tibesti"
+    },
+    "country": {
+      "es": "Chad",
+      "en": "Chad"
+    },
+    "lat": 20.0,
+    "lng": 18.0,
+    "target": "mars",
+    "analogOf": "jezero",
+    "similarity": 0.6028,
+    "twins": {
+      "moon": {
+        "analogOf": "peary",
+        "similarity": 0.5594
+      },
+      "mars": {
+        "analogOf": "jezero",
+        "similarity": 0.6028
+      }
+    },
+    "measures": {
+      "thermalRange": 20.1,
+      "ice": 0.0,
+      "roughness": 65.7
+    },
+    "factors": { "precipMm": null, "tempMin": 14.22, "tempMax": 54.24, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/tibesti.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rango térmico diario medio de 20.1 °C; entre 14.22 °C y 54.24 °C a lo largo de 2023, elevación de 837.1 m, rugosidad de 65.7 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 20.1 °C; between 14.22 °C and 54.24 °C over 2023, elevation of 837.1 m, roughness of 65.7 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+    }
+  },
+  {
+    "id": "tolbachikkamchatka",
+    "name": {
+      "es": "Tolbachik Kamchatka",
+      "en": "Tolbachik Kamchatka"
+    },
+    "country": {
+      "es": "Rusia",
+      "en": "Rusia"
+    },
+    "lat": 55.8,
+    "lng": 160.3,
+    "target": "moon",
+    "analogOf": "cabeus",
+    "similarity": 0.3992,
+    "twins": {
+      "moon": {
+        "analogOf": "cabeus",
+        "similarity": 0.3992
+      },
+      "mars": {
+        "analogOf": "gale",
+        "similarity": 0.2286
+      }
+    },
+    "measures": {
+      "thermalRange": 8.3,
+      "ice": 92.9,
+      "roughness": 445.2
+    },
+    "factors": { "precipMm": null, "tempMin": -31.84, "tempMax": 26.3, "terrain": null },
+    "missions": {
+      "es": [],
+      "en": []
+    },
+    "image": "/images/tolbachikkamchatka.jpg",
+    "imageAuthor": "Anton Korablev",
+    "imageLicense": "CC BY 4.0",
+    "description": {
+      "es": "Rango térmico diario medio de 8.3 °C; entre -31.84 °C y 26.3 °C a lo largo de 2023, elevación de 1633.6 m, rugosidad de 445.2 m y nieve en el 92.9 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 8.3 °C; between -31.84 °C and 26.3 °C over 2023, elevation of 1633.6 m, roughness of 445.2 m and snow on 92.9% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   }
 ]

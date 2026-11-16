@@ -1,44 +1,32 @@
 import { getLang, SUPPORTED_LANGS, type Lang } from "../i18n";
-import type { Base, Site } from "../types/site";
-import sitesMock from "../data/sites.mock.json";
-import basesMock from "../data/bases.mock.json";
+import type { Base, Site, Target, Twin } from "../types/site";
 
 /**
  * Única puerta de entrada a los datos. Ningún componente hace fetch directo.
- * VITE_USE_MOCK=true  -> devuelve los JSON de src/data
- * VITE_USE_MOCK=false -> pide al backend en VITE_API_URL
+ * Todo se pide al backend en VITE_API_URL (por defecto http://localhost:8000).
  *
- * Los textos (name, country, description, missions) llegan en el idioma pedido.
+ * Los textos (name, country, description, missions) llegan ya en el idioma pedido.
  * Cada endpoint se pide una sola vez por idioma: todos los componentes comparten la misma promesa.
  */
-const USE_MOCK = import.meta.env.VITE_USE_MOCK === "true";
-const API_URL = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
-
-/** Campo con una versión por idioma, como en backend/data y src/data/*.mock.json */
-type Translated<T> = Record<Lang, T>;
-type TranslatedField = "name" | "country" | "description" | "missions";
-
-/** Formato bilingüe de los JSON: los campos traducidos son objetos { es, en } */
-type Bilingual<T> = Omit<T, TranslatedField | "dataSource"> & {
-  [K in TranslatedField & keyof T]: Translated<T[K]>;
-};
-
-const mockSites = sitesMock as Bilingual<Site>[];
-const mockBases = basesMock as Bilingual<Base>[];
+const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/$/, "");
 
 function toLang(lang: string): Lang {
   return (SUPPORTED_LANGS as readonly string[]).includes(lang) ? (lang as Lang) : "en";
 }
 
-/** Resuelve los campos { es, en } al idioma pedido (lo mismo que hace el backend con ?lang) */
-function localize<T>(item: Bilingual<T>, lang: Lang): T {
-  const out: Record<string, unknown> = { ...item };
-  for (const [key, value] of Object.entries(item)) {
-    if (value && typeof value === "object" && !Array.isArray(value) && "es" in value && "en" in value) {
-      out[key] = (value as Translated<unknown>)[lang];
-    }
-  }
-  return out as T;
+/**
+ * Un sitio con gemelos en los dos destinos aparece una vez en cada globo: una entrada por
+ * destino, con target, analogOf y similarity de ese gemelo. Sin twins, se deja como viene.
+ */
+function perTarget(site: Site): Site[] {
+  const twins = Object.entries(site.twins ?? {}) as [Target, Twin][];
+  if (twins.length === 0) return [site];
+  return twins.map(([target, twin]) => ({ ...site, target, analogOf: twin.analogOf, similarity: twin.similarity }));
+}
+
+/** Enlace a la ficha de un sitio en su destino: /ubicacion/atacama?destino=moon */
+export function siteUrl(site: Pick<Site, "id" | "target">): string {
+  return `/ubicacion/${site.id}?destino=${site.target}`;
 }
 
 const cache = new Map<string, Promise<unknown>>();
@@ -66,9 +54,7 @@ async function request<T>(path: string, lang: Lang): Promise<T> {
 /** `lang` por defecto es el idioma activo; un valor no admitido se trata como inglés */
 export function getSites(lang: string = getLang()): Promise<Site[]> {
   const l = toLang(lang);
-  return cached(`sites:${l}`, async () =>
-    USE_MOCK ? mockSites.map((s) => localize<Site>(s, l)) : request<Site[]>("/sites", l),
-  );
+  return cached(`sites:${l}`, async () => (await request<Site[]>("/sites", l)).flatMap(perTarget));
 }
 
 export async function getSite(id: string, lang: string = getLang()): Promise<Site> {
@@ -80,6 +66,6 @@ export async function getSite(id: string, lang: string = getLang()): Promise<Sit
 export function getBases(lang: string = getLang()): Promise<Base[]> {
   const l = toLang(lang);
   return cached(`bases:${l}`, async () =>
-    USE_MOCK ? mockBases.map((b) => localize<Base>(b, l)) : request<Base[]>("/bases", l),
+    request<Base[]>("/bases", l),
   );
 }

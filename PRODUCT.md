@@ -34,9 +34,9 @@ Proyecto para el NASA Space Apps Challenge. Se ve en escritorio durante la evalu
 ## Capabilities and Constraints
 
 - Frontend: React + Vite + Tailwind v4, globo 3D con react-globe.gl.
-- Backend en Python (pendiente). Hasta entonces los datos salen de `frontend/src/data/*.mock.json`.
+- Backend en Python (FastAPI). La web pide todos los datos a `/api/sites` y `/api/bases`; no hay datos de prueba en el frontend.
 - Modo Luna / Marte que filtra todo el contenido.
-- 11 sitios en la Tierra y 6 bases: en la Luna, Shackleton (polo sur), el pozo de Marius Hills y el Mar de la Tranquilidad; en Marte, Jezero, Arcadia Planitia y Gale. Cada sitio apunta a la base con la que comparte el motivo del parecido (frío polar, tubos de lava, basalto, cráteres).
+- 13 sitios en la Tierra y 11 bases, todos con datos de `datos/`: en la Luna, Shackleton, el pozo del Mare Tranquillitatis, Malapert Massif, Cabeus, Rimae Bode y Peary; en Marte, Jezero, Arcadia Planitia, Gale, Oxia Planum y Arsia Mons. Cada sitio se compara por separado con la Luna y con Marte (rango térmico, hielo y rugosidad) y tiene un gemelo en cada globo; lo calcula `datos/scripts/generar_datos_web.py`.
 - **Sin decidir:** cómo se calcula el porcentaje de similitud. Los valores actuales son provisionales; no presentarlos como resultado de un modelo.
 - Las temperaturas de las bases son aproximadas.
 
