@@ -43,12 +43,44 @@ function cached<T>(key: string, load: () => Promise<T>): Promise<T> {
   return promise;
 }
 
-async function request<T>(path: string, lang: Lang): Promise<T> {
-  const res = await fetch(`${API_URL}/api${path}?lang=${lang}`);
-  if (!res.ok) {
-    throw new Error(`Error ${res.status} al pedir ${path}`);
+/**
+ * Reintentos para el arranque en frío del backend en Vercel: la primera petición tras un rato
+ * sin uso puede tardar varios segundos o fallar. Se reintenta solo lo que puede arreglarse
+ * esperando (fallo de red, tiempo agotado, error 5xx); un 404 o un 400 falla a la primera.
+ */
+const TIMEOUT_MS = 15_000;
+const RETRY_DELAYS_MS = [1_000, 3_000];
+
+/** Error que no vale la pena reintentar (respuesta 4xx del backend) */
+class ClientError extends Error {}
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function fetchOnce<T>(url: string, path: string): Promise<T> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) {
+      const message = `Error ${res.status} al pedir ${path}`;
+      throw res.status < 500 ? new ClientError(message) : new Error(message);
+    }
+    return (await res.json()) as T;
+  } finally {
+    clearTimeout(timer);
   }
-  return (await res.json()) as T;
+}
+
+async function request<T>(path: string, lang: Lang): Promise<T> {
+  const url = `${API_URL}/api${path}?lang=${lang}`;
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await fetchOnce<T>(url, path);
+    } catch (err) {
+      if (err instanceof ClientError || attempt >= RETRY_DELAYS_MS.length) throw err;
+      await wait(RETRY_DELAYS_MS[attempt]);
+    }
+  }
 }
 
 /** `lang` por defecto es el idioma activo; un valor no admitido se trata como inglés */
