@@ -1,5 +1,6 @@
 import csv
 import json
+import os
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
@@ -7,7 +8,10 @@ from fastapi import APIRouter, HTTPException
 router = APIRouter(prefix="/api", tags=["Frontend"])
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-SCIENCE_DIR = Path(__file__).resolve().parents[3] / "datos"
+# Carpeta con sources_log_moon.csv y sources_log_mars.csv. Por defecto backend/data, donde
+# generar_datos_web.py los copia desde datos/: así el backend no depende de nada fuera de su
+# carpeta (en Vercel solo se despliega backend/). DATOS_DIR permite apuntar a otra.
+SCIENCE_DIR = Path(os.getenv("DATOS_DIR") or DATA_DIR)
 
 SUPPORTED_LANGS = ("en", "es")
 DEFAULT_LANG = "en"

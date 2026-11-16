@@ -1,14 +1,14 @@
+import { API_URL } from "../config";
 import { getLang, SUPPORTED_LANGS, type Lang } from "../i18n";
 import type { Base, Site, Target, Twin } from "../types/site";
 
 /**
  * Única puerta de entrada a los datos. Ningún componente hace fetch directo.
- * Todo se pide al backend en VITE_API_URL (por defecto http://localhost:8000).
+ * Todo se pide al backend en API_URL (src/config.ts, sale de VITE_API_URL).
  *
  * Los textos (name, country, description, missions) llegan ya en el idioma pedido.
  * Cada endpoint se pide una sola vez por idioma: todos los componentes comparten la misma promesa.
  */
-const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/$/, "");
 
 function toLang(lang: string): Lang {
   return (SUPPORTED_LANGS as readonly string[]).includes(lang) ? (lang as Lang) : "en";

@@ -154,8 +154,9 @@
     "pixabay": "Pixabay Content License"
   },
   "notFound": {
-    "title": "We couldn't find this page",
-    "text": "The link may be mistyped, or the page may no longer exist.",
-    "home": "Back to home"
+    "title": "This page isn't on any map",
+    "text": "The link may be mistyped, or the page may no longer exist. You can go back home or keep exploring from here.",
+    "home": "Back to home",
+    "suggestions": "Places that do exist"
   }
 }

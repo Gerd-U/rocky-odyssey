@@ -47,6 +47,8 @@ SALIDA
   datos que ya existían y agrega los nuevos. measures = {thermalRange (°C de diferencia),
   ice (% de días con nieve), roughness (m)}: las tres medidas que se comparan.
 - backend/data/bases.json: agrega las bases nuevas; las existentes no se tocan.
+- backend/data/sources_log_moon.csv y sources_log_mars.csv: copia de los de datos/, que el
+  backend usa para las temperaturas de las bases (en Vercel solo se despliega backend/).
 Se puede correr varias veces: si el id ya existe se actualiza (conservando image, imageAuthor
 e imageLicense si ya tiene foto), si no se agrega.
 
@@ -56,6 +58,7 @@ Uso: python datos/scripts/generar_datos_web.py
 import ast
 import csv
 import json
+import shutil
 import statistics
 import sys
 import unicodedata
@@ -363,6 +366,10 @@ def main():
             },
         })
     escribir(DATA_WEB / "bases.json", bases)
+
+    # ---- sources_log para el backend ----
+    for nombre in ("sources_log_moon.csv", "sources_log_mars.csv"):
+        shutil.copy2(DATOS / nombre, DATA_WEB / nombre)
 
     # ---- resumen ----
     print(f"{'Sitio':<22}{'Rango':>7}{'Hielo%':>7}{'Rug.':>7}  {'Luna':<26}{'Marte':<26}")

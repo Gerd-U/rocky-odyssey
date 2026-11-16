@@ -80,7 +80,9 @@ def test_cors_middleware_allows_frontend_origin():
         item for item in app.user_middleware if item.cls is CORSMiddleware
     )
 
-    assert middleware.kwargs["allow_origins"] == ["*"]
+    # Sin ORIGENES en el entorno, solo el frontend de Vite en local
+    assert "http://localhost:5173" in middleware.kwargs["allow_origins"]
+    assert "*" not in middleware.kwargs["allow_origins"]
     assert middleware.kwargs["allow_credentials"] is False
 
 

@@ -154,8 +154,9 @@
     "pixabay": "Licencia de contenido de Pixabay"
   },
   "notFound": {
-    "title": "No encontramos esta página",
-    "text": "Puede que el enlace esté mal escrito o que la página ya no exista.",
-    "home": "Volver al inicio"
+    "title": "Esta página no está en ningún mapa",
+    "text": "Puede que el enlace esté mal escrito o que la página ya no exista. Desde aquí puedes volver al inicio o seguir explorando.",
+    "home": "Volver al inicio",
+    "suggestions": "Lugares que sí existen"
   }
 }
