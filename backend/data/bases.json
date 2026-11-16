@@ -99,9 +99,9 @@
     "lat": -84.8,
     "lng": 12.3,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/malapertmassif.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 882.7 m, rango térmico de 192 K y hielo de 0 %.",
       "en": "Roughness of 882.7 m, thermal range of 192 K and ice of 0%."
@@ -117,9 +117,9 @@
     "lat": -85.3,
     "lng": -41.8,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/cabeus.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 332.9 m, rango térmico de 164.2 K y hielo de 0 %.",
       "en": "Roughness of 332.9 m, thermal range of 164.2 K and ice of 0%."
@@ -135,9 +135,9 @@
     "lat": 9.54,
     "lng": -3.22,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/rimaebode.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 107.2 m, rango térmico de 298.7 K y hielo de 0 %.",
       "en": "Roughness of 107.2 m, thermal range of 298.7 K and ice of 0%."
@@ -153,9 +153,9 @@
     "lat": 88.56,
     "lng": 25.7,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/peary.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 68.8 m, rango térmico de 122.7 K y hielo de 0 %.",
       "en": "Roughness of 68.8 m, thermal range of 122.7 K and ice of 0%."
@@ -171,9 +171,9 @@
     "lat": 18.2,
     "lng": -24.6,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/oxiaplanum.jpg",
+    "imageAuthor": "NASA/JPL/University of Arizona",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 23 m, rango térmico de 45.3 K y hielo de 0 %.",
       "en": "Roughness of 23 m, thermal range of 45.3 K and ice of 0%."
@@ -189,9 +189,9 @@
     "lat": -8.35,
     "lng": -120.1,
     "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
-    "image": "",
-    "imageAuthor": "",
-    "imageLicense": "",
+    "image": "/images/bases/arsiamons.jpg",
+    "imageAuthor": "NASA / JPL-Caltech / Arizona State University",
+    "imageLicense": "public-domain",
     "description": {
       "es": "Rugosidad de 51 m, rango térmico de 67 K y hielo de 0 %.",
       "en": "Roughness of 51 m, thermal range of 67 K and ice of 0%."

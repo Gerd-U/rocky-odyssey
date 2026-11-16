@@ -47,7 +47,8 @@ SALIDA
   datos que ya existían y agrega los nuevos. measures = {thermalRange (°C de diferencia),
   ice (% de días con nieve), roughness (m)}: las tres medidas que se comparan.
 - backend/data/bases.json: agrega las bases nuevas; las existentes no se tocan.
-Se puede correr varias veces: si el id ya existe se actualiza, si no se agrega.
+Se puede correr varias veces: si el id ya existe se actualiza (conservando image, imageAuthor
+e imageLicense si ya tiene foto), si no se agrega.
 
 Uso: python datos/scripts/generar_datos_web.py
 """
@@ -208,9 +209,15 @@ def escribir(ruta, datos):
     ruta.write_text(_dump(datos, 0) + "\n", encoding="utf-8")
 
 
+IMAGEN = ("image", "imageAuthor", "imageLicense")
+
+
 def upsert(lista, item):
+    """Si el id ya existe, lo reemplaza conservando su foto y créditos; si no, lo agrega."""
     for i, existente in enumerate(lista):
         if existente.get("id") == item["id"]:
+            if existente.get("image"):
+                item.update({campo: existente.get(campo, "") for campo in IMAGEN})
             lista[i] = item
             return
     lista.append(item)

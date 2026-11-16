@@ -56,11 +56,123 @@
     "source": "https://commons.wikimedia.org/wiki/File:Aldrin_Looks_Back_at_Tranquility_Base_-_GPN-2000-001102.jpg"
   },
   {
+    "path": "/images/bases/malapertmassif.jpg",
+    "title": "AS15-96-13090 Malapert mountain",
+    "author": "NASA",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:AS15-96-13090_Malapert_mountain.jpg"
+  },
+  {
+    "path": "/images/bases/cabeus.jpg",
+    "title": "Lcross-impact-site-seen-from-LRO-orbit",
+    "author": "NASA",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Lcross-impact-site-seen-from-LRO-orbit.jpg"
+  },
+  {
+    "path": "/images/bases/peary.jpg",
+    "title": "NorthPoleCraters",
+    "author": "NASA",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:NorthPoleCraters.jpg"
+  },
+  {
+    "path": "/images/bases/oxiaplanum.jpg",
+    "title": "Oxia Planum near Coogoon Vallis by HiRise",
+    "author": "NASA/JPL/University of Arizona",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Oxia_Planum_near_Coogoon_Vallis_by_HiRise.jpg"
+  },
+  {
+    "path": "/images/bases/arsiamons.jpg",
+    "title": "Arsia Mons mosaic",
+    "author": "NASA / JPL-Caltech / Arizona State University",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Arsia_Mons_mosaic.jpg"
+  },
+  {
+    "path": "/images/bases/rimaebode.jpg",
+    "title": "Rima Bode- Constellation region of interest (LROC177 - rimabode context WAC web2)",
+    "author": "NASA/GSFC/Arizona State University",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Rima_Bode-_Constellation_region_of_interest_(LROC177_-_rimabode_context_WAC_web2).png"
+  },
+  {
     "path": "/images/moon-surface.jpg",
     "title": "Schmitt junto a una gran roca, Apollo 17",
     "author": "NASA / Eugene A. Cernan",
     "license": "public-domain",
     "source": "https://commons.wikimedia.org/wiki/File:Schmitt_Next_to_Big_Boulder_-_GPN-2000-001148.jpg"
+  },
+  {
+    "path": "/images/altiplanodeltibet.jpg",
+    "title": "Landscape of the Tibetan Plateau",
+    "author": "Jan Kranendonk",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Landscape_of_the_Tibetan_Plateau.jpg"
+  },
+  {
+    "path": "/images/askja.jpg",
+    "title": "Askja (29237657682)",
+    "author": "Luca Temporelli",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Askja_(29237657682).jpg"
+  },
+  {
+    "path": "/images/dasht-elut.jpg",
+    "title": "2020-01-02 Iran, Kerman, Dasht-e Lut DSC 9973 DxO",
+    "author": "Lrkrol",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2020-01-02_Iran,_Kerman,_Dasht-e_Lut_DSC_9973_DxO.jpg"
+  },
+  {
+    "path": "/images/depresiondedanakil.jpg",
+    "title": "Ethiopia - dry landscape in the Danakil Depression",
+    "author": "Thomas Fuhrmann",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ethiopia_-_dry_landscape_in_the_Danakil_Depression.jpg"
+  },
+  {
+    "path": "/images/desiertodegobi.jpg",
+    "title": "Gobi, krajobraz pustyni (23)",
+    "author": "Marcin Konsek",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gobi,_krajobraz_pustyni_(23).jpg"
+  },
+  {
+    "path": "/images/mojave.jpg",
+    "title": "Mojave Desert Landscape at Gold Butte (54091361174)",
+    "author": "BLM Nevada",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Mojave_Desert_Landscape_at_Gold_Butte_(54091361174).jpg"
+  },
+  {
+    "path": "/images/salardeuyuni.jpg",
+    "title": "Salar de Uyuni, Bolivia, 2016-02-04, DD 16-18 HDR",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Salar_de_Uyuni,_Bolivia,_2016-02-04,_DD_16-18_HDR.JPG"
+  },
+  {
+    "path": "/images/taklamakan.jpg",
+    "title": "Taklamakan Desert (MODIS 2019-10-03)",
+    "author": "NASA GSFC (MODIS)",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Taklamakan_Desert_(MODIS_2019-10-03).jpg"
+  },
+  {
+    "path": "/images/tibesti.jpg",
+    "title": "ISS-61 Tibesti Mountains, Chad",
+    "author": "NASA",
+    "license": "public-domain",
+    "source": "https://commons.wikimedia.org/wiki/File:ISS-61_Tibesti_Mountains,_Chad.jpg"
+  },
+  {
+    "path": "/images/tolbachikkamchatka.jpg",
+    "title": "Tolbachik",
+    "author": "Anton Korablev",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/w/index.php?curid=104696116"
   },
   {
     "path": "/textures/earth.jpg",

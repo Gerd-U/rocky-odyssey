@@ -124,10 +124,14 @@ def test_response_matches_frontend_types():
 
 
 def test_license_codes_are_codes_not_spanish_text():
-    licenses = {
-        item["imageLicense"]
-        for item in get_json("/api/sites", lang="es") + get_json("/api/bases", lang="es")
-    }
+    items = get_json("/api/sites", lang="es") + get_json("/api/bases", lang="es")
+
+    # Un lugar sin foto (image "", p. ej. Rimae Bode) no lleva licencia ni autor
+    for item in items:
+        if not item["image"]:
+            assert item["imageLicense"] == "" and item["imageAuthor"] == ""
+
+    licenses = {item["imageLicense"] for item in items if item["image"]}
 
     assert "Dominio público" not in licenses
     assert all(lic == "public-domain" or lic.startswith("CC ") for lic in licenses)
