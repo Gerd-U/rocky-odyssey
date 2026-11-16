@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import Globe, { type GlobeMethods } from "react-globe.gl";
 import { Cache, ImageLoader } from "three";
-import { SELECTED_COLOR } from "./colors";
+import { RELATED_COLOR, SELECTED_COLOR } from "./colors";
 
 // three-globe carga la textura con TextureLoader: con la caché activa reutiliza la imagen
 // que ya cargó useTexture en vez de descargarla y decodificarla otra vez
@@ -34,6 +34,8 @@ export interface GlobeViewProps {
   points: GlobePoint[];
   onSelect?: (id: string) => void;
   selectedId?: string | null;
+  /** Puntos que se iluminan junto al elegido (p. ej. sitios con la misma base gemela) */
+  relatedIds?: string[];
   height?: number;
   atmosphereColor?: string;
   /** Altitud de cámara inicial (en radios del globo) */
@@ -85,6 +87,7 @@ export default function GlobeView({
   points,
   onSelect,
   selectedId,
+  relatedIds,
   height = 520,
   atmosphereColor = "#9aa8b8",
   initialAltitude = 2.4,
@@ -213,9 +216,21 @@ export default function GlobeView({
             pointsData={points}
             pointLat="lat"
             pointLng="lng"
-            pointColor={(d) => ((d as GlobePoint).id === selectedId ? SELECTED_COLOR : (d as GlobePoint).color)}
-            pointRadius={(d) => ((d as GlobePoint).id === selectedId ? 1.1 : (d as GlobePoint).size ?? 0.6)}
-            pointAltitude={(d) => ((d as GlobePoint).id === selectedId ? 0.12 : 0.04)}
+            pointColor={(d) => {
+              const { id, color } = d as GlobePoint;
+              if (id === selectedId) return SELECTED_COLOR;
+              return relatedIds?.includes(id) ? RELATED_COLOR : color;
+            }}
+            pointRadius={(d) => {
+              const { id, size } = d as GlobePoint;
+              if (id === selectedId) return 1.1;
+              return relatedIds?.includes(id) ? 0.85 : size ?? 0.6;
+            }}
+            pointAltitude={(d) => {
+              const { id } = d as GlobePoint;
+              if (id === selectedId) return 0.12;
+              return relatedIds?.includes(id) ? 0.08 : 0.04;
+            }}
             pointLabel={(d) => (d as GlobePoint).label}
             onPointClick={(d) => onSelect?.((d as GlobePoint).id)}
             ringsData={rings}

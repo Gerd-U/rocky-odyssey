@@ -14,6 +14,7 @@ import { LEVEL_COLOR, LEVEL_SIZE, SITE_COLOR } from "../globe/colors";
 import Legend from "../globe/Legend";
 import ModeToggle from "../globe/ModeToggle";
 import SiteList from "../sites/SiteList";
+import { rotatingOrder } from "../../lib/siteOrder";
 import OtherTwin from "./OtherTwin";
 import ErrorState from "../ui/ErrorState";
 import SectionHeading from "../ui/SectionHeading";
@@ -75,7 +76,17 @@ export default function GlobeSection() {
     return () => window.clearTimeout(timer);
   }, [mode, switching, reduce]);
 
-  const selected = pairs?.find((p) => p.site.id === selectedSiteId) ?? pairs?.[0] ?? null;
+  // Orden del selector: sin dos bases iguales seguidas, para que los dos globos siempre giren
+  const ordered = useMemo(() => rotatingOrder(pairs ?? []), [pairs]);
+  const selected = ordered.find((p) => p.site.id === selectedSiteId) ?? ordered[0] ?? null;
+  // Los demás sitios de la Tierra cuyo gemelo es la misma base: se iluminan junto al elegido
+  const relatedIds = useMemo(
+    () =>
+      selected
+        ? ordered.filter((p) => p.base.id === selected.base.id && p.site.id !== selected.site.id).map((p) => p.site.id)
+        : [],
+    [ordered, selected],
+  );
 
   const earthPoints = useMemo<GlobePoint[]>(
     () =>
@@ -94,10 +105,13 @@ export default function GlobeSection() {
     [pairs, mode, lang],
   );
 
+  // Solo las bases que son gemelas de algún sitio: las demás (Shackleton, Malapert, Oxia Planum)
+  // tienen ubicación pero ningún sitio de la Tierra se les parece más que a otra base
+  const twinBaseIds = useMemo(() => new Set((pairs ?? []).map((p) => p.base.id)), [pairs]);
   const targetPoints = useMemo<GlobePoint[]>(
     () =>
       (bases ?? [])
-        .filter((base) => base.body === shownMode)
+        .filter((base) => base.body === shownMode && twinBaseIds.has(base.id))
         .map((base) => ({
           id: base.id,
           lat: base.lat,
@@ -106,7 +120,7 @@ export default function GlobeSection() {
           color: SITE_COLOR[shownMode],
           size: 1.2,
         })),
-    [bases, shownMode],
+    [bases, shownMode, twinBaseIds],
   );
 
   return (
@@ -140,6 +154,7 @@ export default function GlobeSection() {
                     fallbackTexture={EARTH_FALLBACK}
                     points={earthPoints}
                     selectedId={selected.site.id}
+                    relatedIds={relatedIds}
                     onSelect={setSelectedSiteId}
                     height={globeHeight}
                     atmosphereColor={SITE_COLOR.moon}
@@ -150,7 +165,7 @@ export default function GlobeSection() {
               </figure>
 
               <Swap swapKey={mode} direction={direction} className={LIST_CELL}>
-                <SiteList pairs={pairs} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+                <SiteList pairs={ordered} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
                 <OtherTwin site={selected.site} bases={bases ?? []} className="mt-4" />
               </Swap>
 

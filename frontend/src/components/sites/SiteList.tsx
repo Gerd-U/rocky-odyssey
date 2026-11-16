@@ -5,7 +5,7 @@ import { useMode } from "../../context/ModeContext";
 import type { Pair } from "../../hooks/usePairs";
 import { formatPercent } from "../../lib/format";
 import { SWAP_EASE } from "../../lib/motion";
-import { SIMILARITY_LEVELS, similarityLevel } from "../../lib/similarity";
+import { similarityLevel } from "../../lib/similarity";
 import { LEVEL_COLOR } from "../globe/colors";
 
 interface SiteListProps {
@@ -49,7 +49,7 @@ function Check({ visible }: { visible: boolean }) {
 
 /**
  * Selector de sitio entre los dos globos: un botón con el sitio elegido y un panel con todos,
- * agrupados por nivel de similitud (patrón listbox de WAI-ARIA). Cerrado ocupa una sola línea,
+ * en el orden que llega (patrón listbox de WAI-ARIA); el punto de color indica el nivel. Cerrado ocupa una sola línea,
  * para que los globos sean lo principal de la sección.
  */
 export default function SiteList({ pairs, selectedId, onSelect, className = "" }: SiteListProps) {
@@ -68,12 +68,8 @@ export default function SiteList({ pairs, selectedId, onSelect, className = "" }
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const groups = SIMILARITY_LEVELS.map((level) => ({
-    level,
-    pairs: pairs.filter(({ site }) => similarityLevel(site.similarity).id === level.id),
-  })).filter((group) => group.pairs.length > 0);
-  // Orden en pantalla (por grupo), el que siguen las flechas
-  const ordered = groups.flatMap((group) => group.pairs);
+  // El orden llega hecho (lib/siteOrder.ts: sin dos bases iguales seguidas); lo siguen las flechas
+  const ordered = pairs;
   const colorOf = (similarity: number) => LEVEL_COLOR[mode][similarityLevel(similarity).id];
   const selected = ordered.find(({ site }) => site.id === selectedId) ?? null;
   const selectedIndex = ordered.findIndex(({ site }) => site.id === selectedId);
@@ -214,35 +210,25 @@ export default function SiteList({ pairs, selectedId, onSelect, className = "" }
               style={{ transformOrigin: "top", scrollbarWidth: "thin", scrollbarColor: "var(--color-night-800) transparent" }}
               className="absolute inset-x-0 top-full z-20 mt-1 max-h-[min(24rem,60vh)] overflow-y-auto bg-night-900 py-2 shadow-[0_12px_32px_-8px_rgb(0_0_0/0.55)] outline-none"
             >
-              {groups.map(({ level, pairs: groupPairs }) => {
-                const groupLabelId = `${baseId}-group-${level.id}`;
+              {ordered.map(({ site }) => {
+                const isSelected = site.id === selectedId;
+                const isActive = site.id === activeId;
                 return (
-                  <div key={level.id} role="group" aria-labelledby={groupLabelId} className="py-1">
-                    <div id={groupLabelId} className="px-4 pt-1 pb-1 text-xs text-ink-soft">
-                      {t(`home.globe.legendLevel.${level.id}`)}
-                    </div>
-                    {groupPairs.map(({ site }) => {
-                      const isSelected = site.id === selectedId;
-                      const isActive = site.id === activeId;
-                      return (
-                        <div
-                          key={site.id}
-                          id={optionId(site.id)}
-                          role="option"
-                          aria-selected={isSelected}
-                          onPointerMove={() => setActiveId(site.id)}
-                          onClick={() => choose(site.id)}
-                          className={`flex cursor-pointer items-center gap-3 px-4 py-2 text-sm ${
-                            isActive ? "bg-night-800 text-ink" : "text-ink-soft"
-                          }`}
-                        >
-                          <Dot color={colorOf(site.similarity)} />
-                          <span className={`min-w-0 grow ${isSelected ? "font-semibold text-ink" : ""}`}>{site.name}</span>
-                          <span className="shrink-0 tabular-nums">{formatPercent(site.similarity)}</span>
-                          <Check visible={isSelected} />
-                        </div>
-                      );
-                    })}
+                  <div
+                    key={site.id}
+                    id={optionId(site.id)}
+                    role="option"
+                    aria-selected={isSelected}
+                    onPointerMove={() => setActiveId(site.id)}
+                    onClick={() => choose(site.id)}
+                    className={`flex cursor-pointer items-center gap-3 px-4 py-2 text-sm ${
+                      isActive ? "bg-night-800 text-ink" : "text-ink-soft"
+                    }`}
+                  >
+                    <Dot color={colorOf(site.similarity)} />
+                    <span className={`min-w-0 grow ${isSelected ? "font-semibold text-ink" : ""}`}>{site.name}</span>
+                    <span className="shrink-0 tabular-nums">{formatPercent(site.similarity)}</span>
+                    <Check visible={isSelected} />
                   </div>
                 );
               })}
