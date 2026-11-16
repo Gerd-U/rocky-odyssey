@@ -3,6 +3,7 @@ import json
 import pytest
 from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.testclient import TestClient
 
 from app import storage
 from app.main import app
@@ -206,3 +207,17 @@ def test_locations_list_handler_returns_count_and_filters():
 
     assert response["total"] == len(response["locations"])
     assert response["filters"]["target"] is None
+
+
+def test_frontend_data_is_cacheable_per_origin_on_the_cdn():
+    client = TestClient(app)
+
+    for path in ("/api/sites", "/api/bases"):
+        for headers in ({}, {"Origin": "http://localhost:5173"}):
+            response = client.get(path, headers=headers)
+            assert "s-maxage" in response.headers["cache-control"]
+            assert response.headers["vary"] == "Origin"
+
+    # Lo que no es de la web no se guarda en la CDN
+    assert "cache-control" not in client.get("/health").headers
+    assert "cache-control" not in client.get("/api/sites/no-existe").headers
