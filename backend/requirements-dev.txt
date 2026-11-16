@@ -1,3 +1,5 @@
 -r requirements.txt
+# Servidor para correr la API en local (Vercel no lo necesita)
+uvicorn[standard]>=0.30,<1.0
 pytest>=8.0,<10.0
 httpx>=0.27,<1.0
