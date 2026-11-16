@@ -1,5 +1,5 @@
 import i18n, { getLang } from "../i18n";
-import type { SiteFactors, Target } from "../types/site";
+import type { Target } from "../types/site";
 
 /** Nombre del destino dentro de una frase: "la Luna" / "the Moon" */
 export function bodyName(target: Target): string {
@@ -27,11 +27,6 @@ export function formatCredit(author: string, license: string): string {
   return `${author} · ${licenseLabel(license)}`;
 }
 
-export function terrainLabel(terrain: SiteFactors["terrain"]): string {
-  if (terrain === null) return i18n.t("common.noData");
-  return i18n.t(`common.terrain.${terrain}`);
-}
-
 // Los Intl.NumberFormat se crean una vez por idioma y formato
 const formatters = new Map<string, Intl.NumberFormat>();
 
@@ -46,7 +41,7 @@ function numberFormat(name: string, options: Intl.NumberFormatOptions, lang: str
 }
 
 export function formatNumber(value: number): string {
-  return numberFormat("number", { maximumFractionDigits: 0 }).format(value);
+  return numberFormat("number", { maximumFractionDigits: 0, signDisplay: "negative" }).format(value);
 }
 
 /** `lang` solo hace falta dentro de un useMemo que dependa del idioma */
@@ -55,16 +50,11 @@ export function formatPercent(ratio: number, lang?: string): string {
 }
 
 export function formatTemp(celsius: number): string {
-  return numberFormat("temp", { style: "unit", unit: "celsius", maximumFractionDigits: 0 }).format(celsius);
+  return numberFormat("temp", { style: "unit", unit: "celsius", maximumFractionDigits: 0, signDisplay: "negative" }).format(celsius);
 }
 
 export function formatTempSpan(min: number, max: number): string {
   return i18n.t("common.tempSpan", { min: formatNumber(min), max: formatTemp(max) });
-}
-
-export function formatPrecip(mm: number | null): string {
-  if (mm === null) return i18n.t("common.noData");
-  return i18n.t("common.precip", { value: formatNumber(mm) });
 }
 
 export function formatCoords(lat: number, lng: number): string {

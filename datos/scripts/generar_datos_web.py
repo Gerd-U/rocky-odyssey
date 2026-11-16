@@ -8,9 +8,12 @@ QUÉ HACE
   y, si falta alguna, los demás). Un objetivo sin coordenadas en ningún script no se agrega.
 
 VARIABLES DE LA TIERRA (de tierra_resumen.json, ignorando null)
-- tempMin = mínimo de noche_c; tempMax = máximo de dia_c
-- rango_termico = tempMax - tempMin. Una diferencia en °C equivale a una en K, así que se
-  compara directo con el rango_termico (K) de objetivos.csv.
+- tempMin = mínimo de noche_c; tempMax = máximo de dia_c (se muestran como temperatura)
+- rango_termico = el de datos/sources_log_tierra.csv: promedio anual de (día - noche) de
+  MOD11A2, el rango DIARIO medio. Es la misma medida que el rango de Marte (mcd_range.py,
+  ciclo diario promediado en 4 estaciones) y de la Luna (ciclo día/noche). Una diferencia
+  en °C equivale a una en K, así que se compara directo con el rango_termico (K) de
+  objetivos.csv. (tempMax - tempMin sería el rango ANUAL, que mezcla las estaciones.)
 - hielo = % de registros de "nieve" con ndsi > 0
 - elevación = elevacion_metros
 - rugosidad = desviación estándar (ddof=0) de las 9 elevaciones ASTER GDEM de cada sitio
@@ -19,13 +22,16 @@ VARIABLES DE LA TIERRA (de tierra_resumen.json, ignorando null)
   (moon_sites.py, mars_roughness.py: 9 puntos, 3x3, 5.5 km, np.std).
 
 SIMILITUD
-- Se comparan las variables que tienen los dos lados: rango_termico, hielo y rugosidad.
-- Similitud por variable entre un sitio de la Tierra (a) y un objetivo (b):
-      sim = 100 * (1 - |a - b| / R)
-  donde R = máximo - mínimo de esa variable entre los 24 lugares juntos (13 + 11).
-  Si R es 0, sim = 100. Se recorta a 0-100.
-- rango_termico -> criterio "temperature"; hielo -> criterio "ice_water";
-  rugosidad -> criterio "topography".
+- Se comparan rango_termico y rugosidad.
+  El hielo NO entra: es 0 en los 11 objetivos, así que solo premiaba a los sitios sin nieve
+  sin decir nada del parecido (regalaba un tercio del puntaje).
+- Similitud por variable entre un sitio de la Tierra (a) y un objetivo (b), en proporción:
+      sim = 100 * min(a, b) / max(a, b)        (100 si los dos son 0)
+  Una diferencia cuenta según su tamaño relativo: 20 frente a 49 es 41 %. Antes se dividía
+  |a - b| entre el rango de los 24 lugares, y los extremos de la Luna (~300 K de rango,
+  910 m de rugosidad) hacían que cualquier diferencia pareciera pequeña (90 %+).
+  Ojo: con valores pequeños es exigente (6 m frente a 9 m de rugosidad = 67 %).
+- rango_termico -> criterio "temperature"; rugosidad -> criterio "topography".
 - Puntaje = calculate_score de backend/app/services/scoring.py con los pesos por defecto
   (promedio de los criterios con dato).
 - La Luna y Marte se comparan POR SEPARADO (la web tiene un globo para cada uno): cada sitio
@@ -37,8 +43,9 @@ SIMILITUD
 
 SALIDA
 - backend/data/locations.json: los 13 sitios de la Tierra (validados con Location).
-- backend/data/sites.json: actualiza target/analogOf/similarity/twins de los sitios con datos
-  que ya existían y agrega los nuevos.
+- backend/data/sites.json: actualiza target/analogOf/similarity/twins/measures de los sitios con
+  datos que ya existían y agrega los nuevos. measures = {thermalRange (°C de diferencia),
+  ice (% de días con nieve), roughness (m)}: las tres medidas que se comparan.
 - backend/data/bases.json: agrega las bases nuevas; las existentes no se tocan.
 Se puede correr varias veces: si el id ya existe se actualiza, si no se agrega.
 
@@ -67,7 +74,7 @@ FUENTE = "NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)"
 ORGANIZACION = "NASA LP DAAC"
 CUERPO = {"luna": "moon", "marte": "mars"}
 # variable -> criterio de scoring.py
-VARIABLES = {"rango_termico": "temperature", "hielo": "ice_water", "rugosidad": "topography"}
+VARIABLES = {"rango_termico": "temperature", "rugosidad": "topography"}
 
 # Ids que ya existen en la web
 IDS_EXISTENTES = {
@@ -147,9 +154,17 @@ def variables_tierra(registro):
     return {
         "tempMin": temp_min,
         "tempMax": temp_max,
-        "rango_termico": round(temp_max - temp_min, 2),
         "hielo": round(100 * sum(1 for v in nieve if v > 0) / len(nieve), 1),
         "elevacion": round(registro["elevacion_metros"], 1),
+    }
+
+
+def rangos_tierra():
+    """rango_termico de cada sitio de la Tierra, tal como está en sources_log_tierra.csv."""
+    return {
+        fila["sitio"]: float(fila["valor"])
+        for fila in leer_csv(DATOS / "sources_log_tierra.csv")
+        if fila["variable"] == "rango_termico"
     }
 
 
@@ -161,10 +176,12 @@ def rugosidades_tierra():
     return {nombre: round(statistics.pstdev(v), 1) for nombre, v in elev.items()}
 
 
-def similitud(a, b, rango):
-    if rango == 0:
+def similitud(a, b):
+    """Proporción entre los dos valores: 100 * menor / mayor (100 si los dos son 0)."""
+    mayor = max(a, b)
+    if mayor == 0:
         return 100.0
-    return min(100.0, max(0.0, 100 * (1 - abs(a - b) / rango)))
+    return 100 * min(a, b) / mayor
 
 
 # ---------- escritura con el mismo estilo que los JSON a mano ----------
@@ -210,6 +227,7 @@ def main():
     objetivos = leer_csv(DATOS / "datos_limpios" / "objetivos.csv")
     coords_obj = coordenadas_objetivos()
     rugosidad = rugosidades_tierra()
+    rango = rangos_tierra()
 
     sitios = []
     for registro in tierra:
@@ -223,6 +241,7 @@ def main():
             "lon": float(cand["lon"]),
             **variables_tierra(registro),
             "rugosidad": rugosidad[nombre],
+            "rango_termico": rango[nombre],  # KeyError si falta en el log: no se inventa
         })
 
     objs = [{
@@ -234,17 +253,11 @@ def main():
         "hielo": float(o["hielo"]),
     } for o in objetivos]
 
-    # R de cada variable entre los 24 lugares juntos
-    rangos = {}
-    for var in VARIABLES:
-        valores = [s[var] for s in sitios] + [o[var] for o in objs]
-        rangos[var] = max(valores) - min(valores)
-
     for s in sitios:
         s["gemelos"] = {}  # cuerpo -> (puntaje, objetivo)
         for o in objs:
             res = calculate_score({
-                criterio: similitud(s[var], o[var], rangos[var]) for var, criterio in VARIABLES.items()
+                criterio: similitud(s[var], o[var]) for var, criterio in VARIABLES.items()
             })
             actual = s["gemelos"].get(o["body"])
             if actual is None or res["score"] > actual[0]:
@@ -278,18 +291,21 @@ def main():
             body: {"analogOf": s["gemelos"][body][1]["id"], "similarity": round(s["gemelos"][body][0] / 100, 4)}
             for body in ("moon", "mars") if body in s["gemelos"]
         }
+        # Las tres medidas con las que se compara, para que la web las muestre como datos
+        measures = {"thermalRange": s["rango_termico"], "ice": s["hielo"], "roughness": s["rugosidad"]}
         if s["id"] in IDS_EXISTENTES.values() and s["id"] in por_id:
             site = por_id[s["id"]]
             site["target"], site["analogOf"], site["similarity"] = target, analog, sim
             site["twins"] = twins
+            site["measures"] = measures
             continue
         desc_es = (
-            f"Rango térmico de {num(s['rango_termico'])} °C (mín. {num(s['tempMin'])} °C, máx. {num(s['tempMax'])} °C), "
+            f"Rango térmico diario medio de {num(s['rango_termico'])} °C; entre {num(s['tempMin'])} °C y {num(s['tempMax'])} °C a lo largo de 2023, "
             f"elevación de {num(s['elevacion'])} m, rugosidad de {num(s['rugosidad'])} m y nieve en el {num(s['hielo'])} % de los días con registro. "
             f"Fuente: {FUENTE}."
         )
         desc_en = (
-            f"Thermal range of {num(s['rango_termico'])} °C (min {num(s['tempMin'])} °C, max {num(s['tempMax'])} °C), "
+            f"Mean daily thermal range of {num(s['rango_termico'])} °C; between {num(s['tempMin'])} °C and {num(s['tempMax'])} °C over 2023, "
             f"elevation of {num(s['elevacion'])} m, roughness of {num(s['rugosidad'])} m and snow on {num(s['hielo'])}% of recorded days. "
             f"Source: {FUENTE}."
         )
@@ -303,6 +319,7 @@ def main():
             "analogOf": analog,
             "similarity": sim,
             "twins": twins,
+            "measures": measures,
             "factors": {"precipMm": None, "tempMin": s["tempMin"], "tempMax": s["tempMax"], "terrain": None},
             "missions": {"es": [], "en": []},
             "image": "",
@@ -341,8 +358,6 @@ def main():
     escribir(DATA_WEB / "bases.json", bases)
 
     # ---- resumen ----
-    print(f"R rango_termico = {rangos['rango_termico']:.2f} | R hielo = {rangos['hielo']:.1f}")
-    print(f"R rugosidad = {rangos['rugosidad']:.1f}")
     print(f"{'Sitio':<22}{'Rango':>7}{'Hielo%':>7}{'Rug.':>7}  {'Luna':<26}{'Marte':<26}")
     for s in sitios:
         celdas = [f"{s['gemelos'][b][1]['nombre']} {s['gemelos'][b][0] / 100:.4f}" for b in ("moon", "mars")]

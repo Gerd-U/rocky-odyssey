@@ -13,7 +13,7 @@
     "lng": -69.25,
     "target": "mars",
     "analogOf": "gale",
-    "similarity": 0.9419,
+    "similarity": 0.5157,
     "factors": { "precipMm": 1, "tempMin": -2, "tempMax": 30, "terrain": "alto" },
     "missions": {
       "es": ["ARADS (NASA Ames)", "Life in the Atacama (NASA/CMU)"],
@@ -28,13 +28,18 @@
     },
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.8353
+        "analogOf": "cabeus",
+        "similarity": 0.4782
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.9419
+        "similarity": 0.5157
       }
+    },
+    "measures": {
+      "thermalRange": 27.9,
+      "ice": 0.0,
+      "roughness": 261.8
     }
   },
   {
@@ -49,9 +54,9 @@
     },
     "lat": -77.5,
     "lng": 162.0,
-    "target": "mars",
-    "analogOf": "gale",
-    "similarity": 0.5953,
+    "target": "moon",
+    "analogOf": "cabeus",
+    "similarity": 0.469,
     "factors": { "precipMm": 50, "tempMin": -50, "tempMax": 5, "terrain": "extremo" },
     "missions": {
       "es": ["NASA ASTEP", "McMurdo Dry Valleys LTER"],
@@ -67,12 +72,17 @@
     "twins": {
       "moon": {
         "analogOf": "cabeus",
-        "similarity": 0.5184
+        "similarity": 0.469
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.5953
+        "similarity": 0.2361
       }
+    },
+    "measures": {
+      "thermalRange": 1.8,
+      "ice": 97.0,
+      "roughness": 308.6
     }
   },
   {
@@ -89,7 +99,7 @@
     "lng": -89.68,
     "target": "mars",
     "analogOf": "gale",
-    "similarity": 0.7314,
+    "similarity": 0.4657,
     "factors": { "precipMm": 150, "tempMin": -45, "tempMax": 10, "terrain": "alto" },
     "missions": {
       "es": ["Haughton-Mars Project (NASA/SETI)", "FMARS (Mars Society)"],
@@ -104,13 +114,18 @@
     },
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.6248
+        "analogOf": "rimaebode",
+        "similarity": 0.3556
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.7314
+        "similarity": 0.4657
       }
+    },
+    "measures": {
+      "thermalRange": 2.3,
+      "ice": 78.5,
+      "roughness": 152.4
     }
   },
   {
@@ -127,16 +142,21 @@
     "lng": 85.0,
     "target": "mars",
     "analogOf": "arsiamons",
-    "similarity": 0.9472,
+    "similarity": 0.6552,
     "twins": {
       "moon": {
         "analogOf": "peary",
-        "similarity": 0.8739
+        "similarity": 0.4487
       },
       "mars": {
         "analogOf": "arsiamons",
-        "similarity": 0.9472
+        "similarity": 0.6552
       }
+    },
+    "measures": {
+      "thermalRange": 25.4,
+      "ice": 13.0,
+      "roughness": 47.5
     },
     "factors": { "precipMm": null, "tempMin": -26.96, "tempMax": 33.24, "terrain": null },
     "missions": {
@@ -147,8 +167,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 60.2 °C (mín. -26.96 °C, máx. 33.24 °C), elevación de 4970.8 m, rugosidad de 47.5 m y nieve en el 13 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 60.2 °C (min -26.96 °C, max 33.24 °C), elevation of 4970.8 m, roughness of 47.5 m and snow on 13% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 25.4 °C; entre -26.96 °C y 33.24 °C a lo largo de 2023, elevación de 4970.8 m, rugosidad de 47.5 m y nieve en el 13 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 25.4 °C; between -26.96 °C and 33.24 °C over 2023, elevation of 4970.8 m, roughness of 47.5 m and snow on 13% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -165,16 +185,21 @@
     "lng": -16.7,
     "target": "mars",
     "analogOf": "gale",
-    "similarity": 0.7095,
+    "similarity": 0.3946,
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.6029
+        "analogOf": "cabeus",
+        "similarity": 0.3215
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.7095
+        "similarity": 0.3946
       }
+    },
+    "measures": {
+      "thermalRange": 6.3,
+      "ice": 75.3,
+      "roughness": 201.3
     },
     "factors": { "precipMm": null, "tempMin": -21.36, "tempMax": 20.27, "terrain": null },
     "missions": {
@@ -185,8 +210,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 41.63 °C (mín. -21.36 °C, máx. 20.27 °C), elevación de 969.2 m, rugosidad de 201.3 m y nieve en el 75.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 41.63 °C (min -21.36 °C, max 20.27 °C), elevation of 969.2 m, roughness of 201.3 m and snow on 75.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 6.3 °C; entre -21.36 °C y 20.27 °C a lo largo de 2023, elevación de 969.2 m, rugosidad de 201.3 m y nieve en el 75.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 6.3 °C; between -21.36 °C and 20.27 °C over 2023, elevation of 969.2 m, roughness of 201.3 m and snow on 75.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -203,16 +228,21 @@
     "lng": 59.0,
     "target": "mars",
     "analogOf": "arsiamons",
-    "similarity": 0.9906,
+    "similarity": 0.6454,
     "twins": {
       "moon": {
         "analogOf": "peary",
-        "similarity": 0.9213
+        "similarity": 0.5166
       },
       "mars": {
         "analogOf": "arsiamons",
-        "similarity": 0.9906
+        "similarity": 0.6454
       }
+    },
+    "measures": {
+      "thermalRange": 26.0,
+      "ice": 0.0,
+      "roughness": 56.5
     },
     "factors": { "precipMm": null, "tempMin": -0.44, "tempMax": 60.42, "terrain": null },
     "missions": {
@@ -223,8 +253,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 60.86 °C (mín. -0.44 °C, máx. 60.42 °C), elevación de 528.1 m, rugosidad de 56.5 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 60.86 °C (min -0.44 °C, max 60.42 °C), elevation of 528.1 m, roughness of 56.5 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 26 °C; entre -0.44 °C y 60.42 °C a lo largo de 2023, elevación de 528.1 m, rugosidad de 56.5 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 26 °C; between -0.44 °C and 60.42 °C over 2023, elevation of 528.1 m, roughness of 56.5 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -239,18 +269,23 @@
     },
     "lat": 14.2,
     "lng": 40.3,
-    "target": "mars",
-    "analogOf": "arcadia",
-    "similarity": 0.9783,
+    "target": "moon",
+    "analogOf": "tranquilidad",
+    "similarity": 0.461,
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.8604
+        "analogOf": "tranquilidad",
+        "similarity": 0.461
       },
       "mars": {
         "analogOf": "arcadia",
-        "similarity": 0.9783
+        "similarity": 0.4356
       }
+    },
+    "measures": {
+      "thermalRange": 9.5,
+      "ice": 0.0,
+      "roughness": 14.6
     },
     "factors": { "precipMm": null, "tempMin": 27.11, "tempMax": 50.04, "terrain": null },
     "missions": {
@@ -261,8 +296,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 22.93 °C (mín. 27.11 °C, máx. 50.04 °C), elevación de -120.9 m, rugosidad de 14.6 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 22.93 °C (min 27.11 °C, max 50.04 °C), elevation of -120.9 m, roughness of 14.6 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 9.5 °C; entre 27.11 °C y 50.04 °C a lo largo de 2023, elevación de -120.9 m, rugosidad de 14.6 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 9.5 °C; between 27.11 °C and 50.04 °C over 2023, elevation of -120.9 m, roughness of 14.6 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -279,16 +314,21 @@
     "lng": 104.0,
     "target": "mars",
     "analogOf": "gale",
-    "similarity": 0.8751,
+    "similarity": 0.6656,
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.7974
+        "analogOf": "rimaebode",
+        "similarity": 0.4228
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.8751
+        "similarity": 0.6656
       }
+    },
+    "measures": {
+      "thermalRange": 18.5,
+      "ice": 33.0,
+      "roughness": 136.8
     },
     "factors": { "precipMm": null, "tempMin": -28.36, "tempMax": 38.0, "terrain": null },
     "missions": {
@@ -299,8 +339,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 66.36 °C (mín. -28.36 °C, máx. 38 °C), elevación de 2335.6 m, rugosidad de 136.8 m y nieve en el 33 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 66.36 °C (min -28.36 °C, max 38 °C), elevation of 2335.6 m, roughness of 136.8 m and snow on 33% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 18.5 °C; entre -28.36 °C y 38 °C a lo largo de 2023, elevación de 2335.6 m, rugosidad de 136.8 m y nieve en el 33 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 18.5 °C; between -28.36 °C and 38 °C over 2023, elevation of 2335.6 m, roughness of 136.8 m and snow on 33% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -317,16 +357,21 @@
     "lng": -116.5,
     "target": "mars",
     "analogOf": "jezero",
-    "similarity": 0.9897,
+    "similarity": 0.6464,
     "twins": {
       "moon": {
         "analogOf": "peary",
-        "similarity": 0.9148
+        "similarity": 0.5493
       },
       "mars": {
         "analogOf": "jezero",
-        "similarity": 0.9897
+        "similarity": 0.6464
       }
+    },
+    "measures": {
+      "thermalRange": 19.8,
+      "ice": 0.3,
+      "roughness": 73.4
     },
     "factors": { "precipMm": null, "tempMin": 0.93, "tempMax": 54.83, "terrain": null },
     "missions": {
@@ -337,8 +382,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 53.9 °C (mín. 0.93 °C, máx. 54.83 °C), elevación de 578.9 m, rugosidad de 73.4 m y nieve en el 0.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 53.9 °C (min 0.93 °C, max 54.83 °C), elevation of 578.9 m, roughness of 73.4 m and snow on 0.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 19.8 °C; entre 0.93 °C y 54.83 °C a lo largo de 2023, elevación de 578.9 m, rugosidad de 73.4 m y nieve en el 0.3 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 19.8 °C; between 0.93 °C and 54.83 °C over 2023, elevation of 578.9 m, roughness of 73.4 m and snow on 0.3% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -355,16 +400,21 @@
     "lng": -67.5,
     "target": "mars",
     "analogOf": "arcadia",
-    "similarity": 0.6521,
+    "similarity": 0.4901,
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.5302
+        "analogOf": "tranquilidad",
+        "similarity": 0.2993
       },
       "mars": {
         "analogOf": "arcadia",
-        "similarity": 0.6521
+        "similarity": 0.4901
       }
+    },
+    "measures": {
+      "thermalRange": 6.5,
+      "ice": 100.0,
+      "roughness": 7.5
     },
     "factors": { "precipMm": null, "tempMin": -7.27, "tempMax": 20.53, "terrain": null },
     "missions": {
@@ -375,8 +425,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 27.8 °C (mín. -7.27 °C, máx. 20.53 °C), elevación de 3652.3 m, rugosidad de 7.5 m y nieve en el 100 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 27.8 °C (min -7.27 °C, max 20.53 °C), elevation of 3652.3 m, roughness of 7.5 m and snow on 100% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 6.5 °C; entre -7.27 °C y 20.53 °C a lo largo de 2023, elevación de 3652.3 m, rugosidad de 7.5 m y nieve en el 100 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 6.5 °C; between -7.27 °C and 20.53 °C over 2023, elevation of 3652.3 m, roughness of 7.5 m and snow on 100% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -392,17 +442,22 @@
     "lat": 38.9,
     "lng": 83.0,
     "target": "mars",
-    "analogOf": "arsiamons",
-    "similarity": 0.9724,
+    "analogOf": "arcadia",
+    "similarity": 0.6702,
     "twins": {
       "moon": {
-        "analogOf": "peary",
-        "similarity": 0.9167
+        "analogOf": "tranquilidad",
+        "similarity": 0.2884
       },
       "mars": {
-        "analogOf": "arsiamons",
-        "similarity": 0.9724
+        "analogOf": "arcadia",
+        "similarity": 0.6702
       }
+    },
+    "measures": {
+      "thermalRange": 25.4,
+      "ice": 0.7,
+      "roughness": 6.4
     },
     "factors": { "precipMm": null, "tempMin": -19.51, "tempMax": 54.84, "terrain": null },
     "missions": {
@@ -413,8 +468,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 74.35 °C (mín. -19.51 °C, máx. 54.84 °C), elevación de 1134.2 m, rugosidad de 6.4 m y nieve en el 0.7 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 74.35 °C (min -19.51 °C, max 54.84 °C), elevation of 1134.2 m, roughness of 6.4 m and snow on 0.7% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 25.4 °C; entre -19.51 °C y 54.84 °C a lo largo de 2023, elevación de 1134.2 m, rugosidad de 6.4 m y nieve en el 0.7 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 25.4 °C; between -19.51 °C and 54.84 °C over 2023, elevation of 1134.2 m, roughness of 6.4 m and snow on 0.7% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -431,16 +486,21 @@
     "lng": 18.0,
     "target": "mars",
     "analogOf": "jezero",
-    "similarity": 0.983,
+    "similarity": 0.6028,
     "twins": {
       "moon": {
         "analogOf": "peary",
-        "similarity": 0.8997
+        "similarity": 0.5594
       },
       "mars": {
         "analogOf": "jezero",
-        "similarity": 0.983
+        "similarity": 0.6028
       }
+    },
+    "measures": {
+      "thermalRange": 20.1,
+      "ice": 0.0,
+      "roughness": 65.7
     },
     "factors": { "precipMm": null, "tempMin": 14.22, "tempMax": 54.24, "terrain": null },
     "missions": {
@@ -451,8 +511,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 40.02 °C (mín. 14.22 °C, máx. 54.24 °C), elevación de 837.1 m, rugosidad de 65.7 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 40.02 °C (min 14.22 °C, max 54.24 °C), elevation of 837.1 m, roughness of 65.7 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 20.1 °C; entre 14.22 °C y 54.24 °C a lo largo de 2023, elevación de 837.1 m, rugosidad de 65.7 m y nieve en el 0 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 20.1 °C; between 14.22 °C and 54.24 °C over 2023, elevation of 837.1 m, roughness of 65.7 m and snow on 0% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   },
   {
@@ -467,18 +527,23 @@
     },
     "lat": 55.8,
     "lng": 160.3,
-    "target": "mars",
-    "analogOf": "gale",
-    "similarity": 0.5715,
+    "target": "moon",
+    "analogOf": "cabeus",
+    "similarity": 0.3992,
     "twins": {
       "moon": {
         "analogOf": "cabeus",
-        "similarity": 0.5217
+        "similarity": 0.3992
       },
       "mars": {
         "analogOf": "gale",
-        "similarity": 0.5715
+        "similarity": 0.2286
       }
+    },
+    "measures": {
+      "thermalRange": 8.3,
+      "ice": 92.9,
+      "roughness": 445.2
     },
     "factors": { "precipMm": null, "tempMin": -31.84, "tempMax": 26.3, "terrain": null },
     "missions": {
@@ -489,8 +554,8 @@
     "imageAuthor": "",
     "imageLicense": "",
     "description": {
-      "es": "Rango térmico de 58.14 °C (mín. -31.84 °C, máx. 26.3 °C), elevación de 1633.6 m, rugosidad de 445.2 m y nieve en el 92.9 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
-      "en": "Thermal range of 58.14 °C (min -31.84 °C, max 26.3 °C), elevation of 1633.6 m, roughness of 445.2 m and snow on 92.9% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
+      "es": "Rango térmico diario medio de 8.3 °C; entre -31.84 °C y 26.3 °C a lo largo de 2023, elevación de 1633.6 m, rugosidad de 445.2 m y nieve en el 92.9 % de los días con registro. Fuente: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003).",
+      "en": "Mean daily thermal range of 8.3 °C; between -31.84 °C and 26.3 °C over 2023, elevation of 1633.6 m, roughness of 445.2 m and snow on 92.9% of recorded days. Source: NASA AppEEARS (MOD11A2 v061, MOD10A1 v061, ASTER GDEM ASTGTM v003)."
     }
   }
 ]

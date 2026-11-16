@@ -57,7 +57,7 @@ export default function Closing() {
         >
           {sites && bases && (
             <p className="text-lg text-ink">
-              {t("home.closing.summary", { sites: sites.length, bases: bases.length })}
+              {t("home.closing.summary", { sites: new Set(sites.map((s) => s.id)).size, bases: bases.length })}
             </p>
           )}
         </SectionHeading>

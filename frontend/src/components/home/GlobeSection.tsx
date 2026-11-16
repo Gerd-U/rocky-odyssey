@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMode } from "../../context/ModeContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { usePairs, type Pair } from "../../hooks/usePairs";
+import { usePairs } from "../../hooks/usePairs";
 import { useBases } from "../../hooks/useSites";
 import { bodyLabel, formatPercent } from "../../lib/format";
 import { MODE_DIRECTION, SWAP_EASE, SWAP_EXIT_S } from "../../lib/motion";
@@ -14,6 +14,7 @@ import { LEVEL_COLOR, LEVEL_SIZE, SITE_COLOR } from "../globe/colors";
 import Legend from "../globe/Legend";
 import ModeToggle from "../globe/ModeToggle";
 import SiteList from "../sites/SiteList";
+import OtherTwin from "./OtherTwin";
 import ErrorState from "../ui/ErrorState";
 import SectionHeading from "../ui/SectionHeading";
 import Skeleton from "../ui/Skeleton";
@@ -36,25 +37,10 @@ const TARGET_TEXTURE: Record<Target, string> = {
 
 const ALL_TARGET_TEXTURES = Object.values(TARGET_TEXTURE);
 
-/**
- * Orden de la lista entre los dos globos: por similitud, pero sin dos lugares seguidos con la
- * misma base (en Marte van por parejas). Si el siguiente comparte base con el anterior, pasa
- * antes el siguiente que no la comparta, para que al bajar por la lista el destino cambie.
- */
-function alternateBases(sorted: Pair[]): Pair[] {
-  const pending = [...sorted];
-  const result: Pair[] = [];
-  while (pending.length > 0) {
-    const previousBase = result.at(-1)?.base.id;
-    const index = pending.findIndex((pair) => pair.base.id !== previousBase);
-    result.push(...pending.splice(index === -1 ? 0 : index, 1));
-  }
-  return result;
-}
-
 // Los dos globos siempre lado a lado (también en móvil, más pequeños) y la lista debajo hasta lg
 const STAGE_GRID = "grid grid-cols-2 gap-x-4 gap-y-6 md:gap-x-6 lg:grid-cols-[1fr_16rem_1fr]";
-const LIST_CELL = "order-last col-span-2 min-w-0 lg:order-none lg:col-span-1";
+// relative z-20: el panel del selector se abre por encima de lo que haya debajo
+const LIST_CELL = "relative z-20 order-last col-span-2 min-w-0 lg:order-none lg:col-span-1 lg:self-start lg:mt-16";
 const GLOBE_SKELETON = "h-[200px] md:h-[360px] lg:h-[440px]";
 
 function GlobeCaption({ body, place, accent = false }: { body: string; place: string; accent?: boolean }) {
@@ -90,7 +76,6 @@ export default function GlobeSection() {
   }, [mode, switching, reduce]);
 
   const selected = pairs?.find((p) => p.site.id === selectedSiteId) ?? pairs?.[0] ?? null;
-  const listOrder = useMemo(() => alternateBases(pairs ?? []), [pairs]);
 
   const earthPoints = useMemo<GlobePoint[]>(
     () =>
@@ -142,12 +127,12 @@ export default function GlobeSection() {
         ) : loading || !pairs || !selected ? (
           <div aria-busy="true" aria-label={t("common.loading")} className={`mt-8 ${STAGE_GRID}`}>
             <Skeleton className={GLOBE_SKELETON} />
-            <Skeleton className={`h-14 lg:h-[440px] ${LIST_CELL}`} />
+            <Skeleton className={`h-20 ${LIST_CELL}`} />
             <Skeleton className={GLOBE_SKELETON} />
           </div>
         ) : (
           <>
-            <div data-reveal className={`mt-8 ${STAGE_GRID} lg:items-center`}>
+            <div data-reveal className={`relative z-10 mt-8 ${STAGE_GRID} lg:items-center`}>
               <figure>
                 <Suspense fallback={<Skeleton className={GLOBE_SKELETON} />}>
                   <GlobeView
@@ -165,7 +150,8 @@ export default function GlobeSection() {
               </figure>
 
               <Swap swapKey={mode} direction={direction} className={LIST_CELL}>
-                <SiteList pairs={listOrder} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+                <SiteList pairs={pairs} selectedId={selected.site.id} onSelect={setSelectedSiteId} />
+                <OtherTwin site={selected.site} bases={bases ?? []} className="mt-4" />
               </Swap>
 
               {/* Globo del destino: también en móvil, que es donde más se comparte la web */}

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { Pair } from "../../hooks/usePairs";
-import { bodyLabel, formatPrecip, formatTempSpan, terrainLabel } from "../../lib/format";
+import { bodyLabel, formatTempSpan } from "../../lib/format";
+import { baseMeasure, formatMeasure, MEASURE_KEYS, siteMeasure } from "../../lib/measures";
 
 interface CompareTableProps {
   pair: Pair;
@@ -11,22 +12,18 @@ export default function CompareTable({ pair, className = "" }: CompareTableProps
   const { t } = useTranslation();
   const { site, base } = pair;
 
+  // Solo datos medidos: la temperatura, el rango térmico y la rugosidad
   const rows = [
-    {
-      label: t("common.factors.rain"),
-      earth: formatPrecip(site.factors.precipMm),
-      target: formatPrecip(base.factors.precipMm),
-    },
     {
       label: t("common.factors.temperature"),
       earth: formatTempSpan(site.factors.tempMin, site.factors.tempMax),
       target: formatTempSpan(base.factors.tempMin, base.factors.tempMax),
     },
-    {
-      label: t("common.factors.terrain"),
-      earth: terrainLabel(site.factors.terrain),
-      target: terrainLabel(base.factors.terrain),
-    },
+    ...MEASURE_KEYS.map((key) => ({
+      label: t(`common.factors.${key}`),
+      earth: formatMeasure(key, siteMeasure(site, key)),
+      target: formatMeasure(key, baseMeasure(base, key)),
+    })),
   ];
 
   return (

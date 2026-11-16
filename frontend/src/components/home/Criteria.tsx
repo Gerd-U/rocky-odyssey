@@ -2,7 +2,7 @@ import type { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 import { usePairs, type Pair } from "../../hooks/usePairs";
 import type { Target } from "../../types/site";
-import { formatPrecip, formatTempSpan, terrainLabel } from "../../lib/format";
+import { baseMeasure, formatMeasure, siteMeasure, type MeasureKey } from "../../lib/measures";
 import SectionHeading from "../ui/SectionHeading";
 
 interface ExampleLine {
@@ -25,33 +25,27 @@ interface Criterion {
   example: (pair: Pair) => ExampleLine[];
 }
 
+/** Ejemplo de una medida: el valor del sitio de la Tierra y el de su base gemela */
+const measureExample =
+  (key: MeasureKey) =>
+  ({ site, base }: Pair): ExampleLine[] => [
+    { place: site.name, value: formatMeasure(key, siteMeasure(site, key)) },
+    { place: base.name, value: formatMeasure(key, baseMeasure(base, key)), body: base.body },
+  ];
+
+// Las medidas que se comparan, cada una con un sitio que la ilustra bien
 const criteria = (t: TFunction): Criterion[] => [
   {
-    term: t("common.factors.rain"),
-    text: t("home.criteria.rain"),
-    siteId: "atacama",
-    example: ({ site, base }) => [
-      { place: site.name, value: formatPrecip(site.factors.precipMm) },
-      { place: base.name, value: formatPrecip(base.factors.precipMm), body: base.body },
-    ],
-  },
-  {
-    term: t("common.factors.temperature"),
-    text: t("home.criteria.temperature"),
+    term: t("common.factors.thermalRange"),
+    text: t("home.criteria.thermalRange"),
     siteId: "altiplanodeltibet",
-    example: ({ site, base }) => [
-      { place: site.name, value: formatTempSpan(site.factors.tempMin, site.factors.tempMax) },
-      { place: base.name, value: formatTempSpan(base.factors.tempMin, base.factors.tempMax), body: base.body },
-    ],
+    example: measureExample("thermalRange"),
   },
   {
-    term: t("common.factors.terrain"),
-    text: t("home.criteria.terrain"),
-    siteId: "mcmurdo",
-    example: ({ site, base }) => [
-      { place: site.name, value: terrainLabel(site.factors.terrain) },
-      { place: base.name, value: terrainLabel(base.factors.terrain), body: base.body },
-    ],
+    term: t("common.factors.roughness"),
+    text: t("home.criteria.roughness"),
+    siteId: "atacama",
+    example: measureExample("roughness"),
   },
   {
     term: t("home.criteria.historyTerm"),

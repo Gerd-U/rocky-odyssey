@@ -56,11 +56,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 87.39,
+          "score": 44.87,
           "analogOf": "peary"
         },
         "mars": {
-          "score": 94.72,
+          "score": 65.52,
           "analogOf": "arsiamons"
         }
       }
@@ -121,11 +121,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 60.29,
-          "analogOf": "peary"
+          "score": 32.15,
+          "analogOf": "cabeus"
         },
         "mars": {
-          "score": 70.95,
+          "score": 39.46,
           "analogOf": "gale"
         }
       }
@@ -186,11 +186,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 83.53,
-          "analogOf": "peary"
+          "score": 47.82,
+          "analogOf": "cabeus"
         },
         "mars": {
-          "score": 94.19,
+          "score": 51.57,
           "analogOf": "gale"
         }
       }
@@ -251,11 +251,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 92.13,
+          "score": 51.66,
           "analogOf": "peary"
         },
         "mars": {
-          "score": 99.06,
+          "score": 64.54,
           "analogOf": "arsiamons"
         }
       }
@@ -316,11 +316,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 86.04,
-          "analogOf": "peary"
+          "score": 46.1,
+          "analogOf": "tranquilidad"
         },
         "mars": {
-          "score": 97.83,
+          "score": 43.56,
           "analogOf": "arcadia"
         }
       }
@@ -381,11 +381,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 79.74,
-          "analogOf": "peary"
+          "score": 42.28,
+          "analogOf": "rimaebode"
         },
         "mars": {
-          "score": 87.51,
+          "score": 66.56,
           "analogOf": "gale"
         }
       }
@@ -446,11 +446,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 62.48,
-          "analogOf": "peary"
+          "score": 35.56,
+          "analogOf": "rimaebode"
         },
         "mars": {
-          "score": 73.14,
+          "score": 46.57,
           "analogOf": "gale"
         }
       }
@@ -511,11 +511,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 91.48,
+          "score": 54.93,
           "analogOf": "peary"
         },
         "mars": {
-          "score": 98.97,
+          "score": 64.64,
           "analogOf": "jezero"
         }
       }
@@ -576,11 +576,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 53.02,
-          "analogOf": "peary"
+          "score": 29.93,
+          "analogOf": "tranquilidad"
         },
         "mars": {
-          "score": 65.21,
+          "score": 49.01,
           "analogOf": "arcadia"
         }
       }
@@ -641,12 +641,12 @@
       ],
       "comparison": {
         "moon": {
-          "score": 91.67,
-          "analogOf": "peary"
+          "score": 28.84,
+          "analogOf": "tranquilidad"
         },
         "mars": {
-          "score": 97.24,
-          "analogOf": "arsiamons"
+          "score": 67.02,
+          "analogOf": "arcadia"
         }
       }
     },
@@ -706,11 +706,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 89.97,
+          "score": 55.94,
           "analogOf": "peary"
         },
         "mars": {
-          "score": 98.3,
+          "score": 60.28,
           "analogOf": "jezero"
         }
       }
@@ -771,11 +771,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 52.17,
+          "score": 39.92,
           "analogOf": "cabeus"
         },
         "mars": {
-          "score": 57.15,
+          "score": 22.86,
           "analogOf": "gale"
         }
       }
@@ -836,11 +836,11 @@
       ],
       "comparison": {
         "moon": {
-          "score": 51.84,
+          "score": 46.9,
           "analogOf": "cabeus"
         },
         "mars": {
-          "score": 59.53,
+          "score": 23.61,
           "analogOf": "gale"
         }
       }
