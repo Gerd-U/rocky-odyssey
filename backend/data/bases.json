@@ -1,0 +1,200 @@
+[
+  {
+    "id": "tranquilidad",
+    "name": {
+      "es": "Mar de la Tranquilidad",
+      "en": "Sea of Tranquility"
+    },
+    "body": "moon",
+    "lat": 0.67,
+    "lng": 23.47,
+    "factors": { "precipMm": 0, "tempMin": -173, "tempMax": 127, "terrain": "moderado" },
+    "image": "/images/bases/tranquilidad.jpg",
+    "imageAuthor": "NASA / Neil A. Armstrong",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Llanura de basalto volcánico donde alunizó el Apollo 11 en 1969, la primera base humana en otro mundo.",
+      "en": "A plain of volcanic basalt where Apollo 11 landed in 1969, the first human base on another world."
+    }
+  },
+  {
+    "id": "shackleton",
+    "name": {
+      "es": "Cráter Shackleton (polo sur lunar)",
+      "en": "Shackleton Crater (lunar south pole)"
+    },
+    "body": "moon",
+    "lat": -89.9,
+    "lng": 0,
+    "factors": { "precipMm": 0, "tempMin": -230, "tempMax": -20, "terrain": "extremo" },
+    "image": "/images/bases/shackleton.jpg",
+    "imageAuthor": "NASA Goddard / LRO",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Cráter en el polo sur de la Luna con zonas de sombra permanente que podrían guardar hielo de agua y bordes con luz solar casi continua.",
+      "en": "A crater at the Moon's south pole with permanently shadowed areas that could hold water ice, and rims with almost constant sunlight."
+    }
+  },
+  {
+    "id": "jezero",
+    "name": {
+      "es": "Cráter Jezero",
+      "en": "Jezero Crater"
+    },
+    "body": "mars",
+    "lat": 18.4,
+    "lng": 77.5,
+    "factors": { "precipMm": 0, "tempMin": -85, "tempMax": -5, "terrain": "alto" },
+    "image": "/images/bases/jezero.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/ASU, Andrea Luck",
+    "imageLicense": "CC BY 2.0",
+    "description": {
+      "es": "Antiguo lago con un delta fluvial, explorado por el rover Perseverance en busca de rastros de vida pasada.",
+      "en": "An ancient lake with a river delta, explored by the Perseverance rover in search of signs of past life."
+    }
+  },
+  {
+    "id": "arcadia",
+    "name": {
+      "es": "Arcadia Planitia",
+      "en": "Arcadia Planitia"
+    },
+    "body": "mars",
+    "lat": 47.0,
+    "lng": -170.0,
+    "factors": { "precipMm": 0, "tempMin": -110, "tempMax": -20, "terrain": "moderado" },
+    "image": "/images/bases/arcadia.jpg",
+    "imageAuthor": "ESA/DLR/FU Berlin",
+    "imageLicense": "CC BY-SA 3.0 IGO",
+    "description": {
+      "es": "Llanura del hemisferio norte con hielo subterráneo poco profundo, candidata para una base humana.",
+      "en": "A plain in the northern hemisphere with shallow underground ice, a candidate site for a human base."
+    }
+  },
+  {
+    "id": "gale",
+    "name": {
+      "es": "Cráter Gale",
+      "en": "Gale Crater"
+    },
+    "body": "mars",
+    "lat": -5.4,
+    "lng": 137.8,
+    "factors": { "precipMm": 0, "tempMin": -90, "tempMax": 5, "terrain": "extremo" },
+    "image": "/images/bases/gale.jpg",
+    "imageAuthor": "NASA/JPL-Caltech/MSSS",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Cráter de impacto con el Monte Sharp en el centro, estudiado por el rover Curiosity.",
+      "en": "An impact crater with Mount Sharp at its center, studied by the Curiosity rover."
+    }
+  },
+  {
+    "id": "malapertmassif",
+    "name": {
+      "es": "Malapert Massif",
+      "en": "Malapert Massif"
+    },
+    "body": "moon",
+    "lat": -84.8,
+    "lng": 12.3,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/malapertmassif.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 882.7 m, rango térmico de 192 K y hielo de 0 %.",
+      "en": "Roughness of 882.7 m, thermal range of 192 K and ice of 0%."
+    }
+  },
+  {
+    "id": "cabeus",
+    "name": {
+      "es": "Cabeus",
+      "en": "Cabeus"
+    },
+    "body": "moon",
+    "lat": -85.3,
+    "lng": -41.8,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/cabeus.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 332.9 m, rango térmico de 164.2 K y hielo de 0 %.",
+      "en": "Roughness of 332.9 m, thermal range of 164.2 K and ice of 0%."
+    }
+  },
+  {
+    "id": "rimaebode",
+    "name": {
+      "es": "Rimae Bode",
+      "en": "Rimae Bode"
+    },
+    "body": "moon",
+    "lat": 9.54,
+    "lng": -3.22,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/rimaebode.jpg",
+    "imageAuthor": "NASA/GSFC/Arizona State University",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 107.2 m, rango térmico de 298.7 K y hielo de 0 %.",
+      "en": "Roughness of 107.2 m, thermal range of 298.7 K and ice of 0%."
+    }
+  },
+  {
+    "id": "peary",
+    "name": {
+      "es": "Peary",
+      "en": "Peary"
+    },
+    "body": "moon",
+    "lat": 88.56,
+    "lng": 25.7,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/peary.jpg",
+    "imageAuthor": "NASA",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 68.8 m, rango térmico de 122.7 K y hielo de 0 %.",
+      "en": "Roughness of 68.8 m, thermal range of 122.7 K and ice of 0%."
+    }
+  },
+  {
+    "id": "oxiaplanum",
+    "name": {
+      "es": "Oxia Planum",
+      "en": "Oxia Planum"
+    },
+    "body": "mars",
+    "lat": 18.2,
+    "lng": -24.6,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/oxiaplanum.jpg",
+    "imageAuthor": "NASA/JPL/University of Arizona",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 23 m, rango térmico de 45.3 K y hielo de 0 %.",
+      "en": "Roughness of 23 m, thermal range of 45.3 K and ice of 0%."
+    }
+  },
+  {
+    "id": "arsiamons",
+    "name": {
+      "es": "Arsia Mons",
+      "en": "Arsia Mons"
+    },
+    "body": "mars",
+    "lat": -8.35,
+    "lng": -120.1,
+    "factors": { "precipMm": null, "tempMin": null, "tempMax": null, "terrain": null },
+    "image": "/images/bases/arsiamons.jpg",
+    "imageAuthor": "NASA / JPL-Caltech / Arizona State University",
+    "imageLicense": "public-domain",
+    "description": {
+      "es": "Rugosidad de 51 m, rango térmico de 67 K y hielo de 0 %.",
+      "en": "Roughness of 51 m, thermal range of 67 K and ice of 0%."
+    }
+  }
+]

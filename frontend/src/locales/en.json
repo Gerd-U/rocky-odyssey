@@ -1,0 +1,162 @@
+{
+  "common": {
+    "bodyName": { "moon": "the Moon", "mars": "Mars" },
+    "bodyLabel": { "moon": "Moon", "mars": "Mars" },
+    "noData": "No data",
+    "meters": "{{value}} m",
+    "earth": "Earth",
+    "similarityLevel": { "muy-alta": "Very high", "alta": "High", "moderada": "Moderate" },
+    "tempSpan": "{{min}} to {{max}}",
+    "coordSouth": "S",
+    "coordNorth": "N",
+    "coordEast": "E",
+    "coordWest": "W",
+    "similarityProvisional": "similarity (provisional value)",
+    "photos": "Photos: {{earth}} · {{target}}",
+    "photo": "Photo: {{place}} · {{credit}}",
+    "imageAlt": "{{name}}, {{place}}",
+    "loading": "Loading",
+    "seeAllLocations": "See all locations",
+    "factors": {
+      "temperature": "Temperature",
+      "thermalRange": "Thermal range",
+      "roughness": "Roughness"
+    },
+    "error": {
+      "title": "The data could not be loaded",
+      "retry": "Try again",
+      "unknown": "Unknown error",
+      "missingId": "Missing id"
+    }
+  },
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "locations": "Locations",
+    "switchLanguage": "Switch to Spanish",
+    "backToTop": "Back to top"
+  },
+  "home": {
+    "hero": {
+      "title": "The Moon and Mars begin on Earth",
+      "lead": "Some deserts, volcanoes and polar valleys on Earth closely resemble the places proposed for bases on the Moon and Mars. They're called analogs: crews train there and technology is tested before leaving the planet.",
+      "explore": "Explore the globe",
+      "today": "Today the Moon is about {{km}} km away, and Mars about {{millions}} million km: its light takes {{minutes}} minutes to reach us."
+    },
+    "globe": {
+      "title": "Pick a place and see its twin",
+      "hint": {
+        "mars": "Tap a point on the globe or pick one from the menu to see its twin on Mars.",
+        "moon": "Tap a point on the globe or pick one from the menu to see its twin on the Moon."
+      },
+      "listLabel": "Analog sites",
+      "prev": "Previous site",
+      "next": "Next site",
+      "position": "{{index}} of {{total}}",
+      "otherTwin": "On {{body}} it resembles <strong>{{base}}</strong> · {{percent}}",
+      "legendLabel": "Globe legend",
+      "legendLevel": {
+        "muy-alta": "Very high similarity",
+        "alta": "High similarity",
+        "moderada": "Moderate similarity"
+      },
+      "selected": "Selected",
+      "sameBase": "Same twin base",
+      "modeLabel": "Destination"
+    },
+    "twin": {
+      "title": "{{site}} and {{base}}",
+      "caption": "{{body}} · {{name}}",
+      "seeDetail": "See details →"
+    },
+    "criteria": {
+      "title": "How we measure similarity",
+      "intro": "We compare each place on Earth with its twin base using the same measurements: thermal range and ground roughness. The percentage is provisional. We also count whether missions have already been rehearsed there.",
+      "thermalRange": "The gap between the lowest and highest temperature of the year. It puts equipment and crews to the test.",
+      "roughness": "How much the ground's height changes within about 5 km: how hard it is to move across.",
+      "historyTerm": "Track record",
+      "history": "Missions and studies that have already used the place to rehearse exploring another world.",
+      "noMissions": "No missions recorded",
+      "exampleOf": "{{term}} example"
+    },
+    "closing": {
+      "title": "Every mission is rehearsed here first",
+      "summary": "{{sites}} places on Earth compared with {{bases}} bases on the Moon and Mars.",
+      "photoAlt": {
+        "mars": "Two test rovers at Haughton Crater, Devon Island, Canada",
+        "moon": "Testing an analog spacesuit on the slopes of Mauna Loa, Hawaii"
+      }
+    }
+  },
+  "locations": {
+    "title": "Twin places on Earth",
+    "intro": "Each one resembles a proposed base on the Moon or Mars. They are called analogs: because of that resemblance, crews train and technology is tested there. Open any of them to compare it with its twin.",
+    "count_one": "{{count}} location",
+    "count_other": "{{count}} locations",
+    "loading": "Loading locations",
+    "emptyTitle": "No location matches these filters.",
+    "emptyHint": "Try another name or show both destinations.",
+    "clearFilters": "Clear filters",
+    "filters": {
+      "search": "Search by name or country",
+      "target": "Destination",
+      "sort": "Sort",
+      "all": "All",
+      "mostSimilar": "Most similar",
+      "az": "A–Z"
+    },
+    "card": {
+      "similarity": "Similarity ",
+      "provisional": "provisional",
+      "looksLike": "Resembles"
+    }
+  },
+  "detail": {
+    "back": "← Locations",
+    "loading": "Loading location",
+    "notFoundTitle": "We couldn't find this location",
+    "notFoundText": "The link may be mistyped, or the place may no longer be on the list.",
+    "resembles": "A place on Earth that resembles <accent>{{base}}</accent>, on {{body}}",
+    "factorsTitle": "Similarity and factors",
+    "missions": "Missions and studies",
+    "next": "Next site"
+  },
+  "compare": {
+    "caption": "Factors of {{site}} compared with {{base}}",
+    "factor": "Factor",
+    "sliderLabel": "Compare Earth with the destination",
+    "sliderValue": "{{earth}} {{earthPercent}}%, {{target}} {{targetPercent}}%",
+    "dragHint": "Drag to compare"
+  },
+  "footer": {
+    "tagline": "An explorer of terrestrial analogs. Pick a place on the globe and compare it with its twin.",
+    "backToGlobe": "Back to the globe",
+    "explore": "Explore",
+    "exploreLinks": {
+      "globe": "Interactive globe",
+      "locations": "All locations",
+      "criteria": "How we measure similarity"
+    },
+    "marsAnalogs": "Mars analogs",
+    "moonAnalogs": "Lunar analogs",
+    "legal": "© {{year}} · NASA Space Apps Challenge · Provisional data",
+    "socialsTitle": "Code and NASA on social media",
+    "socials": {
+      "github": "Code on GitHub",
+      "x": "NASA on X",
+      "youtube": "NASA on YouTube",
+      "instagram": "NASA on Instagram"
+    },
+    "credits": "Image and texture credits"
+  },
+  "licenses": {
+    "public-domain": "Public domain",
+    "pixabay": "Pixabay Content License"
+  },
+  "notFound": {
+    "title": "This page isn't on any map",
+    "text": "The link may be mistyped, or the page may no longer exist. You can go back home or keep exploring from here.",
+    "home": "Back to home",
+    "suggestions": "Places that do exist"
+  }
+}
