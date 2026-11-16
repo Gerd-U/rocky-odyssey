@@ -1,63 +1,63 @@
 # Rocky Odyssey
 
-Web que busca lugares de la Tierra parecidos a las zonas donde se piensa poner bases en la Luna y en Marte. Es nuestro proyecto para el NASA Space Apps Challenge, en el reto *Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars*.
+A website that finds places on Earth that resemble the areas being considered for bases on the Moon and Mars. It is our project for the NASA Space Apps Challenge, for the challenge *Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars*.
 
-Antes de mandar gente o equipos a otro mundo, se ensaya aquí. El desierto de Atacama, los Valles Secos de McMurdo o la Isla Devon ya se usan para eso. La idea de Rocky Odyssey es medir ese parecido con datos reales y mostrarlo de forma que cualquiera lo entienda: eliges un lugar de la Tierra y ves al lado su gemelo en la Luna y en Marte.
+Before people or equipment are sent to another world, they rehearse here. The Atacama Desert, the McMurdo Dry Valleys and Devon Island are already used for that. Rocky Odyssey measures that resemblance with real data and shows it in a way anyone can follow: you pick a place on Earth and see its twin on the Moon and on Mars right next to it.
 
-## Qué tiene la web
+## What the website has
 
-- Dos globos 3D, uno de la Tierra y otro del destino (Luna o Marte). Al elegir un sitio, los dos giran hasta el lugar y su base gemela.
-- 13 sitios de la Tierra y 11 bases candidatas: 6 en la Luna (Shackleton, Mare Tranquillitatis, Malapert Massif, Cabeus, Rimae Bode y Peary) y 5 en Marte (Jezero, Arcadia Planitia, Gale, Oxia Planum y Arsia Mons).
-- Cada sitio tiene un gemelo en la Luna y otro en Marte, con su porcentaje de similitud y una tabla que compara temperatura, rango térmico y rugosidad de los dos lados.
-- Fotos reales de cada lugar con licencia abierta. Los créditos están en el pie de la web.
-- Español e inglés.
+- Two 3D globes, one of Earth and one of the destination (Moon or Mars). When you pick a site, both globes turn to the place and its twin base.
+- 13 sites on Earth and 11 candidate bases: 6 on the Moon (Shackleton, Mare Tranquillitatis, Malapert Massif, Cabeus, Rimae Bode and Peary) and 5 on Mars (Jezero, Arcadia Planitia, Gale, Oxia Planum and Arsia Mons).
+- Every site has a twin on the Moon and another on Mars, with its similarity percentage and a table that compares temperature, thermal range and roughness on both sides.
+- Real, openly licensed photos of every place. The credits are in the website footer.
+- Spanish and English.
 
-## De dónde salen los datos
+## Where the data comes from
 
-Todo lo que muestra la web sale de `datos/`. No hay valores escritos a mano.
+Everything the website shows comes from `datos/`. There are no hand-written values.
 
-| Cuerpo | Temperatura | Rugosidad |
+| Body | Temperature | Roughness |
 |---|---|---|
-| Tierra | MODIS MOD11A2 v061 (temperatura del suelo de día y de noche, 2023), por NASA AppEEARS | ASTER GDEM ASTGTM v003, por NASA AppEEARS |
-| Luna | LRO Diviner, mapas de temperatura mínima y máxima en Moon Trek | LOLA (CGI Moon Kit, 64 píxeles por grado) |
-| Marte | Mars Climate Database v6.2, ciclo diario en 4 estaciones | MOLA (mosaico de 463 m) |
+| Earth | MODIS MOD11A2 v061 (day and night land surface temperature, 2023), via NASA AppEEARS | ASTER GDEM ASTGTM v003, via NASA AppEEARS |
+| Moon | LRO Diviner, minimum and maximum temperature maps in Moon Trek | LOLA (CGI Moon Kit, 64 pixels per degree) |
+| Mars | Mars Climate Database v6.2, daily cycle in 4 seasons | MOLA (463 m mosaic) |
 
-Cada valor de la Luna y Marte queda anotado con su fuente y fecha de consulta en `datos/sources_log_moon.csv` y `datos/sources_log_mars.csv`. Los de la Tierra están en `datos/sources_log_tierra.csv`.
+Every Moon and Mars value is logged with its source and access date in `datos/sources_log_moon.csv` and `datos/sources_log_mars.csv`. The Earth values are in `datos/sources_log_tierra.csv`.
 
-## Cómo se calcula la similitud
+## How similarity is calculated
 
-Se comparan dos medidas que existen en los tres cuerpos:
+We compare two measurements that exist on all three bodies:
 
-- Rango térmico, la diferencia media entre el día y la noche. En la Tierra es el promedio de (día − noche) de 2023; en Marte, el promedio del ciclo diario en 4 estaciones; en la Luna, la diferencia entre la mínima y la máxima del ciclo lunar. Una diferencia de 1 °C es igual a una de 1 K, así que se comparan directo.
-- Rugosidad, la desviación estándar de 9 elevaciones en una cuadrícula de 3 × 3 con unos 5,5 km entre puntos. Es el mismo método en la Tierra, la Luna y Marte.
+- Thermal range, the average difference between day and night. On Earth it is the mean of (day − night) over 2023; on Mars, the mean of the daily cycle across 4 seasons; on the Moon, the difference between the minimum and maximum of the lunar cycle. A difference of 1 °C equals a difference of 1 K, so they are compared directly.
+- Roughness, the standard deviation of 9 elevations on a 3 × 3 grid with about 5.5 km between points. It is the same method on Earth, the Moon and Mars.
 
-Para cada medida se calcula `100 × menor / mayor`, y el porcentaje final es el promedio de las dos (con `calculate_score` de `backend/app/services/scoring.py`). La Luna y Marte se comparan por separado: el gemelo de un sitio en cada destino es la base con el porcentaje más alto.
+For each measurement we calculate `100 × smaller / larger`, and the final percentage is the average of the two (using `calculate_score` from `backend/app/services/scoring.py`). The Moon and Mars are compared separately: a site's twin on each destination is the base with the highest percentage.
 
-El hielo no entra en el cálculo. En las 11 bases vale 0, así que solo premiaba a los sitios de la Tierra sin nieve sin decir nada del parecido.
+Ice is not part of the calculation. It is 0 at all 11 bases, so it only rewarded Earth sites without snow without saying anything about the resemblance.
 
-Los porcentajes son provisionales y la web lo dice así. Hay dos límites que conocemos: MODIS mide la Tierra hacia las 10:30 y las 22:30, no en el momento más caliente ni en el más frío, y la Mars Climate Database da la temperatura del aire a 2 m del suelo, no la del suelo.
+The percentages are provisional, and the website says so. There are two limits we know about: MODIS measures Earth around 10:30 and 22:30, not at the hottest or coldest moment, and the Mars Climate Database gives the air temperature 2 m above the ground, not the ground temperature.
 
-## Cómo está armado
-
-```
-datos/      datos crudos y limpios, sources_log y scripts de Python que los procesan
-backend/    API en FastAPI que sirve los sitios y las bases (backend/data/*.json)
-frontend/   web en React + Vite + Tailwind, con los globos de react-globe.gl
-```
-
-El recorrido de los datos es este:
+## How it is put together
 
 ```
-datos/  ->  datos/scripts/generar_datos_web.py  ->  backend/data/*.json  ->  /api/sites y /api/bases  ->  web
+datos/      raw and clean data, source logs and the Python scripts that process them
+backend/    FastAPI API that serves the sites and bases (backend/data)
+frontend/   React + Vite + Tailwind website, with globes from react-globe.gl
 ```
 
-`generar_datos_web.py` lee los datos, calcula las medidas de la Tierra y los gemelos, y escribe `locations.json`, `sites.json` y `bases.json`. Se puede correr las veces que haga falta: actualiza lo que ya existe sin duplicar nada y conserva las fotos.
+This is the path the data follows:
 
-## Correrlo en local
+```
+datos/  ->  datos/scripts/generar_datos_web.py  ->  backend/data/  ->  /api/sites and /api/bases  ->  website
+```
 
-Hacen falta Python 3 y Node 20 o superior. La web pide todos los datos al backend, así que hay que levantar los dos.
+`generar_datos_web.py` reads the data, calculates the Earth measurements and the twins, and writes `locations.json`, `sites.json` and `bases.json`. It also copies the Moon and Mars source logs into `backend/data/`, so the backend does not depend on anything outside its folder. You can run it as many times as you need: it updates what already exists without duplicating anything and keeps the photos.
 
-Backend (desde `backend/`):
+## Running it locally
+
+You need Python 3 and Node 20 or later. The website asks the backend for all of its data, so both have to be running.
+
+Backend (from `backend/`):
 
 ```powershell
 python -m venv .venv
@@ -65,36 +65,50 @@ python -m venv .venv
 .\.venv\Scripts\uvicorn.exe app.main:app --reload
 ```
 
-La API queda en `http://127.0.0.1:8000` y su documentación interactiva en `/docs`.
+The API runs at `http://127.0.0.1:8000`, with interactive documentation at `/docs` and a health check at `/health`.
 
-Frontend (desde `frontend/`):
+Frontend (from `frontend/`):
 
 ```bash
 npm install
 npm run dev
 ```
 
-La web queda en `http://localhost:5173`. Si el backend está en otra dirección, se cambia `VITE_API_URL` en `frontend/.env`.
+The website runs at `http://localhost:5173`. If the backend is somewhere else, change `VITE_API_URL` in `frontend/.env`.
 
-Para regenerar los datos de la web después de cambiar algo en `datos/` (desde la raíz):
+To regenerate the website data after changing something in `datos/` (from the repository root):
 
 ```powershell
 backend\.venv\Scripts\python.exe datos\scripts\generar_datos_web.py
 ```
 
-Pruebas del backend:
+Backend tests:
 
 ```powershell
 cd backend
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-## Más documentación
+## Deployment
 
-- [backend/README.md](backend/README.md): entorno, API y pruebas.
-- [API_DOCUMENTATION.md](API_DOCUMENTATION.md): todos los endpoints.
-- [frontend/README.md](frontend/README.md): rutas, componentes y cómo se cargan los datos.
+The frontend and the backend are deployed on Vercel as two separate projects, one with Root Directory `frontend` and the other with Root Directory `backend`. Each project needs one environment variable:
 
-## Créditos
+| Project | Variable | Value |
+|---|---|---|
+| frontend | `VITE_API_URL` | URL of the backend project, without a trailing `/` |
+| backend | `ORIGENES` | URL of the frontend project (comma-separated if there are several) |
 
-Los datos son de la NASA (AppEEARS, LRO, MOLA), del USGS y del Laboratoire de Météorologie Dynamique (Mars Climate Database). Las fotos son de Wikimedia Commons, con dominio público o licencias Creative Commons; el autor y la licencia de cada una están en `frontend/src/data/credits.json` y en el pie de la web.
+The examples are in `frontend/.env.example` and `backend/.env.example`. On Vercel the backend runs on a read-only file system, so the routes that save locations (`POST`, `PUT` and `DELETE` on `/api/locations`, and `POST /api/comparisons/{id}`) only work locally. The website does not use them.
+
+## More documentation
+
+- [backend/README.md](backend/README.md): environment, API and tests.
+- [API_DOCUMENTATION.md](API_DOCUMENTATION.md): all the endpoints.
+- [frontend/README.md](frontend/README.md): routes, components and how the data is loaded.
+
+## Team
+
+- Migdale Badilla Campos
+- Keilyn Morera Vargas
+- Michelle Arrieta Zamora
+- Gerald José Urbina Quesada
