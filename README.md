@@ -12,18 +12,6 @@ Before people or equipment are sent to another world, they rehearse here. The At
 - Real, openly licensed photos of every place. The credits are in the website footer.
 - Spanish and English.
 
-## Where the data comes from
-
-Everything the website shows comes from `datos/`. There are no hand-written values.
-
-| Body | Temperature | Roughness |
-|---|---|---|
-| Earth | MODIS MOD11A2 v061 (day and night land surface temperature, 2023), via NASA AppEEARS | ASTER GDEM ASTGTM v003, via NASA AppEEARS |
-| Moon | LRO Diviner, minimum and maximum temperature maps in Moon Trek | LOLA (CGI Moon Kit, 64 pixels per degree) |
-| Mars | Mars Climate Database v6.2, daily cycle in 4 seasons | MOLA (463 m mosaic) |
-
-Every Moon and Mars value is logged with its source and access date in `datos/sources_log_moon.csv` and `datos/sources_log_mars.csv`. The Earth values are in `datos/sources_log_tierra.csv`.
-
 ## How similarity is calculated
 
 We compare two measurements that exist on all three bodies:
